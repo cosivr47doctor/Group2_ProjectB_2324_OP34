@@ -22,7 +22,7 @@ class AccountsLogic
 
     public void UpdateList(AccountModel acc)
     {
-        //Find if there is already an model with the same id
+        //Find if there is already a model with the same id
         int index = _accounts.FindIndex(s => s.Id == acc.Id);
 
         if (index != -1)
@@ -39,7 +39,25 @@ class AccountsLogic
 
     }
 
-    public AccountModel GetById(int id)
+    public AccountModel GetByArg(string input)
+    {
+        if (input.All(char.IsDigit))
+        {
+            GetByArg(Convert.ToInt16(input));
+        }
+        else
+        {
+            foreach (char chr in input)
+            {
+                if (chr == '@')
+                {
+                    return _accounts.Find(i => i.EmailAddress == input);
+                }
+            }
+        }
+        return null;
+    }
+    public AccountModel GetByArg(int id)
     {
         return _accounts.Find(i => i.Id == id);
     }
@@ -51,7 +69,17 @@ class AccountsLogic
             return null;
         }
         CurrentAccount = _accounts.Find(i => i.EmailAddress == email && i.Password == password);
-        return CurrentAccount;
+        // Now check if the account has been banned
+        if (Convert.ToString(CurrentAccount.Suspense) == "permanent" || CurrentAccount.Suspense > DateTime.Today)
+        {
+            Console.WriteLine($"This account has been banned until: {CurrentAccount.Suspense}");
+            return null;
+        }
+        else
+        {
+            CurrentAccount.Suspense = null;
+            return CurrentAccount;
+        }
     }
 }
 

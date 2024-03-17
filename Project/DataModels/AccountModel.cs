@@ -18,6 +18,10 @@ class AccountModel
     [JsonPropertyName("isAdmin")]
     public bool isAdmin {get; set;}
 
+    [JsonPropertyName("suspense")]
+    public DateTime? Suspense { get; set; } = null;
+
+
     public AccountModel(int id, string emailAddress, string password, string fullName)
     {
         Id = id;

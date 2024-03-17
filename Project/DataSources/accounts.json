@@ -4,13 +4,31 @@
 		"emailAddress": "n@b.c",
 		"password": "xyz",
 		"fullName": "Nikola Tesla",
-		"isAdmin": false
+		"isAdmin": false,
+		"suspense": null
 	},
 	{
 		"id": 2,
 		"emailAddress": "t@b.c",
 		"password": "xyz",
 		"fullName": "Thomas Edison",
-		"isAdmin": false
+		"isAdmin": false,
+		"suspense": null
+	},
+	{
+		"id": 4,
+		"emailAddress": "y@b.c",
+		"password": "xyz",
+		"fullName": "Mazhar Khan",
+		"isAdmin": false,
+		"suspense": "28-3-2024"
+	},
+	{
+		"id": 4,
+		"emailAddress": "y@b.c",
+		"password": "xyz",
+		"fullName": "Younes Ikajouen",
+		"isAdmin": false,
+		"suspense": "permanent"
 	}
 ]
