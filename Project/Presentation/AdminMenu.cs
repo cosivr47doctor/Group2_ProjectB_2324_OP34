@@ -25,7 +25,16 @@ static class AdminMenu
                 string find_by_input = Console.ReadLine();
                 if (obj_AccountsLogic.GetByArg(find_by_input) != null)
                 {
-                    // 
+                    Console.WriteLine(@"What would you like to do?
+[1] ban user
+[2] unban user
+[3] promote to admin
+[4] depromote to user");
+                    string change_user_status_input = Console.ReadLine();
+                    if (Enumerable.Range(1, 4).Contains(Convert.ToInt16(change_user_status_input)))
+                    {
+                        obj_AccountsLogic.ChangeUserStatus(change_user_status_input, find_by_input);
+                    }
                 }
                 break;
             default:

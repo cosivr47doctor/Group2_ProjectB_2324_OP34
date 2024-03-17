@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Text.Json;
+using System.Globalization;
 
 
 //This class is not static so later on we can use inheritance and interfaces
@@ -43,19 +45,12 @@ class AccountsLogic
     {
         if (input.All(char.IsDigit))
         {
-            GetByArg(Convert.ToInt16(input));
+            return GetByArg(Convert.ToInt16(input));
         }
         else
         {
-            foreach (char chr in input)
-            {
-                if (chr == '@')
-                {
-                    return _accounts.Find(i => i.EmailAddress == input);
-                }
-            }
+            return _accounts.Find(i => i.EmailAddress == input);
         }
-        return null;
     }
     public AccountModel GetByArg(int id)
     {
@@ -79,6 +74,50 @@ class AccountsLogic
         {
             CurrentAccount.Suspense = null;
             return CurrentAccount;
+        }
+    }
+
+    public void ChangeUserStatus(string change_status_input, string find_by_arg)
+    {
+        CurrentAccount = GetByArg(find_by_arg);
+        if (Convert.ToInt16(change_status_input) == 1)
+        {
+            Console.WriteLine("For how many days would you like the user to be suspended / until which date? ('permanent' if permanent)");
+            string user_input = Console.ReadLine();
+            int suspenseDays;
+            DateTime suspenseDate;
+            if (int.TryParse(user_input, out suspenseDays))
+            {
+                CurrentAccount.Suspense?.AddDays(suspenseDays);
+                Console.WriteLine($"User {CurrentAccount.Id} suspended until {CurrentAccount.Suspense}");
+            }
+            // This checks whether an input matches a valid datetime object format
+            else if (DateTime.TryParseExact(user_input, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out suspenseDate))
+            {
+                CurrentAccount.Suspense = suspenseDate;
+                Console.WriteLine($"User {CurrentAccount.Id} suspended until {change_status_input}");
+            }
+            else if (user_input == "permanent" || user_input == "'permanent")
+            {
+                CurrentAccount.Suspense = suspenseDate;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Should be a datetime format, a number or 'permanent'");
+            }
+        //  //
+        }
+        else if (Convert.ToInt16(change_status_input) == 2)
+        {
+            CurrentAccount.Suspense = null;
+        }
+        else if (Convert.ToInt16(change_status_input) == 3)
+        {
+            CurrentAccount.isAdmin = true;
+        }
+        else if (Convert.ToInt16(change_status_input) == 4)
+        {
+            CurrentAccount.isAdmin = false;
         }
     }
 }
