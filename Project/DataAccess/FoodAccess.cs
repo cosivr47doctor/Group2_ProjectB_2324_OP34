@@ -1,8 +1,8 @@
 using System.Text.Json;
 
-static class MovieAccess
+static class FoodAccess
 {
-    static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/movies.json"));
+    static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/food.json"));
 
 
     public static List<FoodModel> LoadAll()
