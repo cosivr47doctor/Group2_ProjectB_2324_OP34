@@ -5,17 +5,17 @@ static class MovieAccess
     static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/movies.json"));
 
 
-    public static List<FoodModel> LoadAll()
+    public static List<MovieModel> LoadAll()
     {
         string json = File.ReadAllText(path);
-        return JsonSerializer.Deserialize<List<FoodModel>>(json);
+        return JsonSerializer.Deserialize<List<MovieModel>>(json);
     }
 
 
-    public static void WriteAll(List<FoodModel> foodItems)
+    public static void WriteAll(List<MovieModel> movies)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(foodItems, options);
+        string json = JsonSerializer.Serialize(movies, options);
         File.WriteAllText(path, json);
     }
 

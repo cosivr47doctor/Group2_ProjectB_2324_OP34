@@ -1,30 +1,31 @@
 using System.Text.Json.Serialization;
 
 
-class AccountModel
+class MovieModel
 {
-    [JsonPropertyName("id")]
-    public int Id { get; set; }
-
     [JsonPropertyName("Name")]
     public string Name { get; set; }
 
+    [JsonPropertyName("Genre")]
+    public string Genre { get; set; }
+
     [JsonPropertyName("Description")]
-    public string EmailAddress { get; set; }
+    public string Description { get; set; }
 
     [JsonPropertyName("Director")]
-    public string Password { get; set; }
+    public string Director { get; set; }
 
     [JsonPropertyName("Duration")]
-    public DateTime? Suspense { get; set; } = null;
+    public int Duration { get; set; }
 
 
-    public AccountModel(int id, string emailAddress, string password, string fullName)
+    public MovieModel(string name, string genre, string description, string director, int duration)
     {
-        Id = id;
-        EmailAddress = emailAddress;
-        Password = password;
-        FullName = fullName;
+        Name = name;
+        Genre = genre;
+        Description = description;
+        Director = director;
+        Duration = duration;
     }
 
 }
