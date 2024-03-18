@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "popcorn",
+    "Price": 2.99
+  },
+  {
+    "Name": "chips",
+    "Price": 3.50
+  },
+  {
+    "Name": "cola",
+    "Price": 2.50
+  },
+  {
+    "Name": "nachos",
+    "Price": 4.50
+  },
+  {
+    "Name": "candy",
+    "Price": 1.99
+  }
+]
