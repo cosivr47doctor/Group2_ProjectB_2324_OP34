@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 
 static class MovieAccess
@@ -8,6 +9,10 @@ static class MovieAccess
     public static List<MovieModel> LoadAll()
     {
         string json = File.ReadAllText(path);
+        if (string.IsNullOrEmpty(json))
+        {
+            return new List<MovieModel>();
+        }
         return JsonSerializer.Deserialize<List<MovieModel>>(json);
     }
 

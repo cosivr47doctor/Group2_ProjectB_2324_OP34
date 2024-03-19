@@ -22,7 +22,7 @@ public static class FillJsons
 
             if (index == -1)
             {
-                existingFoodItems.Add(item);
+                existingFoodItems.Insert(0, item);
             }
         }
         FoodAccess.WriteAll(existingFoodItems);
@@ -34,10 +34,10 @@ public static class FillJsons
 
         List<MovieModel> standardMovies = new List<MovieModel>
         {
-            new MovieModel("Inception", "Science Fiction", "A thief who enters the dreams of others to steal their secrets from their subconscious.", "Christopher Nolan", 148),
-            new MovieModel("The Shawshank Redemption", "Drama", "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", "Frank Darabont", 142),
-            new MovieModel("The Godfather", "Crime", "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.", "Francis Ford Coppola", 175),
-            new MovieModel("The Matrix", "Action", "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.", "Lana Wachowski, Lilly Wachowski", 136)
+            new MovieModel("Inception", "Science Fiction", 210, "A thief who enters the dreams of others to steal their secrets from their subconscious.", "Christopher Nolan", 148),
+            new MovieModel("The Shawshank Redemption", "Drama", 1994, "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", "Frank Darabont", 142),
+            new MovieModel("The Godfather", "Crime", 1972, "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.", "Francis Ford Coppola", 175),
+            new MovieModel("The Matrix", "Action", 1999, "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.", "Lana Wachowski, Lilly Wachowski", 136)
         };
 
         foreach (var item in standardMovies)
@@ -46,9 +46,37 @@ public static class FillJsons
 
             if (index == -1)
             {
-                existingMovies.Add(item);
+                existingMovies.Insert(0, item);
             }
         }
         MovieAccess.WriteAll(existingMovies);
     }
+
+    // public static void PrintFoodJson(string filePath)
+    // {
+    //     List<FoodModel> existingFoodItems = FoodAccess.LoadAll();
+    //     Console.WriteLine("Cinema food items:");
+    //     Console.WriteLine("-----------------------------------");
+    //     foreach (var foodItem in existingFoodItems)
+    //     {
+    //         Console.WriteLine(foodItem.Name);
+    //         Console.WriteLine($"Price: {foodItem.Price}");
+    //         Console.WriteLine("-----------------------------------");
+    //     }
+    // }
+
+    // public static void PrintMoviesJson(string filePath)
+    // {
+    //     List<MovieModel> existingMovies = MovieAccess.LoadAll();
+    //     Console.WriteLine("Cinema movies:");
+
+    //     foreach (var movie in existingMovies)
+    //     {
+    //         Console.WriteLine(JsonSerializer.Serialize(movie));
+    //     }
+
+    // }
+
+    //FillJsons.PrintFoodJson(@"DataSources/food.json");
+    //FillJsons.PrintMoviesJson(@"DataSources/movies.json");
 }

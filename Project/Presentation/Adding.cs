@@ -23,13 +23,15 @@ static class Adding
         string name = Console.ReadLine();
         Console.WriteLine("Please enter the genre of the movie");
         string genre = Console.ReadLine();
+        Console.WriteLine("Please enter the year of the movie");
+        int year = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Please enter the description of the movie");
         string description = Console.ReadLine();
         Console.WriteLine("Please enter the director of the movie");
         string director = Console.ReadLine();
         Console.WriteLine("Please enter the duration of the movie (minutes)");
         int duration = Convert.ToInt32(Console.ReadLine());
-        MovieModel movies = new MovieModel(name, genre, description, director, duration);
+        MovieModel movies = new MovieModel(name, genre, year, description, director, duration);
         movieLogic.UpdateList(movies);
 
     }

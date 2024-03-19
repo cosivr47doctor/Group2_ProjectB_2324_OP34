@@ -8,6 +8,10 @@ static class FoodAccess
     public static List<FoodModel> LoadAll()
     {
         string json = File.ReadAllText(path);
+        if (string.IsNullOrEmpty(json))
+        {
+            return new List<FoodModel>();
+        }
         return JsonSerializer.Deserialize<List<FoodModel>>(json);
     }
 
