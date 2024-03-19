@@ -10,6 +10,7 @@ static class AdminMenu
         Console.WriteLine("Enter 2 to do something else in the future");  // UNFINISHED
         Console.WriteLine("Enter 3 to change the status of a user");
 
+
         string user_input = Console.ReadLine();
         switch (user_input)
         {
