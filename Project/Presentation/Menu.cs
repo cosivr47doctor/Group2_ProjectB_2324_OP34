@@ -24,7 +24,17 @@ static class Menu
         }
         else if (input == "3")
         {
-            Console.WriteLine("functie van Jay");
+            string filePath = "movies.json";
+            try
+            {
+            string AvailableMovies = File.ReadAllText(filePath);
+            Console.WriteLine(AvailableMovies);
+            }
+            catch(Exception ex)
+            {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
         }
         else if (input == "4")
         {
