@@ -1,5 +1,6 @@
 // IGNORE FOR THE TIME BEING
 
+/*
 public class BannedWords
 {
     public string[] bannedWords = new string[] {"fuck", "shit", "clit", "vagina", "tit", "boob", "cunt", "asshole", "penis", "weiner"};
@@ -26,3 +27,4 @@ public class BannedWords
         return false; // No banned words found
     }
 }
+*/

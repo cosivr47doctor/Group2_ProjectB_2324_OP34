@@ -22,6 +22,12 @@ class AccountsLogic
     }
 
 
+    public void StartupUpdateList()
+    {
+        AccountsAccess.WriteAll(_accounts);
+    }
+
+
     public void UpdateList(AccountModel acc)
     {
         //Find if there is already a model with the same id
@@ -40,6 +46,32 @@ class AccountsLogic
         AccountsAccess.WriteAll(_accounts);
 
     }
+
+    public static void UpdateAccount(AccountModel updatedAccount)
+    {
+        List<AccountModel> accounts = AccountsAccess.LoadAll(); // Load all accounts from the file
+
+        // Find the index of the account to update
+        int index = accounts.FindIndex(a => a.Id == updatedAccount.Id);
+
+        if (index != -1)
+        {
+            // Update the account at the found index
+            accounts[index] = updatedAccount;
+
+            // Serialize the modified list of accounts
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(accounts, options);
+
+            // Write the serialized JSON back to the file
+            File.WriteAllText(@"DataSources/accounts.json", json);
+        }
+        else
+        {
+            Console.WriteLine("Account not found.");
+        }
+    }
+
 
     public AccountModel GetByArg(string input)
     {
@@ -73,6 +105,7 @@ class AccountsLogic
         else
         {
             CurrentAccount.Suspense = null;
+            UpdateAccount(CurrentAccount);
             return CurrentAccount;
         }
     }
@@ -92,14 +125,14 @@ class AccountsLogic
                 Console.WriteLine($"User {CurrentAccount.Id} suspended until {CurrentAccount.Suspense}");
             }
             // This checks whether an input matches a valid datetime object format
-            else if (DateTime.TryParseExact(user_input, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out suspenseDate))
+            else if (DateTime.TryParseExact(user_input, new[] {"dd-MM-yyyy", "yyyy-MM-dd"}, CultureInfo.InvariantCulture, DateTimeStyles.None, out suspenseDate))
             {
                 CurrentAccount.Suspense = suspenseDate;
-                Console.WriteLine($"User {CurrentAccount.Id} suspended until {change_status_input}");
+                Console.WriteLine($"User {CurrentAccount.Id} suspended until {CurrentAccount.Suspense?.ToString("yyyy-MM-dd")}");
             }
             else if (user_input == "permanent" || user_input == "'permanent")
             {
-                CurrentAccount.Suspense = suspenseDate;
+                CurrentAccount.Suspense = new DateTime(9999, 01, 01);
             }
             else
             {
@@ -119,6 +152,8 @@ class AccountsLogic
         {
             CurrentAccount.isAdmin = false;
         }
+        UpdateList(CurrentAccount);
+        AdminMenu.Start();
     }
 }
 

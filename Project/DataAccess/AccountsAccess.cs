@@ -8,6 +8,10 @@ static class AccountsAccess
     public static List<AccountModel> LoadAll()
     {
         string json = File.ReadAllText(path);
+        if (string.IsNullOrEmpty(json))
+        {
+            return new List<AccountModel>();
+        }
         return JsonSerializer.Deserialize<List<AccountModel>>(json);
     }
 

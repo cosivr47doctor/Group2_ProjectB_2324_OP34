@@ -1,34 +1,50 @@
-﻿[
-	{
-		"id": 1,
-		"emailAddress": "n@b.c",
-		"password": "xyz",
-		"fullName": "Nikola Tesla",
-		"isAdmin": false,
-		"suspense": null
-	},
-	{
-		"id": 2,
-		"emailAddress": "t@b.c",
-		"password": "xyz",
-		"fullName": "Thomas Edison",
-		"isAdmin": false,
-		"suspense": null
-	},
-	{
-		"id": 4,
-		"emailAddress": "y@b.c",
-		"password": "xyz",
-		"fullName": "Mazhar Khan",
-		"isAdmin": false,
-		"suspense": "28-3-2024"
-	},
-	{
-		"id": 4,
-		"emailAddress": "y@b.c",
-		"password": "xyz",
-		"fullName": "Younes Ikajouen",
-		"isAdmin": false,
-		"suspense": "permanent"
-	}
+[
+  {
+    "id": 1,
+    "emailAddress": "n@b.c",
+    "password": "xyz",
+    "fullName": "Nikola Tesla",
+    "isAdmin": false,
+    "suspense": null
+  },
+  {
+    "id": 2,
+    "emailAddress": "t@b.c",
+    "password": "xyz",
+    "fullName": "Thomas Edison",
+    "isAdmin": false,
+    "suspense": null
+  },
+  {
+    "id": 4,
+    "emailAddress": "y@b.c",
+    "password": "xyz",
+    "fullName": "Mazhar Khan",
+    "isAdmin": false,
+    "suspense": "2024-03-28T00:00:00"
+  },
+  {
+    "id": 4,
+    "emailAddress": "y@b.c",
+    "password": "xyz",
+    "fullName": "Younes Ikajouen",
+    "isAdmin": false,
+    "suspense": "9999-03-28T00:00:00"
+  },
+  {
+    "id": 5,
+    "emailAddress": "j@b.c",
+    "password": "xyz",
+    "fullName": "Jay Ramcharan",
+    "isAdmin": true,
+    "suspense": null
+  },
+  {
+    "id": 6,
+    "emailAddress": "c@b.c",
+    "password": "xyz",
+    "fullName": "Costa van Hof",
+    "isAdmin": true,
+    "suspense": null
+  }
 ]

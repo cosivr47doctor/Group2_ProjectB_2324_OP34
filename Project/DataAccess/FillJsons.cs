@@ -5,6 +5,27 @@ using System.Text.Json;
 
 public static class FillJsons
 {
+    public static void FillAccountsJson(string filePath)
+    {
+        List<AccountModel> existingAccountItems = AccountsAccess.LoadAll();
+    
+        List<AccountModel> standardItems = new List<AccountModel>
+        {
+            new AccountModel(1, "n@b.c", "xyz", "Nikola Tesla")
+        };
+    
+        foreach (var item in standardItems)
+        {
+            int index = existingAccountItems.FindIndex(account => account.EmailAddress == account.EmailAddress);
+
+            if (index == -1)
+            {
+                existingAccountItems.Insert(0, item);
+            }
+        }
+        AccountsAccess.WriteAll(existingAccountItems);
+    }
+
     public static void FillFoodJson(string filePath)
     {
         List<FoodModel> existingFoodItems = FoodAccess.LoadAll();
