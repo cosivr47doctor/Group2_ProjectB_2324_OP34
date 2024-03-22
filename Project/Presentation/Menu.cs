@@ -25,16 +25,11 @@ static class Menu
         }
         else if (input == "3")
         {
-            string filePath = "movies.json";
-            try
-            {
-            string AvailableMovies = File.ReadAllText(filePath);
-            Console.WriteLine(AvailableMovies);
-            }
-            catch(Exception ex)
-            {
-            Console.WriteLine($"An error occurred: {ex.Message}");
-            }
+            SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
+            Console.WriteLine("");
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start();
 
         }
         else if (input == "4")

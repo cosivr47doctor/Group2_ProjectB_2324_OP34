@@ -15,7 +15,11 @@ static class UserMenu
                 Console.WriteLine("Reservation function");
                 break;
             case "2":
-                Console.WriteLine("function jay");
+                SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
+                Console.WriteLine("");
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
                 break;
             case "3":
                 Console.WriteLine("search function");
