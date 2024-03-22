@@ -30,6 +30,10 @@ static class UserMenu
             case "5":
                 Menu.Start();
                 break;
+            default:
+                Console.WriteLine("Invalid input");
+                Start();
+                break;
         }
 
 

@@ -6,6 +6,7 @@ static class Adding
 
     public static void addFood()
     {
+        //need id
         Console.WriteLine("Add food to the menu:");
         Console.WriteLine("Please enter the name of the food item");
         string name = Console.ReadLine();

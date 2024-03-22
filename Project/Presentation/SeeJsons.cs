@@ -4,6 +4,7 @@ public static class SeeJsons
 {
     public static void PrintFoodJson(string filePath)
     {
+        // split food and drinks
         List<FoodModel> existingFoodItems = FoodAccess.LoadAll();
         Console.WriteLine("Cinema food items:");
         Console.WriteLine("-----------------------------------");
@@ -23,6 +24,7 @@ public static class SeeJsons
 
         foreach (var movie in existingMovies)
         {
+            Console.WriteLine($"Id: {movie.Id}");
             Console.WriteLine($"Name: {movie.Name}");
             Console.WriteLine($"Genre: {movie.Genre}");
             Console.WriteLine($"Year: {movie.Year}");

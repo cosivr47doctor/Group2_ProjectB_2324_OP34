@@ -4,6 +4,9 @@ using Microsoft.VisualBasic;
 
 class MovieModel
 {
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
+
     [JsonPropertyName("Name")]
     public string Name { get; set; }
 
@@ -25,6 +28,7 @@ class MovieModel
 
     public MovieModel(string name, string genre, int year, string description, string director, int duration)
     {
+        Id = 0;
         Name = name;
         Genre = genre;
         Year = year;

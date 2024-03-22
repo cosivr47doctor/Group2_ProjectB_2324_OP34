@@ -24,6 +24,7 @@ class MovieLogic
     public void UpdateList(MovieModel movies)
     {
         //Find if there is already an model with the same id
+        int maxId = _movie.Count > 0 ? _movie.Max(m => m.Id) : 0;
         int index = _movie.FindIndex(s => s.Name == movies.Name);
 
         if (index != -1)
@@ -34,6 +35,7 @@ class MovieLogic
         else
         {
             //add new model
+            movies.Id = maxId + 1;
             _movie.Add(movies);
         }
         MovieAccess.WriteAll(_movie);
