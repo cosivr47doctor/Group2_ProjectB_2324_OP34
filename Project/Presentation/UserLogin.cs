@@ -24,6 +24,10 @@ static class UserLogin
             {
                 AdminMenu.Start();
             }
+            else
+            {
+                UserMenu.Start();
+            }
         }
         else
         {

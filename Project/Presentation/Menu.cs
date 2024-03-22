@@ -9,7 +9,7 @@ static class Menu
         AccountsLogic objAccountsLogic = new AccountsLogic(); objAccountsLogic.StartupUpdateList();
         Console.WriteLine("Enter 1 to login");
         Console.WriteLine("Enter 2 to do something else in the future");
-        Console.WriteLine("enter 3 to see all available movies");
+        Console.WriteLine("Enter 3 to see all available movies");
         Console.WriteLine("Enter 4 to see cinema informations");
 
         string input = Console.ReadLine();
