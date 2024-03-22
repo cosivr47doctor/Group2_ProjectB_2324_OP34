@@ -9,6 +9,7 @@ static class AdminMenu
         Console.WriteLine("Enter 1 to logout");
         Console.WriteLine("Enter 2 to do something else in the future");  // UNFINISHED
         Console.WriteLine("Enter 3 to change the status of a user");
+        Console.WriteLine("Enter 4 to add food to the menu");
 
 
         string user_input = Console.ReadLine();
@@ -37,6 +38,9 @@ static class AdminMenu
                         obj_AccountsLogic.ChangeUserStatus(change_user_status_input, find_by_input);
                     }
                 }
+                break;
+            case "4":
+                Adding.addFood();
                 break;
             default:
                 Console.WriteLine("Invalid input");
