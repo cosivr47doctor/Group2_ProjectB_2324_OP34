@@ -16,20 +16,20 @@
     "suspense": null
   },
   {
-    "id": 4,
+    "id": 3,
     "emailAddress": "y@b.c",
     "password": "xyz",
     "fullName": "Mazhar Khan",
-    "isAdmin": false,
-    "suspense": "2024-03-28T00:00:00"
+    "isAdmin": true,
+    "suspense": null
   },
   {
     "id": 4,
     "emailAddress": "y@b.c",
     "password": "xyz",
     "fullName": "Younes Ikajouen",
-    "isAdmin": false,
-    "suspense": "9999-03-28T00:00:00"
+    "isAdmin": true,
+    "suspense": null
   },
   {
     "id": 5,
@@ -44,6 +44,14 @@
     "emailAddress": "c@b.c",
     "password": "xyz",
     "fullName": "Costa van Hof",
+    "isAdmin": true,
+    "suspense": null
+  },
+  {
+    "id": 7,
+    "emailAddress": "thh@gmail.com",
+    "password": "xyz",
+    "fullName": "Taha Abbady",
     "isAdmin": true,
     "suspense": null
   }
