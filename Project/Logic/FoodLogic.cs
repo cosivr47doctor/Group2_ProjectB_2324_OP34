@@ -23,6 +23,8 @@ class FoodLogic
 
     public void UpdateList(FoodModel foodItem)
     {
+        // For auto-increment
+        int maxId = _food.Count > 0 ? _food.Max(m => m.Id) : 0;
         //Find if there is already an model with the same id
         int index = _food.FindIndex(s => s.Name == foodItem.Name);
 
@@ -34,6 +36,7 @@ class FoodLogic
         else
         {
             //add new model
+            foodItem.Id = maxId + 1;
             _food.Add(foodItem);
         }
         FoodAccess.WriteAll(_food);
