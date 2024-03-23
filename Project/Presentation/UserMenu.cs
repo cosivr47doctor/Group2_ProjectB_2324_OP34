@@ -23,6 +23,11 @@ static class UserMenu
                 break;
             case "3":
                 Console.WriteLine("search function");
+                Search.searchMovie();
+                Console.WriteLine("");
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
                 break;
             case "4":
                 Console.WriteLine("Reservation history function");

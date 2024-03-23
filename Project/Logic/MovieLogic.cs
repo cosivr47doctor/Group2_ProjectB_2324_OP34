@@ -42,9 +42,32 @@ class MovieLogic
 
     }
 
-    // public AccountModel GetById(int id)
+    public MovieModel GetBySearch(string searchBy)
+    {
+        //Only gets one result for now
+        string searchLower = searchBy.ToLower();
+
+        return _movie.Find(movie =>
+            movie.Id.ToString() == searchBy ||
+            movie.Year.ToString() == searchBy ||
+            movie.Name.ToLower().Contains(searchLower) ||
+            movie.Director.ToLower().Contains(searchLower) ||
+            movie.Genre.ToLower().Contains(searchLower));
+    }
+
+
+
+    // public MovieModel GetById(string searchBy)
     // {
-    //     return _accounts.Find(i => i.Id == id);
+    //     if (int.TryParse(searchBy, out int id))
+    //     {
+    //         return _movie.Find(movie => movie.Id == id);
+    //     }
+    //     else
+    //     {
+    //         return _movie.Find(movie => movie.Name.ToLower() == searchBy.ToLower());
+    //     }
+        
     // }
 
     // public AccountModel CheckLogin(string email, string password)
