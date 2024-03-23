@@ -27,12 +27,13 @@ static class Menu
             Console.WriteLine("This feature is not yet implemented");
             //Adding.addFood();
             //Adding.addMovie();
-            // Search.searchMovie();
+            //Search.searchMovie();
+            //Remove.removeMovie();
 
-            // Console.WriteLine("");
-            // Console.WriteLine("Press enter to go back.");
-            // Console.ReadLine();
-            // Start();
+            Console.WriteLine("");
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start();
         }
         else if (input == "3")
         {

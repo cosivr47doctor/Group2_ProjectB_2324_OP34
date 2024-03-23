@@ -55,6 +55,17 @@ class MovieLogic
             movie.Genre.ToLower().Contains(searchLower));
     }
 
+    public void RemoveMovie(string searchBy)
+    {
+        MovieModel movieToRemove = GetBySearch(searchBy);
+
+        if (movieToRemove != null)
+        {
+            _movie.Remove(movieToRemove);
+            MovieAccess.WriteAll(_movie);
+        }
+    }
+
 
 
     // public MovieModel GetById(string searchBy)
