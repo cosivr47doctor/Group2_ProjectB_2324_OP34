@@ -12,6 +12,7 @@ static class Menu
         Console.WriteLine("Enter 2 to do something else in the future");
         Console.WriteLine("enter 3 to see all available movies");
         Console.WriteLine("Enter 4 to see cinema informations");
+        Console.WriteLine("Enter 5 to register a new user");
 
         string input = Console.ReadLine();
         if (input.ToLower() == "q" || input.ToLower() == "[q]")
@@ -54,12 +55,18 @@ static class Menu
             Console.WriteLine("");
             Console.WriteLine(" Sluit vandaag om 22:00\nMaandag      12:00-22:00\nDinsdag      12:00-22:00\nWoensdag     12:00-22:00\nDonderdag    12:00-22:00\nVrijdag      12:00-22:00\nZaterdag     13:00-22:00\nZondag       13:00-22:00\n");
         }
+        else if (input == "5")
+        {
+            UserRegister.addUser(objAccountsLogic);
+            Console.WriteLine("User registered successfully!");
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start();
+        }
         else
         {
             Console.WriteLine("Invalid input");
             Start();
         }
-
-
     }
 }

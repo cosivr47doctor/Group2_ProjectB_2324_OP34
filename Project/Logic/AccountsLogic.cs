@@ -28,8 +28,10 @@ class AccountsLogic
     }
 
 
-    public void UpdateList(AccountModel acc)
+     public void UpdateList(AccountModel acc)
     {
+        // For auto-increment
+        int maxId = _accounts.Count > 0 ? _accounts.Max(m => m.Id) : 0;
         //Find if there is already a model with the same id
         int index = _accounts.FindIndex(s => s.Id == acc.Id);
 
@@ -41,11 +43,13 @@ class AccountsLogic
         else
         {
             //add new model
+            acc.Id = maxId + 1;
             _accounts.Add(acc);
         }
         AccountsAccess.WriteAll(_accounts);
 
     }
+    
 
     public static void UpdateAccount(AccountModel updatedAccount)
     {
