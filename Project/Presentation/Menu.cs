@@ -9,10 +9,9 @@ static class Menu
         AccountsLogic objAccountsLogic = new AccountsLogic(); objAccountsLogic.StartupUpdateList();
         Console.WriteLine("Enter [Q] to quit program");
         Console.WriteLine("Enter 1 to login");
-        Console.WriteLine("Enter 2 to do something else in the future");
+        Console.WriteLine("Enter 2 to register a new user");
         Console.WriteLine("enter 3 to see all available movies");
         Console.WriteLine("Enter 4 to see cinema informations");
-        Console.WriteLine("Enter 5 to register a new user");
 
         string input = Console.ReadLine();
         if (input.ToLower() == "q" || input.ToLower() == "[q]")
@@ -25,13 +24,8 @@ static class Menu
         }
         else if (input == "2")
         {
-            Console.WriteLine("This feature is not yet implemented");
-            //Adding.addFood();
-            //Adding.addMovie();
-            //Search.searchMovie();
-            //Remove.removeMovie();
-
-            Console.WriteLine("");
+            UserRegister.addUser(objAccountsLogic);
+            Console.WriteLine("User registered successfully!");
             Console.WriteLine("Press enter to go back.");
             Console.ReadLine();
             Start();
@@ -57,8 +51,13 @@ static class Menu
         }
         else if (input == "5")
         {
-            UserRegister.addUser(objAccountsLogic);
-            Console.WriteLine("User registered successfully!");
+            Console.WriteLine("This feature is not yet implemented");
+            //Adding.addFood();
+            //Adding.addMovie();
+            //Search.searchMovie();
+            //Remove.removeMovie();
+
+            Console.WriteLine("");
             Console.WriteLine("Press enter to go back.");
             Console.ReadLine();
             Start();

@@ -62,5 +62,13 @@
     "fullName": "john doe",
     "isAdmin": false,
     "suspense": null
+  },
+  {
+    "id": 9,
+    "emailAddress": "loydlove@love.nl",
+    "password": "LifeisLoveLoveisLife",
+    "fullName": "Loyd Love",
+    "isAdmin": false,
+    "suspense": null
   }
 ]
