@@ -10,6 +10,7 @@ static class AdminMenu
         Console.WriteLine("Enter 2 to do something else in the future");  // UNFINISHED
         Console.WriteLine("Enter 3 to change the status of a user");
         Console.WriteLine("Enter 4 to add food to the menu");
+        Console.WriteLine("Enter 5 to add a movie");
 
 
         string user_input = Console.ReadLine();
@@ -41,6 +42,9 @@ static class AdminMenu
                 break;
             case "4":
                 Adding.addFood();
+                break;
+            case "5":
+                Adding.addMovie();
                 break;
             default:
                 Console.WriteLine("Invalid input");
