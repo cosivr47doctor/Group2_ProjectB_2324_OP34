@@ -17,10 +17,5 @@ static class UserRegister
         AccountModel newAccount = new AccountModel(0 , emailAddress, password, fullName);
 
         accountsLogic.UpdateList(newAccount);
-
-        string jsonString = JsonSerializer.Serialize(newAccount);
-        File.WriteAllText("accounts.json", jsonString);
-
-
     }
 }
