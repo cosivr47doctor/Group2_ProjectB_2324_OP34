@@ -24,7 +24,7 @@ static class Menu
         }
         else if (input == "2")
         {
-            UserRegister.addUser(objAccountsLogic);
+            Adding.addUser(objAccountsLogic);
             Console.WriteLine("User registered successfully!");
             Console.WriteLine("Press enter to go back.");
             Console.ReadLine();
@@ -52,7 +52,7 @@ static class Menu
         else if (input == "5")
         {
             Console.WriteLine("This feature is not yet implemented");
-            //Adding.addFood();
+            Adding.addFood();
             //Adding.addMovie();
             //Search.searchMovie();
             //Remove.removeMovie();

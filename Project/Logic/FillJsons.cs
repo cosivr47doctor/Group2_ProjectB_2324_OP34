@@ -5,6 +5,9 @@ using System.Text.Json;
 
 public static class FillJsons
 {
+    static private MovieLogic movieLogic = new MovieLogic();
+    static private FoodLogic foodLogic = new FoodLogic();
+
     public static void FillAccountsJson(string filePath)
     {
         List<AccountModel> existingAccountItems = AccountsAccess.LoadAll();
@@ -39,20 +42,12 @@ public static class FillJsons
 
         foreach (var item in standardItems)
         {
-            int index = existingFoodItems.FindIndex(food => food.Name == item.Name);
-
-            if (index == -1)
-            {
-                existingFoodItems.Insert(0, item);
-            }
+            foodLogic.UpdateList(item);
         }
-        FoodAccess.WriteAll(existingFoodItems);
     }
 
     public static void FillMoviesJson(string filePath)
     {
-        List<MovieModel> existingMovies = MovieAccess.LoadAll();
-
         List<MovieModel> standardMovies = new List<MovieModel>
         {
             new MovieModel("Inception", "Science Fiction", 2010, "A thief who enters the dreams of others to steal their secrets from their subconscious.", "Christopher Nolan", 148),
@@ -63,13 +58,7 @@ public static class FillJsons
 
         foreach (var item in standardMovies)
         {
-            int index = existingMovies.FindIndex(movie => movie.Name == item.Name);
-
-            if (index == -1)
-            {
-                existingMovies.Insert(0, item);
-            }
+            movieLogic.UpdateList(item);
         }
-        MovieAccess.WriteAll(existingMovies);
     }
 }
