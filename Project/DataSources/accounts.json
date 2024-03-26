@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": 1,
     "emailAddress": "n@b.c",
@@ -65,9 +65,9 @@
   },
   {
     "id": 9,
-    "emailAddress": "loydlove@love.nl",
+    "emailAddress": "lloydlove@love.nl",
     "password": "LifeisLoveLoveisLife",
-    "fullName": "Loyd Love",
+    "fullName": "Lloyd Love",
     "isAdmin": false,
     "suspense": null
   }

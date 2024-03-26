@@ -29,9 +29,5 @@ static class UserLogin
                 UserMenu.Start();
             }
         }
-        else
-        {
-            Console.WriteLine("No account found with that email and password");
-        }
     }
 }

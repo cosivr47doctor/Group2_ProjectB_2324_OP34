@@ -100,17 +100,25 @@ class AccountsLogic
             return null;
         }
         CurrentAccount = _accounts.Find(i => i.EmailAddress == email && i.Password == password);
-        // Now check if the account has been banned
-        if (Convert.ToString(CurrentAccount.Suspense) == "permanent" || CurrentAccount.Suspense > DateTime.Today)
+        if (CurrentAccount is not null)
         {
-            Console.WriteLine($"This account has been banned until: {CurrentAccount.Suspense}");
-            return null;
+            // Now check if the account has been banned
+            if (CurrentAccount.Suspense.HasValue && CurrentAccount.Suspense.Value > DateTime.Today)
+            {
+                Console.WriteLine($"This account has been banned until: {CurrentAccount.Suspense}");
+                return null;
+            }
+            else
+            {
+                CurrentAccount.Suspense = null;
+                UpdateAccount(CurrentAccount);
+                return CurrentAccount;
+            }
         }
         else
         {
-            CurrentAccount.Suspense = null;
-            UpdateAccount(CurrentAccount);
-            return CurrentAccount;
+            Console.WriteLine("Account not found");
+            return null;
         }
     }
 
@@ -125,7 +133,10 @@ class AccountsLogic
             DateTime suspenseDate;
             if (int.TryParse(user_input, out suspenseDays))
             {
-                CurrentAccount.Suspense?.AddDays(suspenseDays);
+                if (CurrentAccount.Suspense.HasValue)
+                    CurrentAccount.Suspense = CurrentAccount.Suspense.Value.AddDays(suspenseDays);
+                else
+                    CurrentAccount.Suspense = DateTime.Today.AddDays(suspenseDays);
                 Console.WriteLine($"User {CurrentAccount.Id} suspended until {CurrentAccount.Suspense}");
             }
             // This checks whether an input matches a valid datetime object format
@@ -136,7 +147,8 @@ class AccountsLogic
             }
             else if (user_input == "permanent" || user_input == "'permanent")
             {
-                CurrentAccount.Suspense = new DateTime(9999, 01, 01);
+                CurrentAccount.Suspense = DateTime.MaxValue;
+                Console.WriteLine($"User {CurrentAccount.Id} suspended permanently.");
             }
             else
             {
