@@ -5,7 +5,8 @@
     "password": "xyz",
     "fullName": "Nikola Tesla",
     "isAdmin": false,
-    "suspense": null
+    "suspense": null,
+    "PhoneNumber": 0
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "password": "xyz",
     "fullName": "Thomas Edison",
     "isAdmin": false,
-    "suspense": null
+    "suspense": null,
+    "PhoneNumber": 0
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "password": "xyz",
     "fullName": "Mazhar Khan",
     "isAdmin": true,
-    "suspense": null
+    "suspense": null,
+    "PhoneNumber": 0
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "password": "xyz",
     "fullName": "Younes Ikajouen",
     "isAdmin": true,
-    "suspense": null
+    "suspense": null,
+    "PhoneNumber": 0
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "password": "xyz",
     "fullName": "Jay Ramcharan",
     "isAdmin": true,
-    "suspense": null
+    "suspense": null,
+    "PhoneNumber": 0
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "password": "xyz",
     "fullName": "Costa van Hof",
     "isAdmin": true,
-    "suspense": null
+    "suspense": null,
+    "PhoneNumber": 0
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "password": "xyz",
     "fullName": "Taha Abbady",
     "isAdmin": true,
-    "suspense": null
+    "suspense": null,
+    "PhoneNumber": 0
   },
   {
     "id": 8,
@@ -61,7 +68,8 @@
     "password": "test123",
     "fullName": "john doe",
     "isAdmin": false,
-    "suspense": null
+    "suspense": null,
+    "PhoneNumber": 0
   },
   {
     "id": 9,
@@ -69,6 +77,7 @@
     "password": "LifeisLoveLoveisLife",
     "fullName": "Lloyd Love",
     "isAdmin": false,
-    "suspense": null
+    "suspense": null,
+    "PhoneNumber": 0
   }
 ]

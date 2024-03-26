@@ -21,13 +21,19 @@ class AccountModel
     [JsonPropertyName("suspense")]
     public DateTime? Suspense { get; set; } = null;
 
+    [JsonPropertyName("PhoneNumber")]
+    public int PhoneNumber { get; set; }
 
-    public AccountModel(int id, string emailAddress, string password, string fullName)
+
+
+
+    public AccountModel(int id, string emailAddress, string password, string fullName,int phoneNumber)
     {
         Id = id;
         EmailAddress = emailAddress;
         Password = password;
         FullName = fullName;
+        PhoneNumber = phoneNumber;
     }
 
 }

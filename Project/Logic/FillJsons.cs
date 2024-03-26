@@ -14,7 +14,7 @@ public static class FillJsons
     
         List<AccountModel> standardItems = new List<AccountModel>
         {
-            new AccountModel(1, "n@b.c", "xyz", "Nikola Tesla")
+
         };
     
         foreach (var item in standardItems)
