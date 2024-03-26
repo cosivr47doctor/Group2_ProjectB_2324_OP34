@@ -79,20 +79,58 @@ static class Adding
 
     }
 
-        public static void addUser(AccountsLogic accountsLogic)
+    public static void addUser(AccountsLogic accountsLogic)
     {
 
         Console.WriteLine("Welcome to the registration page");
-        Console.WriteLine("Enter your emailaddress: ");
-        string emailAddress = Console.ReadLine();
-        Console.WriteLine("Enter your password");
+        string emailAddress = "";
+        while(true)
+        {
+            Console.WriteLine("Enter your email address: ");
+            emailAddress = Console.ReadLine();
+
+            if (emailAddress.Contains("@")&& emailAddress.Contains("."))
+            {
+                break; 
+            }
+            else
+            {
+                Console.WriteLine("Invalid email address format. Please make sure your email address contains '@en.'.");
+            }
+        }        
+        Console.WriteLine("Enter your password:");
         string password = Console.ReadLine();
+        string HashedPassword = PasswordHasher.HashPassword(password);
         Console.WriteLine("Enter your fullname");
         string fullName = Console.ReadLine();
+        /*
+        try
+        {
+        Console.WriteLine("Enter your phonenumber:");
+        string Pnumber = Console.ReadLine();
+        int PhoneNumber = Convert.ToInt32(Pnumber);
+        }
+        catch
+        {
+            Console.WriteLine("Invalid phonenumber. Pleas make sure your phonenumber should only contain numbers");
+        }*/
+        int PhoneNumber = 0;
+        while (true)
+        {
+            Console.Write("Enter your phonenumber: +31 06 ");
+            string Pnumber = Console.ReadLine();
+            try
+            {
+                PhoneNumber = Convert.ToInt32(Pnumber);
+                break;
+            }
+            catch
+            {
+                Console.WriteLine("Invalid phonenumber. Please make sure your phonenumber should only contain numbers.");
+            }
+        }
 
-        string HashedPassword = PasswordHasher.HashPassword(password);
-
-        AccountModel newAccount = new AccountModel(0 , emailAddress, HashedPassword, fullName);
+        AccountModel newAccount = new AccountModel(0 , emailAddress, password, fullName, PhoneNumber);
 
         accountsLogic.UpdateList(newAccount);
     }
