@@ -9,13 +9,8 @@ static class Menu
         AccountsLogic objAccountsLogic = new AccountsLogic(); objAccountsLogic.StartupUpdateList();
         Console.WriteLine("Enter [Q] to quit program");
         Console.WriteLine("Enter 1 to login");
-<<<<<<< HEAD
         Console.WriteLine("Enter 2 to register a new user");
-        Console.WriteLine("enter 3 to see all available movies");
-=======
-        Console.WriteLine("Enter 2 to do something else in the future");
         Console.WriteLine("Enter 3 to see all available movies");
->>>>>>> 8bcbb19d9e6af7491ccf906305c73581f2cf6053
         Console.WriteLine("Enter 4 to see cinema informations");
 
         string input = Console.ReadLine();
