@@ -117,8 +117,8 @@ static class Adding
         int PhoneNumber = 0;
         while (true)
         {
-            Console.Write("Enter your phonenumber: +31 06 ");
-            string Pnumber = Console.ReadLine();
+            Console.Write("Enter your phonenumber: 06 ");
+            string Pnumber = $"06{Console.ReadLine()}";
             try
             {
                 PhoneNumber = Convert.ToInt32(Pnumber);
