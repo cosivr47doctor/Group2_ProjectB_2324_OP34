@@ -14,7 +14,9 @@ static class UserRegister
         Console.WriteLine("Enter your fullname");
         string fullName = Console.ReadLine();
 
-        AccountModel newAccount = new AccountModel(0 , emailAddress, password, fullName);
+        string HashedPassword = PasswordHasher.HashPassword(password);
+
+        AccountModel newAccount = new AccountModel(0 , emailAddress, HashedPassword, fullName);
 
         accountsLogic.UpdateList(newAccount);
     }
