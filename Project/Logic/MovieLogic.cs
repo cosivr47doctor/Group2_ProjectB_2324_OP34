@@ -8,6 +8,7 @@ using System.Text.Json;
 class MovieLogic
 {
     private List<MovieModel> _movie;
+    public List<MovieModel> Movies => _movie;
 
     //Static properties are shared across all instances of the class
     //This can be used to get the current logged in account from anywhere in the program

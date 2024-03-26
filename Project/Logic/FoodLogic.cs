@@ -8,6 +8,7 @@ using System.Text.Json;
 class FoodLogic
 {
     private List<FoodModel> _food;
+    public List<FoodModel> foodItems => _food;
 
     //Static properties are shared across all instances of the class
     //This can be used to get the current logged in account from anywhere in the program
