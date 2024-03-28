@@ -1,5 +1,3 @@
-using YourNamespace;
-
 static class Adding
 {
     static private FoodLogic foodLogic = new FoodLogic();
