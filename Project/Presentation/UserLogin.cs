@@ -1,3 +1,5 @@
+using YourNamespace;
+
 static class UserLogin
 {
     static private AccountsLogic accountsLogic = new AccountsLogic();
@@ -11,7 +13,7 @@ static class UserLogin
         Console.WriteLine("Please enter your email address");
         string email = Console.ReadLine();
         Console.WriteLine("Please enter your password");
-        string password = Console.ReadLine();
+        string password = PasswordInput.InputPassword();
         AccountModel acc = accountsLogic.CheckLogin(email, password);
         if (acc != null)
         {

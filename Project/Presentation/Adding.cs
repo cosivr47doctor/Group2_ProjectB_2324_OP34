@@ -1,3 +1,5 @@
+using YourNamespace;
+
 static class Adding
 {
     static private FoodLogic foodLogic = new FoodLogic();
@@ -99,7 +101,7 @@ static class Adding
             }
         }        
         Console.WriteLine("Enter your password:");
-        string password = Console.ReadLine();
+        string password = PasswordInput.InputPassword();
         string HashedPassword = PasswordHasher.HashPassword(password);
         Console.WriteLine("Enter your fullname");
         string fullName = Console.ReadLine();
@@ -130,7 +132,7 @@ static class Adding
             }
         }
 
-        AccountModel newAccount = new AccountModel(0 , emailAddress, password, fullName, PhoneNumber);
+        AccountModel newAccount = new AccountModel(0 , emailAddress, HashedPassword, fullName, PhoneNumber);
 
         accountsLogic.UpdateList(newAccount);
     }

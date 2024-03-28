@@ -97,5 +97,23 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 645363
+  },
+  {
+    "id": 12,
+    "emailAddress": "Hemmeh@zjemeh.com",
+    "password": "$2a$11$4Hdvmeoy1Cg6k1lDxTZgNOvOziadIro4TWTWAZPbjJIyPLBDXCTn.",
+    "fullName": "Hemmeh Bibeh",
+    "isAdmin": false,
+    "suspense": null,
+    "PhoneNumber": 6181421
+  },
+  {
+    "id": 13,
+    "emailAddress": "Hallo@doei.com",
+    "password": "$2a$11$d1d/DrkTaH/gikjVhVzSAePPv0DWkm5vc/45jHPmyIuIwFWBbfPHa",
+    "fullName": "Hallo Doei",
+    "isAdmin": false,
+    "suspense": null,
+    "PhoneNumber": 6112314
   }
 ]

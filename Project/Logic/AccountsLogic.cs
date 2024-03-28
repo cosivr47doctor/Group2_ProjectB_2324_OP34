@@ -99,7 +99,7 @@ class AccountsLogic
         {
             return null;
         }
-        CurrentAccount = _accounts.Find(i => i.EmailAddress == email && i.Password == password);
+        CurrentAccount = _accounts.Find(i => i.EmailAddress == email && PasswordHasher.ValidatePassword(password, i.Password));
         if (CurrentAccount is not null)
         {
             // Now check if the account has been banned
