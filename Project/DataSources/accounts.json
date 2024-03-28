@@ -19,101 +19,20 @@
   },
   {
     "id": 3,
-    "emailAddress": "y@b.c",
-    "password": "xyz",
-    "fullName": "Mazhar Khan",
-    "isAdmin": true,
+    "emailAddress": "admin@gmail.com",
+    "password": "$2a$11$dSgFmDzvGZ4XLgTzkO.LauyG/P2Fe9cG6ZiHt4g6tP5GFqmH83YR.",
+    "fullName": "Admin Adminius",
+    "isAdmin": false,
     "suspense": null,
-    "PhoneNumber": 0
+    "PhoneNumber": 655555555
   },
   {
     "id": 4,
-    "emailAddress": "y@b.c",
-    "password": "xyz",
-    "fullName": "Younes Ikajouen",
-    "isAdmin": true,
-    "suspense": null,
-    "PhoneNumber": 0
-  },
-  {
-    "id": 5,
-    "emailAddress": "j@b.c",
-    "password": "xyz",
-    "fullName": "Jay Ramcharan",
-    "isAdmin": true,
-    "suspense": null,
-    "PhoneNumber": 0
-  },
-  {
-    "id": 6,
-    "emailAddress": "c@b.c",
-    "password": "xyz",
-    "fullName": "Costa van Hof",
-    "isAdmin": true,
-    "suspense": null,
-    "PhoneNumber": 0
-  },
-  {
-    "id": 7,
-    "emailAddress": "thh@gmail.com",
-    "password": "xyz",
-    "fullName": "Taha Abbady",
-    "isAdmin": true,
-    "suspense": null,
-    "PhoneNumber": 0
-  },
-  {
-    "id": 8,
-    "emailAddress": "testtest@outlook.com",
-    "password": "test123",
-    "fullName": "john doe",
-    "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 0
-  },
-  {
-    "id": 9,
     "emailAddress": "lloydlove@love.nl",
-    "password": "LifeisLoveLoveisLife",
-    "fullName": "Lloyd Love",
+    "password": "$2a$11$x5XDkIo0DjAM6dHsFfYV5ewUnzQFiPr4SyT/bfy.407UYS831H3Ca",
+    "fullName": "LLoyd Love",
     "isAdmin": false,
     "suspense": null,
-    "PhoneNumber": 0
-  },
-  {
-    "id": 10,
-    "emailAddress": "dede@\u003Ed/.",
-    "password": "dedede",
-    "fullName": "dede",
-    "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 4334353
-  },
-  {
-    "id": 11,
-    "emailAddress": "EFW@.",
-    "password": "FEF",
-    "fullName": "fwe",
-    "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 645363
-  },
-  {
-    "id": 12,
-    "emailAddress": "Hemmeh@zjemeh.com",
-    "password": "$2a$11$4Hdvmeoy1Cg6k1lDxTZgNOvOziadIro4TWTWAZPbjJIyPLBDXCTn.",
-    "fullName": "Hemmeh Bibeh",
-    "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 6181421
-  },
-  {
-    "id": 13,
-    "emailAddress": "Hallo@doei.com",
-    "password": "$2a$11$d1d/DrkTaH/gikjVhVzSAePPv0DWkm5vc/45jHPmyIuIwFWBbfPHa",
-    "fullName": "Hallo Doei",
-    "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 6112314
+    "PhoneNumber": 602060222
   }
 ]
