@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 static class Adding
 {
     static private FoodLogic foodLogic = new FoodLogic();
@@ -97,9 +99,29 @@ static class Adding
             {
                 Console.WriteLine("Invalid email address format. Please make sure your email address contains '@en.'.");
             }
-        }        
-        Console.WriteLine("Enter your password:");
-        string password = PasswordInput.InputPassword();
+        }      
+        string password = "";
+        while(true)
+        {
+            Console.WriteLine("Enter your password:");
+            password = PasswordInput.InputPassword();
+
+            if (Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*\d).{8,}$"))
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Invalid password format.");
+                Console.WriteLine("Password should contain:");
+                Console.WriteLine("- At least one capital letter");
+                Console.WriteLine("- At least 8 characters long");
+                Console.WriteLine("- One number");
+                Console.WriteLine();
+            }
+        }  
+    
         string HashedPassword = PasswordHasher.HashPassword(password);
         Console.WriteLine("Enter your fullname");
         string fullName = Console.ReadLine();
