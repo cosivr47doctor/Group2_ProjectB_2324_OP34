@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": 1,
     "emailAddress": "n@b.c",
@@ -22,7 +22,7 @@
     "emailAddress": "admin@gmail.com",
     "password": "$2a$11$dSgFmDzvGZ4XLgTzkO.LauyG/P2Fe9cG6ZiHt4g6tP5GFqmH83YR.",
     "fullName": "Admin Adminius",
-    "isAdmin": false,
+    "isAdmin": true,
     "suspense": null,
     "PhoneNumber": 655555555
   },
