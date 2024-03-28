@@ -101,16 +101,13 @@ static class Adding
             }
         }      
         string password = "";
+        string confirmPassword = "";
         while(true)
         {
             Console.WriteLine("Enter your password:");
             password = PasswordInput.InputPassword();
 
-            if (Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*\d).{8,}$"))
-            {
-                break;
-            }
-            else
+            if (!Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*\d).{8,}$"))
             {
                 Console.WriteLine();
                 Console.WriteLine("Invalid password format.");
@@ -119,6 +116,18 @@ static class Adding
                 Console.WriteLine("- At least 8 characters long");
                 Console.WriteLine("- One number");
                 Console.WriteLine();
+                continue;
+            }
+            Console.WriteLine("Confirm your password:");
+            confirmPassword = PasswordInput.InputPassword();
+
+            if (password == confirmPassword)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Passwords do not match. Please try again.");
             }
         }  
     
