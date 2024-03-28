@@ -11,6 +11,7 @@ static class AdminMenu
         Console.WriteLine("Enter 3 to change the status of a user");
         Console.WriteLine("Enter 4 to add food to the menu");
         Console.WriteLine("Enter 5 to add a movie");
+        Console.WriteLine("Enter 6 to remove a movie");
 
 
         string user_input = Console.ReadLine();
@@ -21,6 +22,9 @@ static class AdminMenu
                 break;
             case "2":
                 Console.WriteLine("This feature is not yet implemented");
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
                 break;
             case "3":
                 AccountsLogic obj_AccountsLogic = new();
@@ -42,9 +46,21 @@ static class AdminMenu
                 break;
             case "4":
                 Adding.addFood();
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
                 break;
             case "5":
                 Adding.addMovie();
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
+                break;
+            case "6":
+                Remove.removeMovie();
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
                 break;
             default:
                 Console.WriteLine("Invalid input");

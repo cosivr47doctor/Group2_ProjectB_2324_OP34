@@ -13,6 +13,11 @@ static class UserMenu
         {
             case "1":
                 Console.WriteLine("Reservation function");
+                Search.searchMovie();
+                Console.WriteLine("");
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
                 break;
             case "2":
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
@@ -31,6 +36,11 @@ static class UserMenu
                 break;
             case "4":
                 Console.WriteLine("Reservation history function");
+                Search.searchMovie();
+                Console.WriteLine("");
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
                 break;
             case "5":
                 Menu.Start();

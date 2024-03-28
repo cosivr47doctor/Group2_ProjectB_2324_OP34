@@ -39,10 +39,10 @@
     "id": 5,
     "Name": "The Boy",
     "Genre": "Horror",
-    "Year": 0,
-    "Description": "A young man with bipolar disorder and an identity crisis falls under influence of the manipulation of his colleagues after they figured that they could convince him of anything. Capitalising on this, they send him out to do first small crimes, later using his genius brain to plot the vilest of the unspeakable.",
+    "Year": 2016,
+    "Description": "An American nanny is shocked that her new English family\u0027s boy is actually a life-sized doll. After she violates a list of strict rules, disturbing events make her believe that the doll is really alive. Greta Evans, a young American from Montana, is hired as a nanny by the Heelshires.",
     "Director": "Project B Team B/2",
-    "Duration": 100
+    "Duration": 97
   },
   {
     "id": 6,
@@ -52,5 +52,14 @@
     "Description": "a",
     "Director": "a",
     "Duration": 1
+  },
+  {
+    "id": 7,
+    "Name": "Titanic 3D",
+    "Genre": "Romance",
+    "Year": 1997,
+    "Description": "Sinking Shi[",
+    "Director": "Cameroon",
+    "Duration": 200
   }
 ]

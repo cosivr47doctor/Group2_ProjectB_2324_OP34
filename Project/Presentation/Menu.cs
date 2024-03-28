@@ -48,6 +48,12 @@ static class Menu
             Console.WriteLine("🕓   Openingstijden");
             Console.WriteLine("");
             Console.WriteLine(" Sluit vandaag om 22:00\nMaandag      12:00-22:00\nDinsdag      12:00-22:00\nWoensdag     12:00-22:00\nDonderdag    12:00-22:00\nVrijdag      12:00-22:00\nZaterdag     13:00-22:00\nZondag       13:00-22:00\n");
+
+            Console.WriteLine("");
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start();
+
         }
         else if (input == "5")
         {

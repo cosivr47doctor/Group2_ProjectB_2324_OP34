@@ -15,12 +15,12 @@
     "Price": 2.50
   },
   {
-    "Id": 4,
+    "id": 4,
     "Name": "nachos",
     "Price": 4.50
   },
   {
-    "Id": 5,
+    "id": 5,
     "Name": "candy",
     "Price": 1.99
   }
