@@ -2,7 +2,9 @@
   {
     "id": 1,
     "Name": "Inception",
-    "Genre": "Science Fiction",
+    "Genre": [
+      "Science Fiction"
+    ],
     "Year": 2010,
     "Description": "A thief who enters the dreams of others to steal their secrets from their subconscious.",
     "Director": "Christopher Nolan",
@@ -11,7 +13,9 @@
   {
     "id": 2,
     "Name": "The Shawshank Redemption",
-    "Genre": "Drama",
+    "Genre": [
+      "Drama"
+    ],
     "Year": 1994,
     "Description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
     "Director": "Frank Darabont",
@@ -20,7 +24,9 @@
   {
     "id": 3,
     "Name": "The Godfather",
-    "Genre": "Crime",
+    "Genre": [
+      "Crime"
+    ],
     "Year": 1972,
     "Description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
     "Director": "Francis Ford Coppola",
@@ -29,7 +35,9 @@
   {
     "id": 4,
     "Name": "The Matrix",
-    "Genre": "Action",
+    "Genre": [
+      "Action"
+    ],
     "Year": 1999,
     "Description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
     "Director": "Lana Wachowski, Lilly Wachowski",
@@ -38,7 +46,9 @@
   {
     "id": 5,
     "Name": "The Boy",
-    "Genre": "Horror",
+    "Genre": [
+      "Horror"
+    ],
     "Year": 2016,
     "Description": "An American nanny is shocked that her new English family\u0027s boy is actually a life-sized doll. After she violates a list of strict rules, disturbing events make her believe that the doll is really alive. Greta Evans, a young American from Montana, is hired as a nanny by the Heelshires.",
     "Director": "Project B Team B/2",
@@ -46,20 +56,35 @@
   },
   {
     "id": 6,
-    "Name": "a",
-    "Genre": "Horror",
-    "Year": 1,
-    "Description": "a",
-    "Director": "a",
-    "Duration": 1
+    "Name": "ChangeMovieTitleTest2",
+    "Genre": [
+      "ChangeMovieTitleTest2"
+    ],
+    "Year": 2024,
+    "Description": "Testing whether the description will be changed... again",
+    "Director": "Thh",
+    "Duration": 120
   },
   {
     "id": 7,
     "Name": "Titanic 3D",
-    "Genre": "Romance",
+    "Genre": [
+      "Romance"
+    ],
     "Year": 1997,
     "Description": "Sinking Shi[",
     "Director": "Cameroon",
     "Duration": 200
+  },
+  {
+    "id": 8,
+    "Name": "TestAddingAMovieNowThatGenreIsAnArrayOfStrings",
+    "Genre": [
+      "TestAddingAMovieNowThatGenreIsAnArrayOfStrings"
+    ],
+    "Year": 2024,
+    "Description": "Adding three genres this time, test test",
+    "Director": "Thh",
+    "Duration": 90
   }
 ]

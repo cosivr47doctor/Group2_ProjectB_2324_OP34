@@ -50,10 +50,10 @@ public static class FillJsons
     {
         List<MovieModel> standardMovies = new List<MovieModel>
         {
-            new MovieModel("Inception", "Science Fiction", 2010, "A thief who enters the dreams of others to steal their secrets from their subconscious.", "Christopher Nolan", 148),
-            new MovieModel("The Shawshank Redemption", "Drama", 1994, "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", "Frank Darabont", 142),
-            new MovieModel("The Godfather", "Crime", 1972, "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.", "Francis Ford Coppola", 175),
-            new MovieModel("The Matrix", "Action", 1999, "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.", "Lana Wachowski, Lilly Wachowski", 136)
+            new MovieModel("Inception", new[] {"Science Fiction"}, 2010, "A thief who enters the dreams of others to steal their secrets from their subconscious.", "Christopher Nolan", 148),
+            new MovieModel("The Shawshank Redemption", new[] {"Drama"}, 1994, "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", "Frank Darabont", 142),
+            new MovieModel("The Godfather", new[] {"Crime"}, 1972, "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.", "Francis Ford Coppola", 175),
+            new MovieModel("The Matrix", new[] {"Action"}, 1999, "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.", "Lana Wachowski, Lilly Wachowski", 136)
         };
 
         foreach (var item in standardMovies)

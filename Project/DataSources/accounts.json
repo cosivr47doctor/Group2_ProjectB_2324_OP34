@@ -34,5 +34,14 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 602060222
+  },
+  {
+    "id": 5,
+    "emailAddress": "dummy@dummy.com",
+    "password": "$2a$11$/MCrhMlAKlF7vPAu4km/YOIAWf/e.Ep6eCHQZb.2m3j7CbkPcekhO",
+    "fullName": "Dummy Dumdum",
+    "isAdmin": false,
+    "suspense": null,
+    "PhoneNumber": 604013025
   }
 ]

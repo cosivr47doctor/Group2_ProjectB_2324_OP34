@@ -52,8 +52,7 @@ class MovieLogic
             movie.Id.ToString() == searchBy ||
             movie.Year.ToString() == searchBy ||
             movie.Name.ToLower().Contains(searchLower) ||  // This is unhandy in case of movies with duplicate names
-            movie.Director.ToLower().Contains(searchLower) ||  // This is unhandy in case of movies with duplicate directors
-            movie.Genre.ToLower().Contains(searchLower));  // This is unhandy in case of movies with duplicate genres
+            movie.Director.ToLower().Contains(searchLower));  // This is unhandy in case of movies with duplicate directors
     }
 
     public void ChangeMovie(string searchBy)
@@ -65,8 +64,10 @@ class MovieLogic
         {
             Console.WriteLine("Invalid inputs will simply be ingored\n");
 
-            Console.WriteLine("Please enter the title (blank if unchanged)");
+            Console.WriteLine("Please enter the new title (blank if unchanged)");
             string changeNameInput = Console.ReadLine();
+            Console.WriteLine("Please enter the new genre (blank if unchanged)");
+            string changeGenreInput = Console.ReadLine();
             Console.WriteLine("Please enter the new year of release (blank if unchanged)");
             string changeYearInput = Console.ReadLine();
             Console.WriteLine("Please enter the new description (blank if unchanged)");
@@ -77,6 +78,7 @@ class MovieLogic
             string changeDurationInput = Console.ReadLine();
 
             if (changeNameInput != null) movieToChange.Name = changeNameInput;
+            if (changeGenreInput != null) movieToChange.Genre = changeNameInput.Split(",");
             if (changeYearInput != null && int.TryParse(changeYearInput, out _)) movieToChange.Year = Convert.ToInt16(changeYearInput);
             if (changeDescriptionInput != null) movieToChange.Description = changeDescriptionInput;
             if (changeDirectorInput != null) movieToChange.Director = changeDirectorInput;

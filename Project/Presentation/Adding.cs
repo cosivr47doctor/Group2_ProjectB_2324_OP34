@@ -39,7 +39,7 @@ static class Adding
         Console.WriteLine("Please enter the name of the movie");
         string name = Console.ReadLine();
         Console.WriteLine("Please enter the genre of the movie");
-        string genre = Console.ReadLine();
+        string[] genre = Console.ReadLine().Split(",");
 
         int year;
         while (true)
