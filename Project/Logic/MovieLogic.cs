@@ -51,9 +51,41 @@ class MovieLogic
         return _movie.Find(movie =>
             movie.Id.ToString() == searchBy ||
             movie.Year.ToString() == searchBy ||
-            movie.Name.ToLower().Contains(searchLower) ||
-            movie.Director.ToLower().Contains(searchLower) ||
-            movie.Genre.ToLower().Contains(searchLower));
+            movie.Name.ToLower().Contains(searchLower) ||  // This is unhandy in case of movies with duplicate names
+            movie.Director.ToLower().Contains(searchLower) ||  // This is unhandy in case of movies with duplicate directors
+            movie.Genre.ToLower().Contains(searchLower));  // This is unhandy in case of movies with duplicate genres
+    }
+
+    public void ChangeMovie(string searchBy)
+    {
+        MovieModel movieToChange = GetBySearch(searchBy);
+        int index = Movies.FindIndex(m => m.Id == movieToChange.Id);
+
+        if (movieToChange != null)
+        {
+            Console.WriteLine("Invalid inputs will simply be ingored\n");
+
+            Console.WriteLine("Please enter the title (blank if unchanged)");
+            string changeNameInput = Console.ReadLine();
+            Console.WriteLine("Please enter the new year of release (blank if unchanged)");
+            string changeYearInput = Console.ReadLine();
+            Console.WriteLine("Please enter the new description (blank if unchanged)");
+            string changeDescriptionInput = Console.ReadLine();
+            Console.WriteLine("Please enter the new director (blank if unchanged)");
+            string changeDirectorInput = Console.ReadLine();
+            Console.WriteLine("Please enter the new duration (blank if unchanged)");
+            string changeDurationInput = Console.ReadLine();
+
+            if (changeNameInput != null) movieToChange.Name = changeNameInput;
+            if (changeYearInput != null && int.TryParse(changeYearInput, out _)) movieToChange.Year = Convert.ToInt16(changeYearInput);
+            if (changeDescriptionInput != null) movieToChange.Description = changeDescriptionInput;
+            if (changeDirectorInput != null) movieToChange.Director = changeDirectorInput;
+            if (changeDurationInput != null && int.TryParse(changeDurationInput, out _)) movieToChange.Duration = Convert.ToInt16(changeDurationInput);
+
+
+            _movie[index] = movieToChange;
+            MovieAccess.WriteAll(_movie);
+        }
     }
 
     public void RemoveMovie(string searchBy)

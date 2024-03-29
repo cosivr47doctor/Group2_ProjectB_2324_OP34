@@ -7,27 +7,25 @@ static class AdminMenu
     static public void Start()
     {
         Console.WriteLine("Welcom back admin 👋");
-        Console.WriteLine("Enter 1 to logout");
-        Console.WriteLine("Enter 2 to do something else in the future");  // UNFINISHED
-        Console.WriteLine("Enter 3 to change the status of a user");
-        Console.WriteLine("Enter 4 to add food to the menu");
-        Console.WriteLine("Enter 5 to add a movie");
-        Console.WriteLine("Enter 6 to remove a movie");
+        Console.WriteLine("Enter 0 to switch to user menu");
+        Console.WriteLine("Enter 1 to logout\n");
+
+        Console.WriteLine("Enter 2 to change the status of a user");
+        Console.WriteLine("Enter 3 to add food to the menu");
+        Console.WriteLine("Enter 4 to add a movie");
+        Console.WriteLine("Enter 5 to edit a movie");
 
 
         string user_input = Console.ReadLine();
         switch (user_input)
         {
+            case "0":
+                UserMenu.Start();
+                break;
             case "1":
                 Menu.Start();
                 break;
             case "2":
-                Console.WriteLine("This feature is not yet implemented");
-                Console.WriteLine("Press enter to go back.");
-                Console.ReadLine();
-                Start();
-                break;
-            case "3":
                 AccountsLogic obj_AccountsLogic = new();
                 Console.WriteLine("Please submit the ID or Email address of a user");
                 string find_by_input = Console.ReadLine();
@@ -45,20 +43,29 @@ static class AdminMenu
                     }
                 }
                 break;
-            case "4":
+            case "3":
                 Adding.addFood();
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
                 Start();
                 break;
-            case "5":
+            case "4":
                 Adding.addMovie();
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
                 Start();
                 break;
-            case "6":
-                Remove.removeMovie();
+            case "5":
+                Console.WriteLine("Want to change (1) or remove (2) a movie?");
+                string editOrRemove = Console.ReadLine();
+                if (new[] { "1", "change" }.Contains(editOrRemove))
+                {
+                    EditMovie.ChangeMovie();
+                }
+                else if (new[] { "2", "remove" }.Contains(editOrRemove))
+                {
+                    EditMovie.RemoveMovie();
+                }
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
                 Start();

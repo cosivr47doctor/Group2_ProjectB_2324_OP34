@@ -14,7 +14,7 @@ static class AccountsAccess
         }
         return JsonSerializer.Deserialize<List<AccountModel>>(json);
     }
-
+    
 
     public static void WriteAll(List<AccountModel> accounts)
     {

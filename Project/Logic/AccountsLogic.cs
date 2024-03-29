@@ -63,12 +63,7 @@ class AccountsLogic
             // Update the account at the found index
             accounts[index] = updatedAccount;
 
-            // Serialize the modified list of accounts
-            var options = new JsonSerializerOptions { WriteIndented = true };
-            string json = JsonSerializer.Serialize(accounts, options);
-
-            // Write the serialized JSON back to the file
-            File.WriteAllText(@"DataSources/accounts.json", json);
+            AccountsAccess.WriteAll(accounts);
         }
         else
         {
