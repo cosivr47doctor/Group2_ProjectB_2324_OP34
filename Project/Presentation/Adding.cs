@@ -90,14 +90,14 @@ static class Adding
         {
             Console.WriteLine("Enter your email address: ");
             emailAddress = Console.ReadLine();
-
-            if (emailAddress.Contains("@")&& emailAddress.Contains("."))
+            string pattern = @"^[^\.][\w\.-]+@[\w\.-]+\.[\w]+$";
+            if (emailAddress.Contains("@")&& emailAddress.Contains(".")&&Regex.IsMatch(emailAddress, pattern))
             {
-                break; 
+                break;
             }
             else
             {
-                Console.WriteLine("Invalid email address format. Please make sure your email address contains '@en.'.");
+                Console.WriteLine("Invalid email address format. Please make sure your email address contains");
             }
         }      
         string password = "";
