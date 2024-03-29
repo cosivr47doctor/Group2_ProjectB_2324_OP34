@@ -1,7 +1,8 @@
 static class UserMenu
 {
-    static public void  Start()
+    static public void Start(bool isAdmin=false)
     {
+        if (isAdmin) Console.WriteLine("Enter 0 to switch back to admin menu");
         Console.WriteLine("Enter 1 to make a reservation");
         Console.WriteLine("Enter 2 to see all available movies");
         Console.WriteLine("Enter 3 to search a movie");
@@ -11,6 +12,10 @@ static class UserMenu
         string user_input = Console.ReadLine();
         switch (user_input)
         {
+            case "0":
+                if (isAdmin) AdminMenu.Start();
+                else goto default;
+                break;
             case "1":
                 Console.WriteLine("Reservation function");
                 Search.searchMovie();

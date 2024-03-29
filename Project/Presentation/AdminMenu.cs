@@ -20,7 +20,7 @@ static class AdminMenu
         switch (user_input)
         {
             case "0":
-                UserMenu.Start();
+                UserMenu.Start(true);
                 break;
             case "1":
                 Menu.Start();
