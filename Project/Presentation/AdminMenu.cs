@@ -6,6 +6,7 @@ static class AdminMenu
     //You could edit this to show different menus depending on the user's role
     static public void Start()
     {
+        Console.WriteLine("Welcom back admin 👋");
         Console.WriteLine("Enter 1 to logout");
         Console.WriteLine("Enter 2 to do something else in the future");  // UNFINISHED
         Console.WriteLine("Enter 3 to change the status of a user");

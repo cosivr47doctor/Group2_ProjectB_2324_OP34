@@ -27,7 +27,6 @@ static class UserMenu
                 Start();
                 break;
             case "3":
-                Console.WriteLine("search function");
                 Search.searchMovie();
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
