@@ -67,14 +67,14 @@
   },
   {
     "id": 7,
-    "Name": "Titanic 3D",
+    "Name": "The Dummy Movie",
     "Genre": [
-      "Romance"
+      "Test", "Dummy"
     ],
-    "Year": 1997,
-    "Description": "Sinking Shi[",
-    "Director": "Cameroon",
-    "Duration": 200
+    "Year": 2024,
+    "Description": "We gotta know if we can reserve this movie",
+    "Director": "Thh",
+    "Duration": 55
   },
   {
     "id": 8,

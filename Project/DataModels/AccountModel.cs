@@ -24,6 +24,10 @@ class AccountModel
     [JsonPropertyName("PhoneNumber")]
     public int PhoneNumber { get; set; }
 
+    [JsonPropertyName("reservations")]
+    public Dictionary<int, string> Reservations {get; set;} = new Dictionary<int, string>();
+    // ^^^ The desired format for the string:    `Id: {?}, Title: {?}`
+
 
 
 

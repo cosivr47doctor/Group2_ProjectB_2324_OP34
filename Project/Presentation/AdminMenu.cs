@@ -6,6 +6,7 @@ static class AdminMenu
     //You could edit this to show different menus depending on the user's role
     static public void Start()
     {
+        Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -");
         Console.WriteLine("Welcom back admin 👋");
         Console.WriteLine("Enter 0 to switch to user menu");
         Console.WriteLine("Enter 1 to logout\n");
@@ -14,6 +15,9 @@ static class AdminMenu
         Console.WriteLine("Enter 3 to add food to the menu");
         Console.WriteLine("Enter 4 to add a movie");
         Console.WriteLine("Enter 5 to edit/remove a movie");
+
+        Console.WriteLine("\nEnter 'TEST_RESERVE' to test the reservation of `The Dummy Movie` works");
+        Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -\n");
 
 
         string user_input = Console.ReadLine();
@@ -67,6 +71,13 @@ static class AdminMenu
                     EditMovie.RemoveMovie();
                 }
                 Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
+                break;
+            case "TEST_RESERVE":
+                // Console.WriteLine("Please enter the name of the movie you want to reserve");  // Continues to show all movies with that title or similar
+                Reservation.ReserveMovie();
+                Console.WriteLine("Dummy movie succesfully added to reservations. Press enter to go back.");
                 Console.ReadLine();
                 Start();
                 break;

@@ -6,7 +6,8 @@
     "fullName": "Nikola Tesla",
     "isAdmin": false,
     "suspense": null,
-    "PhoneNumber": 0
+    "PhoneNumber": 0,
+    "reservations": {}
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "fullName": "Thomas Edison",
     "isAdmin": false,
     "suspense": null,
-    "PhoneNumber": 0
+    "PhoneNumber": 0,
+    "reservations": {}
   },
   {
     "id": 3,
@@ -24,7 +26,11 @@
     "fullName": "Admin Adminius",
     "isAdmin": true,
     "suspense": null,
-    "PhoneNumber": 655555555
+    "PhoneNumber": 655555555,
+    "reservations": {
+      "0": "Id: 712414, Title: Hey there, how\u0027s it going?",
+      "1": "Id: 7, Title: The Dummy Movie"
+    }
   },
   {
     "id": 4,
@@ -33,7 +39,8 @@
     "fullName": "LLoyd Love",
     "isAdmin": false,
     "suspense": null,
-    "PhoneNumber": 602060222
+    "PhoneNumber": 602060222,
+    "reservations": {}
   },
   {
     "id": 5,
@@ -42,6 +49,7 @@
     "fullName": "Dummy Dumdum",
     "isAdmin": false,
     "suspense": null,
-    "PhoneNumber": 604013025
+    "PhoneNumber": 604013025,
+    "reservations": {}
   }
 ]
