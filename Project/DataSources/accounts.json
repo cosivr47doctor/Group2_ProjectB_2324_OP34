@@ -7,7 +7,7 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 0,
-    "reservations": {}
+    "reservations": []
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 0,
-    "reservations": {}
+    "reservations": []
   },
   {
     "id": 3,
@@ -27,10 +27,24 @@
     "isAdmin": true,
     "suspense": null,
     "PhoneNumber": 655555555,
-    "reservations": {
-      "0": "Id: 712414, Title: Hey there, how\u0027s it going?",
-      "1": "Id: 7, Title: The Dummy Movie"
-    }
+    "reservations": [
+      {
+        "id": 0,
+        "movieObject": {
+          "id": 7,
+          "Name": "The Dummy Movie",
+          "Genre": [
+            "Test",
+            "Dummy"
+          ],
+          "Year": 2024,
+          "Description": "We gotta know if we can reserve this movie",
+          "Director": "Thh",
+          "Duration": 55
+        },
+        "ticketsCount": 2
+      }
+    ]
   },
   {
     "id": 4,
@@ -40,7 +54,7 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 602060222,
-    "reservations": {}
+    "reservations": []
   },
   {
     "id": 5,
@@ -50,6 +64,6 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 604013025,
-    "reservations": {}
+    "reservations": []
   }
 ]

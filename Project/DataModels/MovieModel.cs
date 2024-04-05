@@ -37,4 +37,18 @@ class MovieModel
         Duration = duration;
     }
 
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+        {
+            return false;
+        }
+        MovieModel other = (MovieModel)obj;
+        return Id == other.Id && Name == other.Name;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Id, Name); // Adjust as necessary
+    }
 }

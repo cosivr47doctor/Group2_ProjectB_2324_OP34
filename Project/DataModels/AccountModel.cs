@@ -25,13 +25,13 @@ class AccountModel
     public int PhoneNumber { get; set; }
 
     [JsonPropertyName("reservations")]
-    public Dictionary<int, string> Reservations {get; set;} = new Dictionary<int, string>();
+    public List<ReservationModel> Reservations {get; set;} = new List<ReservationModel>();
     // ^^^ The desired format for the string:    `Id: {?}, Title: {?}`
 
 
 
 
-    public AccountModel(int id, string emailAddress, string password, string fullName,int phoneNumber)
+    public AccountModel(int id, string emailAddress, string password, string fullName, int phoneNumber)
     {
         Id = id;
         EmailAddress = emailAddress;
