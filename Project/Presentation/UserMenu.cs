@@ -19,7 +19,7 @@ static class UserMenu
             case "1":
                 Menu.Start();
                 break;
-            case "2":
+            case "3":
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
@@ -33,7 +33,7 @@ static class UserMenu
                 Console.ReadLine();
                 Start();
                 break;
-            case "i":
+            case "5":
                 Console.WriteLine("Reservation history function");
                 Search.searchMovie();
                 Console.WriteLine("");
@@ -41,9 +41,12 @@ static class UserMenu
                 Console.ReadLine();
                 Start();
                 break;
-            case "5":
-                Console.WriteLine("Reservation function");
-                Search.searchMovie();
+            case "2":
+                Console.WriteLine("Enter the name of the movie you want to reserve:");
+                string movieToReserve = Console.ReadLine();
+                Reservation.ReserveMovie(movieToReserve);
+                Console.WriteLine($"Successfully reserved the movie: {movieToReserve}");
+                
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
