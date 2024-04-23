@@ -51,7 +51,7 @@ static class UserMenu
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
-                Start();
+                Start(accId);
                 break;
             default:
                 Console.WriteLine("Invalid input");

@@ -1,47 +1,49 @@
 static class Reservation
 {
-    public static void ReserveMovie(string userInput="TEST", int intUserAccountId = 3)
+    public static void ReserveMovie(string userInput = "TEST", int intUserAccountId = 1)
     {
+        Console.WriteLine($"{userInput} + {intUserAccountId}");
         MovieLogic objMovieLogic = new();
         MovieModel foundMovie = null;
-        if (userInput == "TEST") {foundMovie = objMovieLogic.GetBySearch("The Dummy Movie");}
-        else {foundMovie = objMovieLogic.GetBySearch(userInput);}
-
-        AccountsLogic objAccountLogic = new();
-        AccountModel adminAccount = objAccountLogic.GetByArg(intUserAccountId);
-
-        int index = adminAccount.Reservations.Count;  // This makes the index of the reservation
-        ReservationModel reservationModel = null;
-
-        if (index > 0)
+        if (userInput == "TEST")
         {
-            foreach (ReservationModel resMod in adminAccount.Reservations)
-            {
-                if (resMod.ObjMovieModel.Equals(foundMovie))
-                {
-                    if (resMod.TicketsCount < 8)
-                    {
-                        adminAccount.Reservations[index - 1].TicketsCount += 1;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Maximum number of seats reached for this movie.");
-                        return;
-                    }
-                }
-                else
-                {
-                    reservationModel = new(index, foundMovie, 1);
-                    adminAccount.Reservations.Add(reservationModel);
-                }
-            }
+            foundMovie = objMovieLogic.GetBySearch("The Dummy Movie");
         }
         else
         {
-            reservationModel = new(index, foundMovie, 1);  // Index, MovieModel, TicketsCount
-            adminAccount.Reservations.Add(reservationModel);
+            foundMovie = objMovieLogic.GetBySearch(userInput);
         }
 
-        objAccountLogic.UpdateList(adminAccount);
+        AccountsLogic objAccountLogic = new();
+        AccountModel acc = objAccountLogic.GetByArg(intUserAccountId);
+
+        bool reservationFound = false;
+
+        foreach (ReservationModel resMod in acc.Reservations)
+        {
+            if (resMod.ObjMovieModel.Equals(foundMovie))
+            {
+                if (resMod.TicketsCount < 8)
+                {
+                    resMod.TicketsCount += 1;
+                    reservationFound = true;
+                    break; // No need to continue searching
+                }
+                else
+                {
+                    Console.WriteLine("Maximum number of seats reached for this movie.");
+                    return;
+                }
+            }
+        }
+
+        if (!reservationFound)
+        {
+            int index = acc.Reservations.Count;
+            ReservationModel reservationModel = new ReservationModel(index, foundMovie, 1);
+            acc.Reservations.Add(reservationModel);
+        }
+
+        objAccountLogic.UpdateList(acc);
     }
 }

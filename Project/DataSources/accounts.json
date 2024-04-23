@@ -11,6 +11,67 @@
       {
         "id": 0,
         "movieObject": {
+          "id": 7,
+          "Name": "The Dummy Movie",
+          "Genre": [
+            "Test",
+            "Dummy"
+          ],
+          "Year": 2024,
+          "Description": "We gotta know if we can reserve this movie",
+          "Director": "Thh",
+          "Duration": 55
+        },
+        "ticketsCount": 2
+      },
+      {
+        "id": 1,
+        "movieObject": {
+          "id": 2,
+          "Name": "The Shawshank Redemption",
+          "Genre": [
+            "Drama"
+          ],
+          "Year": 1994,
+          "Description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+          "Director": "Frank Darabont",
+          "Duration": 142
+        },
+        "ticketsCount": 2
+      },
+      {
+        "id": 2,
+        "movieObject": {
+          "id": 1,
+          "Name": "Inception",
+          "Genre": [
+            "Science Fiction"
+          ],
+          "Year": 2010,
+          "Description": "A thief who enters the dreams of others to steal their secrets from their subconscious.",
+          "Director": "Christopher Nolan",
+          "Duration": 148
+        },
+        "ticketsCount": 3
+      },
+      {
+        "id": 3,
+        "movieObject": {
+          "id": 6,
+          "Name": "ChangeMovieTitleTest2",
+          "Genre": [
+            "ChangeMovieTitleTest2"
+          ],
+          "Year": 2024,
+          "Description": "Testing whether the description will be changed... again",
+          "Director": "Thh",
+          "Duration": 120
+        },
+        "ticketsCount": 1
+      },
+      {
+        "id": 4,
+        "movieObject": {
           "id": 5,
           "Name": "The Boy",
           "Genre": [
@@ -43,6 +104,49 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 604013025,
-    "reservations": []
+    "reservations": [
+      {
+        "id": 0,
+        "movieObject": {
+          "id": 7,
+          "Name": "The Dummy Movie",
+          "Genre": [
+            "Test",
+            "Dummy"
+          ],
+          "Year": 2024,
+          "Description": "We gotta know if we can reserve this movie",
+          "Director": "Thh",
+          "Duration": 55
+        },
+        "ticketsCount": 2
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "emailAddress": "thh@gmail.com",
+    "password": "$2a$11$2Vkt6DkfavEI0DOWEosT0OYEioQo1UFHhX8FYhDJ2SRRgFKQ6JVHq",
+    "fullName": "Taha Abbady",
+    "isAdmin": false,
+    "suspense": null,
+    "PhoneNumber": 613366777,
+    "reservations": [
+      {
+        "id": 0,
+        "movieObject": {
+          "id": 2,
+          "Name": "The Shawshank Redemption",
+          "Genre": [
+            "Drama"
+          ],
+          "Year": 1994,
+          "Description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+          "Director": "Frank Darabont",
+          "Duration": 142
+        },
+        "ticketsCount": 1
+      }
+    ]
   }
 ]

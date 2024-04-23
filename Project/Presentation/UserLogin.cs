@@ -22,11 +22,11 @@ static class UserLogin
             //Menu.Start();
             if (acc.isAdmin)
             {
-                AdminMenu.Start();
+                AdminMenu.Start(acc.Id);
             }
             else
             {
-                UserMenu.Start();
+                UserMenu.Start(acc.Id);
             }
         }
     }
