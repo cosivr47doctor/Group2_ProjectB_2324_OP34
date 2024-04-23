@@ -46,6 +46,10 @@ static class AdminMenu
                         obj_AccountsLogic.ChangeUserStatus(change_user_status_input, find_by_input);
                     }
                 }
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
+
                 break;
             case "3":
                 Adding.addFood();

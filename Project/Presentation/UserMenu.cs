@@ -42,7 +42,8 @@ static class UserMenu
                 Start();
                 break;
             case "2":
-                Console.WriteLine("Enter the name of the movie you want to reserve:");
+                SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
+                Console.WriteLine("Enter the id of the movie you want to reserve:");
                 string movieToReserve = Console.ReadLine();
                 Reservation.ReserveMovie(movieToReserve);
                 Console.WriteLine($"Successfully reserved the movie: {movieToReserve}");
