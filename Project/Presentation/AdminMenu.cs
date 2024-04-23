@@ -4,7 +4,7 @@ static class AdminMenu
     //This shows the menu. You can call back to this method to show the menu again
     //after another presentation method is completed.
     //You could edit this to show different menus depending on the user's role
-    static public void Start()
+    static public void Start(int accId=0)
     {
         Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -");
         Console.WriteLine("Welcom back admin 👋");
@@ -24,7 +24,7 @@ static class AdminMenu
         switch (user_input)
         {
             case "0":
-                UserMenu.Start(true);
+                UserMenu.Start(accId, true);
                 break;
             case "1":
                 Menu.Start();

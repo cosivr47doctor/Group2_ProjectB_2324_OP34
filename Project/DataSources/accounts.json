@@ -1,26 +1,6 @@
 [
   {
     "id": 1,
-    "emailAddress": "n@b.c",
-    "password": "xyz",
-    "fullName": "Nikola Tesla",
-    "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 0,
-    "reservations": []
-  },
-  {
-    "id": 2,
-    "emailAddress": "t@b.c",
-    "password": "xyz",
-    "fullName": "Thomas Edison",
-    "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 0,
-    "reservations": []
-  },
-  {
-    "id": 3,
     "emailAddress": "admin@gmail.com",
     "password": "$2a$11$dSgFmDzvGZ4XLgTzkO.LauyG/P2Fe9cG6ZiHt4g6tP5GFqmH83YR.",
     "fullName": "Admin Adminius",
@@ -31,23 +11,22 @@
       {
         "id": 0,
         "movieObject": {
-          "id": 7,
-          "Name": "The Dummy Movie",
+          "id": 5,
+          "Name": "The Boy",
           "Genre": [
-            "Test",
-            "Dummy"
+            "Horror"
           ],
-          "Year": 2024,
-          "Description": "We gotta know if we can reserve this movie",
-          "Director": "Thh",
-          "Duration": 55
+          "Year": 2016,
+          "Description": "An American nanny is shocked that her new English family\u0027s boy is actually a life-sized doll. After she violates a list of strict rules, disturbing events make her believe that the doll is really alive. Greta Evans, a young American from Montana, is hired as a nanny by the Heelshires.",
+          "Director": "Project B Team B/2",
+          "Duration": 97
         },
-        "ticketsCount": 2
+        "ticketsCount": 1
       }
     ]
   },
   {
-    "id": 4,
+    "id": 2,
     "emailAddress": "lloydlove@love.nl",
     "password": "$2a$11$x5XDkIo0DjAM6dHsFfYV5ewUnzQFiPr4SyT/bfy.407UYS831H3Ca",
     "fullName": "LLoyd Love",
@@ -57,7 +36,7 @@
     "reservations": []
   },
   {
-    "id": 5,
+    "id": 3,
     "emailAddress": "dummy@dummy.com",
     "password": "$2a$11$/MCrhMlAKlF7vPAu4km/YOIAWf/e.Ep6eCHQZb.2m3j7CbkPcekhO",
     "fullName": "Dummy Dumdum",

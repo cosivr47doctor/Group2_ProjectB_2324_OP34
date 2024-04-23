@@ -1,6 +1,6 @@
 static class Reservation
 {
-    public static void ReserveMovie(string userInput="TEST", string userAccountId = "3")
+    public static void ReserveMovie(string userInput="TEST", int intUserAccountId = 3)
     {
         MovieLogic objMovieLogic = new();
         MovieModel foundMovie = null;
@@ -8,7 +8,6 @@ static class Reservation
         else {foundMovie = objMovieLogic.GetBySearch(userInput);}
 
         AccountsLogic objAccountLogic = new();
-        int intUserAccountId = Convert.ToInt32(userAccountId);
         AccountModel adminAccount = objAccountLogic.GetByArg(intUserAccountId);
 
         int index = adminAccount.Reservations.Count;  // This makes the index of the reservation

@@ -1,6 +1,6 @@
 static class UserMenu
 {
-    static public void Start(bool isAdmin=false)
+    static public void Start(int accId=0, bool isAdmin=false)
     {
         if (isAdmin) Console.WriteLine("Enter 0 to switch back to admin menu");
         Console.WriteLine("Enter 1 to logout\n");
@@ -13,7 +13,7 @@ static class UserMenu
         switch (user_input)
         {
             case "0":
-                if (isAdmin) AdminMenu.Start();
+                if (isAdmin) AdminMenu.Start(accId);
                 else goto default;
                 break;
             case "1":
@@ -45,7 +45,7 @@ static class UserMenu
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("Enter the id of the movie you want to reserve:");
                 string movieToReserve = Console.ReadLine();
-                Reservation.ReserveMovie(movieToReserve);
+                Reservation.ReserveMovie(movieToReserve, accId);
                 Console.WriteLine($"Successfully reserved the movie: {movieToReserve}");
                 
                 Console.WriteLine("");
