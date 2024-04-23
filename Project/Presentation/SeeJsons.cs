@@ -30,7 +30,7 @@ public static class SeeJsons
         {
             Console.WriteLine($"Id: {movie.Id}");
             Console.WriteLine($"Name: {movie.Name}");
-            Console.WriteLine($"Genre: {movie.Genre}");
+            Console.WriteLine($"Genre: {string.Join(", ", movie.Genre)}");
             Console.WriteLine($"Year: {movie.Year}");
             Console.WriteLine($"Description: {movie.Description}");
             Console.WriteLine($"Director: {movie.Director}");
