@@ -5,4 +5,4 @@
 // FillJsons.FillFoodJson(@"DataSources/food.json");
 // FillJsons.FillMoviesJson(@"DataSources/movies.json");
 
-Menu.Start();
+MainMenu.Start();

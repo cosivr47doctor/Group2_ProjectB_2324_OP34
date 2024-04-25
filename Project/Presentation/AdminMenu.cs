@@ -27,7 +27,7 @@ static class AdminMenu
                 UserMenu.Start(accId, true);
                 break;
             case "1":
-                Menu.Start();
+                MainMenu.Start();
                 break;
             case "2":
                 AccountsLogic obj_AccountsLogic = new();

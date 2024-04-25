@@ -10,79 +10,38 @@
     "reservations": [
       {
         "id": 0,
-        "movieObject": {
-          "id": 7,
-          "Name": "The Dummy Movie",
-          "Genre": [
-            "Test",
-            "Dummy"
-          ],
-          "Year": 2024,
-          "Description": "We gotta know if we can reserve this movie",
-          "Director": "Thh",
-          "Duration": 55
-        },
-        "ticketsCount": 2
+        "name": null,
+        "ticketsCount": 2,
+        "price": 0,
+        "seats": null
       },
       {
         "id": 1,
-        "movieObject": {
-          "id": 2,
-          "Name": "The Shawshank Redemption",
-          "Genre": [
-            "Drama"
-          ],
-          "Year": 1994,
-          "Description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-          "Director": "Frank Darabont",
-          "Duration": 142
-        },
-        "ticketsCount": 2
+        "name": null,
+        "ticketsCount": 2,
+        "price": 0,
+        "seats": null
       },
       {
         "id": 2,
-        "movieObject": {
-          "id": 1,
-          "Name": "Inception",
-          "Genre": [
-            "Science Fiction"
-          ],
-          "Year": 2010,
-          "Description": "A thief who enters the dreams of others to steal their secrets from their subconscious.",
-          "Director": "Christopher Nolan",
-          "Duration": 148
-        },
-        "ticketsCount": 3
+        "name": null,
+        "ticketsCount": 3,
+        "price": 0,
+        "seats": null
       },
       {
         "id": 3,
-        "movieObject": {
-          "id": 6,
-          "Name": "ChangeMovieTitleTest2",
-          "Genre": [
-            "ChangeMovieTitleTest2"
-          ],
-          "Year": 2024,
-          "Description": "Testing whether the description will be changed... again",
-          "Director": "Thh",
-          "Duration": 120
-        },
-        "ticketsCount": 1
+        "name": null,
+        "ticketsCount": 1,
+        "price": 0,
+        "seats": null
       },
       {
         "id": 4,
-        "movieObject": {
-          "id": 5,
-          "Name": "The Boy",
-          "Genre": [
-            "Horror"
-          ],
-          "Year": 2016,
-          "Description": "An American nanny is shocked that her new English family\u0027s boy is actually a life-sized doll. After she violates a list of strict rules, disturbing events make her believe that the doll is really alive. Greta Evans, a young American from Montana, is hired as a nanny by the Heelshires.",
-          "Director": "Project B Team B/2",
-          "Duration": 97
-        },
-        "ticketsCount": 1
+        "name": null,
+        "ticketsCount": 1,
+        "price": 0,
+        "seats": null
       }
     ]
   },
@@ -107,19 +66,10 @@
     "reservations": [
       {
         "id": 0,
-        "movieObject": {
-          "id": 7,
-          "Name": "The Dummy Movie",
-          "Genre": [
-            "Test",
-            "Dummy"
-          ],
-          "Year": 2024,
-          "Description": "We gotta know if we can reserve this movie",
-          "Director": "Thh",
-          "Duration": 55
-        },
-        "ticketsCount": 2
+        "name": null,
+        "ticketsCount": 2,
+        "price": 0,
+        "seats": null
       }
     ]
   },
@@ -134,18 +84,95 @@
     "reservations": [
       {
         "id": 0,
-        "movieObject": {
-          "id": 2,
-          "Name": "The Shawshank Redemption",
-          "Genre": [
-            "Drama"
-          ],
-          "Year": 1994,
-          "Description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-          "Director": "Frank Darabont",
-          "Duration": 142
-        },
-        "ticketsCount": 1
+        "name": null,
+        "ticketsCount": 1,
+        "price": 0,
+        "seats": null
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "emailAddress": "jayU@gmail.com",
+    "password": "$2a$11$9rUtP8ad806v1pNNnSvu1eyucVc78XXcPFy1hzqfmL/QeRrU6j6Sq",
+    "fullName": "jay",
+    "isAdmin": false,
+    "suspense": null,
+    "PhoneNumber": 612345678,
+    "reservations": [
+      {
+        "id": 1,
+        "name": "Inception",
+        "ticketsCount": 4,
+        "price": 12,
+        "seats": null
+      },
+      {
+        "id": 2,
+        "name": "The Shawshank Redemption",
+        "ticketsCount": 2,
+        "price": 24,
+        "seats": null
+      },
+      {
+        "id": 3,
+        "name": "The Godfather",
+        "ticketsCount": 3,
+        "price": 36,
+        "seats": null
+      },
+      {
+        "id": 4,
+        "name": "Inception",
+        "ticketsCount": 1,
+        "price": 12,
+        "seats": null
+      },
+      {
+        "id": 5,
+        "name": "The Boy",
+        "ticketsCount": 3,
+        "price": 36,
+        "seats": null
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "emailAddress": "jaya@gmail.com",
+    "password": "$2a$11$x1X.eH4D3pWfCSNfJFBQF.ZcAX2Ci/GjSMI3Io6pQohw.1D/qkYH2",
+    "fullName": "henk jan",
+    "isAdmin": false,
+    "suspense": null,
+    "PhoneNumber": 612345678,
+    "reservations": [
+      {
+        "id": 1,
+        "name": "Inception",
+        "ticketsCount": 1,
+        "price": 12,
+        "seats": null
+      },
+      {
+        "id": 2,
+        "name": "Inception",
+        "ticketsCount": 1,
+        "price": 12,
+        "seats": null
+      },
+      {
+        "id": 3,
+        "name": "The Shawshank Redemption",
+        "ticketsCount": 2,
+        "price": 24,
+        "seats": null
+      },
+      {
+        "id": 4,
+        "name": "Inception",
+        "ticketsCount": 5,
+        "price": 60,
+        "seats": null
       }
     ]
   }

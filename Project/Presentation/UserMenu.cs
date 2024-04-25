@@ -3,7 +3,7 @@ static class UserMenu
     static public void Start(int accId=0, bool isAdmin=false)
     {
         if (isAdmin) Console.WriteLine("Enter 0 to switch back to admin menu");
-        Console.WriteLine("Enter 1 to logout\n");
+        Console.WriteLine("Enter 1 to logout");
         Console.WriteLine("Enter 2 to make a reservation");
         Console.WriteLine("Enter 3 to see all available movies");
         Console.WriteLine("Enter 4 to search a movie");
@@ -17,7 +17,7 @@ static class UserMenu
                 else goto default;
                 break;
             case "1":
-                Menu.Start();
+                MainMenu.Start();
                 break;
             case "3":
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
@@ -35,7 +35,8 @@ static class UserMenu
                 break;
             case "5":
                 Console.WriteLine("Reservation history function");
-                Search.searchMovie();
+                Console.WriteLine("");
+                ResvDetails.ResvHistory(accId);
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
@@ -43,11 +44,9 @@ static class UserMenu
                 break;
             case "2":
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
-                Console.WriteLine("Enter the id of the movie you want to reserve:");
-                string movieToReserve = Console.ReadLine();
-                Reservation.ReserveMovie(movieToReserve, accId);
-                Console.WriteLine($"Successfully reserved the movie: {movieToReserve}");
-                
+                Console.WriteLine("");
+                Reservation.ReserveMovie(accId);
+
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();

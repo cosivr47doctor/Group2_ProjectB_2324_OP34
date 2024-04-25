@@ -45,7 +45,6 @@ class MovieLogic
 
     public MovieModel GetBySearch(string searchBy)
     {
-        //Only gets one result for now
         string searchLower = searchBy.ToLower();
 
         return _movie.Find(movie =>
@@ -53,6 +52,15 @@ class MovieLogic
             movie.Year.ToString() == searchBy ||
             movie.Name.ToLower().Contains(searchLower) ||  // This is unhandy in case of movies with duplicate names
             movie.Director.ToLower().Contains(searchLower));  // This is unhandy in case of movies with duplicate directors
+    }
+
+    public MovieModel SelectForResv(string searchBy)
+    {
+        string searchLower = searchBy.ToLower();
+
+        return _movie.Find(movie =>
+            movie.Id.ToString() == searchBy ||
+            movie.Name.ToLower().Contains(searchLower));  // This is unhandy in case of movies with duplicate directors
     }
 
     public void ChangeMovie(string searchBy)

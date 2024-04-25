@@ -4,7 +4,7 @@ public class PasswordInput
 {
     public static string InputPassword()
     {
-        Console.WriteLine("Enter password: ");
+       //Console.WriteLine("Enter password: ");
         // the password should be asterisks in the console
         string password = "";
         ConsoleKeyInfo key;

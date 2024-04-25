@@ -1,49 +1,76 @@
 static class Reservation
 {
-    public static void ReserveMovie(string userInput = "TEST", int intUserAccountId = 1)
+    public static void ReserveMovie(int intUserAccountId = 1)
     {
-        Console.WriteLine($"{userInput} + {intUserAccountId}");
-        MovieLogic objMovieLogic = new();
-        MovieModel foundMovie = null;
-        if (userInput == "TEST")
+        Console.Write("Enter the name or id of the movie: ");
+        string userInput = Console.ReadLine();
+
+        if (string.IsNullOrEmpty(userInput))
         {
-            foundMovie = objMovieLogic.GetBySearch("The Dummy Movie");
+            Console.WriteLine("Please enter the name or id of the movie.");
+            return;
         }
-        else
+
+        MovieLogic objMovieLogic = new();
+        MovieModel foundMovie = objMovieLogic.SelectForResv(userInput);
+
+        if (foundMovie == null)
         {
-            foundMovie = objMovieLogic.GetBySearch(userInput);
+            Console.WriteLine("Movie not found.");
+            return;
         }
 
         AccountsLogic objAccountLogic = new();
         AccountModel acc = objAccountLogic.GetByArg(intUserAccountId);
 
-        bool reservationFound = false;
-
-        foreach (ReservationModel resMod in acc.Reservations)
+        int ticketCount;
+        while (true)
         {
-            if (resMod.ObjMovieModel.Equals(foundMovie))
+            Console.WriteLine("Price per ticket: 12,-");
+            Console.Write("Enter the amount of tickets (1-8): ");
+            string ticketInput = Console.ReadLine();
+            if (int.TryParse(ticketInput, out ticketCount))
             {
-                if (resMod.TicketsCount < 8)
-                {
-                    resMod.TicketsCount += 1;
-                    reservationFound = true;
-                    break; // No need to continue searching
-                }
-                else
-                {
-                    Console.WriteLine("Maximum number of seats reached for this movie.");
-                    return;
-                }
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input, enter a valid number (1-8)");
             }
         }
 
-        if (!reservationFound)
+        //foreach (ReservationModel resMod in acc.Reservations)
+        
+            //if (resMod.ObjMovieModel.Equals(foundMovie))
+        bool reservationFound = false;
+        if (ticketCount <= 8)
         {
-            int index = acc.Reservations.Count;
-            ReservationModel reservationModel = new ReservationModel(index, foundMovie, 1);
-            acc.Reservations.Add(reservationModel);
+            reservationFound = true;
         }
+        else
+        {
+            Console.WriteLine("Maximum number of seats reached for this movie.");
+            return;
+        }
+        
+        
 
-        objAccountLogic.UpdateList(acc);
+        if (reservationFound)
+        {
+            decimal price = ticketCount * 12;
+            int index = acc.Reservations.Count + 1;
+            ReservationModel reservationModel = new ReservationModel(index, foundMovie.Name, ticketCount, price, null);
+            acc.Reservations.Add(reservationModel);
+            objAccountLogic.UpdateList(acc);
+            Console.WriteLine("Reservation successfull");
+            Console.WriteLine("");
+            Console.WriteLine("Press enter to see the reservation confirmation");
+            Console.ReadLine();
+            ResvDetails.ResvConfirmation(intUserAccountId, index);
+        }
+        else
+        {
+            Console.WriteLine("error, something went wrong");
+        }
     }
 }
