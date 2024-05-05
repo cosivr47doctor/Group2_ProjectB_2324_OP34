@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
+using System.Text;
 
 class MovieScheduleModel
 {
@@ -26,6 +27,21 @@ class MovieScheduleModel
         Room = room;
         Date = date;
         Time = time;
+    }
+
+    public override string ToString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine($"ID: {Id}");
+        sb.AppendLine($"Room: {Room}");
+        sb.AppendLine($"Date: {Date.ToString("yyyy-MM-dd")}");
+        foreach (var kvp in Time)
+        {
+            string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
+            string movieDetails = string.Join(", ", kvp.Value.Select(movie => movie.Name)); // Extract movie names
+            sb.AppendLine($"Timeslot: {timeslot}, Movies: {movieDetails}");
+        }
+        return sb.ToString();
     }
 
     /*

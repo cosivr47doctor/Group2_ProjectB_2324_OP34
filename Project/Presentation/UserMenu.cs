@@ -1,3 +1,4 @@
+using System.Globalization;
 static class UserMenu
 {
     static public void Start(int accId=0, bool isAdmin=false)
@@ -38,7 +39,38 @@ static class UserMenu
                 Start();
                 break;
             case "4":
-                SeeJsons.PrintSchedulesJson("@DateSources/moviesSchedule.json");
+                MovieSchedulingLogic objMovieSchedulingLogic = new();
+                Console.WriteLine(@"Make a choice:
+See entire schedule [0]
+See schedule for a specific date [1]
+See schedule for up until a specific date [2]
+See schedule for specific range of dates [3]");
+                string seeScheduleInput = Console.ReadLine();
+                switch (seeScheduleInput)
+                {
+                    case "0":
+                        SeeJsons.PrintSchedulesJson("@DateSources/moviesSchedule.json");
+                        break;
+                    case "1":
+                        string specificDateInput = ConsoleE.Input("Which date? (yyyy-MM-dd)");
+                        objMovieSchedulingLogic.Print(specificDateInput);
+                        Start();
+                        break;
+                    case "2":
+                        string untilSpecificDateInput = ConsoleE.Input("Until which date? (yyyy-MM-dd)");
+                        objMovieSchedulingLogic.Print(untilSpecificDateInput);
+                        Start();
+                        break;
+                    case "3":
+                        string dateRangesInput = ConsoleE.Input("Which dates? (yyyy-MM-dd); comma separated (,)");
+                        objMovieSchedulingLogic.Print(dateRangesInput);
+                        Start();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input");
+                        Start();
+                        break;
+                }
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();

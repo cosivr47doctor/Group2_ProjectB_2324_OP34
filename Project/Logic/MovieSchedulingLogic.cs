@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Globalization;
 class MovieSchedulingLogic
 {
     private List<MovieScheduleModel> _movieSchedule;
@@ -136,5 +136,54 @@ class MovieSchedulingLogic
     public void ManualRescheduleList()
     {
         throw new NotImplementedException("This method has not been implemented yet.");
+    }
+
+    public void Print(string date)
+    {
+        if (date.Contains(","))
+        {
+            string[] dateRanges = date.Split(",");
+            if (dateRanges.Length == 2) Print(dateRanges);
+            else Console.WriteLine("Invalid input");
+        }
+        else
+        {
+            DateTime parsedDate;
+            if (DateTime.TryParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+            {
+                foreach(MovieScheduleModel movieSchedule in _movieSchedule)
+                {
+                    if (movieSchedule.Date == parsedDate) Console.WriteLine(movieSchedule);
+                }
+            }
+            else Console.WriteLine("Invalid input");
+        }
+    }
+
+    public void Print(DateTime dateTimeToday, string untilDate)
+    {
+        DateTime parsedDate;
+        if (DateTime.TryParseExact(untilDate, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+        {
+            SeeJsons.PrintSchedulesJson("@DateSources/moviesSchedule.json", dateTimeToday, parsedDate);
+        }
+        else Console.WriteLine("Invalid input"); return;
+    }
+
+    public void Print(string[] dateRanges)
+    {
+        DateTime[] parsedDates = new DateTime[2];
+        foreach (string date in dateRanges)
+        {
+            DateTime parsedDate;
+            int i = 0;
+            if (DateTime.TryParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+            {
+                parsedDates[i] = parsedDate;
+            }
+            else Console.WriteLine("Invalid input"); return;
+        }
+
+        SeeJsons.PrintSchedulesJson("@DateSources/moviesSchedule.json", parsedDates[0], parsedDates[1]);
     }
 }

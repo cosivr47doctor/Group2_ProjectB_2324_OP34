@@ -40,24 +40,47 @@ public static class SeeJsons
         }
     }
 
-    public static void PrintSchedulesJson(string filePath)
+    public static void PrintSchedulesJson(string filePath, DateTime? fromDate = null, DateTime? untilDate = null)
     {
         Console.WriteLine("Movies schedule:");
         Console.WriteLine("-----------------------------------");
 
-        foreach (var schedule in movieSchedulingLogic.movieSchedules)
+        if (fromDate is null && untilDate is null)
         {
-            Console.WriteLine($"Id: {schedule.Id}");
-            Console.WriteLine($"Room: {schedule.Room}");
-            Console.WriteLine($"Date: {string.Join(", ", schedule.Date.ToString("d"))}");
-            foreach (var kvp in schedule.Time)
+            foreach (var schedule in movieSchedulingLogic.movieSchedules)
             {
-                string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
-                string movieDetails = string.Join(", ", kvp.Value.Select(movie => movie.Name)); // Extract movie names
+                Console.WriteLine($"Id: {schedule.Id}");
+                Console.WriteLine($"Room: {schedule.Room}");
+                Console.WriteLine($"Date: {string.Join(", ", schedule.Date.ToString("d"))}");
+                foreach (var kvp in schedule.Time)
+                {
+                    string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
+                    string movieDetails = string.Join(", ", kvp.Value.Select(movie => movie.Name)); // Extract movie names
 
-                Console.WriteLine($"Timeslot: {timeslot}, Movies: {movieDetails}");
+                    Console.WriteLine($"Timeslot: {timeslot}, Movies: {movieDetails}");
+                }
+                Console.WriteLine("-----------------------------------");
             }
-            Console.WriteLine("-----------------------------------");
+        }
+        else
+        {
+            foreach (var schedule in movieSchedulingLogic.movieSchedules)
+            {
+                if (schedule.Date >= fromDate.Value && schedule.Date <= untilDate.Value)
+                {
+                    Console.WriteLine($"Id: {schedule.Id}");
+                    Console.WriteLine($"Room: {schedule.Room}");
+                    Console.WriteLine($"Date: {string.Join(", ", schedule.Date.ToString("d"))}");
+                    foreach (var kvp in schedule.Time)
+                    {
+                        string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
+                        string movieDetails = string.Join(", ", kvp.Value.Select(movie => movie.Name)); // Extract movie names
+
+                        Console.WriteLine($"Timeslot: {timeslot}, Movies: {movieDetails}");
+                    }
+                    Console.WriteLine("-----------------------------------");
+                }
+            }
         }
     }
     
