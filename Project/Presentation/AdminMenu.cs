@@ -6,6 +6,8 @@ static class AdminMenu
     //You could edit this to show different menus depending on the user's role
     static public void Start(int accId=0)
     {
+        AccountsLogic objAccountsLogic = new AccountsLogic(); objAccountsLogic.StartupUpdateList();
+        
         Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -");
         Console.WriteLine("Welcom back admin 👋");
         Console.WriteLine("Enter 0 to switch to user menu");
@@ -16,7 +18,6 @@ static class AdminMenu
         Console.WriteLine("Enter 4 to add a movie");
         Console.WriteLine("Enter 5 to edit/remove a movie");
 
-        Console.WriteLine("\nEnter 'TEST_RESERVE' to test the reservation of `The Dummy Movie` works");
         Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -\n");
 
 

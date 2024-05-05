@@ -6,8 +6,9 @@ static class UserMenu
         Console.WriteLine("Enter 1 to logout");
         Console.WriteLine("Enter 2 to make a reservation");
         Console.WriteLine("Enter 3 to see all available movies");
-        Console.WriteLine("Enter 4 to search a movie");
-        Console.WriteLine("Enter 5 to see reservation history");
+        Console.WriteLine("Enter 4 to see the movies schedule");
+        Console.WriteLine("Enter 5 to search a movie");
+        Console.WriteLine("Enter 6 to see reservation history");
 
         string user_input = Console.ReadLine();
         switch (user_input)
@@ -19,29 +20,6 @@ static class UserMenu
             case "1":
                 MainMenu.Start();
                 break;
-            case "3":
-                SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
-                Console.WriteLine("");
-                Console.WriteLine("Press enter to go back.");
-                Console.ReadLine();
-                Start();
-                break;
-            case "4":
-                Search.searchMovie();
-                Console.WriteLine("");
-                Console.WriteLine("Press enter to go back.");
-                Console.ReadLine();
-                Start();
-                break;
-            case "5":
-                Console.WriteLine("Reservation history function");
-                Console.WriteLine("");
-                ResvDetails.ResvHistory(accId);
-                Console.WriteLine("");
-                Console.WriteLine("Press enter to go back.");
-                Console.ReadLine();
-                Start();
-                break;
             case "2":
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("");
@@ -51,6 +29,36 @@ static class UserMenu
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
                 Start(accId);
+                break;
+            case "3":
+                SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
+                Console.WriteLine("");
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
+                break;
+            case "4":
+                SeeJsons.PrintSchedulesJson("@DateSources/moviesSchedule.json");
+                Console.WriteLine("");
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
+                break;
+            case "5":
+                Search.searchMovie();
+                Console.WriteLine("");
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
+                break;
+            case "6":
+                Console.WriteLine("Reservation history function");
+                Console.WriteLine("");
+                ResvDetails.ResvHistory(accId);
+                Console.WriteLine("");
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start();
                 break;
             default:
                 Console.WriteLine("Invalid input");
