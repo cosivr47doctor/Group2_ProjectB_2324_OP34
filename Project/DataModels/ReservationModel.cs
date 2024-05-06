@@ -20,9 +20,17 @@ class ReservationModel
     [JsonPropertyName("seats")]
     public string Seats {get; set;}
 
-    public ReservationModel()
+    [JsonPropertyName("TotalPrice")]
+    public decimal TotalPrice {get; set;}
+
+
+
+    public ReservationModel(int id, FoodModel name, decimal totalprice) //FoodModel
     {
+        Id = id;
+        TotalPrice = totalprice;
     }
+
     public ReservationModel(int id, string name, int ticketsCount, decimal price, string seats) //MovieModel movieModel
     {
         Id = id;

@@ -42,6 +42,13 @@
         "ticketsCount": 1,
         "price": 0,
         "seats": null
+      },
+      {
+        "id": 6,
+        "name": "The Shawshank Redemption",
+        "ticketsCount": 2,
+        "price": 24,
+        "seats": null
       }
     ]
   },

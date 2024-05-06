@@ -6,10 +6,11 @@ static class UserMenu
         if (isAdmin) Console.WriteLine("Enter 0 to switch back to admin menu");
         Console.WriteLine("Enter 1 to logout");
         Console.WriteLine("Enter 2 to make a reservation");
-        Console.WriteLine("Enter 3 to see all available movies");
-        Console.WriteLine("Enter 4 to see the movies schedule");
-        Console.WriteLine("Enter 5 to search a movie");
-        Console.WriteLine("Enter 6 to see reservation history");
+        Console.WriteLine("Enter 3 to order some food");
+        Console.WriteLine("Enter 4 to see all available movies");
+        Console.WriteLine("Enter 5 to see the movies schedule");
+        Console.WriteLine("Enter 6 to search a movie");
+        Console.WriteLine("Enter 7 to see reservation history");
 
         string user_input = Console.ReadLine();
         switch (user_input)
@@ -32,13 +33,22 @@ static class UserMenu
                 Start(accId);
                 break;
             case "3":
+                SeeJsons.PrintFoodJson(@"DataSources/food.json");
+                Reservation.ReserveFood(accId);
+
+                Console.WriteLine("");
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+
+                break;
+            case "4":
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
                 Start();
                 break;
-            case "4":
+            case "5":
                 MovieSchedulingLogic objMovieSchedulingLogic = new();
                 Console.WriteLine(@"Make a choice:
 See entire schedule [0]
@@ -76,14 +86,14 @@ See schedule for specific range of dates [3]");
                 Console.ReadLine();
                 Start();
                 break;
-            case "5":
+            case "6":
                 Search.searchMovie();
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
                 Start();
                 break;
-            case "6":
+            case "7":
                 Console.WriteLine("Reservation history function");
                 Console.WriteLine("");
                 ResvDetails.ResvHistory(accId);

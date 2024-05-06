@@ -43,7 +43,16 @@ class FoodLogic
         FoodAccess.WriteAll(_food);
 
     }
+    public FoodModel SelectForResv(string searchBy)
+    {
+        string searchLower = searchBy.ToLower();
 
+        return _food.Find(food =>
+            food.Id.ToString() == searchBy ||
+            food.Name.ToLower().Contains(searchLower));  // This is unhandy in case of movies with duplicate directors
+    }
+
+    
     // public AccountModel GetById(int id)
     // {
     //     return _accounts.Find(i => i.Id == id);

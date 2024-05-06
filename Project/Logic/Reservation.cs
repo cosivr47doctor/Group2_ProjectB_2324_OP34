@@ -73,4 +73,59 @@ static class Reservation
             Console.WriteLine("error, something went wrong");
         }
     }
+
+    public static void ReserveFood(int intUserAccountId = 1)
+    {
+        Console.Write("Enter the name or id of the food you like to order: ");
+        string userInput = Console.ReadLine();
+
+        if (string.IsNullOrEmpty(userInput))
+        {
+            Console.WriteLine("Please enter the name or id of the food.");
+            return;
+        }
+
+        FoodLogic objFoodLogic = new();
+        FoodModel foundFood = objFoodLogic.SelectForResv(userInput);
+
+        if (foundFood == null)
+        {
+            Console.WriteLine("Food not found.");
+            return;
+        }
+
+        Console.WriteLine($"Selected food: {foundFood.Name}, Price: {foundFood.Price}");
+
+        int quantity;
+        while (true)
+        {
+            Console.Write("Enter the quantity: ");
+            string quantityInput = Console.ReadLine();
+            if (int.TryParse(quantityInput, out quantity) && quantity > 0)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid quantity.");
+            }
+        }
+
+        decimal totalPrice = foundFood.Price * quantity;
+        Console.WriteLine($"Total Price: {totalPrice}");
+
+
+
+
+        AccountsLogic objAccountLogic = new();
+        AccountModel acc = objAccountLogic.GetByArg(intUserAccountId);
+        int index = acc.Reservations.Count + 1;
+        ReservationModel foodReservation = new ReservationModel(index, foundFood, totalPrice);
+        acc.Reservations.Add(foodReservation);
+        objAccountLogic.UpdateList(acc);
+        Console.WriteLine("Food reservation successful.");
+
+
+    }
+
 }
