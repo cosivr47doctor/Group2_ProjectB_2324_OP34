@@ -17,6 +17,7 @@ static class AdminMenu
         Console.WriteLine("Enter 3 to add food to the menu");
         Console.WriteLine("Enter 4 to add a movie");
         Console.WriteLine("Enter 5 to edit/remove a movie");
+        Console.WriteLine("Enter 6 to reschedule a date");
 
         Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -\n");
 
@@ -77,6 +78,13 @@ static class AdminMenu
                 }
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
+                Start();
+                break;
+            case "6":
+                MovieSchedulingLogic objMovieSchedulingLogic = new MovieSchedulingLogic();
+                string dateInput = ConsoleE.Input("Enter a date (yyyy-MM-dd)");
+                objMovieSchedulingLogic.RescheduleList(dateInput);
+                ConsoleE.Input("Press enter to go back", true);
                 Start();
                 break;
             case "TEST_RESERVE":

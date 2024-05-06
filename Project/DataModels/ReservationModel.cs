@@ -24,6 +24,9 @@ class ReservationModel
     public decimal TotalPrice {get; set;}
 
 
+    public ReservationModel()
+    {
+    }
 
     public ReservationModel(int id, FoodModel name, decimal totalprice) //FoodModel
     {

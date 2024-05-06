@@ -128,14 +128,81 @@ class MovieSchedulingLogic
         MovieSchedulingAccess.WriteAll(_movieSchedule);
     }
 
-    public void RandomRescheduleList()
+    public void AglorthythmicallyRescheduleList(DateTime parsedDate)
+    {
+        // based on an algorhythm that decides which movies are most popular
+        throw new NotImplementedException("This method has not been implemented yet.");
+    }
+
+    public void RandomRescheduleList(DateTime parsedDate)
+    {
+        // Check if the parsed date is valid and falls within the range of scheduled dates
+        if (parsedDate < DateTime.Today || parsedDate > DateTime.Today.AddDays(120))
+        {
+            throw new ArgumentOutOfRangeException(nameof(parsedDate), "The parsed date is not within the valid range.");
+        }
+
+        // Retrieve the existing movie schedules for the parsed date
+        var schedulesForDate = _movieSchedule.Where(s => s.Date.Date == parsedDate.Date).ToList();
+
+        // If there are no schedules for the parsed date, there's nothing to reschedule
+        if (schedulesForDate.Count == 0)
+        {
+            Console.WriteLine("There are no schedules for the specified date to reschedule.");
+            return;
+        }
+
+        // Iterate over each existing schedule for the parsed date and reshuffle the time slots
+        foreach (var schedule in schedulesForDate)
+        {
+            // Retrieve the available time slots for the specific day of the week
+            Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayofWeek((int)(parsedDate - DateTime.Today).TotalDays);
+
+            // Select a random room number
+            int randomRoom = new Random().Next(1, 4); // Assuming rooms are numbered from 1 to 3
+            schedule.Room = randomRoom;
+
+            // Iterate over the schedule details and update the room number and time slots
+            foreach (var scheduleDetail in schedule.Time) // Time is the movie details
+            {
+                // Reshuffle the time slots
+                var timeRanges = GetTimeRanges(availableTimeSlots[randomRoom]);
+                var newTimeRange = timeRanges[new Random().Next(timeRanges.Count)];
+                scheduleDetail.Value.Clear();
+                if(scheduleDetail.Value.Count > 0)
+                {
+                    scheduleDetail.Value.Add(new MovieDetailsModel(scheduleDetail.Value[0].Name, scheduleDetail.Value[0].EmailAddress));
+                }
+            }
+        }
+
+        MovieSchedulingAccess.WriteAll(_movieSchedule);
+    }
+
+    public void ManualRescheduleList(DateTime parsedDate)
     {
         throw new NotImplementedException("This method has not been implemented yet.");
     }
 
-    public void ManualRescheduleList()
+    public void RescheduleList(string dateInput)
     {
-        throw new NotImplementedException("This method has not been implemented yet.");
+        int moviesCount = _movieSchedule.Count > 0 ? _movieSchedule.Max(m => m.Id) + 1 : 0;
+        int roomNumber = 0;
+
+        DateTime parsedDate;
+        if (DateTime.TryParseExact(dateInput, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+        {
+            foreach(MovieScheduleModel movieSchedule in _movieSchedule)
+            {
+                if (movieSchedule.Date == parsedDate) Console.WriteLine(movieSchedule);
+            }
+            string manualOrRandom = ConsoleE.Input("Reschedule manually [M] (enter an ID until quit), randomly [R] , or algorhythmically [A]?").ToUpper();
+            if (manualOrRandom == "M") ManualRescheduleList(parsedDate);
+            else if (manualOrRandom == "R") RandomRescheduleList(parsedDate);
+            else if (manualOrRandom == "A") AglorthythmicallyRescheduleList(parsedDate);
+            else Console.WriteLine("Invalid input");
+        }
+        return;
     }
 
     public void Print(string date)
