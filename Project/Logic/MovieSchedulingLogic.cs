@@ -87,9 +87,19 @@ class MovieSchedulingLogic
         int moviesCount = _movieSchedule.Count > 0 ? _movieSchedule.Max(m => m.Id) + 1 : 0;
         // Room number counter
         int roomNumber = 0;
+        // To add new schedules based on how many are expired
+        int expiredSchedules = 0;
 
-        // 120 because the movies can be scheduled on an exact timeslot only 4 months in advance.
-        for (int i = moviesCount; i < 120 + 1; i++)
+        foreach (MovieScheduleModel objMovieScheduleModel in _movieSchedule)
+        {
+            // Remove the movies if they are at least 7 days past the current day
+            if (objMovieScheduleModel.Date < DateTime.Today.AddDays(-7)) _movieSchedule.Remove(objMovieScheduleModel);
+            // Otherwise add to expiredSchedules
+            else if (objMovieScheduleModel.Date < DateTime.Today) expiredSchedules ++;
+        }
+
+        // 120 + 1 because the movies can be scheduled on an exact timeslot only 4 months in advance. + expiredSchedules to add new schedules.
+        for (int i = moviesCount; i < 120+1 + expiredSchedules; i++)
         {
             DateTime date = DateTime.Today.AddDays(i);
             Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayofWeek(i);
