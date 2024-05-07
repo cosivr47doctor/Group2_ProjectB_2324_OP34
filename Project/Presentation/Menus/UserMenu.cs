@@ -59,7 +59,7 @@ See schedule for specific range of dates [3]");
                 switch (seeScheduleInput)
                 {
                     case "0":
-                        SeeJsons.PrintSchedulesJson("@DateSources/moviesSchedule.json");
+                        SeeJsons.PrintSchedulesJson("@DateSources/movieSessions.json");
                         break;
                     case "1":
                         string specificDateInput = ConsoleE.Input("Which date? (yyyy-MM-dd)");

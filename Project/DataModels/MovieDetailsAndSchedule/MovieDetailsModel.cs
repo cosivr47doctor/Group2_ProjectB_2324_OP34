@@ -4,15 +4,11 @@ using System.Text.Json.Serialization;
 
 class MovieDetailsModel
 {
-    [JsonPropertyName("name")]
-    public string Name { get; set; }
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
 
-    [JsonPropertyName("emailAddress")]
-    public List<string> EmailAddress { get; set; }
-
-    public MovieDetailsModel(string name, List<string> emailAddress)
+    public MovieDetailsModel(int id)
     {
-        Name = name;
-        EmailAddress = emailAddress;
+        Id = id;
     }
 }

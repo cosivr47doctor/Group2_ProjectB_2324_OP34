@@ -24,18 +24,4 @@ static class MovieAccess
         File.WriteAllText(path, json);
     }
 
-    public static MovieModel SelectRandomMovie()
-    {
-        List<MovieModel> allMovies = LoadAll();
-        if (allMovies.Count == 0)
-        {
-            return null; // No movies loaded
-        }
-
-        Random random = new Random();
-        int randomIndex = random.Next(0, allMovies.Count);
-
-        return allMovies[randomIndex];
-    }
-
 }

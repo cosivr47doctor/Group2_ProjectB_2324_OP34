@@ -111,8 +111,9 @@ class MovieSchedulingLogic
                 int currentRoom = roomNumber % 3;
                 roomNumber++;
 
-                MovieModel randomMovie = MovieAccess.SelectRandomMovie();
-                MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Name, new List<string>());
+                MovieLogic objMovieLogic = new MovieLogic();
+                MovieModel randomMovie = objMovieLogic.SelectRandomMovie();
+                MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Id);
 
                 // Create the dictionary for the movie schedule model
                 Dictionary<string, List<MovieDetailsModel>> scheduleDetails = new Dictionary<string, List<MovieDetailsModel>>();
@@ -181,7 +182,7 @@ class MovieSchedulingLogic
                 scheduleDetail.Value.Clear();
                 if(scheduleDetail.Value.Count > 0)
                 {
-                    scheduleDetail.Value.Add(new MovieDetailsModel(scheduleDetail.Value[0].Name, scheduleDetail.Value[0].EmailAddress));
+                    scheduleDetail.Value.Add(new MovieDetailsModel(scheduleDetail.Value[0].Id));
                 }
             }
         }
@@ -242,7 +243,7 @@ class MovieSchedulingLogic
         DateTime parsedDate;
         if (DateTime.TryParseExact(untilDate, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
         {
-            SeeJsons.PrintSchedulesJson("@DateSources/moviesSchedule.json", dateTimeToday, parsedDate);
+            SeeJsons.PrintSchedulesJson("@DateSources/movieSessions.json", dateTimeToday, parsedDate);
         }
         else Console.WriteLine("Invalid input"); return;
     }
@@ -261,6 +262,6 @@ class MovieSchedulingLogic
             else Console.WriteLine("Invalid input"); return;
         }
 
-        SeeJsons.PrintSchedulesJson("@DateSources/moviesSchedule.json", parsedDates[0], parsedDates[1]);
+        SeeJsons.PrintSchedulesJson("@DateSources/movieSessions.json", parsedDates[0], parsedDates[1]);
     }
 }

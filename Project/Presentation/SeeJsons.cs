@@ -55,7 +55,7 @@ public static class SeeJsons
                 foreach (var kvp in schedule.Time)
                 {
                     string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
-                    string movieDetails = string.Join(", ", kvp.Value.Select(movie => movie.Name)); // Extract movie names
+                    string movieDetails = string.Join(", ", kvp.Value.Select(movie => movie.Id)); // Extract movie names
 
                     Console.WriteLine($"Timeslot: {timeslot}, Movies: {movieDetails}");
                 }
@@ -74,7 +74,7 @@ public static class SeeJsons
                     foreach (var kvp in schedule.Time)
                     {
                         string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
-                        string movieDetails = string.Join(", ", kvp.Value.Select(movie => movie.Name)); // Extract movie names
+                        string movieDetails = string.Join(", ", kvp.Value.Select(movie => movie.Id)); // Extract movie names
 
                         Console.WriteLine($"Timeslot: {timeslot}, Movies: {movieDetails}");
                     }

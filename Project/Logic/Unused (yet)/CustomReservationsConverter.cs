@@ -1,3 +1,4 @@
+/*
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Linq;
@@ -53,3 +54,4 @@ class CustomReservationsConverter : JsonConverter<Dictionary<int, Dictionary<str
         writer.WriteEndObject();
     }
 }
+*/

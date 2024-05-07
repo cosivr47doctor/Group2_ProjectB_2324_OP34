@@ -38,7 +38,7 @@ class MovieScheduleModel
         foreach (var kvp in Time)
         {
             string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
-            string movieDetails = string.Join(", ", kvp.Value.Select(movie => movie.Name)); // Extract movie names
+            string movieDetails = string.Join(", ", kvp.Value.Select(movie => movie.Id)); // Extract movie names
             sb.AppendLine($"Timeslot: {timeslot}, Movies: {movieDetails}");
         }
         return sb.ToString();

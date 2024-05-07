@@ -1,7 +1,7 @@
 using System.Text.Json;
 static class MovieSchedulingAccess
 {
-    static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/movieSchedule.json"));
+    static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/movieSessions.json"));
 
     public static List<MovieScheduleModel> LoadAll()
     {

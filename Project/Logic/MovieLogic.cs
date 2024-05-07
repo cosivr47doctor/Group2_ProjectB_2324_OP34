@@ -109,6 +109,20 @@ class MovieLogic
         }
     }
 
+    public MovieModel SelectRandomMovie()
+    {
+        List<MovieModel> allMovies = MovieAccess.LoadAll();
+        if (allMovies.Count == 0)
+        {
+            return null; // No movies loaded
+        }
+
+        Random random = new Random();
+        int randomIndex = random.Next(0, allMovies.Count);
+
+        return allMovies[randomIndex];
+    }
+
 
 
     // public MovieModel GetById(string searchBy)
