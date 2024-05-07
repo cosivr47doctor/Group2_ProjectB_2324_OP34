@@ -33,6 +33,7 @@ public static (int, int) DisplaySeats(List<List<string>> options)
     while (!isSelected)
     {
         Console.SetCursorPosition(0, 0);
+        Console.ResetColor();
         Console.WriteLine("           Screen");
         Console.WriteLine("-----------------------------");
         for (int i = 0; i < options.Count; i++)
@@ -43,13 +44,17 @@ public static (int, int) DisplaySeats(List<List<string>> options)
                 {
                     Console.ForegroundColor = ConsoleColor.Green; // Change color for the selected option
                 }
-                else if (options[i][j] == "X ")
+                else if (options[i][j] == " X ")
                 {
                     Console.ForegroundColor = ConsoleColor.Red; // Change color for taken seats
                 }
-                else if ((i == 1 && j >= 3 && j <= 6) || (i == 2 && j >= 3 && j <= 6) || (i == 3 && j >= 3 && j <= 6))
+                else if ((i == 2 && j >= 3 && j <= 6) || (i == 3 && j >= 2 && j <= 7) || (i == 6 && j >= 2 && j <= 7) || (i == 7 && j >= 3 && j <= 6) || (i == 4 && j >= 2 && j <= 2) || (i == 5 && j >= 2 && j <= 2) || (i == 5 && j >= 7 && j <= 7) || (i == 4 && j >= 7 && j <= 7))
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow; // Change color for specified seats
+                }
+                else if ((i == 4 && j >= 3 && j <= 6) || (i == 5 && j >= 3 && j <= 6))
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue; // Change color for specified seats (more expensive)
                 }
                 else
                 {
@@ -57,6 +62,7 @@ public static (int, int) DisplaySeats(List<List<string>> options)
                 }
 
                 Console.Write($"{options[i][j]} ");
+                Console.ResetColor();
             }
 
             Console.WriteLine();
@@ -95,7 +101,7 @@ public static (int, int) DisplaySeats(List<List<string>> options)
                 break;
 
             case ConsoleKey.Enter:
-                if (options[selectedRow][selectedColumn] == "X ")
+                if (options[selectedRow][selectedColumn] == " X ")
                 {
                     Console.WriteLine("Seat already taken.");
                 }
@@ -114,7 +120,7 @@ public static (int, int) DisplaySeats(List<List<string>> options)
                             {
                                 seatsNumbers.Add(SeatNum);
                                 seats.Add(seatSelected);
-                                options[selectedRow][selectedColumn] = "X "; // Mark the seat as taken
+                                options[selectedRow][selectedColumn] = " X "; // Mark the seat as taken
 
                             }
                             else
@@ -128,7 +134,7 @@ public static (int, int) DisplaySeats(List<List<string>> options)
                     int SeatNum = int.Parse(seatSelected);
                     seatsNumbers.Add(SeatNum);
                     seats.Add(seatSelected);
-                    options[selectedRow][selectedColumn] = "X "; // Mark the seat as taken
+                    options[selectedRow][selectedColumn] = " X "; // Mark the seat as taken
                     }
                 }
                 break;
