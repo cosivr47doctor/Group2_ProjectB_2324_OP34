@@ -28,6 +28,7 @@ public static (int, int) DisplaySeats(List<List<string>> options)
     ConsoleKeyInfo key;
     bool isSelected = false;
     List<string> seats = new List<string>();
+    List<int> seatsNumbers = new List<int>();
 
     while (!isSelected)
     {
@@ -45,6 +46,10 @@ public static (int, int) DisplaySeats(List<List<string>> options)
                 else if (options[i][j] == "X ")
                 {
                     Console.ForegroundColor = ConsoleColor.Red; // Change color for taken seats
+                }
+                else if ((i == 1 && j >= 3 && j <= 6) || (i == 2 && j >= 3 && j <= 6) || (i == 3 && j >= 3 && j <= 6))
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow; // Change color for specified seats
                 }
                 else
                 {
@@ -100,9 +105,28 @@ public static (int, int) DisplaySeats(List<List<string>> options)
                     {
                         Console.WriteLine("Max amount of seats reached");
                     }
+                    else if (seatsNumbers.Count >= 1)
+                    {
+                        string seatSelected = options[selectedRow][selectedColumn];
+                        int SeatNum = int.Parse(seatSelected);
+                        seatsNumbers.Sort();
+                            if (seatsNumbers[0] - 1 == SeatNum || seatsNumbers[^1] + 1 == SeatNum)
+                            {
+                                seatsNumbers.Add(SeatNum);
+                                seats.Add(seatSelected);
+                                options[selectedRow][selectedColumn] = "X "; // Mark the seat as taken
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("Can only select seats next to each other");
+                            }
+                    }
                     else
                     {
                     string seatSelected = options[selectedRow][selectedColumn];
+                    int SeatNum = int.Parse(seatSelected);
+                    seatsNumbers.Add(SeatNum);
                     seats.Add(seatSelected);
                     options[selectedRow][selectedColumn] = "X "; // Mark the seat as taken
                     }
@@ -124,6 +148,7 @@ public static (int, int) DisplaySeats(List<List<string>> options)
                 case ConsoleKey.Backspace:
                 {
                     Console.WriteLine("Heading back to the start menu");
+                    
                     break;
                 }
                 case ConsoleKey.Escape:
