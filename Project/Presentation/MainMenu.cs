@@ -14,7 +14,8 @@ static class MainMenu
             "Register",
             "See available movies",
             "See cinema information",
-            "Quit program"
+            "Quit program",
+            "Test room seats"
         };
 
         int selectedOption = DisplayUtil.Display(options);
@@ -45,6 +46,9 @@ static class MainMenu
                 Start();
                 break;
             case 4:
+                break;
+            case 5:
+                RoomSeats.Room1();
                 break;
             default:
                 throw new Exception("error");

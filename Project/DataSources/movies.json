@@ -69,7 +69,8 @@
     "id": 7,
     "Name": "The Dummy Movie",
     "Genre": [
-      "Test", "Dummy"
+      "Test",
+      "Dummy"
     ],
     "Year": 2024,
     "Description": "We gotta know if we can reserve this movie",
@@ -86,5 +87,27 @@
     "Description": "Adding three genres this time, test test",
     "Director": "Thh",
     "Duration": 90
+  },
+  {
+    "id": 9,
+    "Name": "a",
+    "Genre": [
+      "a"
+    ],
+    "Year": 1,
+    "Description": "a",
+    "Director": "a",
+    "Duration": 1
+  },
+  {
+    "id": 10,
+    "Name": "henk",
+    "Genre": [
+      "sci fi"
+    ],
+    "Year": 2000,
+    "Description": "hoi",
+    "Director": "henk jan",
+    "Duration": 120
   }
 ]

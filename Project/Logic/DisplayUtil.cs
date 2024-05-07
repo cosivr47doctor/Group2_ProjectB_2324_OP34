@@ -1,15 +1,19 @@
 public static class DisplayUtil
 {
     private static string _decorator;
-    public static string Decorator{
-        get=>_decorator;
-        set=> _decorator = value != "" ? $"{value}" : "\u001B[35m";
+    public static string Decorator
+    {
+        get => _decorator;
+        set => _decorator = value != "" ? $"{value}" : "\u001B[35m";
     }
+
     private static string _optionColor;
-    public static string OptionColor{
-        get=>_optionColor;
-        set=>_optionColor = value != "" ? $"{value}" : "\u001B[32m";
+    public static string OptionColor
+    {
+        get => _optionColor;
+        set => _optionColor = value != "" ? $"{value}" : "\u001B[32m";
     }
+
     public static int Display(List<string> options)
     {
         Console.Clear();
@@ -27,7 +31,16 @@ public static class DisplayUtil
 
             for (int i = 0; i < options.Count; i++)
             {
-                Console.WriteLine($"{(selectedOption == i ? $"[x]{Decorator}" : "[ ]")}{options[i]}{OptionColor}");
+                if (selectedOption == i)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green; // Change color for the selected option
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.White; // Reset color for other options
+                }
+
+                Console.WriteLine($"{Decorator}{options[i]}{OptionColor}");
             }
 
             key = Console.ReadKey(false);

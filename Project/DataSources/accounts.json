@@ -13,42 +13,48 @@
         "name": null,
         "ticketsCount": 2,
         "price": 0,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       },
       {
         "id": 1,
         "name": null,
         "ticketsCount": 2,
         "price": 0,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       },
       {
         "id": 2,
         "name": null,
         "ticketsCount": 3,
         "price": 0,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       },
       {
         "id": 3,
         "name": null,
         "ticketsCount": 1,
         "price": 0,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       },
       {
         "id": 4,
         "name": null,
         "ticketsCount": 1,
         "price": 0,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       },
       {
         "id": 6,
         "name": "The Shawshank Redemption",
         "ticketsCount": 2,
         "price": 24,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       }
     ]
   },
@@ -76,7 +82,8 @@
         "name": null,
         "ticketsCount": 2,
         "price": 0,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       }
     ]
   },
@@ -94,7 +101,8 @@
         "name": null,
         "ticketsCount": 1,
         "price": 0,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       }
     ]
   },
@@ -112,35 +120,40 @@
         "name": "Inception",
         "ticketsCount": 4,
         "price": 12,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       },
       {
         "id": 2,
         "name": "The Shawshank Redemption",
         "ticketsCount": 2,
         "price": 24,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       },
       {
         "id": 3,
         "name": "The Godfather",
         "ticketsCount": 3,
         "price": 36,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       },
       {
         "id": 4,
         "name": "Inception",
         "ticketsCount": 1,
         "price": 12,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       },
       {
         "id": 5,
         "name": "The Boy",
         "ticketsCount": 3,
         "price": 36,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       }
     ]
   },
@@ -158,28 +171,32 @@
         "name": "Inception",
         "ticketsCount": 1,
         "price": 12,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       },
       {
         "id": 2,
         "name": "Inception",
         "ticketsCount": 1,
         "price": 12,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       },
       {
         "id": 3,
         "name": "The Shawshank Redemption",
         "ticketsCount": 2,
         "price": 24,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       },
       {
         "id": 4,
         "name": "Inception",
         "ticketsCount": 5,
         "price": 60,
-        "seats": null
+        "seats": null,
+        "TotalPrice": 0
       }
     ]
   }
