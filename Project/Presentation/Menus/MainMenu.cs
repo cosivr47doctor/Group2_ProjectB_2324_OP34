@@ -48,7 +48,7 @@ static class MainMenu
             case 4:
                 break;
             case 5:
-                RoomSeats.Room1();
+                AddReservation.addMovieResv();
                 break;
             default:
                 throw new Exception("error");

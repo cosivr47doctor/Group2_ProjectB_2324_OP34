@@ -89,7 +89,7 @@ static class AdminMenu
                 break;
             case "TEST_RESERVE":
                 // Console.WriteLine("Please enter the name of the movie you want to reserve");  // Continues to show all movies with that title or similar
-                Reservation.ReserveMovie();
+                //Reservation.ReserveMovie();
                 Console.WriteLine("Dummy movie succesfully added to reservations. Press enter to go back.");
                 Console.ReadLine();
                 Start();

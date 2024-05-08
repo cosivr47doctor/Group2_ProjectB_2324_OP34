@@ -25,7 +25,8 @@ static class UserMenu
             case "2":
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("");
-                Reservation.ReserveMovie(accId);
+                //Reservation.ReserveMovie(accId);
+                AddReservation.addMovieResv();
 
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
@@ -34,7 +35,7 @@ static class UserMenu
                 break;
             case "3":
                 SeeJsons.PrintFoodJson(@"DataSources/food.json");
-                Reservation.ReserveFood(accId);
+                //Reservation.ReserveFood(accId);
 
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
