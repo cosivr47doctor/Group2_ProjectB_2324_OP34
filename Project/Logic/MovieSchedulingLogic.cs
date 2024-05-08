@@ -6,6 +6,7 @@ class MovieSchedulingLogic
 
     public MovieSchedulingLogic() => _movieSchedule = MovieSchedulingAccess.LoadAll();
 
+    /// RESOURCES
     private List<Tuple<TimeSpan, TimeSpan>> GetTimeRanges(List<TimeSpan> timeSlots)
     {
         var timeRanges = new List<Tuple<TimeSpan, TimeSpan>>();
@@ -37,9 +38,14 @@ class MovieSchedulingLogic
         return timeRanges;
     }
 
-    public Dictionary<int, List<TimeSpan>> DetermineScheduleForSpecificDayofWeek(int daysInAdvance = 0)
+    public Dictionary<int, List<TimeSpan>> DetermineScheduleForSpecificDayOfWeek(int daysInAdvance = 0)
     {
         DateTime date = DateTime.Today.AddDays(daysInAdvance);
+        return DetermineScheduleForSpecificDayOfWeek(date);
+    }
+
+    public Dictionary<int, List<TimeSpan>> DetermineScheduleForSpecificDayOfWeek(DateTime date)
+    {
         DayOfWeek dayOfWeek = date.DayOfWeek;
 
         Dictionary<int, List<TimeSpan>> weekendTimeSlots = new Dictionary<int, List<TimeSpan>>()
@@ -81,10 +87,11 @@ class MovieSchedulingLogic
         }
     }
 
+    /// FINITE FUNCTIONAL LOGIC
     public void StartupUpdateList()
     {
         // For auto-increment
-        int moviesCount = _movieSchedule.Count > 0 ? _movieSchedule.Max(m => m.Id) + 1 : 0;
+        int moviesSchedulesCount = _movieSchedule.Count > 0 ? _movieSchedule.Max(m => m.Id) + 1 : 0;
         // Room number counter
         int roomNumber = 0;
         // To add new schedules based on how many are expired
@@ -99,53 +106,52 @@ class MovieSchedulingLogic
         }
 
         // 120 + 1 because the movies can be scheduled on an exact timeslot only 4 months in advance. + expiredSchedules to add new schedules.
-        for (int i = moviesCount; i < 120+1 + expiredSchedules; i++)
+        for (int i = moviesSchedulesCount; i < 120+1 + expiredSchedules; i+= 7)
         {
-            DateTime date = DateTime.Today.AddDays(i);
-            Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayofWeek(i);
-
-            foreach (var kvp in availableTimeSlots)
+            // To avoid skipping days equal to the amount of movies
+            int daysOffSet = i;
+            for (int j = 0; j < 8; j++)
             {
-                // kvp.Key is the room number, kvp.Value is the TimeSpan
-                // Assign a unique room number for each movie
-                int currentRoom = roomNumber % 3;
-                roomNumber++;
+                DateTime date = DateTime.Today.AddDays(i + j);
+                Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayOfWeek(date);
+                int lastKey = availableTimeSlots.Keys.Last();
 
-                MovieLogic objMovieLogic = new MovieLogic();
-                MovieModel randomMovie = objMovieLogic.SelectRandomMovie();
-                MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Id);
-
-                // Create the dictionary for the movie schedule model
-                Dictionary<string, List<MovieDetailsModel>> scheduleDetails = new Dictionary<string, List<MovieDetailsModel>>();
-
-                // Group consecutive time slots into ranges
-                var timeRanges = GetTimeRanges(kvp.Value);
-
-                // Iterate over the time ranges
-                foreach (var timeRange in timeRanges)
+                foreach (var kvp in availableTimeSlots)
                 {
-                    string key = $"{timeRange.Item1:hh\\:mm\\:ss} - {timeRange.Item2:hh\\:mm\\:ss}";
-                    scheduleDetails.Add(key, new List<MovieDetailsModel> { newMovieDetails });
-                }
+                    // kvp.Key is the room number, kvp.Value is the TimeSpan
+                    // Assign a unique room number for each movie
+                    int currentRoom = roomNumber % 3;
+                    roomNumber++;
 
-                MovieScheduleModel newMovieScheduleModel = new MovieScheduleModel(i, currentRoom + 1, date, scheduleDetails);
-                _movieSchedule.Add(newMovieScheduleModel);
-                
-                // Increment moviesCount
-                moviesCount++;
+                    MovieLogic objMovieLogic = new MovieLogic();
+                    MovieModel randomMovie = objMovieLogic.SelectRandomMovie();
+                    MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Id);
+
+                    // Create the dictionary for the movie schedule model
+                    Dictionary<string, List<MovieDetailsModel>> scheduleDetails = new Dictionary<string, List<MovieDetailsModel>>();
+
+                    // Group consecutive time slots into ranges
+                    var timeRanges = GetTimeRanges(kvp.Value);
+
+                    // Iterate over the time ranges
+                    foreach (var timeRange in timeRanges)
+                    {
+                        string key = $"{timeRange.Item1:hh\\:mm\\:ss} - {timeRange.Item2:hh\\:mm\\:ss}";
+                        scheduleDetails.Add(key, new List<MovieDetailsModel> { newMovieDetails });
+                    }
+
+                    MovieScheduleModel newMovieScheduleModel = new MovieScheduleModel(daysOffSet+j, currentRoom + 1, date, scheduleDetails);
+                    _movieSchedule.Add(newMovieScheduleModel);
+                    
+                    if (kvp.Key != lastKey) daysOffSet ++;
+                }
             }
         }
 
         MovieSchedulingAccess.WriteAll(_movieSchedule);
     }
 
-    public void AglorthythmicallyRescheduleList(DateTime parsedDate)
-    {
-        // based on an algorhythm that decides which movies are most popular
-        throw new NotImplementedException("This method has not been implemented yet.");
-    }
-
-    public void RandomRescheduleList(DateTime parsedDate)
+    public void RescheduleListLogic(DateTime parsedDate, string arg)
     {
         // Check if the parsed date is valid and falls within the range of scheduled dates
         if (parsedDate < DateTime.Today || parsedDate > DateTime.Today.AddDays(120))
@@ -163,15 +169,24 @@ class MovieSchedulingLogic
             return;
         }
 
+        int moviesCount = MovieAccess.LoadAll().Count;
+        Random random = new Random();
         // Iterate over each existing schedule for the parsed date and reshuffle the time slots
         foreach (var schedule in schedulesForDate)
         {
             // Retrieve the available time slots for the specific day of the week
-            Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayofWeek((int)(parsedDate - DateTime.Today).TotalDays);
+            Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayOfWeek((int)(parsedDate - DateTime.Today).TotalDays);
 
             // Select a random room number
-            int randomRoom = new Random().Next(1, 4); // Assuming rooms are numbered from 1 to 3
+            int randomRoom = random.Next(1, 4); // Assuming rooms are numbered from 1 to 3
             schedule.Room = randomRoom;
+
+            int idInput = 0;
+            if (arg == "M")
+            {
+                int? userInput = ConsoleE.IntInput("Please enter an id");
+                if (userInput is int) idInput = (int)userInput;
+            }
 
             // Iterate over the schedule details and update the room number and time slots
             foreach (var scheduleDetail in schedule.Time) // Time is the movie details
@@ -179,20 +194,39 @@ class MovieSchedulingLogic
                 // Reshuffle the time slots
                 var timeRanges = GetTimeRanges(availableTimeSlots[randomRoom]);
                 var newTimeRange = timeRanges[new Random().Next(timeRanges.Count)];
-                scheduleDetail.Value.Clear();
-                if(scheduleDetail.Value.Count > 0)
+                if (arg == "M")
                 {
-                    scheduleDetail.Value.Add(new MovieDetailsModel(scheduleDetail.Value[0].Id));
+
+                    if (idInput >= 0 && idInput <= schedule.Time.Count)
+                    {
+                        if (scheduleDetail.Value.Count > 0)
+                        {
+                            scheduleDetail.Value.Clear();
+                            scheduleDetail.Value.Add(new MovieDetailsModel(random.Next(0, moviesCount)));
+                        }
+                    }
+                }
+                else if (arg == "R")
+                {
+                    if (scheduleDetail.Value.Count > 0)
+                    {
+                        scheduleDetail.Value.Clear();
+                        scheduleDetail.Value.Add(new MovieDetailsModel(random.Next(0, moviesCount)));
+                    }
+                }
+                else if (arg == "A") // DOESN'T WORK YET
+                {
+                    if (scheduleDetail.Value.Count > 0)
+                    {
+                        int popularMovieInt = AlgorhythmDecider.findSinglePopularMovie();
+                        scheduleDetail.Value.Clear();
+                        scheduleDetail.Value.Add(new MovieDetailsModel(popularMovieInt));
+                    }
                 }
             }
         }
 
         MovieSchedulingAccess.WriteAll(_movieSchedule);
-    }
-
-    public void ManualRescheduleList(DateTime parsedDate)
-    {
-        throw new NotImplementedException("This method has not been implemented yet.");
     }
 
     public void RescheduleList(string dateInput)
@@ -208,14 +242,16 @@ class MovieSchedulingLogic
                 if (movieSchedule.Date == parsedDate) Console.WriteLine(movieSchedule);
             }
             string manualOrRandom = ConsoleE.Input("Reschedule manually [M] (enter an ID until quit), randomly [R] , or algorhythmically [A]?").ToUpper();
-            if (manualOrRandom == "M") ManualRescheduleList(parsedDate);
-            else if (manualOrRandom == "R") RandomRescheduleList(parsedDate);
-            else if (manualOrRandom == "A") AglorthythmicallyRescheduleList(parsedDate);
+            if (manualOrRandom == "M") RescheduleListLogic(parsedDate, manualOrRandom);
+            else if (manualOrRandom == "R") RescheduleListLogic(parsedDate, manualOrRandom);
+            else if (manualOrRandom == "A") RescheduleListLogic(parsedDate, manualOrRandom);
             else Console.WriteLine("Invalid input");
         }
+        Console.WriteLine("Invalid input");
         return;
     }
 
+    /// PRINT OVERLOADS
     public void Print(string date)
     {
         if (date.Contains(","))

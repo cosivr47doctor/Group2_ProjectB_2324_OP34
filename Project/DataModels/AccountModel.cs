@@ -19,7 +19,7 @@ class AccountModel
     public bool isAdmin {get; set;}
 
     [JsonPropertyName("suspense")]
-    public DateTime? Suspense { get; set; } = null;
+    public DateTime? Suspense { get; set; } = null; // ? to make a tenary expression
 
     [JsonPropertyName("PhoneNumber")]
     public int PhoneNumber { get; set; }
