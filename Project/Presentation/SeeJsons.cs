@@ -52,12 +52,12 @@ public static class SeeJsons
                 Console.WriteLine($"Id: {schedule.Id}");
                 Console.WriteLine($"Room: {schedule.Room}");
                 Console.WriteLine($"Date: {string.Join(", ", schedule.Date.ToString("d"))}");
-                foreach (var kvp in schedule.Time)
+                foreach (var kvp in schedule.TimeTitlePair)
                 {
                     string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
-                    string movieDetails = string.Join(", ", kvp.Value.Select(movie => movie.Id)); // Extract movie names
+                    string movieTitle = kvp.Value.ToString(); // Extract movie names
 
-                    Console.WriteLine($"Timeslot: {timeslot}, Movies: {movieDetails}");
+                    Console.WriteLine($"Timeslot: {timeslot}, Movies: {movieTitle}");
                 }
                 Console.WriteLine("-----------------------------------");
             }
@@ -71,12 +71,12 @@ public static class SeeJsons
                     Console.WriteLine($"Id: {schedule.Id}");
                     Console.WriteLine($"Room: {schedule.Room}");
                     Console.WriteLine($"Date: {string.Join(", ", schedule.Date.ToString("d"))}");
-                    foreach (var kvp in schedule.Time)
+                    foreach (var kvp in schedule.TimeTitlePair)
                     {
                         string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
-                        string movieDetails = string.Join(", ", kvp.Value.Select(movie => movie.Id)); // Extract movie names
+                        string movieTitle = kvp.Value.ToString(); // Extract movie names
 
-                        Console.WriteLine($"Timeslot: {timeslot}, Movies: {movieDetails}");
+                        Console.WriteLine($"Timeslot: {timeslot}, Movies: {movieTitle}");
                     }
                     Console.WriteLine("-----------------------------------");
                 }

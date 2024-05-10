@@ -30,7 +30,7 @@ static class UserMenu
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
-                Start(accId);
+                Start(accId, isAdmin);
                 break;
             case "3":
                 SeeJsons.PrintFoodJson(@"DataSources/food.json");
@@ -40,13 +40,14 @@ static class UserMenu
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
 
+                Start(accId, isAdmin);
                 break;
             case "4":
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
-                Start();
+                Start(accId, isAdmin);
                 break;
             case "5":
                 MovieSchedulingLogic objMovieSchedulingLogic = new();
@@ -64,34 +65,34 @@ See schedule for specific range of dates [3]");
                     case "1":
                         string specificDateInput = ConsoleE.Input("Which date? (yyyy-MM-dd)");
                         objMovieSchedulingLogic.Print(specificDateInput);
-                        Start();
+                        Start(accId, isAdmin);
                         break;
                     case "2":
                         string untilSpecificDateInput = ConsoleE.Input("Until which date? (yyyy-MM-dd)");
                         objMovieSchedulingLogic.Print(untilSpecificDateInput);
-                        Start();
+                        Start(accId, isAdmin);
                         break;
                     case "3":
                         string dateRangesInput = ConsoleE.Input("Which dates? (yyyy-MM-dd); comma separated (,)");
                         objMovieSchedulingLogic.Print(dateRangesInput);
-                        Start();
+                        Start(accId, isAdmin);
                         break;
                     default:
                         Console.WriteLine("Invalid input");
-                        Start();
+                        Start(accId, isAdmin);
                         break;
                 }
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
-                Start();
+                Start(accId, isAdmin);
                 break;
             case "6":
                 Search.searchMovie();
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
-                Start();
+                Start(accId, isAdmin);
                 break;
             case "7":
                 Console.WriteLine("Reservation history function");
@@ -100,11 +101,11 @@ See schedule for specific range of dates [3]");
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
-                Start();
+                Start(accId, isAdmin);
                 break;
             default:
                 Console.WriteLine("Invalid input");
-                Start();
+                Start(accId, isAdmin);
                 break;
         }
 

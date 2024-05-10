@@ -199,5 +199,15 @@
         "TotalPrice": 0
       }
     ]
+  },
+  {
+    "id": 7,
+    "emailAddress": "thh2@gmail.com",
+    "password": "$2a$11$G6nwMUnbnmQD4oiwZUDPq.SWPWjH2PSqcXa5lGtTCrlbPq9k9O0EG",
+    "fullName": "Taha Abbady",
+    "isAdmin": false,
+    "suspense": null,
+    "PhoneNumber": 614458498,
+    "reservations": []
   }
 ]

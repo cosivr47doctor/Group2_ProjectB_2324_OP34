@@ -125,10 +125,10 @@ class MovieSchedulingLogic
 
                     MovieLogic objMovieLogic = new MovieLogic();
                     MovieModel randomMovie = objMovieLogic.SelectRandomMovie();
-                    MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Id);
+                    MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Id, randomMovie.Name);
 
                     // Create the dictionary for the movie schedule model
-                    Dictionary<string, List<MovieDetailsModel>> scheduleDetails = new Dictionary<string, List<MovieDetailsModel>>();
+                    Dictionary<string, MovieDetailsModel> scheduleDetails = new Dictionary<string, MovieDetailsModel>();
 
                     // Group consecutive time slots into ranges
                     var timeRanges = GetTimeRanges(kvp.Value);
@@ -137,7 +137,7 @@ class MovieSchedulingLogic
                     foreach (var timeRange in timeRanges)
                     {
                         string key = $"{timeRange.Item1:hh\\:mm\\:ss} - {timeRange.Item2:hh\\:mm\\:ss}";
-                        scheduleDetails.Add(key, new List<MovieDetailsModel> { newMovieDetails });
+                        scheduleDetails.Add(key, newMovieDetails);
                     }
 
                     MovieScheduleModel newMovieScheduleModel = new MovieScheduleModel(daysOffSet+j, currentRoom + 1, date, scheduleDetails);
@@ -172,14 +172,14 @@ class MovieSchedulingLogic
         int moviesCount = MovieAccess.LoadAll().Count;
         Random random = new Random();
         // Iterate over each existing schedule for the parsed date and reshuffle the time slots
-        foreach (var schedule in schedulesForDate)
+        foreach (MovieScheduleModel schedulePair in schedulesForDate)
         {
             // Retrieve the available time slots for the specific day of the week
             Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayOfWeek((int)(parsedDate - DateTime.Today).TotalDays);
 
             // Select a random room number
             int randomRoom = random.Next(1, 4); // Assuming rooms are numbered from 1 to 3
-            schedule.Room = randomRoom;
+            schedulePair.Room = randomRoom;
 
             int idInput = 0;
             if (arg == "M")
@@ -189,39 +189,30 @@ class MovieSchedulingLogic
             }
 
             // Iterate over the schedule details and update the room number and time slots
-            foreach (var scheduleDetail in schedule.Time) // Time is the movie details
+            foreach (var scheduleDetailPair in schedulePair.TimeIdPair) // Time is the movie details
             {
+                string scheduleMovieId = scheduleDetailPair.Value;
                 // Reshuffle the time slots
                 var timeRanges = GetTimeRanges(availableTimeSlots[randomRoom]);
                 var newTimeRange = timeRanges[new Random().Next(timeRanges.Count)];
                 if (arg == "M")
                 {
 
-                    if (idInput >= 0 && idInput <= schedule.Time.Count)
+                    if (idInput >= 0 && idInput <= schedulePair.TimeDict.Count)
                     {
-                        if (scheduleDetail.Value.Count > 0)
-                        {
-                            scheduleDetail.Value.Clear();
-                            scheduleDetail.Value.Add(new MovieDetailsModel(random.Next(0, moviesCount)));
-                        }
+                        scheduleMovieId = Convert.ToString(random.Next(0, moviesCount));
                     }
                 }
                 else if (arg == "R")
                 {
-                    if (scheduleDetail.Value.Count > 0)
-                    {
-                        scheduleDetail.Value.Clear();
-                        scheduleDetail.Value.Add(new MovieDetailsModel(random.Next(0, moviesCount)));
-                    }
+                    scheduleMovieId = Convert.ToString(random.Next(0, moviesCount));
                 }
                 else if (arg == "A") // DOESN'T WORK YET
                 {
-                    if (scheduleDetail.Value.Count > 0)
-                    {
-                        int popularMovieInt = AlgorhythmDecider.findSinglePopularMovie();
-                        scheduleDetail.Value.Clear();
-                        scheduleDetail.Value.Add(new MovieDetailsModel(popularMovieInt));
-                    }
+
+                    int popularMovieInt = AlgorhythmDecider.findSinglePopularMovie();
+                    scheduleMovieId = Convert.ToString(popularMovieInt);
+
                 }
             }
         }

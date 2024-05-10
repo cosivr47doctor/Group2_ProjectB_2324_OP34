@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
-using System.Collections.Generic;
 using System.Text;
+using System.Collections.Generic;
 
-class MovieScheduleModel
+class MovieScheduleModel : ICloneable
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
@@ -14,19 +14,43 @@ class MovieScheduleModel
     public DateTime Date { get; set; }
 
     [JsonPropertyName("Time")]
-    public Dictionary<string, List<MovieDetailsModel>> Time { get; set; }
+    public Dictionary<string, string> TimeIdPair { get; set; }
+
+    // Exclude from JSON serialization
+    [JsonIgnore]
+    public Dictionary<string, string> TimeTitlePair {get; private set;}
+    [JsonIgnore]
+    public Dictionary<string, MovieDetailsModel> TimeDict {get; set;} = new Dictionary<string, MovieDetailsModel>();
 
     // Parameterless constructor for serialization
     public MovieScheduleModel() { }
 
     // Deserialization constructor
     [JsonConstructor]
-    public MovieScheduleModel(int id, int room, DateTime date, Dictionary<string, List<MovieDetailsModel>> time)
+    public MovieScheduleModel(int id, int room, DateTime date, Dictionary<string, MovieDetailsModel> timeDict)
     {
         Id = id;
         Room = room;
         Date = date;
-        Time = time;
+        TimeDict = timeDict ?? new Dictionary<string, MovieDetailsModel>();
+
+        // Initialise Time dictionary
+        secConstructor();
+    }
+
+    public void secConstructor()
+    {
+        TimeIdPair = new Dictionary<string, string>() {};
+        foreach (var kvp in TimeDict)
+        {
+            TimeIdPair[kvp.Key] = $"MovieId: {kvp.Value.Id}";
+        }
+
+        TimeTitlePair = new Dictionary<string, string>() {};
+        foreach (var kvp in TimeDict)
+        {
+            TimeTitlePair[kvp.Key] = kvp.Value.Title;
+        }
     }
 
     public override string ToString()
@@ -35,29 +59,22 @@ class MovieScheduleModel
         sb.AppendLine($"ID: {Id}");
         sb.AppendLine($"Room: {Room}");
         sb.AppendLine($"Date: {Date.ToString("yyyy-MM-dd")}");
-        foreach (var kvp in Time)
+        string tempsbLine = "";
+        foreach (var kvp in TimeIdPair)
         {
             string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
-            string movieDetails = string.Join(", ", kvp.Value.Select(movie => movie.Id)); // Extract movie names
-            sb.AppendLine($"Timeslot: {timeslot}, Movies: {movieDetails}");
+            tempsbLine += $"Timeslot: {timeslot}, ";
         }
+        foreach (KeyValuePair<string, string> kvp in TimeTitlePair)
+        {
+            tempsbLine += $"Movie: {kvp.Value}";
+        }
+        sb.AppendLine(tempsbLine);
         return sb.ToString();
     }
 
-    /*
-    // Helper method to convert TimeSpan keys to strings
-    private Dictionary<string, List<MovieDetailsModel>> ConvertTimeToStringKeys(Dictionary<TimeSpan, List<MovieDetailsModel>> time)
+    public object Clone()  // Unused
     {
-        var convertedTime = new Dictionary<string, List<MovieDetailsModel>>();
-
-        foreach (var kvp in time)
-        {
-            // Convert TimeSpan to string using total number of ticks
-            string key = kvp.Key.Ticks.ToString();
-            convertedTime.Add(key, kvp.Value);
-        }
-
-        return convertedTime;
+        return null;
     }
-    */
 }
