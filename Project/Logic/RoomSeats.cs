@@ -1,6 +1,6 @@
 public static class RoomSeats
 {
-    public static (int, int) Room1()
+    public static (int, int) Room1(int foundMovie)
     {
 
         List<List<string>> seats = new List<List<string>>
@@ -17,7 +17,7 @@ public static class RoomSeats
             new List<string>{" 91", " 92", " 93", " 94", " 95", " 96", " 97", " 98", " 99", "100"}
         };
 
-        (int selectedRow, int selectedColumn) = SelectSeats.DisplaySeats(seats);
-        return SelectSeats.DisplaySeats(seats);
+        (int selectedRow, int selectedColumn) = SelectSeats.DisplaySeats(seats, foundMovie);
+        return SelectSeats.DisplaySeats(seats, foundMovie);
     }
 }
