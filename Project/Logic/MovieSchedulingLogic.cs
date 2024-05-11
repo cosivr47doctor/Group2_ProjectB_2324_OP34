@@ -1,10 +1,16 @@
 using System.Globalization;
+using System.Runtime.CompilerServices;
 class MovieSchedulingLogic
 {
+    private List<MovieModel> _movies;
     private List<MovieScheduleModel> _movieSchedule;
     public List<MovieScheduleModel> movieSchedules => _movieSchedule;
 
-    public MovieSchedulingLogic() => _movieSchedule = MovieSchedulingAccess.LoadAll();
+    public MovieSchedulingLogic()
+    {
+        _movieSchedule = MovieSchedulingAccess.LoadAll();
+        _movies = MovieAccess.LoadAll();
+    }
 
     /// RESOURCES
     private List<Tuple<TimeSpan, TimeSpan>> GetTimeRanges(List<TimeSpan> timeSlots)
@@ -79,8 +85,8 @@ class MovieSchedulingLogic
                 workDaysTimeSlots.Add(5, new List<TimeSpan>{TimeSpan.Parse("22:00"), TimeSpan.Parse("00:00")});
                 return workDaysTimeSlots;
             case DayOfWeek.Saturday:
-                weekendTimeSlots.Add(2, new List<TimeSpan>{TimeSpan.Parse("17:00") - TimeSpan.Parse("19:00")});
-                weekendTimeSlots.Add(3, new List<TimeSpan>{TimeSpan.Parse("19:00") - TimeSpan.Parse("21:00")});
+                weekendTimeSlots.Add(2, new List<TimeSpan>{TimeSpan.Parse("17:00"), TimeSpan.Parse("19:00")});
+                weekendTimeSlots.Add(3, new List<TimeSpan>{TimeSpan.Parse("19:00"), TimeSpan.Parse("21:00")});
                 return weekendTimeSlots;
             default:
                 return weekendTimeSlots;
@@ -106,13 +112,13 @@ class MovieSchedulingLogic
         }
 
         // 120 + 1 because the movies can be scheduled on an exact timeslot only 4 months in advance. + expiredSchedules to add new schedules.
-        for (int i = moviesSchedulesCount; i < 120+1 + expiredSchedules; i+= 7)
+        for (int i = moviesSchedulesCount, i2 = moviesSchedulesCount; i < 120*3.5+1 + expiredSchedules; i+= 35, i2+= 7)  // honestly don't know why 35 but it works
         {
             // To avoid skipping days equal to the amount of movies
             int daysOffSet = i;
             for (int j = 0; j < 8; j++)
             {
-                DateTime date = DateTime.Today.AddDays(i + j);
+                DateTime date = DateTime.Today.AddDays(i2 + j);
                 Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayOfWeek(date);
                 int lastKey = availableTimeSlots.Keys.Last();
 
@@ -169,27 +175,32 @@ class MovieSchedulingLogic
             return;
         }
 
+        List<(int, int, int)> roomAndMovieIdTupleList = new(); // roomNum, movieId, scheduleId
+        if (arg == "M")
+        {
+            string userInput = ConsoleE.Input("Please enter an id('s; comma [,] separated)");
+            roomAndMovieIdTupleList = ManuallyChangeDate(userInput);
+            if (roomAndMovieIdTupleList is null)
+            {
+                Console.WriteLine("No id's found");
+                return;
+            }
+        }
+
         int moviesCount = MovieAccess.LoadAll().Count;
         Random random = new Random();
         // Iterate over each existing schedule for the parsed date and reshuffle the time slots
-        foreach (MovieScheduleModel schedulePair in schedulesForDate)
+        foreach (MovieScheduleModel scheduleModel in schedulesForDate)
         {
             // Retrieve the available time slots for the specific day of the week
             Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayOfWeek((int)(parsedDate - DateTime.Today).TotalDays);
 
             // Select a random room number
-            int randomRoom = random.Next(1, 4); // Assuming rooms are numbered from 1 to 3
-            schedulePair.Room = randomRoom;
-
-            int idInput = 0;
-            if (arg == "M")
-            {
-                int? userInput = ConsoleE.IntInput("Please enter an id");
-                if (userInput is int) idInput = (int)userInput;
-            }
+            int randomRoom = random.Next(1, availableTimeSlots.Count); // Assuming rooms are numbered from 1 to 3
+            scheduleModel.Room = randomRoom;
 
             // Iterate over the schedule details and update the room number and time slots
-            foreach (var scheduleDetailPair in schedulePair.TimeIdPair) // Time is the movie details
+            foreach (var scheduleDetailPair in scheduleModel.TimeIdPair)
             {
                 string scheduleMovieId = scheduleDetailPair.Value;
                 // Reshuffle the time slots
@@ -197,26 +208,44 @@ class MovieSchedulingLogic
                 var newTimeRange = timeRanges[new Random().Next(timeRanges.Count)];
                 if (arg == "M")
                 {
-
-                    if (idInput >= 0 && idInput <= schedulePair.TimeDict.Count)
+                    foreach ((int, int, int) roomAndMovieId in roomAndMovieIdTupleList)
                     {
-                        scheduleMovieId = Convert.ToString(random.Next(0, moviesCount));
+                        if (new int[] {1, 2, 3}.Contains(roomAndMovieId.Item1) && roomAndMovieId.Item2 >= 0 && roomAndMovieId.Item2 <= moviesCount)
+                        {
+                            foreach (var kvp in scheduleModel.TimeIdPair)
+                            {
+                                if (scheduleModel.Id == roomAndMovieId.Item3)
+                                {
+                                    scheduleModel.Room = roomAndMovieId.Item1;
+                                    scheduleModel.TimeIdPair[kvp.Key] = $"MovieId: {roomAndMovieId.Item2}";
+                                }
+                            }
+                        }
                     }
                 }
                 else if (arg == "R")
                 {
-                    scheduleMovieId = Convert.ToString(random.Next(0, moviesCount));
+                    int movieId = random.Next(0, moviesCount);
+                    Dictionary<string, string> updatedTimeIdPair = new Dictionary<string, string>();
+                    foreach (var kvp in scheduleModel.TimeIdPair)
+                    {
+                        updatedTimeIdPair[kvp.Key] = $"MovieId: {movieId}";
+                    }
+                    scheduleModel.TimeIdPair = updatedTimeIdPair;
                 }
-                else if (arg == "A") // DOESN'T WORK YET
+                else if (arg == "A")
                 {
 
-                    int popularMovieInt = AlgorhythmDecider.findSinglePopularMovie();
-                    scheduleMovieId = Convert.ToString(popularMovieInt);
+                    int popularMovieId = AlgorhythmDecider.findSinglePopularMovie();
+                    foreach (var kvp in scheduleModel.TimeIdPair)
+                    {
+                        scheduleModel.TimeIdPair[kvp.Key] = $"MovieId: {popularMovieId}";
+                    }
 
                 }
             }
         }
-
+        Console.WriteLine("Rescheduled succesfully");
         MovieSchedulingAccess.WriteAll(_movieSchedule);
     }
 
@@ -230,16 +259,89 @@ class MovieSchedulingLogic
         {
             foreach(MovieScheduleModel movieSchedule in _movieSchedule)
             {
-                if (movieSchedule.Date == parsedDate) Console.WriteLine(movieSchedule);
+                if (movieSchedule.Date == parsedDate)
+                {
+                    Console.Write(movieSchedule);
+                    MovieScheduleModel convertedSchedule = (MovieScheduleModel) movieSchedule;
+                    foreach (var kvp in convertedSchedule.TimeIdPair) Console.WriteLine(kvp.Value);
+                    Console.WriteLine();
+                }
             }
             string manualOrRandom = ConsoleE.Input("Reschedule manually [M] (enter an ID until quit), randomly [R] , or algorhythmically [A]?").ToUpper();
             if (manualOrRandom == "M") RescheduleListLogic(parsedDate, manualOrRandom);
             else if (manualOrRandom == "R") RescheduleListLogic(parsedDate, manualOrRandom);
             else if (manualOrRandom == "A") RescheduleListLogic(parsedDate, manualOrRandom);
-            else Console.WriteLine("Invalid input");
+            else Console.WriteLine("Invalid input (M, R, A)");
         }
-        Console.WriteLine("Invalid input");
+        else
+        {
+            Console.WriteLine("Invalid date input");
+        }
         return;
+    }
+
+    public List<(int, int, int)> ManuallyChangeDate(string timeStr)
+    {
+        timeStr = String.Concat(timeStr.Where(c => !Char.IsWhiteSpace(c)));
+        bool splittable1 = true;
+        bool splittable2 = false;
+        foreach (char ch in timeStr)
+        {
+            if (!(char.IsDigit(ch) || ch == ',' || ch == ' '))
+            {
+                splittable1 = false;
+            }
+            else if (ch == ',') splittable2 = true;
+        }
+
+        if (!splittable1) return null;
+
+        List<(int, int, int)> newRoomAndMovieIdList = new List<(int, int, int)>();
+        if (splittable2) 
+        {
+            string[] times = timeStr.Split(",");
+            for (int i = 0; i < times.Length; i++)
+            {
+                int timeId = Convert.ToInt16(times[i]);
+                int roomNum;
+                int movieId;
+                string room = ConsoleE.Input("Room? Blank if same");
+                string movie = ConsoleE.Input("MovieId? Blank if same.");
+
+                if (string.IsNullOrWhiteSpace(room) || string.IsNullOrWhiteSpace(movie))
+                {
+                    Console.WriteLine("Invalid input: Room or movie ID cannot be blank.");
+                    return null;
+                }
+                else if (!int.TryParse(room, out roomNum) || !int.TryParse(movie, out movieId))
+                {
+                    Console.WriteLine("Invalid input: Please enter valid numeric values for room and movie ID.");
+                    return null;
+                }
+                newRoomAndMovieIdList.Add((roomNum, movieId, timeId));
+            }
+        }
+        else
+        {
+            int roomNum;
+            int movieId;
+            Console.WriteLine("A single date it is!");
+            string room = ConsoleE.Input("Room?");
+            string movie = ConsoleE.Input("MovieId?");
+
+            if (string.IsNullOrWhiteSpace(room) || string.IsNullOrWhiteSpace(movie))
+            {
+                Console.WriteLine("Invalid input: must not be blank or a white space");
+                return null;
+            }
+            else if (!int.TryParse(room, out roomNum) || !int.TryParse(movie, out movieId))
+            {
+                Console.WriteLine("Invalid input: Please enter valid numeric values for room and movie ID.");
+                return null;
+            }
+            newRoomAndMovieIdList.Add((roomNum, movieId, Convert.ToInt16(timeStr)));
+        }
+        return newRoomAndMovieIdList;
     }
 
     /// PRINT OVERLOADS

@@ -15,7 +15,7 @@ class MovieDetailsModel : ICloneable
         Title = title;
     }
 
-    public object Clone()
+    public object Clone() // unused
     {
         // Create a new instance of MovieDetailsModel
         MovieDetailsModel clonedMovieDetails = new MovieDetailsModel()

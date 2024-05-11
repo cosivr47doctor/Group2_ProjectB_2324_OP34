@@ -18,7 +18,7 @@ class MovieScheduleModel : ICloneable
 
     // Exclude from JSON serialization
     [JsonIgnore]
-    public Dictionary<string, string> TimeTitlePair {get; private set;}
+    public Dictionary<string, string> TimeTitlePair {get; set;}
     [JsonIgnore]
     public Dictionary<string, MovieDetailsModel> TimeDict {get; set;} = new Dictionary<string, MovieDetailsModel>();
 
