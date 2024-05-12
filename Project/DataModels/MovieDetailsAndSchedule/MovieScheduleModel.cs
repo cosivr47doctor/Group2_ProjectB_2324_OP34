@@ -1,8 +1,7 @@
 using System.Text.Json.Serialization;
 using System.Text;
-using System.Collections.Generic;
 
-class MovieScheduleModel : ICloneable
+class MovieScheduleModel
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
@@ -17,8 +16,6 @@ class MovieScheduleModel : ICloneable
     public Dictionary<string, string> TimeIdPair { get; set; }
 
     // Exclude from JSON serialization
-    [JsonIgnore]
-    public Dictionary<string, string> TimeTitlePair {get; set;}
     [JsonIgnore]
     public Dictionary<string, MovieDetailsModel> TimeDict {get; set;} = new Dictionary<string, MovieDetailsModel>();
 
@@ -46,11 +43,6 @@ class MovieScheduleModel : ICloneable
             TimeIdPair[kvp.Key] = $"MovieId: {kvp.Value.Id}";
         }
 
-        TimeTitlePair = new Dictionary<string, string>() {};
-        foreach (var kvp in TimeDict)
-        {
-            TimeTitlePair[kvp.Key] = kvp.Value.Title;
-        }
     }
 
     public override string ToString()
@@ -70,9 +62,5 @@ class MovieScheduleModel : ICloneable
         }
         return sb.ToString();
     }
-    
-    public object Clone()  // Unused
-    {
-        return null;
-    }
+
 }
