@@ -49,17 +49,7 @@ public static class SeeJsons
         {
             foreach (var schedule in movieSchedulingLogic.movieSchedules)
             {
-                Console.WriteLine($"Id: {schedule.Id}");
-                Console.WriteLine($"Room: {schedule.Room}");
-                Console.WriteLine($"Date: {string.Join(", ", schedule.Date.ToString("d"))}");
-                foreach (var kvp in schedule.TimeTitlePair)
-                {
-                    string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
-                    string movieTitle = kvp.Value.ToString(); // Extract movie names
-
-                    Console.WriteLine($"Timeslot: {timeslot}, Movies: {movieTitle}");
-                }
-                Console.WriteLine("-----------------------------------");
+                Console.WriteLine(schedule.ToString());
             }
         }
         else
@@ -68,17 +58,7 @@ public static class SeeJsons
             {
                 if (schedule.Date >= fromDate.Value && schedule.Date <= untilDate.Value)
                 {
-                    Console.WriteLine($"Id: {schedule.Id}");
-                    Console.WriteLine($"Room: {schedule.Room}");
-                    Console.WriteLine($"Date: {string.Join(", ", schedule.Date.ToString("d"))}");
-                    foreach (var kvp in schedule.TimeTitlePair)
-                    {
-                        string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
-                        string movieTitle = kvp.Value.ToString(); // Extract movie names
-
-                        Console.WriteLine($"Timeslot: {timeslot}, Movies: {movieTitle}");
-                    }
-                    Console.WriteLine("-----------------------------------");
+                    Console.WriteLine(schedule.ToString());
                 }
             }
         }

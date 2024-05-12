@@ -59,20 +59,18 @@ class MovieScheduleModel : ICloneable
         sb.AppendLine($"ID: {Id}");
         sb.AppendLine($"Room: {Room}");
         sb.AppendLine($"Date: {Date.ToString("yyyy-MM-dd")}");
-        string tempsbLine = "";
         foreach (var kvp in TimeIdPair)
         {
             string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
-            tempsbLine += $"Timeslot: {timeslot}, ";
+            sb.AppendLine($"Timeslot: {timeslot}");
+            int movieId = (int)Char.GetNumericValue(kvp.Value[kvp.Value.Length - 1]);
+            var movie = MovieAccess.LoadAll().FirstOrDefault(m => m.Id == movieId);
+            string movieTitle = movie?.Name ?? "Movie not found";
+            sb.AppendLine($"Movie title: {movieTitle}");
         }
-        foreach (KeyValuePair<string, string> kvp in TimeTitlePair)
-        {
-            tempsbLine += $"Movie: {kvp.Value}";
-        }
-        sb.AppendLine(tempsbLine);
         return sb.ToString();
     }
-
+    
     public object Clone()  // Unused
     {
         return null;
