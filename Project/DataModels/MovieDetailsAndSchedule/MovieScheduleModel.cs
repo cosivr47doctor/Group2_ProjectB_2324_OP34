@@ -57,7 +57,7 @@ class MovieScheduleModel
             sb.AppendLine($"Timeslot: {timeslot}");
             int movieId = (int)Char.GetNumericValue(kvp.Value[kvp.Value.Length - 1]);
             var movie = MovieAccess.LoadAll().FirstOrDefault(m => m.Id == movieId);
-            string movieTitle = movie?.Name ?? "Movie not found";
+            string movieTitle = movie?.Name ?? MovieAccess.LoadAll().Last().Name;
             sb.AppendLine($"Movie title: {movieTitle}");
         }
         return sb.ToString();
