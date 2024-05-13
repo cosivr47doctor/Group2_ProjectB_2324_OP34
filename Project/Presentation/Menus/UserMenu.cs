@@ -70,7 +70,7 @@ See schedule for specific range of dates [3]");
                         break;
                     case "2":
                         string untilSpecificDateInput = ConsoleE.Input("Until which date? (yyyy-MM-dd)");
-                        objMovieSchedulingLogic.Print(untilSpecificDateInput);
+                        objMovieSchedulingLogic.Print(DateTime.Today, untilSpecificDateInput);
                         Start(accId, isAdmin);
                         break;
                     case "3":

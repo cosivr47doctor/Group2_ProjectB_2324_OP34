@@ -380,15 +380,20 @@ class MovieSchedulingLogic
     public void Print(string[] dateRanges)
     {
         DateTime[] parsedDates = new DateTime[2];
+        int i = 0;
         foreach (string date in dateRanges)
         {
             DateTime parsedDate;
-            int i = 0;
             if (DateTime.TryParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
             {
                 parsedDates[i] = parsedDate;
+                i++;
             }
-            else Console.WriteLine("Invalid input"); return;
+            else 
+            {
+                Console.WriteLine("Invalid input");
+                return;
+            }
         }
 
         SeeJsons.PrintSchedulesJson("@DateSources/movieSessions.json", parsedDates[0], parsedDates[1]);
