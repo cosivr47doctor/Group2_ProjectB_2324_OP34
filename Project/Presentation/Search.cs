@@ -15,7 +15,7 @@ static class Search
             Console.WriteLine("-----------------------------------");
             Console.WriteLine($"Movie found (name): {movie.Name}");
             Console.WriteLine($"Id: {movie.Id}");
-            Console.WriteLine($"Genre: {movie.Genre}");
+            Console.WriteLine($"Genre: {string.Join(", ", movie.Genre)}");
             Console.WriteLine($"Year: {movie.Year}");
             Console.WriteLine($"Description: {movie.Description}");
             Console.WriteLine($"Director: {movie.Director}");

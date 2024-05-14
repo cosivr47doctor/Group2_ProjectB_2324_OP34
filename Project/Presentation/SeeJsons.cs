@@ -68,19 +68,25 @@ public static class SeeJsons
     
     //FillJsons.PrintFoodJson(@"DataSources/food.json");
 
-    public static void PrintResvGJson(string filePath)
+        public static void PrintLastResvGJson(string filePath)
     {
         Console.Clear();
-        Console.WriteLine("Reservation details (seats):");
+        Console.WriteLine("Last Reservation details:");
         Console.WriteLine("-----------------------------------");
-
-        foreach (var resvA in reservationLogic.Reservations)
+ 
+        if (reservationLogic.Reservations.Count > 0)
         {
-            Console.WriteLine($"Id: {resvA.Id}");
-            Console.WriteLine($"Seats: {resvA.Seats}");
-            Console.WriteLine($"Food: {string.Join(", ", resvA.Food)}");
-            Console.WriteLine($"Total price: {resvA.TotalPrice}");
-            Console.WriteLine("-----------------------------------");
+            var lastReservation = reservationLogic.Reservations.Last();
+            Console.WriteLine($"Id: {lastReservation.Id}");
+            Console.WriteLine($"Seats: {lastReservation.Seats}");
+            Console.WriteLine($"Food: {string.Join(", ", lastReservation.Food)}");
+            Console.WriteLine($"Total price: {lastReservation.TotalPrice}");
         }
+        else
+        {
+            Console.WriteLine("No reservations found.");
+        }
+ 
+        Console.WriteLine("-----------------------------------");
     }
 }

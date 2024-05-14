@@ -101,13 +101,15 @@ public static class SelectSeats
                 case ConsoleKey.Enter:
                     if (options[selectedRow][selectedColumn] == " X ")
                     {
-                        Console.WriteLine("Seat already taken.");
+                        Console.WriteLine("\nSeat already taken.");
+                        Thread.Sleep(1000);
                     }
                     else
                     {
                         if (seatsNumbers.Count >= 8)
                         {
-                            Console.WriteLine("Max amount of seats reached");
+                            Console.WriteLine("\n\nMax amount of seats reached");
+                            Thread.Sleep(1000);
                         }
                         else if (seatsNumbers.Count >= 1)
                         {
@@ -132,7 +134,8 @@ public static class SelectSeats
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Can only select seats next to each other");
+                                    Console.WriteLine("\n\n\nCan only select seats next to each other");
+                                    Thread.Sleep(1000);
                                 }
                         }
                         else
@@ -164,6 +167,7 @@ public static class SelectSeats
                         {
                             seatsNumbers.Sort();
                             Console.WriteLine($"Seat(s) selected successfully: {string.Join(", ", seatsNumbers)}");
+                            Thread.Sleep(3000);
                             string seatsString = string.Join(",", seatsNumbers);
                             int seatprice = 12;
                             int price = seatprice * seatsNumbers.Count;
@@ -180,7 +184,7 @@ public static class SelectSeats
                     }
                     case ConsoleKey.Escape:
                     {
-                        Console.WriteLine("Heading back to the start menu");
+                        UserMenu.Start();
                         break;
                     }
             }

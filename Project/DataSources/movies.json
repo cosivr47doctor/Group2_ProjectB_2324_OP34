@@ -40,7 +40,7 @@
     ],
     "Year": 1999,
     "Description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
-    "Director": "Lana Wachowski, Lilly Wachowski",
+    "Director": "Lana Wachowski",
     "Duration": 136
   },
   {
@@ -79,17 +79,6 @@
   },
   {
     "id": 8,
-    "Name": "TestAddingAMovieNowThatGenreIsAnArrayOfStrings",
-    "Genre": [
-      "TestAddingAMovieNowThatGenreIsAnArrayOfStrings"
-    ],
-    "Year": 2024,
-    "Description": "Adding three genres this time, test test",
-    "Director": "Thh",
-    "Duration": 90
-  },
-  {
-    "id": 9,
     "Name": "a",
     "Genre": [
       "a"
@@ -100,7 +89,7 @@
     "Duration": 1
   },
   {
-    "id": 10,
+    "id": 9,
     "Name": "henk",
     "Genre": [
       "sci fi"
