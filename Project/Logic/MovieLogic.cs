@@ -85,12 +85,12 @@ class MovieLogic
             Console.WriteLine("Please enter the new duration (blank if unchanged)");
             string changeDurationInput = Console.ReadLine();
 
-            if (changeNameInput != null) movieToChange.Name = changeNameInput;
-            if (changeGenreInput != null) movieToChange.Genre = changeNameInput.Split(",");
-            if (changeYearInput != null && int.TryParse(changeYearInput, out _)) movieToChange.Year = Convert.ToInt16(changeYearInput);
-            if (changeDescriptionInput != null) movieToChange.Description = changeDescriptionInput;
-            if (changeDirectorInput != null) movieToChange.Director = changeDirectorInput;
-            if (changeDurationInput != null && int.TryParse(changeDurationInput, out _)) movieToChange.Duration = Convert.ToInt16(changeDurationInput);
+            if (!string.IsNullOrEmpty(changeNameInput)) movieToChange.Name = changeNameInput;
+            if (!string.IsNullOrEmpty(changeGenreInput)) movieToChange.Genre = changeNameInput.Split(",");
+            if (!string.IsNullOrEmpty(changeYearInput) && int.TryParse(changeYearInput, out _)) movieToChange.Year = Convert.ToInt16(changeYearInput);
+            if (!string.IsNullOrEmpty(changeDescriptionInput)) movieToChange.Description = changeDescriptionInput;
+            if (!string.IsNullOrEmpty(changeDirectorInput)) movieToChange.Director = changeDirectorInput;
+            if (!string.IsNullOrEmpty(changeDurationInput) && int.TryParse(changeDurationInput, out _)) movieToChange.Duration = Convert.ToInt16(changeDurationInput);
 
 
             _movie[index] = movieToChange;

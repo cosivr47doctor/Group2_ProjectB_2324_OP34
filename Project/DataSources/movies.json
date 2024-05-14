@@ -56,9 +56,9 @@
   },
   {
     "id": 6,
-    "Name": "ChangeMovieTitleTest2",
+    "Name": "ChangeMovieTitleTest3",
     "Genre": [
-      "ChangeMovieTitleTest2"
+      "ChangeMovieTitleTest3"
     ],
     "Year": 2024,
     "Description": "Testing whether the description will be changed... again",

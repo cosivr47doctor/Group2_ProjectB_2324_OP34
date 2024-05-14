@@ -16,6 +16,7 @@ class MovieScheduleModel
     public Dictionary<string, string> TimeIdPair { get; set; }
 
     // Exclude from JSON serialization
+    // Data gets erased after the first serialization & deserialization, so no data is accessed in the overriden ToString() method
     [JsonIgnore]
     public Dictionary<string, MovieDetailsModel> TimeDict {get; set;} = new Dictionary<string, MovieDetailsModel>();
 
