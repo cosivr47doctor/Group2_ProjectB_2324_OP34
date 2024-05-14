@@ -2,6 +2,7 @@ static class ResvDetails
 {
     public static void ResvHistory(int accountId)
     {
+        Console.Clear();
         AccountsLogic accountsLogic = new();
         AccountModel account = accountsLogic.GetByArg(accountId);
 
@@ -27,6 +28,7 @@ static class ResvDetails
     }
     public static void ResvConfirmation(int accountId, int resvID)
     {
+        Console.Clear();
         AccountsLogic accountsLogic = new();
         AccountModel account = accountsLogic.GetByArg(accountId);
 

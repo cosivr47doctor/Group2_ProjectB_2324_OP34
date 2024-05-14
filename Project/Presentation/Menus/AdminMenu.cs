@@ -6,10 +6,11 @@ static class AdminMenu
     //You could edit this to show different menus depending on the user's role
     static public void Start(int accId=0)
     {
+        Console.Clear();
         AccountsLogic objAccountsLogic = new AccountsLogic(); objAccountsLogic.StartupUpdateList();
         
         Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -");
-        Console.WriteLine("Welcom back admin 👋");
+        Console.WriteLine("WELCOME BACK ADMIN👋");
         Console.WriteLine("Enter 0 to switch to user menu");
         Console.WriteLine("Enter 1 to logout\n");
 

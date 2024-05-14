@@ -8,6 +8,7 @@ public static class SeeJsons
     static private MovieSchedulingLogic movieSchedulingLogic = new MovieSchedulingLogic();
     public static void PrintFoodJson(string filePath)
     {
+        Console.Clear();
         // split food and drinks
         
         // movieLogic.
@@ -25,24 +26,24 @@ public static class SeeJsons
 
     public static void PrintMoviesJson(string filePath)
     {
+        Console.Clear();
         Console.WriteLine("Cinema movies:");
-        Console.WriteLine("-----------------------------------");
+        Console.WriteLine("---------------------------------------------------------------------------------------------------");
+        Console.WriteLine("---------------------------------------------------------------------------------------------------");
+        Console.WriteLine("|  ID  |           Title          |  Year  |          Genre          |       Director      |  Duration  |");
+        Console.WriteLine("---------------------------------------------------------------------------------------------------");
 
         foreach (var movie in movieLogic.Movies)
         {
-            Console.WriteLine($"Id: {movie.Id}");
-            Console.WriteLine($"Name: {movie.Name}");
-            Console.WriteLine($"Genre: {string.Join(", ", movie.Genre)}");
-            Console.WriteLine($"Year: {movie.Year}");
-            Console.WriteLine($"Description: {movie.Description}");
-            Console.WriteLine($"Director: {movie.Director}");
-            Console.WriteLine($"Duration (in minutes): {movie.Duration}");
+            string movieDetails = $"| {movie.Id,4} | {movie.Name,-25} | {movie.Year,6} | {string.Join(", ", movie.Genre),23} | {movie.Director,-20} | {movie.Duration,9} |";
+            Console.WriteLine(movieDetails);
             Console.WriteLine("-----------------------------------");
         }
     }
 
     public static void PrintSchedulesJson(string filePath, DateTime? fromDate = null, DateTime? untilDate = null)
     {
+        Console.Clear();
         Console.WriteLine("Movies schedule:");
         Console.WriteLine("-----------------------------------");
 

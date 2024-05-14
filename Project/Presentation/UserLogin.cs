@@ -5,6 +5,15 @@ static class UserLogin
 
     public static void Start()
     {
+        Console.Clear();
+        Console.WriteLine(@"
+  _                _         ____                  
+ | |    ___   __ _(_)_ __   |  _ \ __ _  __ _  ___ 
+ | |   / _ \ / _` | | '_ \  | |_) / _` |/ _` |/ _ \
+ | |__| (_) | (_| | | | | | |  __/ (_| | (_| |  __/
+ |_____\___/ \__, |_|_| |_| |_|   \__,_|\__, |\___|
+             |___/                      |___/                                                                                                                        
+");
         AccountsLogic objAccountsLogic = new AccountsLogic(); objAccountsLogic.StartupUpdateList();
         
         Console.WriteLine("Welcome to the login page");

@@ -2,6 +2,7 @@ public static class CinemInfo
 {
     public static void CinemInformation()
     {
+        Console.Clear();
         Console.WriteLine("");
         Console.WriteLine("📌   Wijnhaven 107, 3011 WN Rotterdam");
         Console.WriteLine("📞   010 794 4000");
