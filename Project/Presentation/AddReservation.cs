@@ -56,7 +56,7 @@ static class AddReservation
                 break;
             case 1: 
                 Console.WriteLine("No");
-                ReservationModel2 newReservation = new ReservationModel2(foundMovie, seats, null, price);
+                ReservationModel2 newReservation = new ReservationModel2(foundMovie, seats, new string[0] {}, price);
                 reservation.UpdateList(newReservation);
                 Console.ResetColor();
                 MainMenu.Start();
@@ -113,7 +113,9 @@ static class AddReservation
             Console.WriteLine($"Total Price: {totalPrice}");
             ReservationModel2 newReservation = new ReservationModel2(foundMovie, seats, foodName, totalPrice);
             reservation.UpdateList(newReservation);
-            Console.WriteLine("Done makeing resv boyyy");
+            SeeJsons.PrintResvGJson(@"DataSources/reservations.json");
+            Console.ReadLine();
+            Console.WriteLine("Press enter to go to the start menu.");
             MainMenu.Start();
             //ResvDetails.ResvConfirmation(intUserAccountId, index);
         }

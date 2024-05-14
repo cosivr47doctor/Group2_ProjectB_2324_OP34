@@ -77,9 +77,9 @@ public static class SeeJsons
         foreach (var resvA in reservationLogic.Reservations)
         {
             Console.WriteLine($"Id: {resvA.Id}");
-            Console.WriteLine($"Name: {resvA.Seats}");
-            Console.WriteLine($"Genre: {string.Join(", ", resvA.Food)}");
-            Console.WriteLine($"Year: {resvA.TotalPrice}");
+            Console.WriteLine($"Seats: {resvA.Seats}");
+            Console.WriteLine($"Food: {string.Join(", ", resvA.Food)}");
+            Console.WriteLine($"Total price: {resvA.TotalPrice}");
             Console.WriteLine("-----------------------------------");
         }
     }

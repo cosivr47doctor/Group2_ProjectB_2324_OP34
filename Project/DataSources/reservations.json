@@ -1,24 +1,10 @@
 [
   {
     "Movie id": 1,
-    "seats": "11,12,13",
-    "Food": null,
-    "TotalPrice": 36
-  },
-  {
-    "Movie id": 1,
-    "seats": "11,12,13",
+    "seats": "1",
     "Food": [
       "popcorn"
     ],
-    "TotalPrice": 38.99
-  },
-  {
-    "Movie id": 1,
-    "seats": "11,12,13",
-    "Food": [
-      "chips"
-    ],
-    "TotalPrice": 43.00
+    "TotalPrice": 14.99
   }
 ]
