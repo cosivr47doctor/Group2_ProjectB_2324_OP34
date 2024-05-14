@@ -4,6 +4,7 @@ public static class SeeJsons
 {
     static private FoodLogic foodLogic = new FoodLogic();
     static private MovieLogic movieLogic = new MovieLogic();
+    static private Reservation reservationLogic = new Reservation();
     static private MovieSchedulingLogic movieSchedulingLogic = new MovieSchedulingLogic();
     public static void PrintFoodJson(string filePath)
     {
@@ -65,4 +66,20 @@ public static class SeeJsons
     }
     
     //FillJsons.PrintFoodJson(@"DataSources/food.json");
+
+    public static void PrintResvGJson(string filePath)
+    {
+        Console.Clear();
+        Console.WriteLine("Reservation details (seats):");
+        Console.WriteLine("-----------------------------------");
+
+        foreach (var resvA in reservationLogic.Reservations)
+        {
+            Console.WriteLine($"Id: {resvA.Id}");
+            Console.WriteLine($"Name: {resvA.Seats}");
+            Console.WriteLine($"Genre: {string.Join(", ", resvA.Food)}");
+            Console.WriteLine($"Year: {resvA.TotalPrice}");
+            Console.WriteLine("-----------------------------------");
+        }
+    }
 }

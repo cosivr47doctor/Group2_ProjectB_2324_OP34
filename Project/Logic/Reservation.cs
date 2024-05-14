@@ -3,9 +3,16 @@ class Reservation
 {
 
     private List<ReservationModel2> _reservation;
+    public List<ReservationModel2> Reservations => _reservation;
     public Reservation()
     {
         _reservation = ReservationAccess.LoadAll();
+    }
+
+    public void UpdateList(ReservationModel2 newReservation)
+    {
+        _reservation.Add(newReservation);
+        ReservationAccess.WriteAll(_reservation);
     }
 
     // public static void ReserveMovie(int intUserAccountId = 1)
@@ -135,10 +142,4 @@ class Reservation
 
 
     // }
-
-    public void UpdateList(ReservationModel2 newReservation)
-    {
-        _reservation.Add(newReservation);
-        ReservationAccess.WriteAll(_reservation);
-    }
 }
