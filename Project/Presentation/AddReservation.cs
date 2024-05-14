@@ -13,21 +13,25 @@ static class AddReservation
         {
             Console.Clear();
             Console.ResetColor();
+            SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
+            Console.WriteLine("");
             //zie welke films je kan kiezen
             Console.Write("Enter the name or id of the movie: ");
             string userInput = Console.ReadLine();
             if (string.IsNullOrEmpty(userInput))
             {
-                Console.WriteLine("Invalid input, please enter the name or id of the movie.");
-                return;
+                Console.WriteLine("Invalid input, try again.");
+                Thread.Sleep(1000);
+                continue;
             }
 
             MovieModel foundMovie = movieLogic.SelectForResv(userInput);
 
             if (foundMovie == null)
             {
-                Console.WriteLine("Movie not found.");
-                return;
+                Console.WriteLine("Movie not found, try again.");
+                Thread.Sleep(1000);
+                continue;
             }
             Console.WriteLine($"Movie found: {foundMovie.Name}");
             Console.WriteLine("Heading to the room seats");
@@ -38,13 +42,13 @@ static class AddReservation
     public static void AskForFood(int price, string seats, int foundMovie)
     {
 
-        Console.WriteLine($"Would you like to add food?");
         List<string> options = new(){
             "Yes",
             "No"
         };
 
-        int selectedOption = DisplayUtil.Display(options);
+        int selectedOption = DisplayFoodUtil.DisplayF(options);
+        Console.WriteLine($"Would you like to add food?");
         switch (selectedOption)
         {
             case 0:
@@ -68,13 +72,15 @@ static class AddReservation
 
         while (true)
         {
+            SeeJsons.PrintFoodJson(@"DataSources/food.json");
+            Console.WriteLine("");
             Console.Write("Enter the name or id of the food you like to order: ");
             string userInput = Console.ReadLine();
 
             if (string.IsNullOrEmpty(userInput))
             {
                 Console.WriteLine("Please enter the name or id of the food.");
-                return;
+                continue;
             }
 
             FoodModel foundFood = foodLogic.SelectForResv(userInput);
@@ -82,7 +88,7 @@ static class AddReservation
             if (foundFood == null)
             {
                 Console.WriteLine("Food not found.");
-                return;
+                continue;
             }
 
             Console.WriteLine($"Selected food: {foundFood.Name}, Price: {foundFood.Price}");
