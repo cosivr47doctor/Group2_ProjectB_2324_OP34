@@ -15,7 +15,7 @@ static class MainMenu
             "See available movies",
             "See cinema information",
             "Quit program",
-            "Test room seats"
+            // "Test room seats"
         };
 
         int selectedOption = DisplayUtil.Display(options);
@@ -46,10 +46,11 @@ static class MainMenu
                 Start();
                 break;
             case 4:
+                Console.ResetColor();
                 break;
-            case 5:
-                AddReservation.addMovieResv();
-                break;
+            // case 5:
+            //     AddReservation.addMovieResv();
+            //     break;
             default:
                 throw new Exception("error");
         }

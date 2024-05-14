@@ -190,5 +190,45 @@
     "suspense": null,
     "PhoneNumber": 644538567,
     "reservations": []
+  },
+  {
+    "id": 7,
+    "emailAddress": "test@gmail.com",
+    "password": "$2a$11$TFyqMwaEQsi8qC.grn47NOoKd6sk7QXiTmzUzv1jQ/ciOIUP.oHKW",
+    "fullName": "Test Test",
+    "isAdmin": false,
+    "suspense": null,
+    "PhoneNumber": 612345678,
+    "reservations": []
+  },
+  {
+    "id": 8,
+    "emailAddress": "test@gmail.com",
+    "password": "$2a$11$UnLFSyCxsc6XOn6QuQ0fM.xJJW3jCG/2gVT00cT9WGUSA2TjFbCZW",
+    "fullName": "Test Test",
+    "isAdmin": false,
+    "suspense": null,
+    "PhoneNumber": 612345678,
+    "reservations": []
+  },
+  {
+    "id": 9,
+    "emailAddress": "test@gmail.com",
+    "password": "$2a$11$8U9XXHBHV89rl.GgnUaDOukGdHAQa9gnlMl4Ha3UNkyERTOHuf0ny",
+    "fullName": "Test Test",
+    "isAdmin": false,
+    "suspense": null,
+    "PhoneNumber": 6123456,
+    "reservations": []
+  },
+  {
+    "id": 10,
+    "emailAddress": "test@gmail.com",
+    "password": "$2a$11$5mwtHwlIuCGPLGACDWOaF.lSwi7th0sc2Wc2oAHvVdj0m.mn5aUfS",
+    "fullName": "Test Test",
+    "isAdmin": false,
+    "suspense": null,
+    "PhoneNumber": 612345678,
+    "reservations": []
   }
 ]
