@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public static class SelectSeats
 {
-    public static (int, int) DisplaySeats(List<List<string>> options, int foundMovie)
+    public static (int, int, int) DisplaySeats(List<List<string>> options, int foundMovie, int accId)
     {
         Console.Clear();
         Console.CursorVisible = false;
@@ -171,7 +171,7 @@ public static class SelectSeats
                             string seatsString = string.Join(",", seatsNumbers);
                             int seatprice = 12;
                             int price = seatprice * seatsNumbers.Count;
-                            AddReservation.AskForFood(price, seatsString, foundMovie);
+                            AddReservation.AskForFood(price, seatsString, foundMovie, accId);
                         }
                         break;
                         
@@ -191,7 +191,7 @@ public static class SelectSeats
         }
 
         Console.ResetColor();
-        return (selectedRow, selectedColumn);
+        return (selectedRow, selectedColumn, accId);
     }
 
 

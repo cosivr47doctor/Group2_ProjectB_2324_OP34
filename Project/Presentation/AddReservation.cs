@@ -7,8 +7,13 @@ static class AddReservation
     static private MovieLogic movieLogic = new MovieLogic();
     static private Reservation reservation = new Reservation();
 
-    public static void addMovieResv()
+    public static void addMovieResv(int accId = -1)
     {
+        if (accId < 0)
+        {
+            Console.WriteLine("Invalid account ID error");
+            MainMenu.Start();
+        }
         while (true)
         {
             Console.Clear();
@@ -36,10 +41,10 @@ static class AddReservation
             Console.WriteLine($"Movie found: {foundMovie.Name}");
             Console.WriteLine("Heading to the room seats");
             Thread.Sleep(3000);
-            RoomSeats.Room1(foundMovie.Id);
+            RoomSeats.Room1(foundMovie.Id, accId);
         }
     }
-    public static void AskForFood(int price, string seats, int foundMovie)
+    public static void AskForFood(int price, string seats, int foundMovie, int accId)
     {
 
         List<string> options = new(){
@@ -52,7 +57,7 @@ static class AddReservation
         switch (selectedOption)
         {
             case 0:
-                addFoodResv(price, seats, foundMovie);
+                addFoodResv(price, seats, foundMovie, accId);
                 break;
             case 1: 
                 Console.WriteLine("No");
@@ -67,7 +72,7 @@ static class AddReservation
         }
     }
 
-    public static void addFoodResv(int price, string seats, int foundMovie)
+    public static void addFoodResv(int price, string seats, int foundMovie, int accId)
     {
 
         while (true)
@@ -117,7 +122,7 @@ static class AddReservation
             // Console.WriteLine("Press any key to continue");
             Console.WriteLine("Reservation added successfully");
             // Console.ReadLine();
-            UserMenu.Start();
+            UserMenu.Start(accId);
             //ResvDetails.ResvConfirmation(intUserAccountId, index);
         }
     }

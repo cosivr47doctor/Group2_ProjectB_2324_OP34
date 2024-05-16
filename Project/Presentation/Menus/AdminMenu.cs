@@ -20,6 +20,8 @@ static class AdminMenu
         Console.WriteLine("Enter 5 to edit/remove a movie");
         Console.WriteLine("Enter 6 to reschedule a date");
 
+        Console.WriteLine("\n Enter 9 to access extra options");
+
         Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -\n");
 
 
@@ -88,12 +90,19 @@ static class AdminMenu
                 ConsoleE.Input("Press enter to go back", true);
                 Start();
                 break;
-            case "TEST_RESERVE":
-                // Console.WriteLine("Please enter the name of the movie you want to reserve");  // Continues to show all movies with that title or similar
-                //Reservation.ReserveMovie();
-                Console.WriteLine("Dummy movie succesfully added to reservations. Press enter to go back.");
-                Console.ReadLine();
-                Start();
+            case "9":
+                Console.WriteLine("Enter `TR` to test the TEST_RESERVE function that will automatically add a reservation to the dummy account");
+                string extraInput = ConsoleE.Input("");
+                switch (extraInput)
+                {
+                    case "TEST_RESERVE":
+                        Console.WriteLine("Please enter the name of the movie you want to reserve");  // Continues to show all movies with that title or similar
+                        AddReservation.addMovieResv(3);
+                        Console.WriteLine("Dummy movie succesfully added to reservations. Press enter to go back.");
+                        Console.ReadLine();
+                        Start();
+                        break;
+                }
                 break;
             default:
                 Console.WriteLine("Invalid input");
