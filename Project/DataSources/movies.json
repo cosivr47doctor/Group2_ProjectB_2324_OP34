@@ -109,5 +109,16 @@
     "Description": "A clone!",
     "Director": "Thh",
     "Duration": 55
+  },
+  {
+    "id": 11,
+    "Name": "TestRemove",
+    "Genre": [
+      "drama", "horror", "triller"
+    ],
+    "Year": 2023,
+    "Description": "We really, really, REALLY hate this movie... and it lasts TOO LONG... REMOVE IT!!",
+    "Director": "Thh",
+    "Duration": 500
   }
 ]
