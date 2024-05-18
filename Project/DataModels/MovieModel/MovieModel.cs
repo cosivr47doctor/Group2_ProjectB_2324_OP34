@@ -1,8 +1,9 @@
 using System.Text.Json.Serialization;
 using Microsoft.VisualBasic;
+using System.Collections;
 
 
-class MovieModel
+public class MovieModel
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
@@ -25,7 +26,7 @@ class MovieModel
     [JsonPropertyName("Duration")]
     public int Duration { get; set; }
 
-
+    public MovieModel() {}
     public MovieModel(string name, string[] genre, int year, string description, string director, int duration)
     {
         Id = 0;
@@ -51,4 +52,5 @@ class MovieModel
     {
         return HashCode.Combine(Id, Name); // Adjust as necessary
     }
+
 }

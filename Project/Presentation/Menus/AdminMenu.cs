@@ -73,7 +73,7 @@ static class AdminMenu
                 Start(accId);
                 break;
             case "5":
-                Console.WriteLine("Want to change (1) or remove (2) a movie?");
+                Console.WriteLine("Want to change (1), remove (2), or clone (3) a movie?");
                 string editOrRemove = Console.ReadLine();
                 if (new[] { "1", "change" }.Contains(editOrRemove))
                 {
@@ -82,6 +82,10 @@ static class AdminMenu
                 else if (new[] { "2", "remove" }.Contains(editOrRemove))
                 {
                     EditMovie.RemoveMovie();
+                }
+                else if (new[] { "3", "clone" }.Contains(editOrRemove))
+                {
+                    EditMovie.CloneMovie();
                 }
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();

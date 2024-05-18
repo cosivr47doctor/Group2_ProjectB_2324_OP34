@@ -79,17 +79,6 @@
   },
   {
     "id": 8,
-    "Name": "a",
-    "Genre": [
-      "a"
-    ],
-    "Year": 1,
-    "Description": "a",
-    "Director": "a",
-    "Duration": 1
-  },
-  {
-    "id": 9,
     "Name": "henk",
     "Genre": [
       "sci fi"
@@ -98,5 +87,27 @@
     "Description": "hoi",
     "Director": "henk jan",
     "Duration": 120
+  },
+  {
+    "id": 9,
+    "Name": "TestMovieClone",
+    "Genre": [
+      "sci fi"
+    ],
+    "Year": 2024,
+    "Description": "Not a clone...",
+    "Director": "Thh",
+    "Duration": 55
+  },
+  {
+    "id": 10,
+    "Name": "TestMovieClone2",
+    "Genre": [
+      "sci fi"
+    ],
+    "Year": 2024,
+    "Description": "A clone!",
+    "Director": "Thh",
+    "Duration": 55
   }
 ]

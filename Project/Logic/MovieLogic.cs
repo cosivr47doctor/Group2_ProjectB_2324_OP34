@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Reflection;
 
 
 //This class is not static so later on we can use inheritance and interfaces
@@ -22,22 +23,22 @@ class MovieLogic
     }
 
 
-    public void UpdateList(MovieModel movies)
+    public void UpdateList(MovieModel movie)
     {
         //Find if there is already an model with the same id
         int maxId = _movie.Count > 0 ? _movie.Max(m => m.Id) : 0;
-        int index = _movie.FindIndex(s => s.Name == movies.Name);
+        int index = _movie.FindIndex(s => s.Name == movie.Name);
 
         if (index != -1)
         {
             //update existing model
-            _movie[index] = movies;
+            _movie[index] = movie;
         }
         else
         {
             //add new model
-            movies.Id = maxId + 1;
-            _movie.Add(movies);
+            movie.Id = maxId + 1;
+            _movie.Add(movie);
         }
         MovieAccess.WriteAll(_movie);
 
@@ -107,6 +108,56 @@ class MovieLogic
             _movie.Remove(movieToRemove);
             MovieAccess.WriteAll(_movie);
         }
+    }
+
+    public void CloneMovie(string searchBy)
+    {
+        MovieModel movieToClone = GetBySearch(searchBy);
+
+        if (movieToClone != null)
+        {
+            List<object> newPropertyValues  = new List<object>();
+
+            PropertyInfo[] movieProperties = movieToClone.GetType().GetProperties();
+            foreach (PropertyInfo property in movieProperties.Skip(1))
+            {
+                string userInput = ConsoleE.Input($"Enter new {property.Name}. Blank if unchanged.");
+                if (!String.IsNullOrEmpty(userInput) && !String.IsNullOrWhiteSpace(userInput))
+                {
+                    try
+                    {
+                        object newValue;
+                        if (property.PropertyType == typeof(string[]))
+                        {
+                            newValue = userInput.Split(',').Select(s => s.Trim()).ToArray();
+                        }
+                        else
+                        {
+                            newValue = Convert.ChangeType(userInput, property.PropertyType);
+                        }
+                        newPropertyValues.Add(newValue);
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Invalid input. Did you use characters where digits are expected?");
+                        return;
+                    }
+                }
+                else newPropertyValues.Add(property.GetValue(movieToClone));
+            }
+
+            MovieModel clonedMovie = CreateMovieFromValues(newPropertyValues);
+            clonedMovie.Id = 0;
+            UpdateList(clonedMovie);
+            Console.WriteLine("Movie succesfully cloned");
+        }
+    }
+
+    private MovieModel CreateMovieFromValues(List<object> propertyValues)
+    {
+        return new MovieModel((string)propertyValues[0], (string[])propertyValues[1], 
+                            (int)propertyValues[2], (string)propertyValues[3], 
+                            (string)propertyValues[4], (int)propertyValues[5]);
     }
 
     public MovieModel SelectRandomMovie()

@@ -13,7 +13,13 @@ static class MovieAccess
         {
             return new List<MovieModel>();
         }
-        return JsonSerializer.Deserialize<List<MovieModel>>(json);
+        List<MovieModel> movieList = JsonSerializer.Deserialize<List<MovieModel>>(json);
+        MovieCollection movieCollection = new MovieCollection();
+        foreach (var movie in movieList)
+        {
+            movieCollection.Add(movie);
+        }
+        return movieCollection.ToList();
     }
 
 
