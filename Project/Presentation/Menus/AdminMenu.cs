@@ -4,9 +4,13 @@ static class AdminMenu
     //This shows the menu. You can call back to this method to show the menu again
     //after another presentation method is completed.
     //You could edit this to show different menus depending on the user's role
-    static public void Start(int accId=0)
+    static public void Start(int accId=-1)
     {
-        Console.Clear();
+        if (accId < 0)
+        {
+            Console.WriteLine("Not logged in");
+            MainMenu.Start();
+        }
         AccountsLogic objAccountsLogic = new AccountsLogic(); objAccountsLogic.StartupUpdateList();
         
         Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -");
@@ -20,7 +24,7 @@ static class AdminMenu
         Console.WriteLine("Enter 5 to edit/remove a movie");
         Console.WriteLine("Enter 6 to reschedule a date");
 
-        Console.WriteLine("\n Enter 9 to access extra options");
+        Console.WriteLine("\nEnter 9 to access extra options");
 
         Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -\n");
 
@@ -48,25 +52,25 @@ static class AdminMenu
                     string change_user_status_input = Console.ReadLine();
                     if (Enumerable.Range(1, 4).Contains(Convert.ToInt16(change_user_status_input)))
                     {
-                        obj_AccountsLogic.ChangeUserStatus(change_user_status_input, find_by_input);
+                        obj_AccountsLogic.ChangeUserStatus(change_user_status_input, find_by_input, accId);
                     }
                 }
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
-                Start();
+                Start(accId);
 
                 break;
             case "3":
                 Adding.addFood();
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
-                Start();
+                Start(accId);
                 break;
             case "4":
                 Adding.addMovie();
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
-                Start();
+                Start(accId);
                 break;
             case "5":
                 Console.WriteLine("Want to change (1) or remove (2) a movie?");
@@ -81,32 +85,35 @@ static class AdminMenu
                 }
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
-                Start();
+                Start(accId);
                 break;
             case "6":
                 MovieSchedulingLogic objMovieSchedulingLogic = new MovieSchedulingLogic();
                 string dateInput = ConsoleE.Input("Enter a date (yyyy-MM-dd)");
                 objMovieSchedulingLogic.RescheduleList(dateInput);
                 ConsoleE.Input("Press enter to go back", true);
-                Start();
+                Start(accId);
                 break;
             case "9":
                 Console.WriteLine("Enter `TR` to test the TEST_RESERVE function that will automatically add a reservation to the dummy account");
                 string extraInput = ConsoleE.Input("");
                 switch (extraInput)
                 {
-                    case "TEST_RESERVE":
-                        Console.WriteLine("Please enter the name of the movie you want to reserve");  // Continues to show all movies with that title or similar
-                        AddReservation.addMovieResv(3);
+                    case "TR":
+                        AddReservation.addMovieResv(accId, 3);
                         Console.WriteLine("Dummy movie succesfully added to reservations. Press enter to go back.");
                         Console.ReadLine();
-                        Start();
+                        Start(accId);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input");
+                        Start(accId);
                         break;
                 }
                 break;
             default:
                 Console.WriteLine("Invalid input");
-                Start();
+                Start(accId);
                 break;
         }
 

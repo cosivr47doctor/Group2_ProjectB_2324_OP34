@@ -7,45 +7,55 @@ static class AddReservation
     static private MovieLogic movieLogic = new MovieLogic();
     static private Reservation reservation = new Reservation();
 
-    public static void addMovieResv(int accId = -1)
+    public static void addMovieResv(int accId = -1, int dummyAccId=-1)
     {
         if (accId < 0)
         {
             Console.WriteLine("Invalid account ID error");
             MainMenu.Start();
         }
-        while (true)
+        if (dummyAccId != 3)
         {
-            Console.Clear();
-            Console.ResetColor();
-            SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
-            Console.WriteLine("");
-            //zie welke films je kan kiezen
-            Console.Write("Enter the name or id of the movie: ");
-            string userInput = Console.ReadLine();
-            if (string.IsNullOrEmpty(userInput))
+            while (true)
             {
-                Console.WriteLine("Invalid input, try again.");
-                Thread.Sleep(1000);
-                continue;
-            }
+                Console.Clear();
+                Console.ResetColor();
+                SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
+                Console.WriteLine("");
+                //zie welke films je kan kiezen
+                Console.Write("Enter the name or id of the movie: ");
+                string userInput = Console.ReadLine();
+                if (string.IsNullOrEmpty(userInput))
+                {
+                    Console.WriteLine("Invalid input, try again.");
+                    Thread.Sleep(1000);
+                    continue;
+                }
 
-            MovieModel foundMovie = movieLogic.SelectForResv(userInput);
+                MovieModel foundMovie = movieLogic.SelectForResv(userInput);
 
-            if (foundMovie == null)
-            {
-                Console.WriteLine("Movie not found, try again.");
-                Thread.Sleep(1000);
-                continue;
+                if (foundMovie == null)
+                {
+                    Console.WriteLine("Movie not found, try again.");
+                    Thread.Sleep(1000);
+                    continue;
+                }
+                Console.WriteLine($"Movie found: {foundMovie.Name}");
+                Console.WriteLine("Heading to the room seats");
+                Thread.Sleep(3000);
+                RoomSeats.Room1(foundMovie.Id, accId);
             }
-            Console.WriteLine($"Movie found: {foundMovie.Name}");
-            Console.WriteLine("Heading to the room seats");
-            Thread.Sleep(3000);
-            RoomSeats.Room1(foundMovie.Id, accId);
+        }
+        else
+        {
+            // MovieModel dummyMovie = movieLogic.SelectForResv("3");
+            AskForFood(0, "101", 10, accId, dummyAccId=3);
+            Console.WriteLine("Reservation added for the dummy account. Check updated json.");
         }
     }
-    public static void AskForFood(int price, string seats, int foundMovie, int accId)
+    public static void AskForFood(int price, string seats, int foundMovie, int accId, int dummyAccId=-1)
     {
+        AccountsLogic objAccountsLogic = new(); bool isAdmin = objAccountsLogic.GetByArg(accId).isAdmin;
 
         List<string> options = new(){
             "Yes",
@@ -57,14 +67,15 @@ static class AddReservation
         switch (selectedOption)
         {
             case 0:
-                addFoodResv(price, seats, foundMovie, accId);
+                addFoodResv(price, seats, foundMovie, accId, dummyAccId);
                 break;
             case 1: 
                 Console.WriteLine("No");
                 ReservationModel2 newReservation = new ReservationModel2(foundMovie, seats, new string[0] {}, price);
                 reservation.UpdateList(newReservation);
                 Console.ResetColor();
-                UserMenu.Start();
+                if (isAdmin) AdminMenu.Start(accId);
+                else UserMenu.Start(accId);
                 //ResvDetails.ResvConfirmation(intUserAccountId, index);
                 break;
             default:
@@ -72,8 +83,9 @@ static class AddReservation
         }
     }
 
-    public static void addFoodResv(int price, string seats, int foundMovie, int accId)
+    public static void addFoodResv(int price, string seats, int foundMovie, int accId, int dummyAccId=-1)
     {
+        AccountsLogic objAccountsLogic = new(); bool isAdmin = objAccountsLogic.GetByArg(accId).isAdmin;
 
         while (true)
         {
@@ -122,7 +134,8 @@ static class AddReservation
             // Console.WriteLine("Press any key to continue");
             Console.WriteLine("Reservation added successfully");
             // Console.ReadLine();
-            UserMenu.Start(accId);
+            if (isAdmin) AdminMenu.Start(accId);
+            else UserMenu.Start(accId);
             //ResvDetails.ResvConfirmation(intUserAccountId, index);
         }
     }

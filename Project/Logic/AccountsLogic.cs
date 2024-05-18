@@ -120,7 +120,7 @@ class AccountsLogic
         }
     }
 
-    public void ChangeUserStatus(string change_status_input, string find_by_arg)
+    public void ChangeUserStatus(string change_status_input, string find_by_arg, int accId)
     {
         CurrentAccount = GetByArg(find_by_arg);
         if (Convert.ToInt16(change_status_input) == 1)
@@ -167,7 +167,7 @@ class AccountsLogic
             CurrentAccount.isAdmin = false;
         }
         UpdateList(CurrentAccount);
-        AdminMenu.Start();
+        AdminMenu.Start(accId);
     }
 }
 
