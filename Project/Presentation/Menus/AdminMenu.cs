@@ -21,7 +21,7 @@ static class AdminMenu
         Console.WriteLine("Enter 2 to change the status of a user");
         Console.WriteLine("Enter 3 to add food to the menu");
         Console.WriteLine("Enter 4 to add a movie");
-        Console.WriteLine("Enter 5 to edit/remove a movie");
+        Console.WriteLine("Enter 5 to edit/remove/clone a movie");
         Console.WriteLine("Enter 6 to reschedule a date");
 
         Console.WriteLine("\nEnter 9 to access extra options");
