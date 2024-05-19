@@ -35,9 +35,9 @@ static class AlgorhythmDecider
             int moviePopularityCount = 0;
             foreach (AccountModel account in accountsList)
             {
-                foreach (ReservationModel reservation in account.Reservations)
+                foreach (int reservationId in account.ReservationIds)
                 {
-                    if (movie.Name == reservation.Name) moviePopularityCount ++;
+                    if (movie.Id == reservationId) moviePopularityCount ++;
                 }
             }
             moviesByPopularity.Add(moviePopularityCount);

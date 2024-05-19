@@ -1,6 +1,11 @@
 public static class RoomSeats
 {
-    public static (int, int, int) Room1(int foundMovie, int accId)
+    public static void SelectRoom(int accId, int sessionId, int movieId, int roomId)
+    {
+        if (roomId == 1) Room1(accId, sessionId, movieId);
+        else if (roomId == 2) Room2(accId, sessionId, movieId);
+    }
+    public static (int, int, int) Room1(int accId, int sessionId, int movieId)
     {
 
         List<List<string>> seats = new List<List<string>>
@@ -17,7 +22,12 @@ public static class RoomSeats
             new List<string>{" 91", " 92", " 93", " 94", " 95", " 96", " 97", " 98", " 99", "100"}
         };
 
-        (int selectedRow, int selectedColumn, int userAccId) = SelectSeats.DisplaySeats(seats, foundMovie, accId);
-        return SelectSeats.DisplaySeats(seats, foundMovie, accId);
+        (int selectedRow, int selectedColumn, int userAccId) = SelectSeats.DisplaySeats(accId, sessionId, movieId, seats);
+        return SelectSeats.DisplaySeats(accId, sessionId, movieId, seats);
+    }
+
+    public static (int, int, int) Room2(int accId, int sessionId, int movieId)
+    {
+        throw new NotImplementedException();
     }
 }

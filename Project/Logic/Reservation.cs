@@ -2,14 +2,14 @@ using System.Collections.Generic;
 class Reservation
 {
 
-    private List<ReservationModel2> _reservation;
-    public List<ReservationModel2> Reservations => _reservation;
+    private List<ReservationModel> _reservation;
+    public List<ReservationModel> Reservations => _reservation;
     public Reservation()
     {
         _reservation = ReservationAccess.LoadAll();
     }
 
-    public void UpdateList(ReservationModel2 newReservation)
+    public void UpdateList(ReservationModel newReservation)
     {
         _reservation.Add(newReservation);
         ReservationAccess.WriteAll(_reservation);

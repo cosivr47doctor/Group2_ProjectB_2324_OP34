@@ -7,56 +7,7 @@
     "isAdmin": true,
     "suspense": null,
     "PhoneNumber": 655555555,
-    "reservations": [
-      {
-        "id": 0,
-        "name": null,
-        "ticketsCount": 2,
-        "price": 0,
-        "seats": null,
-        "TotalPrice": 0
-      },
-      {
-        "id": 1,
-        "name": null,
-        "ticketsCount": 2,
-        "price": 0,
-        "seats": null,
-        "TotalPrice": 0
-      },
-      {
-        "id": 2,
-        "name": null,
-        "ticketsCount": 3,
-        "price": 0,
-        "seats": null,
-        "TotalPrice": 0
-      },
-      {
-        "id": 3,
-        "name": null,
-        "ticketsCount": 1,
-        "price": 0,
-        "seats": null,
-        "TotalPrice": 0
-      },
-      {
-        "id": 4,
-        "name": null,
-        "ticketsCount": 1,
-        "price": 0,
-        "seats": null,
-        "TotalPrice": 0
-      },
-      {
-        "id": 6,
-        "name": "The Shawshank Redemption",
-        "ticketsCount": 2,
-        "price": 24,
-        "seats": null,
-        "TotalPrice": 0
-      }
-    ]
+    "reservationIds": []
   },
   {
     "id": 2,
@@ -66,7 +17,7 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 602060222,
-    "reservations": []
+    "reservationIds": []
   },
   {
     "id": 3,
@@ -76,16 +27,7 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 604013025,
-    "reservations": [
-      {
-        "id": 0,
-        "name": null,
-        "ticketsCount": 2,
-        "price": 0,
-        "seats": null,
-        "TotalPrice": 0
-      }
-    ]
+    "reservationIds": []
   },
   {
     "id": 4,
@@ -95,48 +37,7 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 612345678,
-    "reservations": [
-      {
-        "id": 1,
-        "name": "Inception",
-        "ticketsCount": 4,
-        "price": 12,
-        "seats": null,
-        "TotalPrice": 0
-      },
-      {
-        "id": 2,
-        "name": "The Shawshank Redemption",
-        "ticketsCount": 2,
-        "price": 24,
-        "seats": null,
-        "TotalPrice": 0
-      },
-      {
-        "id": 3,
-        "name": "The Godfather",
-        "ticketsCount": 3,
-        "price": 36,
-        "seats": null,
-        "TotalPrice": 0
-      },
-      {
-        "id": 4,
-        "name": "Inception",
-        "ticketsCount": 1,
-        "price": 12,
-        "seats": null,
-        "TotalPrice": 0
-      },
-      {
-        "id": 5,
-        "name": "The Boy",
-        "ticketsCount": 3,
-        "price": 36,
-        "seats": null,
-        "TotalPrice": 0
-      }
-    ]
+    "reservationIds": []
   },
   {
     "id": 5,
@@ -146,40 +47,7 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 612345678,
-    "reservations": [
-      {
-        "id": 1,
-        "name": "Inception",
-        "ticketsCount": 1,
-        "price": 12,
-        "seats": null,
-        "TotalPrice": 0
-      },
-      {
-        "id": 2,
-        "name": "Inception",
-        "ticketsCount": 1,
-        "price": 12,
-        "seats": null,
-        "TotalPrice": 0
-      },
-      {
-        "id": 3,
-        "name": "The Shawshank Redemption",
-        "ticketsCount": 2,
-        "price": 24,
-        "seats": null,
-        "TotalPrice": 0
-      },
-      {
-        "id": 4,
-        "name": "Inception",
-        "ticketsCount": 5,
-        "price": 60,
-        "seats": null,
-        "TotalPrice": 0
-      }
-    ]
+    "reservationIds": []
   },
   {
     "id": 6,
@@ -189,7 +57,7 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 644538567,
-    "reservations": []
+    "reservationIds": []
   },
   {
     "id": 7,
@@ -199,7 +67,7 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 612345678,
-    "reservations": []
+    "reservationIds": []
   },
   {
     "id": 8,
@@ -209,7 +77,7 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 612345678,
-    "reservations": []
+    "reservationIds": []
   },
   {
     "id": 9,
@@ -219,7 +87,7 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 6123456,
-    "reservations": []
+    "reservationIds": []
   },
   {
     "id": 10,
@@ -229,6 +97,6 @@
     "isAdmin": false,
     "suspense": null,
     "PhoneNumber": 612345678,
-    "reservations": []
+    "reservationIds": []
   }
 ]

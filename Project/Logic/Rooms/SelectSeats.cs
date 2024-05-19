@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public static class SelectSeats
 {
-    public static (int, int, int) DisplaySeats(List<List<string>> options, int foundMovie, int accId)
+    public static (int, int, int) DisplaySeats(int accId, int sessionId, int movieId, List<List<string>> options)
     {
         Console.Clear();
         Console.CursorVisible = false;
@@ -171,7 +171,7 @@ public static class SelectSeats
                             string seatsString = string.Join(",", seatsNumbers);
                             int seatprice = 12;
                             int price = seatprice * seatsNumbers.Count;
-                            AddReservation.AskForFood(price, seatsString, foundMovie, accId);
+                            AddReservation.AskForFood(accId, sessionId, movieId, seatsString, price);
                         }
                         break;
                         

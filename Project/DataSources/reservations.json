@@ -1,112 +1,12 @@
 [
   {
-    "Movie id": 1,
-    "seats": "1",
-    "Food": [
-      "popcorn"
-    ],
-    "TotalPrice": 14.99
-  },
-  {
-    "Movie id": 1,
-    "seats": "2,3,4",
-    "Food": [
-      "popcorn"
-    ],
-    "TotalPrice": 38.99
-  },
-  {
-    "Movie id": 1,
-    "seats": "1,2,3,4,5",
-    "Food": [
-      "popcorn"
-    ],
-    "TotalPrice": 62.99
-  },
-  {
-    "Movie id": 1,
+    "id": 0,
+    "accountId": 1,
+    "sessionId": 48,
+    "movieId": 5,
     "seats": "1,2",
-    "Food": [
-      "popcorn"
-    ],
-    "TotalPrice": 26.99
-  },
-  {
-    "Movie id": 1,
-    "seats": "82,83,84,85",
-    "Food": [
-      "popcorn"
-    ],
-    "TotalPrice": 50.99
-  },
-  {
-    "Movie id": 1,
-    "seats": "1,2,3,4",
-    "Food": [
-      "popcorn"
-    ],
-    "TotalPrice": 50.99
-  },
-  {
-    "Movie id": 1,
-    "seats": "1,2,3,4,5,6,7,8",
-    "Food": [
-      "popcorn"
-    ],
-    "TotalPrice": 98.99
-  },
-  {
-    "Movie id": 1,
-    "seats": "1,2",
-    "Food": [
-      "popcorn"
-    ],
-    "TotalPrice": 26.99
-  },
-  {
-    "Movie id": 4,
-    "seats": "3,4,5",
-    "Food": [
-      "popcorn"
-    ],
-    "TotalPrice": 38.99
-  },
-  {
-    "Movie id": 3,
-    "seats": "42,43,44,45",
-    "Food": [
-      "popcorn"
-    ],
-    "TotalPrice": 53.98
-  },
-  {
-    "Movie id": 3,
-    "seats": "1,2,3,4,5,6,7,8",
-    "Food": [],
-    "TotalPrice": 96
-  },
-  {
-    "Movie id": 10,
-    "seats": "101",
-    "Food": [],
-    "TotalPrice": 0
-  },
-  {
-    "Movie id": 10,
-    "seats": "101",
-    "Food": [],
-    "TotalPrice": 0
-  },
-  {
-    "Movie id": 10,
-    "seats": "101",
-    "Food": [],
-    "TotalPrice": 0
-  },
-  {
-    "Movie id": 10,
-    "seats": "101",
-    "Food": [],
-    "TotalPrice": 0
+    "food": [],
+    "totalPrice": 24,
+    "purchaseTime": "2024-05-19T20:57:01.0262425+02:00"
   }
 ]

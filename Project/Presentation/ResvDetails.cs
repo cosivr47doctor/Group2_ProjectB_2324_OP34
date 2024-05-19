@@ -5,6 +5,7 @@ static class ResvDetails
         Console.Clear();
         AccountsLogic accountsLogic = new();
         AccountModel account = accountsLogic.GetByArg(accountId);
+        List<ReservationModel> reservations = ReservationAccess.LoadAll();
 
         if (account == null)
         {
@@ -15,14 +16,9 @@ static class ResvDetails
         Console.WriteLine("Reservation History:");
         Console.WriteLine("-----------------------------------");
 
-        foreach (var reservation in account.Reservations)
+        foreach (int reservationId in account.ReservationIds)
         {
-            Console.WriteLine($"Movie Name: {reservation.Name}");
-            Console.WriteLine($"Tickets Count: {reservation.TicketsCount}");
-            Console.WriteLine($"Price: {reservation.Price}");
-            Console.WriteLine($"Seats: -");
-            Console.WriteLine($"Date: -");
-            Console.WriteLine($"Time: -");
+            Console.WriteLine(reservations.Where(resv => resv.Id == reservationId));
             Console.WriteLine("-----------------------------------");
         }
     }
@@ -31,6 +27,7 @@ static class ResvDetails
         Console.Clear();
         AccountsLogic accountsLogic = new();
         AccountModel account = accountsLogic.GetByArg(accountId);
+        List<ReservationModel> reservations = ReservationAccess.LoadAll();
 
         if (account == null)
         {
@@ -42,16 +39,12 @@ static class ResvDetails
         Console.WriteLine("Reservation receipt:");
         Console.WriteLine("-----------------------------------");
 
-        ReservationModel lastReservation = account.Reservations.FirstOrDefault(res => res.Id == resvID);
+        int lastReservationId = account.ReservationIds.FirstOrDefault(Id => Id == resvID);
 
-        if (lastReservation != null)
+        if (lastReservationId != null)
         {
-            Console.WriteLine($"Movie Name: {lastReservation.Name}");
-            Console.WriteLine($"Tickets Count: {lastReservation.TicketsCount}");
-            Console.WriteLine($"Price: {lastReservation.Price}");
-            Console.WriteLine($"Seats: -");
-            Console.WriteLine($"Date: -");
-            Console.WriteLine($"Time: -");
+            Console.WriteLine(reservations.Where(resv => resv.Id == lastReservationId));
+            //Console.WriteLine($"Time: -");
             Console.WriteLine("-----------------------------------");
         }
         else

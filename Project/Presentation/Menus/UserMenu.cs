@@ -27,7 +27,7 @@ static class UserMenu
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("");
                 //Reservation.ReserveMovie(accId);
-                AddReservation.addMovieResv();
+                AddReservation.addMovieResv(accId);
 
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");

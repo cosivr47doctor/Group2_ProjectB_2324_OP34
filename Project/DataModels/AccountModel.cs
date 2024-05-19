@@ -24,8 +24,8 @@ class AccountModel
     [JsonPropertyName("PhoneNumber")]
     public int PhoneNumber { get; set; }
 
-    [JsonPropertyName("reservations")]
-    public List<ReservationModel> Reservations {get; set;} = new List<ReservationModel>();
+    [JsonPropertyName("reservationIds")]
+    public List<int> ReservationIds {get; set;} = new List<int>();
     // ^^^ The desired format for the string:    `Id: {?}, Title: {?}`
 
 

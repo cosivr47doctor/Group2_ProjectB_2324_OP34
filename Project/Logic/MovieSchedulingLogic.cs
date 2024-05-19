@@ -110,9 +110,15 @@ class MovieSchedulingLogic
             // Otherwise add to expiredSchedules
             else if (objMovieScheduleModel.Date < DateTime.Today) expiredSchedules ++;
         }
-
+        int totalNewSchedules = (int)(120 * 3.5) + 1 + expiredSchedules;
+        int year = DateTime.Now.Year;
+        int month = DateTime.Now.Month;
+        int daysToAdd = DateTime.DaysInMonth(year, month)+2;
         // 120 + 1 because the movies can be scheduled on an exact timeslot only 4 months in advance. + expiredSchedules to add new schedules.
-        for (int i = moviesSchedulesCount, i2 = moviesSchedulesCount; i < 120*3.5+1 + expiredSchedules; i+= 35, i2+= 7)  // honestly don't know why 35 but it works
+        // i2 += 7 because a week has 7 days
+        /* daysToAdd = DateTime.DaysInMonth(year, month)+2.
+            Why +2? Probably because the start index is 0 and after a month the index needs to increment with 1.*/
+        for (int i = moviesSchedulesCount, i2 = moviesSchedulesCount; i < totalNewSchedules; i+= daysToAdd, i2+= 7)
         {
             // To avoid skipping days equal to the amount of movies
             int daysOffSet = i;
