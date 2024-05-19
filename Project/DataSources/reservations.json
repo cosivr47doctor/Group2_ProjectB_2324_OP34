@@ -1,12 +1,22 @@
 [
   {
-    "id": 0,
+    "id": 1,
+    "accountId": 1,
+    "sessionId": 1,
+    "movieId": 7,
+    "seats": "101",
+    "food": [],
+    "totalPrice": 0,
+    "purchaseTime": "2024-05-19T21:22:48.0756767+02:00"
+  },
+  {
+    "id": 2,
     "accountId": 1,
     "sessionId": 48,
     "movieId": 5,
-    "seats": "1,2",
+    "seats": "41",
     "food": [],
-    "totalPrice": 24,
-    "purchaseTime": "2024-05-19T20:57:01.0262425+02:00"
+    "totalPrice": 12,
+    "purchaseTime": "2024-05-19T21:24:04.509589+02:00"
   }
 ]

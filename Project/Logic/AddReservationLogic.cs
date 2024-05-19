@@ -6,22 +6,25 @@ static class AddReservation
     static private FoodLogic foodLogic = new FoodLogic();
     static private MovieLogic movieLogic = new MovieLogic();
     static private Reservation reservation = new Reservation();
+    private static List<ReservationModel> _reservations = ReservationAccess.LoadAll();
 
     public static void UpdateList(ReservationModel resv)
     {
-        List<ReservationModel> reservations = ReservationAccess.LoadAll();
         // For auto-increment
-        int maxId = reservations.Count > 0 ? reservations.Max(m => m.Id)+1 : 0;
+        int maxId = _reservations.Count > 0 ? _reservations.Max(m => m.Id) : 0;
         //Find if there is already a model with the same id
-        int index = reservations.FindIndex(s => s.Id == resv.Id);
+        int index = _reservations.FindIndex(s => s.Id == resv.Id);
 
-        if (index != -1) reservations[index] = resv;
+        if (index != -1)
+        {
+            _reservations[index] = resv;
+        }
         else
         {
-            resv.Id = maxId;
-            reservations.Add(resv);
+            resv.Id = maxId + 1;
+            _reservations.Add(resv);
         }
-        ReservationAccess.WriteAll(reservations);
+        ReservationAccess.WriteAll(_reservations);
     }
 
     public static (int, int) SelectSession(int movieId, int accId)
@@ -106,7 +109,7 @@ static class AddReservation
         else
         {
             // MovieModel dummyMovie = movieLogic.SelectForResv("3");
-            AskForFood(accId, 0, 7, "101", 0, dummyAccId);
+            AskForFood(accId, 1, 7, "101", 0, dummyAccId);
             Console.WriteLine("Reservation added for the dummy account. Check updated json.");
         }
     }

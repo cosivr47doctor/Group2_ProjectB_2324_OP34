@@ -36,12 +36,6 @@ class ReservationModel
     {
     }
 
-    public ReservationModel(int id, FoodModel name, decimal totalprice) //FoodModel
-    {
-        Id = id;
-        TotalPrice = totalprice;
-    }
-
     public ReservationModel(int accountId, int sessionId, int movieId, string seats, string[] food, decimal totalPrice, DateTime purchaseTime) //MovieModel movieModel
     {
         AccountId = accountId;

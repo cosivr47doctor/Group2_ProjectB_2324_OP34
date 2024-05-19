@@ -28,6 +28,13 @@ public static class RoomSeats
 
     public static (int, int, int) Room2(int accId, int sessionId, int movieId)
     {
+        Console.WriteLine("Room 2 doesn't exist yet"); Thread.Sleep(2500);
+        throw new NotImplementedException();
+    }
+
+    public static (int, int, int) Room3(int accId, int sessionId, int movieId)
+    {
+        Console.WriteLine("Room 3 doesn't exist yet"); Thread.Sleep(2500);
         throw new NotImplementedException();
     }
 }
