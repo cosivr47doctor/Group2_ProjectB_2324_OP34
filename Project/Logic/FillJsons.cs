@@ -10,7 +10,7 @@ public static class FillJsons
 
     public static void FillAccountsJson(string filePath)
     {
-        List<AccountModel> existingAccountItems = AccountsAccess.LoadAll();
+        List<AccountModel> existingAccountItems = GenericAccess<AccountModel>.LoadAll();
     
         List<AccountModel> standardItems = new List<AccountModel>
         {
@@ -26,12 +26,12 @@ public static class FillJsons
                 existingAccountItems.Insert(0, item);
             }
         }
-        AccountsAccess.WriteAll(existingAccountItems);
+        GenericAccess<AccountModel>.WriteAll(existingAccountItems);
     }
 
     public static void FillFoodJson(string filePath)
     {
-        List<FoodModel> existingFoodItems = FoodAccess.LoadAll();
+        List<FoodModel> existingFoodItems = GenericAccess<FoodModel>.LoadAll();
 
         List<FoodModel> standardItems = new List<FoodModel>
         {

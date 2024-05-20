@@ -5,7 +5,7 @@ static class ResvDetails
         Console.Clear();
         AccountsLogic accountsLogic = new();
         AccountModel account = accountsLogic.GetByArg(accountId);
-        List<ReservationModel> reservations = ReservationAccess.LoadAll();
+        List<ReservationModel> reservations = GenericAccess<ReservationModel>.LoadAll();
 
         if (account == null)
         {
@@ -27,7 +27,7 @@ static class ResvDetails
         Console.Clear();
         AccountsLogic accountsLogic = new();
         AccountModel account = accountsLogic.GetByArg(accountId);
-        List<ReservationModel> reservations = ReservationAccess.LoadAll();
+        List<ReservationModel> reservations = GenericAccess<ReservationModel>.LoadAll();
 
         if (account == null)
         {

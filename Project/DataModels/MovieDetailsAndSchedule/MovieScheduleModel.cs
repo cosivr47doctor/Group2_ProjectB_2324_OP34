@@ -57,8 +57,8 @@ class MovieScheduleModel
             string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
             sb.AppendLine($"Timeslot: {timeslot}");
             int movieId = (int)Char.GetNumericValue(kvp.Value[kvp.Value.Length - 1]);
-            var movie = MovieAccess.LoadAll().FirstOrDefault(m => m.Id == movieId);
-            string movieTitle = movie?.Name ?? MovieAccess.LoadAll().Last().Name;
+            var movie = GenericAccess<MovieModel>.LoadAll().FirstOrDefault(m => m.Id == movieId);
+            string movieTitle = movie?.Name ?? GenericAccess<MovieModel>.LoadAll().Last().Name;
             sb.AppendLine($"Movie title: {movieTitle}");
         }
         return sb.ToString();

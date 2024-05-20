@@ -19,7 +19,7 @@ class MovieLogic
 
     public MovieLogic()
     {
-        _movie = MovieAccess.LoadAll();
+        _movie = GenericAccess<MovieModel>.LoadAll();
     }
 
 
@@ -40,7 +40,7 @@ class MovieLogic
             movie.Id = maxId + 1;
             _movie.Add(movie);
         }
-        MovieAccess.WriteAll(_movie);
+        GenericAccess<MovieModel>.WriteAll(_movie);
 
     }
 
@@ -95,7 +95,7 @@ class MovieLogic
 
 
             _movie[index] = movieToChange;
-            MovieAccess.WriteAll(_movie);
+            GenericAccess<MovieModel>.WriteAll(_movie);
         }
     }
 
@@ -106,7 +106,7 @@ class MovieLogic
         if (movieToRemove != null)
         {
             _movie.Remove(movieToRemove);
-            MovieAccess.WriteAll(_movie);
+            GenericAccess<MovieModel>.WriteAll(_movie);
         }
     }
 
@@ -162,7 +162,7 @@ class MovieLogic
 
     public MovieModel SelectRandomMovie()
     {
-        List<MovieModel> allMovies = MovieAccess.LoadAll();
+        List<MovieModel> allMovies = GenericAccess<MovieModel>.LoadAll();
         if (allMovies.Count == 0)
         {
             return null; // No movies loaded

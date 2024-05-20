@@ -18,13 +18,13 @@ class AccountsLogic
 
     public AccountsLogic()
     {
-        _accounts = AccountsAccess.LoadAll();
+        _accounts = GenericAccess<AccountModel>.LoadAll();
     }
 
 
     public void StartupUpdateList()
     {
-        AccountsAccess.WriteAll(_accounts);
+        GenericAccess<AccountModel>.WriteAll(_accounts);
     }
 
 
@@ -46,14 +46,14 @@ class AccountsLogic
             acc.Id = maxId + 1;
             _accounts.Add(acc);
         }
-        AccountsAccess.WriteAll(_accounts);
+        GenericAccess<AccountModel>.WriteAll(_accounts);
 
     }
     
 
     public static void UpdateAccount(AccountModel updatedAccount)
     {
-        List<AccountModel> accounts = AccountsAccess.LoadAll(); // Load all accounts from the file
+        List<AccountModel> accounts = GenericAccess<AccountModel>.LoadAll(); // Load all accounts from the file
 
         // Find the index of the account to update
         int index = accounts.FindIndex(a => a.Id == updatedAccount.Id);
@@ -63,7 +63,7 @@ class AccountsLogic
             // Update the account at the found index
             accounts[index] = updatedAccount;
 
-            AccountsAccess.WriteAll(accounts);
+            GenericAccess<AccountModel>.WriteAll(accounts);
         }
         else
         {

@@ -8,8 +8,8 @@ class MovieSchedulingLogic
 
     public MovieSchedulingLogic()
     {
-        _movieSchedule = MovieSchedulingAccess.LoadAll();
-        _movies = MovieAccess.LoadAll();
+        _movieSchedule = GenericAccess<MovieScheduleModel>.LoadAll();
+        _movies = GenericAccess<MovieModel>.LoadAll();
     }
 
     /// RESOURCES
@@ -160,7 +160,7 @@ class MovieSchedulingLogic
             }
         }
 
-        MovieSchedulingAccess.WriteAll(_movieSchedule);
+        GenericAccess<MovieScheduleModel>.WriteAll(_movieSchedule);
     }
 
     public void RescheduleListLogic(DateTime parsedDate, string arg)
@@ -193,7 +193,7 @@ class MovieSchedulingLogic
             }
         }
 
-        int moviesCount = MovieAccess.LoadAll().Count;
+        int moviesCount = GenericAccess<MovieModel>.LoadAll().Count;
         Random random = new Random();
         // Iterate over each existing schedule for the parsed date and reshuffle the time slots
         foreach (MovieScheduleModel scheduleModel in schedulesForDate)
@@ -252,7 +252,7 @@ class MovieSchedulingLogic
             }
         }
         Console.WriteLine("Rescheduled succesfully");
-        MovieSchedulingAccess.WriteAll(_movieSchedule);
+        GenericAccess<MovieScheduleModel>.WriteAll(_movieSchedule);
     }
 
     public void RescheduleList(string dateInput)

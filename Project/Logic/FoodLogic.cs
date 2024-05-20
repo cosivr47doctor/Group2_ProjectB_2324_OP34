@@ -18,7 +18,7 @@ class FoodLogic
 
     public FoodLogic()
     {
-        _food = FoodAccess.LoadAll();
+        _food = GenericAccess<FoodModel>.LoadAll();
     }
 
 
@@ -40,7 +40,7 @@ class FoodLogic
             foodItem.Id = maxId + 1;
             _food.Add(foodItem);
         }
-        FoodAccess.WriteAll(_food);
+        GenericAccess<FoodModel>.WriteAll(_food);
 
     }
     public FoodModel SelectForResv(string searchBy)

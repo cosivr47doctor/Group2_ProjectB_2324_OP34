@@ -26,8 +26,8 @@ static class AlgorhythmDecider
 
     public static List<int> findPopularMovies()
     {
-        List<MovieModel> moviesList = MovieAccess.LoadAll();
-        List<AccountModel> accountsList = AccountsAccess.LoadAll();
+        List<MovieModel> moviesList = GenericAccess<MovieModel>.LoadAll();
+        List<AccountModel> accountsList = GenericAccess<AccountModel>.LoadAll();
 
         List<int> moviesByPopularity = new();
         foreach (MovieModel movie in moviesList)

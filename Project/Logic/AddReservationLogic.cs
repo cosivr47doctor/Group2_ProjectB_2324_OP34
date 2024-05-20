@@ -6,7 +6,7 @@ static class AddReservation
     static private FoodLogic foodLogic = new FoodLogic();
     static private MovieLogic movieLogic = new MovieLogic();
     static private Reservation reservation = new Reservation();
-    private static List<ReservationModel> _reservations = ReservationAccess.LoadAll();
+    private static List<ReservationModel> _reservations = GenericAccess<ReservationModel>.LoadAll();
 
     public static void UpdateList(ReservationModel resv)
     {
@@ -24,13 +24,13 @@ static class AddReservation
             resv.Id = maxId + 1;
             _reservations.Add(resv);
         }
-        ReservationAccess.WriteAll(_reservations);
+        GenericAccess<ReservationModel>.WriteAll(_reservations);
     }
 
     public static (int, int) SelectSession(int movieId, int accId)
     {
-        List<MovieScheduleModel> schedule = MovieSchedulingAccess.LoadAll();
-        List<MovieModel> movies = MovieAccess.LoadAll();
+        List<MovieScheduleModel> schedule = GenericAccess<MovieScheduleModel>.LoadAll();
+        List<MovieModel> movies = GenericAccess<MovieModel>.LoadAll();
 
         // List<MovieScheduleModel>
         var matchingSchedules = schedule.Where(resv => resv.TimeIdPair.Values.First().Split(" ")[1].Trim() == Convert.ToString(movieId)).ToList();
