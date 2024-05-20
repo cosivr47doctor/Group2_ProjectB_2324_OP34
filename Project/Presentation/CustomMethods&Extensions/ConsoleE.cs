@@ -1,4 +1,5 @@
 using System.Runtime.Intrinsics.Arm;
+using Newtonsoft.Json;
 
 static class ConsoleE
 {
@@ -33,5 +34,24 @@ static class ConsoleE
         if (intParsedString) return intParsed;
         Console.WriteLine("Invalid input: not numeric");
         return null;
+    }
+    /*
+    public static int IntInput(string message)
+    {
+        Console.WriteLine(message);
+        int intParsed;
+        bool intParsedString = int.TryParse(Console.ReadLine(), out intParsed);
+        if (intParsedString) return intParsed;
+        Console.WriteLine("Invalid input: not numeric");
+        return Int32.MinValue;
+    }
+    */
+    public static bool IsNullOrEmptyOrWhiteSpace(string str)
+    {
+        bool isNullOrEmptyOrWhiteSpace = false;
+        if (string.IsNullOrEmpty(str)) isNullOrEmptyOrWhiteSpace = true;
+        if (string.IsNullOrWhiteSpace(str)) isNullOrEmptyOrWhiteSpace = true;
+
+        return isNullOrEmptyOrWhiteSpace;
     }
 }

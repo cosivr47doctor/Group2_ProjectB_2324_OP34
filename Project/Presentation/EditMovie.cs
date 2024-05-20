@@ -1,4 +1,4 @@
-static class EditMovie
+public static class EditMovie
 {
     static private MovieLogic movieLogic = new MovieLogic();
 
@@ -6,7 +6,8 @@ static class EditMovie
     {
         Console.Clear();
         Console.WriteLine("Please enter the movie you want to change: ");
-        string searchBy = Console.ReadLine();
+        string searchBy = ConsoleE.Input();
+        Console.WriteLine(searchBy);
         movieLogic.ChangeMovie(searchBy);
     }
 
@@ -14,7 +15,7 @@ static class EditMovie
     {
         Console.Clear();
         Console.WriteLine("Please enter the movie you want to remove: ");
-        string searchBy = Console.ReadLine();
+        string searchBy = ConsoleE.Input();
         movieLogic.RemoveMovie(searchBy);
     }
 
@@ -22,7 +23,17 @@ static class EditMovie
     {
         Console.Clear();
         Console.WriteLine("Please enter the movie you want to change: ");
-        string searchBy = Console.ReadLine();
+        string searchBy = ConsoleE.Input();
         movieLogic.CloneMovie(searchBy);
     }
+
+    // unittest
+    /*
+    public static void UnitChangeMovie()
+    {
+        // NOTE: https://chatgpt.com/c/de2794a3-98da-43da-9e32-f452f398651e
+        string searchByAndNewDetails = TestEnvironmentUtils.ReadLine();
+        movieLogic.CloneMovie(searchByAndNewDetails);
+    }
+    */
 }

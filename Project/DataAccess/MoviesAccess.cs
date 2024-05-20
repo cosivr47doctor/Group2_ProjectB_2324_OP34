@@ -1,9 +1,10 @@
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 
-static class MovieAccess
+public static class MovieAccess
 {
-    static string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/movies.json"));
+    public static IFileWrapper FileWrapper = new FileWrapper();
+    static string path = Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/movies.json"));
 
 
     public static List<MovieModel> LoadAll()
@@ -27,7 +28,7 @@ static class MovieAccess
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(movies, options);
-        File.WriteAllText(path, json);
+        FileWrapper.WriteAllText(path, json);
     }
 
 }

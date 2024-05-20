@@ -112,7 +112,29 @@
   },
   {
     "id": 11,
-    "Name": "TestRemove",
+    "Name": "TestChangeTitle",
+    "Genre": [
+      "drama", "horror", "triller"
+    ],
+    "Year": 2023,
+    "Description": "Can the title be changed?...",
+    "Director": "Thh",
+    "Duration": 500
+  },
+  {
+    "id": 12,
+    "Name": "UnitTestChangeDetails",
+    "Genre": [
+      "drama", "horror", "triller"
+    ],
+    "Year": 2023,
+    "Description": "The details must be changed...",
+    "Director": "Thh",
+    "Duration": 120
+  },
+  {
+    "id": 13,
+    "Name": "UnitTestRemove",
     "Genre": [
       "drama", "horror", "triller"
     ],
@@ -120,5 +142,16 @@
     "Description": "We really, really, REALLY hate this movie... and it lasts TOO LONG... REMOVE IT!!",
     "Director": "Thh",
     "Duration": 500
+  },
+  {
+    "id": 14,
+    "Name": "UnitTestClone",
+    "Genre": [
+      "drama", "horror", "triller"
+    ],
+    "Year": 2023,
+    "Description": "We need a part 2!!",
+    "Director": "Thh",
+    "Duration": 120
   }
 ]
