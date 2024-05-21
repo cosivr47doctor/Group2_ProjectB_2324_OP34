@@ -18,7 +18,7 @@ static class MainMenu
             // "Test room seats"
         };
 
-        int selectedOption = DisplayUtil.Display(options);
+        int selectedOption = DisplayUtil.MenuDisplay(options);
         switch (selectedOption)
         {
             case 0:

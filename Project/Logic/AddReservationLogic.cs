@@ -125,7 +125,7 @@ static class AddReservation
             "No"
         };
 
-        int selectedOption = DisplayFoodUtil.DisplayF(options);
+        int selectedOption = DisplayUtil.DisplayAddFood(options);
         Console.WriteLine($"Would you like to add food?");
         switch (selectedOption)
         {

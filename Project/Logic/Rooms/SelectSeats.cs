@@ -60,7 +60,7 @@ public static class SelectSeats
             Console.ResetColor();
             Console.WriteLine("");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("X = Seat already taken");
+            Console.WriteLine("\nX = Seat already taken");
             Console.ResetColor();
             Console.WriteLine("White = 12,-");
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -184,7 +184,7 @@ public static class SelectSeats
                     }
                     case ConsoleKey.Escape:
                     {
-                        UserMenu.Start();
+                        UserMenu.Start(accId);
                         break;
                     }
             }
