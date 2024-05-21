@@ -35,6 +35,15 @@ static class ConsoleE
         Console.WriteLine("Invalid input: not numeric");
         return null;
     }
+    
+    /*
+    public static int IntInput(int? parsedInt)
+    {
+        int convertedInt = (int)parsedInt;
+        return convertedInt;
+    }
+    */
+    
     /*
     public static int IntInput(string message)
     {

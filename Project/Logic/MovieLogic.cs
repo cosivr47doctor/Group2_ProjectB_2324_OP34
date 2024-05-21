@@ -78,6 +78,7 @@ public class MovieLogic
 
         Console.WriteLine("Please enter the new title (blank if unchanged)");
         string changeNameInput = ConsoleE.Input();
+        // string changeNameInput = TestEnvironmentUtils.ReadLine();
         Console.WriteLine("Please enter the new genre (blank if unchanged)");
         string changeGenreInput = ConsoleE.Input();
         Console.WriteLine("Please enter the new year of release (blank if unchanged)");
