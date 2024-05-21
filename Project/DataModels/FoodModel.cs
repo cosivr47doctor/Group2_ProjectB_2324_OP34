@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 
 
-class FoodModel
+class FoodModel : IModel
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }

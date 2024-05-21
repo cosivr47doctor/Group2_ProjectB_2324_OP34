@@ -22,28 +22,6 @@ class MovieLogic
         _movie = GenericAccess<MovieModel>.LoadAll();
     }
 
-
-    public void UpdateList(MovieModel movie)
-    {
-        //Find if there is already an model with the same id
-        int maxId = _movie.Count > 0 ? _movie.Max(m => m.Id) : 0;
-        int index = _movie.FindIndex(s => s.Name == movie.Name);
-
-        if (index != -1)
-        {
-            //update existing model
-            _movie[index] = movie;
-        }
-        else
-        {
-            //add new model
-            movie.Id = maxId + 1;
-            _movie.Add(movie);
-        }
-        GenericAccess<MovieModel>.WriteAll(_movie);
-
-    }
-
     public MovieModel GetBySearch(string searchBy)
     {
         string searchLower = searchBy.ToLower();
@@ -148,7 +126,7 @@ class MovieLogic
 
             MovieModel clonedMovie = CreateMovieFromValues(newPropertyValues);
             clonedMovie.Id = 0;
-            UpdateList(clonedMovie);
+            GenericMethods.UpdateList(clonedMovie);
             Console.WriteLine("Movie succesfully cloned");
         }
     }

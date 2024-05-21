@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 using System.Text;
 
-class MovieScheduleModel
+class MovieScheduleModel : IModel
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }

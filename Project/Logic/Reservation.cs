@@ -9,12 +9,6 @@ class Reservation
         _reservation = GenericAccess<ReservationModel>.LoadAll();
     }
 
-    public void UpdateList(ReservationModel newReservation)
-    {
-        _reservation.Add(newReservation);
-        GenericAccess<ReservationModel>.WriteAll(_reservation);
-    }
-
     // public static void ReserveMovie(int intUserAccountId = 1)
     // {
     //     Console.Write("Enter the name or id of the movie: ");

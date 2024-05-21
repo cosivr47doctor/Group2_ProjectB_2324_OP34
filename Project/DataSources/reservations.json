@@ -18,5 +18,17 @@
     "food": [],
     "totalPrice": 12,
     "purchaseTime": "2024-05-19T21:24:04.509589+02:00"
+  },
+  {
+    "id": 3,
+    "accountId": 1,
+    "sessionId": 396,
+    "movieId": 5,
+    "seats": "3",
+    "food": [
+      "popcorn"
+    ],
+    "totalPrice": 14.99,
+    "purchaseTime": "2024-05-21T11:05:20.8603339+02:00"
   }
 ]

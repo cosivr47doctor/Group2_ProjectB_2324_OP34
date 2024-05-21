@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-class ReservationModel2
+class ReservationModel2 : IModel
 {
     [JsonPropertyName("Movie id")]
     public int Id {get; set;}

@@ -5,27 +5,6 @@ static class AddReservation
 {
     static private FoodLogic foodLogic = new FoodLogic();
     static private MovieLogic movieLogic = new MovieLogic();
-    static private Reservation reservation = new Reservation();
-    private static List<ReservationModel> _reservations = GenericAccess<ReservationModel>.LoadAll();
-
-    public static void UpdateList(ReservationModel resv)
-    {
-        // For auto-increment
-        int maxId = _reservations.Count > 0 ? _reservations.Max(m => m.Id) : 0;
-        //Find if there is already a model with the same id
-        int index = _reservations.FindIndex(s => s.Id == resv.Id);
-
-        if (index != -1)
-        {
-            _reservations[index] = resv;
-        }
-        else
-        {
-            resv.Id = maxId + 1;
-            _reservations.Add(resv);
-        }
-        GenericAccess<ReservationModel>.WriteAll(_reservations);
-    }
 
     public static (int, int) SelectSession(int movieId, int accId)
     {
@@ -136,7 +115,7 @@ static class AddReservation
                 Console.WriteLine("No");
                 DateTime purchaseTime = DateTime.Now;
                 ReservationModel newReservation = new ReservationModel(accountId, sessionId, movieId, seatsStr, new string[0] {}, price, purchaseTime);
-                UpdateList(newReservation);
+                GenericMethods.UpdateList(newReservation);
                 Console.ResetColor();
                 if (isAdmin) AdminMenu.Start(accId);
                 else UserMenu.Start(accId);
@@ -194,7 +173,7 @@ static class AddReservation
             Console.WriteLine($"Total Price: {totalPrice}");
             DateTime purchaseTime = DateTime.Now;
             ReservationModel newReservation = new ReservationModel(accId, sessionId, movieId, seatsStr, foodArray, totalPrice, purchaseTime);
-            reservation.UpdateList(newReservation);
+            GenericMethods.UpdateList(newReservation);
             // SeeJsons.PrintLastResvGJson(@"DataSources/reservations.json");
             // Console.WriteLine("Press any key to continue");
             Console.WriteLine("Reservation added successfully");

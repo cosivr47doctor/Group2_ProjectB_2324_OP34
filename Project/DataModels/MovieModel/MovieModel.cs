@@ -3,7 +3,7 @@ using Microsoft.VisualBasic;
 using System.Collections;
 
 
-public class MovieModel
+public class MovieModel : IModel
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }

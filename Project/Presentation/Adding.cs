@@ -2,10 +2,6 @@ using System.Text.RegularExpressions;
 
 static class Adding
 {
-    static private FoodLogic foodLogic = new FoodLogic();
-    static private MovieLogic movieLogic = new MovieLogic();
-
-
     public static void addFood()
     {
         Console.Clear();
@@ -30,7 +26,7 @@ static class Adding
         }
         
         FoodModel foodItem = new FoodModel(name, price);
-        foodLogic.UpdateList(foodItem);
+        GenericMethods.UpdateList(foodItem);
 
     }
 
@@ -79,7 +75,7 @@ static class Adding
         }
 
         MovieModel movies = new MovieModel(name, genre, year, description, director, duration);
-        movieLogic.UpdateList(movies);
+        GenericMethods.UpdateList(movies);
 
     }
 
@@ -169,7 +165,7 @@ static class Adding
 
             AccountModel newAccount = new AccountModel(0 , emailAddress, HashedPassword, fullName, PhoneNumber);
 
-            accountsLogic.UpdateList(newAccount);
+            GenericMethods.UpdateList(newAccount);
         }
         else
         {

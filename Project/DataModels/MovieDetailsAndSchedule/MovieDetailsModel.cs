@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 
 
-class MovieDetailsModel : ICloneable
+class MovieDetailsModel : ICloneable, IModel
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }

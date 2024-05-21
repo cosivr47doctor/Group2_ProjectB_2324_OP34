@@ -5,9 +5,6 @@ using System.Text.Json;
 
 public static class FillJsons
 {
-    static private MovieLogic movieLogic = new MovieLogic();
-    static private FoodLogic foodLogic = new FoodLogic();
-
     public static void FillAccountsJson(string filePath)
     {
         List<AccountModel> existingAccountItems = GenericAccess<AccountModel>.LoadAll();
@@ -42,7 +39,7 @@ public static class FillJsons
 
         foreach (var item in standardItems)
         {
-            foodLogic.UpdateList(item);
+            GenericMethods.UpdateList(item);
         }
     }
 
@@ -58,7 +55,7 @@ public static class FillJsons
 
         foreach (var item in standardMovies)
         {
-            movieLogic.UpdateList(item);
+            GenericMethods.UpdateList(item);
         }
     }
 }
