@@ -13,9 +13,7 @@ static class UserLogin
  | |__| (_) | (_| | | | | | |  __/ (_| | (_| |  __/
  |_____\___/ \__, |_|_| |_| |_|   \__,_|\__, |\___|
              |___/                      |___/                                                                                                                        
-");
-        AccountsLogic objAccountsLogic = new AccountsLogic(); objAccountsLogic.StartupUpdateList();
-        
+");        
         Console.WriteLine("Welcome to the login page");
         Console.WriteLine("Please enter your email address");
         string email = Console.ReadLine();

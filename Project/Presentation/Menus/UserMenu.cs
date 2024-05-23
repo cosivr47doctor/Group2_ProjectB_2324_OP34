@@ -3,6 +3,7 @@ static class UserMenu
 {
     static public void Start(int accId=0, bool isAdmin=false)
     {
+        GenericMethods.Reload();
         // Console.Clear();
         if (isAdmin) Console.WriteLine("Enter 0 to switch back to admin menu");
         Console.WriteLine("Enter 1 to logout");

@@ -1,5 +1,6 @@
 public static class GenericMethods
 {
+    // Update any DataModel JSON with this method other than AccountModel which has its own method.
     public static void UpdateList<TModel>(TModel modelItem) where TModel : IModel
     {
         List<TModel> _list = GenericAccess<TModel>.LoadAll();
@@ -20,5 +21,30 @@ public static class GenericMethods
             _list.Add(modelItem);
         }
         GenericAccess<TModel>.WriteAll(_list);
+        GenericAccess<TModel>.LoadAll();
+    }
+
+/*
+    // Nevermind, won't work with the DataModel classes...
+    // Reloads the JSON files.
+    public static void Reload()
+    {
+        List<Type> types = new List<Type> {typeof(AccountModel), typeof(FoodModel), typeof(MovieModel), typeof(MovieScheduleModel), typeof(ReservationModel)};
+
+        foreach (var type in types)
+        {
+            var instance = Activator.CreateInstance(type);
+            var method = type.GetMethod("LoadAll");
+            method.Invoke(instance, null);
+        }
+    }
+*/
+    public static void Reload()
+    {
+        GenericAccess<AccountModel>.LoadAll();
+        GenericAccess<FoodModel>.LoadAll();
+        GenericAccess<MovieModel>.LoadAll();
+        GenericAccess<MovieScheduleModel>.LoadAll();
+        GenericAccess<ReservationModel>.LoadAll();
     }
 }

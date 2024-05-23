@@ -6,12 +6,13 @@ static class AdminMenu
     //You could edit this to show different menus depending on the user's role
     static public void Start(int accId=-1)
     {
+        GenericMethods.Reload();
         if (accId < 0)
         {
             Console.WriteLine("Not logged in");
             MainMenu.Start();
         }
-        AccountsLogic objAccountsLogic = new AccountsLogic(); objAccountsLogic.StartupUpdateList();
+        AccountsLogic objAccountsLogic = new AccountsLogic();
         
         Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -");
         Console.WriteLine("WELCOME BACK ADMIN👋");

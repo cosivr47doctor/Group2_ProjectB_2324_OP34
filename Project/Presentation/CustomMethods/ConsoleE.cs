@@ -30,7 +30,7 @@ static class ConsoleE
         Console.WriteLine(message);
         int intParsed;
         bool intParsedString = int.TryParse(Console.ReadLine(), out intParsed);
-        if (intParsedString) return intParsed;
+        if (intParsedString) {return intParsed;}
         Console.WriteLine("Invalid input: not numeric");
         return null;
     }

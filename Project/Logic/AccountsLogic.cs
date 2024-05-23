@@ -21,12 +21,6 @@ class AccountsLogic
         _accounts = GenericAccess<AccountModel>.LoadAll();
     }
 
-
-    public void StartupUpdateList()
-    {
-        GenericAccess<AccountModel>.WriteAll(_accounts);
-    }  
-
     public static void UpdateAccount(AccountModel updatedAccount)
     {
         List<AccountModel> accounts = GenericAccess<AccountModel>.LoadAll(); // Load all accounts from the file

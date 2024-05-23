@@ -7,7 +7,7 @@ static class MainMenu
     static public void Start()
     {
         MovieSchedulingLogic objMovieScheduling = new MovieSchedulingLogic(); objMovieScheduling.StartupUpdateList();
-        AccountsLogic objAccountsLogic = new AccountsLogic(); objAccountsLogic.StartupUpdateList();
+        AccountsLogic objAccountsLogic = new AccountsLogic();
 
         List<string> options = new(){
             "Login",
