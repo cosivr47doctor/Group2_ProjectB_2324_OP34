@@ -1,5 +1,7 @@
 static class ResvDetails
 {
+
+    static private Reservation reservationLogic = new Reservation();
     public static void ResvHistory(int accountId)
     {
         Console.Clear();
@@ -50,6 +52,23 @@ static class ResvDetails
         else
         {
             Console.WriteLine("No reservations found.");
+        }
+    }
+
+    public static void ResvReceipt(string filePath)
+    {
+        Console.Clear();
+        Console.WriteLine("Reservation conformation");
+        Console.WriteLine("---------------------------------------------------------------------------------------------------");
+        Console.WriteLine("---------------------------------------------------------------------------------------------------");
+        Console.WriteLine("|       Date        |           Title          |            Seats           |         Selected food          |       Price      |");
+        Console.WriteLine("---------------------------------------------------------------------------------------------------");
+
+        foreach (var reservation in reservationLogic.Reservations)
+        {
+            string resvDetails = $"| {reservation.MovieId,4} | {reservation.MovieId,-25} | {reservation.Seats,6} | {string.Join(", ", reservation.Food),23} | {reservation.TotalPrice,9} |";
+            Console.WriteLine(resvDetails);
+            Console.WriteLine("-----------------------------------");
         }
     }
 }

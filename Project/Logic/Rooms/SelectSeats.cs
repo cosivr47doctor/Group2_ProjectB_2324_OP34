@@ -21,7 +21,10 @@ public static class SelectSeats
         ConsoleKeyInfo key;
         bool isSelected = false;
         List<int> seatsNumbers = new List<int>();
+        List<string> seatsTaken = new List<string>();
+        List<int> seatsTakenColumn = new List<int>();
         int enteredRow = 0;
+        int correctRow = 0;
 
         while (!isSelected)
         {
@@ -147,7 +150,12 @@ public static class SelectSeats
 
 
                 case ConsoleKey.Enter:
-                    if (options[selectedRow][selectedColumn] == " X")
+                    if (options[selectedRow][selectedColumn] == "  ")
+                    {
+                        Console.WriteLine("\nNo seat selected.");
+                        Thread.Sleep(1000);
+                    }
+                    else if (options[selectedRow][selectedColumn] == " X")
                     {
                         Console.WriteLine("\nSeat already taken.");
                         Thread.Sleep(1000);
@@ -174,6 +182,8 @@ public static class SelectSeats
                             seatsNumbers.Sort();
                             if (seatsNumbers[0] - 1 == SeatNum || seatsNumbers[^1] + 1 == SeatNum)
                             {
+                                seatsTaken.Add(seatSelected);
+                                seatsTakenColumn.Add(selectedColumn);
                                 seatsNumbers.Add(SeatNum);
                                 options[selectedRow][selectedColumn] = " X"; // Mark the seat as taken
                                 seatsNumbers.Sort();
@@ -188,7 +198,10 @@ public static class SelectSeats
                         else
                         {
                             enteredRow = selectedRow; // Store the entered row when the first seat is selected
+                            correctRow = seatsCount - enteredRow;
                             string seatSelected = options[selectedRow][selectedColumn];
+                            seatsTaken.Add(seatSelected);
+                            seatsTakenColumn.Add(selectedColumn);
                             int SeatNum = int.Parse(seatSelected);
                             seatsNumbers.Add(SeatNum);
                             options[selectedRow][selectedColumn] = " X"; // Mark the seat as taken
@@ -204,13 +217,17 @@ public static class SelectSeats
                     }
                     else
                     {
-                        string stringRow = enteredRow.ToString();
+                        string stringRow = correctRow.ToString();
                         seatsNumbers.Sort();
                         Console.WriteLine($"Seat(s) selected successfully: {string.Join(", ", seatsNumbers)} on row: {stringRow}");
                         Thread.Sleep(3000);
                         string seatsString = $"row: {stringRow}, seats: {string.Join(",", seatsNumbers)}";
                         int seatprice = 12;
                         int price = seatprice * seatsNumbers.Count;
+
+                        RoomModel roomDetails = new RoomModel(0, sessionId, enteredRow, seatsTakenColumn);
+                        GenericMethods.UpdateList(roomDetails);
+
                         AddReservation.AskForFood(accId, sessionId, movieId, seatsString, price);
                     }
                     break;
