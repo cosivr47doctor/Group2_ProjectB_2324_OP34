@@ -60,5 +60,29 @@
     "food": [],
     "totalPrice": 24,
     "purchaseTime": "2024-05-24T11:23:15.0634204+02:00"
+  },
+  {
+    "id": 7,
+    "accountId": 4,
+    "sessionId": 73,
+    "movieId": 1,
+    "seats": "row: 12, seats: 2,3",
+    "food": [
+      "popcorn"
+    ],
+    "totalPrice": 26.99,
+    "purchaseTime": "2024-05-24T19:49:36.960765+02:00"
+  },
+  {
+    "id": 8,
+    "accountId": 4,
+    "sessionId": 73,
+    "movieId": 1,
+    "seats": "row: 10, seats: 8,9,10",
+    "food": [
+      "cola"
+    ],
+    "totalPrice": 41.00,
+    "purchaseTime": "2024-05-24T20:05:27.9390689+02:00"
   }
 ]

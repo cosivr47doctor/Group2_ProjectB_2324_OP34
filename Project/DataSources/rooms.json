@@ -28,5 +28,24 @@
       10,
       9
     ]
+  },
+  {
+    "ID": 4,
+    "Session id": 73,
+    "Row": 2,
+    "Taken seats": [
+      2,
+      3
+    ]
+  },
+  {
+    "ID": 5,
+    "Session id": 73,
+    "Row": 4,
+    "Taken seats": [
+      7,
+      8,
+      9
+    ]
   }
 ]

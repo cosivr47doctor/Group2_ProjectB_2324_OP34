@@ -4,16 +4,18 @@ static class UserMenu
     static public void Start(int accId=0, bool isAdmin=false)
     {
         if (accId < 0) {Console.WriteLine("Invalid acc id"); Thread.Sleep(500); MainMenu.Start();}
+        
         GenericMethods.Reload();
             List<string> options = new(){
-                "Logout",
                 "Make a reservation",
-                "Order some food",
+                //"Order some food",
                 "See all available movies",
                 "See the movies schedule",
                 "Search a movie",
                 "See reservation history",
+                "Logout"
             };
+        
 
         if (isAdmin)
         {
@@ -24,12 +26,8 @@ static class UserMenu
         switch (selectedOption)
         {
             case 0:
-                MainMenu.Start();
-                break;
-            case 1:
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("");
-                //Reservation.ReserveMovie(accId);
                 AddReservation.addMovieResv(accId);
 
                 Console.WriteLine("");
@@ -37,24 +35,24 @@ static class UserMenu
                 Console.ReadLine();
                 Start(accId, isAdmin);
                 break;
-            case 2:
-                SeeJsons.PrintFoodJson(@"DataSources/food.json");
-                //Reservation.ReserveFood(accId);
+            // case 1:
+            //     SeeJsons.PrintFoodJson(@"DataSources/food.json");
+            //     //Reservation.ReserveFood(accId);
 
-                Console.WriteLine("");
-                Console.WriteLine("Press enter to go back.");
-                Console.ReadLine();
+            //     Console.WriteLine("");
+            //     Console.WriteLine("Press enter to go back.");
+            //     Console.ReadLine();
 
-                Start(accId, isAdmin);
-                break;
-            case 3:
+            //     Start(accId, isAdmin);
+            //     break;
+            case 1:
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
                 Start(accId, isAdmin);
                 break;
-            case 4:
+            case 2:
                 MovieSchedulingLogic objMovieSchedulingLogic = new();
                 List<string> scheduleOptions = new(){
                 "See entire schedule",
@@ -72,16 +70,22 @@ static class UserMenu
                     case 1:
                         string specificDateInput = ConsoleE.Input("Which date? (yyyy-MM-dd)");
                         objMovieSchedulingLogic.Print(specificDateInput);
+                        Console.WriteLine("Press enter to go back to the option menu");
+                        Console.ReadLine();
                         Start(accId, isAdmin);
                         break;
                     case 2:
                         string untilSpecificDateInput = ConsoleE.Input("Until which date? (yyyy-MM-dd)");
                         objMovieSchedulingLogic.Print(DateTime.Today, untilSpecificDateInput);
+                        Console.WriteLine("Press enter to go back to the option menu");
+                        Console.ReadLine();
                         Start(accId, isAdmin);
                         break;
                     case 3:
                         string dateRangesInput = ConsoleE.Input("Which dates? (yyyy-MM-dd); comma separated (,)");
                         objMovieSchedulingLogic.Print(dateRangesInput);
+                        Console.WriteLine("Press enter to go back to the option menu");
+                        Console.ReadLine();
                         Start(accId, isAdmin);
                         break;
                     default:
@@ -94,14 +98,14 @@ static class UserMenu
                 Console.ReadLine();
                 Start(accId, isAdmin);
                 break;
-            case 5:
+            case 3:
                 Search.searchMovie();
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
                 Start(accId, isAdmin);
                 break;
-            case 6:
+            case 4:
                 Console.ResetColor();
                 Console.WriteLine("Reservation history function");
                 Console.WriteLine("");
@@ -111,11 +115,11 @@ static class UserMenu
                 Console.ReadLine();
                 Start(accId, isAdmin);
                 break;
-            default:
-                Console.WriteLine("Invalid input");
-                Start(accId, isAdmin);
+            case 5:
+                Console.ResetColor();
+                MainMenu.Start();
                 break;
-            case 7:
+            case 6:
                 if (isAdmin) 
                 {
                     Console.ResetColor();
@@ -128,6 +132,10 @@ static class UserMenu
                     Thread.Sleep(1000);
                     Start(accId, isAdmin);
                 }
+                break;
+            default:
+                Console.WriteLine("Invalid input");
+                Start(accId, isAdmin);
                 break;
         }
     }

@@ -47,6 +47,7 @@ static class MainMenu
                 break;
             case 4:
                 Console.ResetColor();
+                Environment.Exit(0);
                 break;
             // case 5:
             //     AddReservation.addMovieResv();

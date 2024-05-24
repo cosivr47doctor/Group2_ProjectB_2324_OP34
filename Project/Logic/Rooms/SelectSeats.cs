@@ -153,19 +153,16 @@ public static class SelectSeats
                     if (options[selectedRow][selectedColumn] == "  ")
                     {
                         Console.WriteLine("\nNo seat selected.");
-                        Thread.Sleep(1000);
                     }
                     else if (options[selectedRow][selectedColumn] == " X")
                     {
                         Console.WriteLine("\nSeat already taken.");
-                        Thread.Sleep(1000);
                     }
                     else
                     {
                         if (seatsNumbers.Count >= 8)
                         {
                             Console.WriteLine("\n\nMax amount of seats reached");
-                            Thread.Sleep(1000);
                         }
                         else if (seatsNumbers.Count >= 1)
                         {
@@ -173,7 +170,6 @@ public static class SelectSeats
                             if (enteredRow != selectedRow)
                             {
                                 Console.WriteLine("\n\n\nCan only select seats next to each other");
-                                Thread.Sleep(1000);
                                 break;
                             }
 
@@ -182,30 +178,31 @@ public static class SelectSeats
                             seatsNumbers.Sort();
                             if (seatsNumbers[0] - 1 == SeatNum || seatsNumbers[^1] + 1 == SeatNum)
                             {
+                                string stringRow = correctRow.ToString();
                                 seatsTaken.Add(seatSelected);
                                 seatsTakenColumn.Add(selectedColumn);
                                 seatsNumbers.Add(SeatNum);
                                 options[selectedRow][selectedColumn] = " X"; // Mark the seat as taken
                                 seatsNumbers.Sort();
-                                Console.WriteLine($"Selected seats: {string.Join(", ", seatsNumbers)}");
+                                Console.WriteLine($"Selected seats: {string.Join(", ", seatsNumbers)} on row: {stringRow}");
                             }
                             else
                             {
                                 Console.WriteLine("\n\n\nCan only select seats next to each other");
-                                Thread.Sleep(1000);
                             }
                         }
                         else
                         {
                             enteredRow = selectedRow; // Store the entered row when the first seat is selected
                             correctRow = seatsCount - enteredRow;
+                            string stringRow = correctRow.ToString();
                             string seatSelected = options[selectedRow][selectedColumn];
                             seatsTaken.Add(seatSelected);
                             seatsTakenColumn.Add(selectedColumn);
                             int SeatNum = int.Parse(seatSelected);
                             seatsNumbers.Add(SeatNum);
                             options[selectedRow][selectedColumn] = " X"; // Mark the seat as taken
-                            Console.WriteLine($"Selected seat: {string.Join(", ", seatsNumbers)}");
+                            Console.WriteLine($"Selected seat: {string.Join(", ", seatsNumbers)} on row: {stringRow}");
                         }
                     }
                     break;
@@ -220,6 +217,7 @@ public static class SelectSeats
                         string stringRow = correctRow.ToString();
                         seatsNumbers.Sort();
                         Console.WriteLine($"Seat(s) selected successfully: {string.Join(", ", seatsNumbers)} on row: {stringRow}");
+                        Console.WriteLine("Seats confirmed");
                         Thread.Sleep(3000);
                         string seatsString = $"row: {stringRow}, seats: {string.Join(",", seatsNumbers)}";
                         int seatprice = 12;

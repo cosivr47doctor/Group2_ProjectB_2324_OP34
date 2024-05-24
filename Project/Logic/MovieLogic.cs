@@ -34,6 +34,17 @@ class MovieLogic
             movie.Director.ToLower().Contains(searchLower));  // This is unhandy in case of movies with duplicate directors
     }
 
+    public List<MovieModel> GetAllBySearch(string searchBy) // finds all for searching options
+    {
+        string searchLower = searchBy.ToLower();
+
+        return _movie.FindAll(movie =>
+            movie.Id.ToString() == searchBy ||
+            movie.Year.ToString() == searchBy ||
+            movie.Name.ToLower().Contains(searchLower) ||  
+            movie.Director.ToLower().Contains(searchLower));  
+    }
+
     public MovieModel SelectForResv(string searchBy)
     {
         string searchLower = searchBy.ToLower();
