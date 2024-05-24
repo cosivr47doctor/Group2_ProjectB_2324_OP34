@@ -1,3 +1,4 @@
+using System.Text.Json;
 using System.Text.RegularExpressions;
 
 static class Adding
@@ -97,6 +98,17 @@ static class Adding
                 string pattern = @"^[^\.][\w\.-]+@[\w\.-]+\.[\w]+$";
                 if (emailAddress.Contains("@")&& emailAddress.Contains(".")&&Regex.IsMatch(emailAddress, pattern))
                 {
+
+                    string path = @"DataSources\accounts.json";
+                    var jsonString = File.ReadAllText(path);
+                    List<AccountModel> accounts = JsonSerializer.Deserialize<List<AccountModel>>(jsonString);
+
+                    if (accounts.Any( a=> a.EmailAddress == emailAddress))
+                    {
+                        Console.WriteLine("An account with this email address already exists.");
+                        Console.WriteLine("Please enter a different email address.");
+                        continue;
+                    }
                     break;
                 }
                 else
