@@ -102,7 +102,8 @@ static class AddReservation
 
         List<string> options = new(){
             "Yes",
-            "No"
+            "No",
+            "Cancel"
         };
 
         int selectedOption = DisplayUtil.DisplayAddFood(options);
@@ -122,6 +123,11 @@ static class AddReservation
                 else UserMenu.Start(accId);
                 //ResvDetails.ResvConfirmation(intUserAccountId, index);
                 break;
+            case 3:
+                Console.WriteLine("Reservation cancelled.");
+                Thread.Sleep(2500);
+                UserMenu.Start(accId);
+                break;
             default:
                 throw new Exception("error");
         }
@@ -135,9 +141,10 @@ static class AddReservation
         {
             SeeJsons.PrintFoodJson(@"DataSources/food.json");
             Console.WriteLine("");
-            Console.Write("Enter the name or id of the food you like to order: ");
+            Console.Write("Enter the name or id of the food you like to order or [Q] to go back: ");
             string userInput = Console.ReadLine();
 
+            if (ConsoleE.BackContains(userInput)) AskForFood(accId, sessionId, movieId, seatsStr, price, dummyAccId=-1);
             if (string.IsNullOrEmpty(userInput))
             {
                 Console.WriteLine("Please enter the name or id of the food.");
@@ -157,8 +164,9 @@ static class AddReservation
             int quantity;
             while (true)
             {
-                Console.Write("Enter the amount: ");
+                Console.Write("Enter the amount: [Q to go back]");
                 string quantityInput = Console.ReadLine();
+                if (ConsoleE.BackContains(quantityInput)) AskForFood(accId, sessionId, movieId, seatsStr, price, dummyAccId=-1);
                 if (int.TryParse(quantityInput, out quantity) && quantity > 0)
                 {
                     break;
