@@ -7,12 +7,14 @@ class MovieDetailsModel : ICloneable, IModel
     [JsonPropertyName("id")]
     public int Id { get; set; }
     public string Title {get; set;}
+    public int Duration {get; set;}
 
     public MovieDetailsModel() { } // Parameterless constructor
-    public MovieDetailsModel(int id, string title)
+    public MovieDetailsModel(int id, string title, int duration)
     {
         Id = id;
         Title = title;
+        Duration = duration;
     }
 
     public object Clone() // unused
@@ -22,6 +24,7 @@ class MovieDetailsModel : ICloneable, IModel
         {
             Id = this.Id,
             Title = this.Title,
+            Duration = this.Duration,
             // Copy other properties as needed
         };
 

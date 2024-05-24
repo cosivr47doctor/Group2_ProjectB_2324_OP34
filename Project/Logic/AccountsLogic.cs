@@ -67,6 +67,7 @@ class AccountsLogic
         CurrentAccount = _accounts.Find(i => i.EmailAddress == email && PasswordHasher.ValidatePassword(password, i.Password));
         if (CurrentAccount is not null)
         {
+            /*
             // Now check if the account has been banned
             if (CurrentAccount.Suspense.HasValue && CurrentAccount.Suspense.Value > DateTime.Today)
             {
@@ -79,6 +80,8 @@ class AccountsLogic
                 UpdateAccount(CurrentAccount);
                 return CurrentAccount;
             }
+            */
+            return CurrentAccount;
         }
         else
         {
@@ -90,6 +93,7 @@ class AccountsLogic
         }
     }
 
+/*
     public void ChangeUserStatus(string change_status_input, string find_by_arg, int accId)
     {
         CurrentAccount = GetByArg(find_by_arg);
@@ -139,6 +143,7 @@ class AccountsLogic
         GenericMethods.UpdateList(CurrentAccount);
         AdminMenu.Start(accId);
     }
+*/
 }
 
 

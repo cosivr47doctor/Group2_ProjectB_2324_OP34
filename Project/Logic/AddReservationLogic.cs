@@ -89,11 +89,11 @@ static class AddReservation
         else
         {
             // MovieModel dummyMovie = movieLogic.SelectForResv("3");
-            AskForFood(accId, 1, 7, "101", 0, dummyAccId);
+            AskForFood(accId, 1, 7, "101", 0, new RoomModel(0, 1, 1, new List<int>{1}), dummyAccId);
             Console.WriteLine("Reservation added for the dummy account. Check updated json.");
         }
     }
-    public static void AskForFood(int accId, int sessionId, int movieId, string seatsStr, int price, int dummyAccId=-1)
+    public static void AskForFood(int accId, int sessionId, int movieId, string seatsStr, int price, RoomModel roomDetails=null, int dummyAccId=-1)
     {
         AccountsLogic objAccountsLogic = new(); bool isAdmin = objAccountsLogic.GetByArg(accId).isAdmin;
         int accountId;
@@ -111,9 +111,10 @@ static class AddReservation
         switch (selectedOption)
         {
             case 0:
-                addFoodResv(accountId, sessionId, movieId, seatsStr, price, dummyAccId);
+                addFoodResv(accountId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId);
                 break;
             case 1: 
+                GenericMethods.UpdateList(roomDetails);
                 Console.WriteLine("No");
                 DateTime purchaseTime = DateTime.Now;
                 ReservationModel newReservation = new ReservationModel(accountId, sessionId, movieId, seatsStr, new string[0] {}, price, purchaseTime);
@@ -123,7 +124,7 @@ static class AddReservation
                 else UserMenu.Start(accId);
                 //ResvDetails.ResvConfirmation(intUserAccountId, index);
                 break;
-            case 3:
+            case 2:
                 Console.WriteLine("Reservation cancelled.");
                 Thread.Sleep(2500);
                 UserMenu.Start(accId);
@@ -133,7 +134,7 @@ static class AddReservation
         }
     }
 
-    public static void addFoodResv(int accId, int sessionId, int movieId, string seatsStr, int price, int dummyAccId=-1)
+    public static void addFoodResv(int accId, int sessionId, int movieId, string seatsStr, int price, RoomModel roomDetails, int dummyAccId=-1)
     {
         AccountsLogic objAccountsLogic = new(); bool isAdmin = objAccountsLogic.GetByArg(accId).isAdmin;
 
@@ -144,7 +145,7 @@ static class AddReservation
             Console.Write("Enter the name or id of the food you like to order or [Q] to go back: ");
             string userInput = Console.ReadLine();
 
-            if (ConsoleE.BackContains(userInput)) AskForFood(accId, sessionId, movieId, seatsStr, price, dummyAccId=-1);
+            if (ConsoleE.BackContains(userInput)) AskForFood(accId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId=-1);
             if (string.IsNullOrEmpty(userInput))
             {
                 Console.WriteLine("Please enter the name or id of the food.");
@@ -166,7 +167,7 @@ static class AddReservation
             {
                 Console.Write("Enter the amount: [Q to go back]");
                 string quantityInput = Console.ReadLine();
-                if (ConsoleE.BackContains(quantityInput)) AskForFood(accId, sessionId, movieId, seatsStr, price, dummyAccId=-1);
+                if (ConsoleE.BackContains(quantityInput)) AskForFood(accId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId=-1);
                 if (int.TryParse(quantityInput, out quantity) && quantity > 0)
                 {
                     break;
@@ -184,7 +185,8 @@ static class AddReservation
             ReservationModel newReservation = new ReservationModel(accId, sessionId, movieId, seatsStr, foodArray, totalPrice, purchaseTime);
             GenericMethods.UpdateList(newReservation);
             // SeeJsons.PrintLastResvGJson(@"DataSources/reservations.json");
-            // Console.WriteLine("Press any key to continue");
+            // Console.WriteLine("Press any key to continue");\
+            GenericMethods.UpdateList(roomDetails);
             Console.WriteLine("Reservation added successfully");
             // Console.ReadLine();
             if (isAdmin) AdminMenu.Start(accId);

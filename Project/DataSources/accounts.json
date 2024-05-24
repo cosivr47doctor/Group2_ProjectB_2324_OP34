@@ -5,9 +5,7 @@
     "password": "$2a$11$dSgFmDzvGZ4XLgTzkO.LauyG/P2Fe9cG6ZiHt4g6tP5GFqmH83YR.",
     "fullName": "Admin Adminius",
     "isAdmin": true,
-    "suspense": null,
-    "PhoneNumber": 655555555,
-    "reservationIds": []
+    "PhoneNumber": 655555555
   },
   {
     "id": 2,
@@ -15,9 +13,7 @@
     "password": "$2a$11$x5XDkIo0DjAM6dHsFfYV5ewUnzQFiPr4SyT/bfy.407UYS831H3Ca",
     "fullName": "LLoyd Love",
     "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 602060222,
-    "reservationIds": []
+    "PhoneNumber": 602060222
   },
   {
     "id": 3,
@@ -25,9 +21,7 @@
     "password": "$2a$11$/MCrhMlAKlF7vPAu4km/YOIAWf/e.Ep6eCHQZb.2m3j7CbkPcekhO",
     "fullName": "Dummy Dumdum",
     "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 604013025,
-    "reservationIds": []
+    "PhoneNumber": 604013025
   },
   {
     "id": 4,
@@ -35,9 +29,7 @@
     "password": "$2a$11$9rUtP8ad806v1pNNnSvu1eyucVc78XXcPFy1hzqfmL/QeRrU6j6Sq",
     "fullName": "jay",
     "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 612345678,
-    "reservationIds": []
+    "PhoneNumber": 612345678
   },
   {
     "id": 5,
@@ -45,9 +37,7 @@
     "password": "$2a$11$x1X.eH4D3pWfCSNfJFBQF.ZcAX2Ci/GjSMI3Io6pQohw.1D/qkYH2",
     "fullName": "henk jan",
     "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 612345678,
-    "reservationIds": []
+    "PhoneNumber": 612345678
   },
   {
     "id": 6,
@@ -55,9 +45,7 @@
     "password": "$2a$11$s0x.XJVCLIyYDAzmkMT3XOwxPAEyQ0A.8sv4.doeqjCA1kcKImNBK",
     "fullName": "Leaked Fullname",
     "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 644538567,
-    "reservationIds": []
+    "PhoneNumber": 644538567
   },
   {
     "id": 7,
@@ -65,9 +53,7 @@
     "password": "$2a$11$TFyqMwaEQsi8qC.grn47NOoKd6sk7QXiTmzUzv1jQ/ciOIUP.oHKW",
     "fullName": "Test Test",
     "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 612345678,
-    "reservationIds": []
+    "PhoneNumber": 612345678
   },
   {
     "id": 8,
@@ -75,9 +61,7 @@
     "password": "$2a$11$UnLFSyCxsc6XOn6QuQ0fM.xJJW3jCG/2gVT00cT9WGUSA2TjFbCZW",
     "fullName": "Test Test",
     "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 612345678,
-    "reservationIds": []
+    "PhoneNumber": 612345678
   },
   {
     "id": 9,
@@ -85,9 +69,7 @@
     "password": "$2a$11$8U9XXHBHV89rl.GgnUaDOukGdHAQa9gnlMl4Ha3UNkyERTOHuf0ny",
     "fullName": "Test Test",
     "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 6123456,
-    "reservationIds": []
+    "PhoneNumber": 6123456
   },
   {
     "id": 10,
@@ -95,8 +77,6 @@
     "password": "$2a$11$5mwtHwlIuCGPLGACDWOaF.lSwi7th0sc2Wc2oAHvVdj0m.mn5aUfS",
     "fullName": "Test Test",
     "isAdmin": false,
-    "suspense": null,
-    "PhoneNumber": 612345678,
-    "reservationIds": []
+    "PhoneNumber": 612345678
   }
 ]

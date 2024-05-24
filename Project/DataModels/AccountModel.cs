@@ -18,16 +18,13 @@ class AccountModel : IModel
     [JsonPropertyName("isAdmin")]
     public bool isAdmin {get; set;}
 
+/*
     [JsonPropertyName("suspense")]
     public DateTime? Suspense { get; set; } = null; // ? to make a tenary expression
+*/
 
     [JsonPropertyName("PhoneNumber")]
-    public int PhoneNumber { get; set; }
-
-    [JsonPropertyName("reservationIds")]
-    public List<int> ReservationIds {get; set;} = new List<int>();
-    // ^^^ The desired format for the string:    `Id: {?}, Title: {?}`
-
+    public int PhoneNumber { get; set;}
 
 
 

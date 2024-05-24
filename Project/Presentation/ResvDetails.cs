@@ -18,9 +18,9 @@ static class ResvDetails
         Console.WriteLine("Reservation History:");
         Console.WriteLine("-----------------------------------");
 
-        foreach (int reservationId in account.ReservationIds)
+        foreach (ReservationModel resv in reservations)
         {
-            Console.WriteLine(reservations.Where(resv => resv.Id == reservationId));
+            Console.WriteLine(reservations.Where(resv => resv.AccountId == account.Id));
             Console.WriteLine("-----------------------------------");
         }
     }
@@ -41,7 +41,7 @@ static class ResvDetails
         Console.WriteLine("Reservation receipt:");
         Console.WriteLine("-----------------------------------");
 
-        int lastReservationId = account.ReservationIds.FirstOrDefault(Id => Id == resvID);
+        int lastReservationId = reservations.Where(resv => resv.AccountId == account.Id).Last().Id;
 
         if (lastReservationId != null)
         {

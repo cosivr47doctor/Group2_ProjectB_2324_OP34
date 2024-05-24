@@ -22,6 +22,7 @@ class MovieLogic
         _movie = GenericAccess<MovieModel>.LoadAll();
     }
 
+    public MovieModel GetBySearch(int id) => _movie.Find(movie => movie.Id == id);
     public MovieModel GetBySearch(string searchBy)
     {
         string searchLower = searchBy.ToLower();
