@@ -226,16 +226,15 @@ public static class SelectSeats
                         int price = seatprice * seatsNumbers.Count;
 
                         RoomModel roomDetails = new RoomModel(0, sessionId, enteredRow, seatsTakenColumn);
-                        GenericMethods.UpdateList(roomDetails);
 
-                        AddReservation.AskForFood(accId, sessionId, movieId, seatsString, price);
+                        AddReservation.AskForFood(accId, sessionId, movieId, seatsString, price, roomDetails);
                     }
                     break;
 
                 case ConsoleKey.Backspace:
                     Console.WriteLine("Heading back to the start menu");
                     break;
-
+    
                 case ConsoleKey.Escape:
                     UserMenu.Start(accId);
                     break;

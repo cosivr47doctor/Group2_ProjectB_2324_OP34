@@ -12,7 +12,7 @@ static class AddReservation
         List<MovieModel> movies = GenericAccess<MovieModel>.LoadAll();
 
         // List<MovieScheduleModel>
-        var matchingSchedules = schedule.Where(resv => resv.TimeIdPair.Values.First().Split(" ")[1].Trim() == Convert.ToString(movieId)).ToList();
+        var matchingSchedules = schedule.Where(resv => resv.MovieId == movieId).ToList();
         if (!matchingSchedules.Any())
         {
             Console.WriteLine("No sessions found for the selected movie.");

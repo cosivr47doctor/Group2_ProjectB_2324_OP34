@@ -3,6 +3,7 @@ static class UserMenu
 {
     static public void Start(int accId=0, bool isAdmin=false)
     {
+        if (accId < 0) {Console.WriteLine("Invalid acc id"); Thread.Sleep(500); MainMenu.Start();}
         GenericMethods.Reload();
             List<string> options = new(){
                 "Logout",
