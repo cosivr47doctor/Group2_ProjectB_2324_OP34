@@ -4,27 +4,28 @@ static class UserMenu
     static public void Start(int accId=0, bool isAdmin=false)
     {
         GenericMethods.Reload();
-        // Console.Clear();
-        if (isAdmin) Console.WriteLine("Enter 0 to switch back to admin menu");
-        Console.WriteLine("Enter 1 to logout");
-        Console.WriteLine("Enter 2 to make a reservation");
-        Console.WriteLine("Enter 3 to order some food");
-        Console.WriteLine("Enter 4 to see all available movies");
-        Console.WriteLine("Enter 5 to see the movies schedule");
-        Console.WriteLine("Enter 6 to search a movie");
-        Console.WriteLine("Enter 7 to see reservation history");
+        List<string> options = new(){
+            "Logout",
+            "Make a reservation",
+            "Order some food",
+            "See all available movies",
+            "See the movies schedule",
+            "Search a movie",
+            "See reservation history",
+        };
 
-        string user_input = Console.ReadLine();
-        switch (user_input)
+        if (isAdmin)
         {
-            case "0":
-                if (isAdmin) AdminMenu.Start(accId);
-                else goto default;
-                break;
-            case "1":
+            options.Add("Enter admin menu");
+        }
+
+        int selectedOption = DisplayUtil.MenuDisplay(options);
+        switch (selectedOption)
+        {
+            case 0:
                 MainMenu.Start();
                 break;
-            case "2":
+            case 1:
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("");
                 //Reservation.ReserveMovie(accId);
@@ -35,7 +36,7 @@ static class UserMenu
                 Console.ReadLine();
                 Start(accId, isAdmin);
                 break;
-            case "3":
+            case 2:
                 SeeJsons.PrintFoodJson(@"DataSources/food.json");
                 //Reservation.ReserveFood(accId);
 
@@ -45,37 +46,39 @@ static class UserMenu
 
                 Start(accId, isAdmin);
                 break;
-            case "4":
+            case 3:
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
                 Start(accId, isAdmin);
                 break;
-            case "5":
+            case 4:
                 MovieSchedulingLogic objMovieSchedulingLogic = new();
-                Console.WriteLine(@"Make a choice:
-See entire schedule [0]
-See schedule for a specific date [1]
-See schedule for up until a specific date [2]
-See schedule for specific range of dates [3]");
-                string seeScheduleInput = Console.ReadLine();
+                List<string> scheduleOptions = new(){
+                "See entire schedule",
+                "See schedule for a specific date",
+                "See schedule for up until a specific date",
+                "See schedule for specific range of dates "
+                };
+
+                int seeScheduleInput = DisplayUtil.MenuDisplay(scheduleOptions);
                 switch (seeScheduleInput)
                 {
-                    case "0":
+                    case 0:
                         SeeJsons.PrintSchedulesJson("@DateSources/movieSessions.json");
                         break;
-                    case "1":
+                    case 1:
                         string specificDateInput = ConsoleE.Input("Which date? (yyyy-MM-dd)");
                         objMovieSchedulingLogic.Print(specificDateInput);
                         Start(accId, isAdmin);
                         break;
-                    case "2":
+                    case 2:
                         string untilSpecificDateInput = ConsoleE.Input("Until which date? (yyyy-MM-dd)");
                         objMovieSchedulingLogic.Print(DateTime.Today, untilSpecificDateInput);
                         Start(accId, isAdmin);
                         break;
-                    case "3":
+                    case 3:
                         string dateRangesInput = ConsoleE.Input("Which dates? (yyyy-MM-dd); comma separated (,)");
                         objMovieSchedulingLogic.Print(dateRangesInput);
                         Start(accId, isAdmin);
@@ -90,14 +93,15 @@ See schedule for specific range of dates [3]");
                 Console.ReadLine();
                 Start(accId, isAdmin);
                 break;
-            case "6":
+            case 5:
                 Search.searchMovie();
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
                 Start(accId, isAdmin);
                 break;
-            case "7":
+            case 6:
+                Console.ResetColor();
                 Console.WriteLine("Reservation history function");
                 Console.WriteLine("");
                 ResvDetails.ResvHistory(accId);
@@ -110,9 +114,20 @@ See schedule for specific range of dates [3]");
                 Console.WriteLine("Invalid input");
                 Start(accId, isAdmin);
                 break;
+            case 7:
+                if (isAdmin) 
+                {
+                    Console.ResetColor();
+                    AdminMenu.Start(accId);
+                }
+                else 
+                {
+                    Console.ResetColor();
+                    Console.WriteLine("I don't think you have the facilities for that big man");
+                    Thread.Sleep(1000);
+                    Start(accId, isAdmin);
+                }
+                break;
         }
-
-
-
     }
 }

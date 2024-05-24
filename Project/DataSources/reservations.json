@@ -30,5 +30,35 @@
     ],
     "totalPrice": 14.99,
     "purchaseTime": "2024-05-21T11:05:20.8603339+02:00"
+  },
+  {
+    "id": 4,
+    "accountId": 4,
+    "sessionId": 36,
+    "movieId": 1,
+    "seats": "row: 9, seats: 2,3,4,5",
+    "food": [],
+    "totalPrice": 48,
+    "purchaseTime": "2024-05-24T11:22:31.4685819+02:00"
+  },
+  {
+    "id": 5,
+    "accountId": 4,
+    "sessionId": 36,
+    "movieId": 1,
+    "seats": "row: 12, seats: 1,2,3",
+    "food": [],
+    "totalPrice": 36,
+    "purchaseTime": "2024-05-24T11:22:55.6952791+02:00"
+  },
+  {
+    "id": 6,
+    "accountId": 4,
+    "sessionId": 366,
+    "movieId": 3,
+    "seats": "row: 12, seats: 9,10",
+    "food": [],
+    "totalPrice": 24,
+    "purchaseTime": "2024-05-24T11:23:15.0634204+02:00"
   }
 ]

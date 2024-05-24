@@ -1,0 +1,32 @@
+[
+  {
+    "ID": 1,
+    "Session id": 36,
+    "Row": 5,
+    "Taken seats": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "ID": 2,
+    "Session id": 36,
+    "Row": 2,
+    "Taken seats": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "ID": 3,
+    "Session id": 366,
+    "Row": 2,
+    "Taken seats": [
+      10,
+      9
+    ]
+  }
+]
