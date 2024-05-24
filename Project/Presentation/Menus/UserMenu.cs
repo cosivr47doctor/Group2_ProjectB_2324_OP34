@@ -4,15 +4,15 @@ static class UserMenu
     static public void Start(int accId=0, bool isAdmin=false)
     {
         GenericMethods.Reload();
-        List<string> options = new(){
-            "Logout",
-            "Make a reservation",
-            "Order some food",
-            "See all available movies",
-            "See the movies schedule",
-            "Search a movie",
-            "See reservation history",
-        };
+            List<string> options = new(){
+                "Logout",
+                "Make a reservation",
+                "Order some food",
+                "See all available movies",
+                "See the movies schedule",
+                "Search a movie",
+                "See reservation history",
+            };
 
         if (isAdmin)
         {

@@ -14,9 +14,10 @@ static class UserLogin
  |_____\___/ \__, |_|_| |_| |_|   \__,_|\__, |\___|
              |___/                      |___/                                                                                                                        
 ");        
-        Console.WriteLine("Welcome to the login page");
-        Console.WriteLine("Please enter your email address");
+        Console.WriteLine("Welcome to the login page\n enter [Q] to go back");
+        Console.WriteLine("Please enter your email address or");
         string email = Console.ReadLine();
+        if (ConsoleE.BackContains(email)) MainMenu.Start();
         Console.WriteLine("Please enter your password");
         string password = PasswordInput.InputPassword();
         AccountModel acc = accountsLogic.CheckLogin(email, password);

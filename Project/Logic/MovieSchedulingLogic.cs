@@ -273,7 +273,7 @@ class MovieSchedulingLogic
                     Console.WriteLine();
                 }
             }
-            string manualOrRandom = ConsoleE.Input("Reschedule manually [M] (enter an ID until quit), randomly [R] , or algorhythmically [A]?").ToUpper();
+            string manualOrRandom = ConsoleE.Input("Reschedule manually [M] (enter an ID until quit), randomly [R], or algorhythmically [A]?").ToUpper();
             if (manualOrRandom == "M") RescheduleListLogic(parsedDate, manualOrRandom);
             else if (manualOrRandom == "R") RescheduleListLogic(parsedDate, manualOrRandom);
             else if (manualOrRandom == "A") RescheduleListLogic(parsedDate, manualOrRandom);

@@ -2,13 +2,14 @@ using System.Text.RegularExpressions;
 
 static class Adding
 {
-    public static void addFood()
+    public static void addFood(int accId=-1)
     {
         Console.Clear();
         //need id
         Console.WriteLine("Add food to the menu:");
-        Console.WriteLine("Please enter the name of the food item");
+        Console.WriteLine("Please enter the name of the food item or [Q] to go back");
         string name = Console.ReadLine();
+        if (ConsoleE.BackContains(name)) AdminMenu.Start(accId);
 
         decimal price;
         while (true)
@@ -30,12 +31,13 @@ static class Adding
 
     }
 
-    public static void addMovie()
+    public static void addMovie(int accId)
     {
         Console.Clear();
         Console.WriteLine("Add movie to the cinema:");
-        Console.WriteLine("Please enter the name of the movie");
+        Console.WriteLine("Please enter the name of the movie or [Q] to go back");
         string name = Console.ReadLine();
+        if (ConsoleE.BackContains(name)) AdminMenu.Start(accId);
         Console.WriteLine("Please enter the genre of the movie");
         string[] genre = Console.ReadLine().Split(",");
 
@@ -83,9 +85,9 @@ static class Adding
     {
         Console.Clear();
         Console.WriteLine("Welcome to the registration page");
-        Console.WriteLine("Enter 0 to go back or type enter to continue");
+        Console.WriteLine("Enter [Q] to go back or type enter to continue");
         string Choice = Console.ReadLine();
-        if (Choice != "0")
+        if (!ConsoleE.BackContains(Choice))
         {
             string emailAddress = "";
             while(true)

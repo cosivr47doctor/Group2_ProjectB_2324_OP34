@@ -28,7 +28,7 @@ static class AddReservation
             Console.WriteLine($"ID: {session.Id}, Date: {date}, Session time: {session.TimeIdPair.Keys.First()}, Room: {session.Room}");
         }
 
-        int sessionId = Convert.ToInt32(ConsoleE.IntInput("Please select a session"));
+        int sessionId = Convert.ToInt32(ConsoleE.IntInput("Please select a session ID"));
 
         if (sessionId < 0 || !matchingSchedules.Any(resv => resv.Id == sessionId))
         {
@@ -61,8 +61,9 @@ static class AddReservation
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("");
                 //zie welke films je kan kiezen
-                Console.Write("Enter the name or id of the movie: ");
+                Console.Write("Enter the name or id of the movie or [Q] to go back: ");
                 string userInput = Console.ReadLine();
+                if (ConsoleE.BackContains(userInput)) UserMenu.Start(accId);
                 if (string.IsNullOrEmpty(userInput))
                 {
                     Console.WriteLine("Invalid input, try again.");
