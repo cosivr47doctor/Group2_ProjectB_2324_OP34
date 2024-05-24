@@ -103,7 +103,17 @@ static class Adding
                     var jsonString = File.ReadAllText(path);
                     List<AccountModel> accounts = JsonSerializer.Deserialize<List<AccountModel>>(jsonString);
 
-                    if (accounts.Any( a=> a.EmailAddress == emailAddress))
+                    bool emailExists = false;
+                    foreach (var account in accounts)
+                    {
+                        if (account.EmailAddress == emailAddress)
+                        {
+                            emailExists = true;
+                            break;
+                        }
+                    }
+
+                    if (emailExists)
                     {
                         Console.WriteLine("An account with this email address already exists.");
                         Console.WriteLine("Please enter a different email address.");
@@ -113,7 +123,7 @@ static class Adding
                 }
                 else
                 {
-                    Console.WriteLine("Invalid email address format. Please make sure your email address contains");
+                    Console.WriteLine("Invalid email address format. Please make sure your email address contains a @ and a .");
                 }
             }      
             string password = "";
