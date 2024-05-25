@@ -4,6 +4,7 @@ using System.Text.Json;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
+using FluentAssertions; using Xunit;
 
 namespace ProjectTest;
 
@@ -29,6 +30,11 @@ public class TestEditMovie
 
         string initialJson = JsonSerializer.Serialize(initialMovies);
         fileMock.Setup(f => f.ReadAllText(It.IsAny<string>())).Returns(initialJson);
+        fileMock.Setup(f => f.WriteAllText(It.IsAny<string>(), It.IsAny<string>()))
+            .Callback<string, string>((path, json) => {
+                // Overwrite the ReadAllText setup to return the updated json
+                fileMock.Setup(f => f.ReadAllText(It.IsAny<string>())).Returns(json);
+            });
 
         // Inject the mock into MovieAccess
         MovieAccess.FileWrapper = fileMock.Object;
@@ -44,12 +50,13 @@ public class TestEditMovie
         */
 
         // Make sure you communicate in the details that you changed them.
-        List<MovieModel> movies = MovieAccess.LoadAll();
+        List<MovieModel> movies = MovieAccess.LoadAllJson();
         MovieModel unitTestChangeDetails = movies.FirstOrDefault(m => m.Id == 12);
-        Assert.IsNotNull(unitTestChangeDetails, "The movie with Id 12 does not exist.");
+        unitTestChangeDetails.Should().NotBeNull("The movie with Id 12 does not exist.");
 
-        // MovieModel cloneOfOriginalMovie = unitTestChangeDetails.DeepClone();  // NO MATTER WHAT I TRY, STILL POINTS TO SAME MEMORY ADDRESS...
-        
+        MovieModel cloneOfOriginalMovie = DeepCloner.DeepClone(unitTestChangeDetails);
+        cloneOfOriginalMovie.Name = "ChangedYo";
+        unitTestChangeDetails.Should().NotBe(cloneOfOriginalMovie.Name);
         
         string originalString = 
             @$"ID: 12{"\n"}Name: UnitTestChangeDetails{"\n"}Genre: drama, horror, triller{"\n"}Year: 2023{"\n"}Description: The details must be changed...
@@ -70,13 +77,13 @@ Director: Thh{"\n"}Duration: 120";
         };
         movieLogic.ChangeMovie(unitInput);
 
-        List<MovieModel> updatedMovies = MovieAccess.LoadAll();
+        List<MovieModel> updatedMovies = MovieAccess.LoadAllJson();
         MovieModel changedMovie = updatedMovies.FirstOrDefault(m => m.Id == 12);
-        Assert.IsNotNull(changedMovie, "The changed movie with Id 12 does not exist.");
-        Assert.AreEqual("UnitChangedDetailsSuccessfully", changedMovie.Name);
-        Assert.AreEqual("Changed successfully", changedMovie.Description);
+        changedMovie.Should().NotBeNull("The changed movie with Id 12 does not exist.");
+        changedMovie.Name.Should().Be("UnitChangedDetailsSuccessfully");
+        changedMovie.Description.Should().BeEquivalentTo("Changed successfully");
 
-        Assert.AreNotEqual(originalString, changedMovie.ToString());
+        changedMovie.Should().NotBeEquivalentTo(originalString, changedMovie.ToString());
         fileMock.Verify(f => f.WriteAllText(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
     }
 }

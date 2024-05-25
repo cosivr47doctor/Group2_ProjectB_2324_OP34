@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Reflection;
+using System.Linq;
 
 
 //This class is not static so later on we can use inheritance and interfaces
@@ -121,7 +122,7 @@ public class MovieLogic
         if (!ConsoleE.IsNullOrEmptyOrWhiteSpace(args[6]) && int.TryParse(args[6], out _)) movieToChange.Duration = Convert.ToInt16(args[6]);    
 
         movies[index] = movieToChange;
-        MovieAccess.WriteAll(_movie);
+        MovieAccess.WriteAllJson(movies);
     }
 
     public void RemoveMovie(string searchBy)
