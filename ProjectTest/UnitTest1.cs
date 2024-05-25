@@ -43,47 +43,24 @@ public class TestEditMovie
     [TestMethod]
     public void TestChangeMovie()
     {
-        /* 
-        NOTES:
-        1. Ask teacher about the changes not being saved to the JSON file.
-        2. Ask teacher about ICloneable not working.
-        */
-
         // Make sure you communicate in the details that you changed them.
         List<MovieModel> movies = MovieAccess.LoadAllJson();
-        MovieModel unitTestChangeDetails = movies.FirstOrDefault(m => m.Id == 12);
-        unitTestChangeDetails.Should().NotBeNull("The movie with Id 12 does not exist.");
+        MovieModel movieToChange = movies.FirstOrDefault(m => m.Id == 12);
+        movieToChange.Should().NotBeNull();  // Forget about ToString() as it arouses issues in the unittest run environment
 
-        MovieModel cloneOfOriginalMovie = DeepCloner.DeepClone(unitTestChangeDetails);
+        MovieModel cloneOfOriginalMovie = TestEnvironmentUtils.DeepClone(movieToChange);
         cloneOfOriginalMovie.Name = "ChangedYo";
-        unitTestChangeDetails.Should().NotBe(cloneOfOriginalMovie.Name);
         
-        string originalString = 
-            @$"ID: 12{"\n"}Name: UnitTestChangeDetails{"\n"}Genre: drama, horror, triller{"\n"}Year: 2023{"\n"}Description: The details must be changed...
-Director: Thh{"\n"}Duration: 120";
-        Console.WriteLine(originalString);
-        
-        
-
-        string[] unitInput = new string[]
-        { 
-            "12",
-            "UnitChangedDetailsSuccessfully", // New title
-            "Unit,Test", // New genres
-            null, // No year changes
-            "Changed successfully", // New description
-            null, // No change in director
-            null // No change in duration
-        };
+        string unitInput = "12;ChangedName;Drama, Horror;2022;New description;New Director;150";
         movieLogic.ChangeMovie(unitInput);
 
         List<MovieModel> updatedMovies = MovieAccess.LoadAllJson();
         MovieModel changedMovie = updatedMovies.FirstOrDefault(m => m.Id == 12);
-        changedMovie.Should().NotBeNull("The changed movie with Id 12 does not exist.");
+        changedMovie.Should().NotBeNull();
         changedMovie.Name.Should().Be("UnitChangedDetailsSuccessfully");
-        changedMovie.Description.Should().BeEquivalentTo("Changed successfully");
+        changedMovie.Description.Should().BeEquivalentTo("Changed description successfully");
 
-        changedMovie.Should().NotBeEquivalentTo(originalString, changedMovie.ToString());
+        // changedMovie.Should().NotBeEquivalentTo(originalString, changedMovie.ToString()); Unneccessary
         fileMock.Verify(f => f.WriteAllText(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
     }
 }

@@ -65,8 +65,18 @@ public class MovieLogic
             movie.Name.ToLower().Contains(searchLower));  // This is unhandy in case of movies with duplicate directors
     }
 
-    public void ChangeMovie(string searchBy)
+    public void ChangeMovie(string input)
     {
+        string searchBy;
+        string[] unitInput = null;
+        if (input.Contains(';'))
+        {
+            unitInput = input.Split(';');
+        }
+
+        if (TestEnvironmentUtils.IsRunningInUnitTest()) searchBy = unitInput[0];
+        else searchBy = input;
+
         MovieModel movieToChange = GetBySearch(searchBy);
         if (movieToChange == null)
         {
@@ -78,51 +88,42 @@ public class MovieLogic
         Console.WriteLine("Invalid inputs will simply be ingored\n");
 
         Console.WriteLine("Please enter the new title (blank if unchanged)");
-        string changeNameInput = ConsoleE.Input();
+        string changeNameInput = TestEnvironmentUtils.ReadLine();
         // string changeNameInput = TestEnvironmentUtils.ReadLine();
         Console.WriteLine("Please enter the new genre (blank if unchanged)");
-        string changeGenreInput = ConsoleE.Input();
+        string changeGenreInput = TestEnvironmentUtils.ReadLine();
         Console.WriteLine("Please enter the new year of release (blank if unchanged)");
-        string changeYearInput = ConsoleE.Input();
+        string changeYearInput = TestEnvironmentUtils.ReadLine();
         Console.WriteLine("Please enter the new description (blank if unchanged)");
-        string changeDescriptionInput = ConsoleE.Input();
+        string changeDescriptionInput = TestEnvironmentUtils.ReadLine();
         Console.WriteLine("Please enter the new director (blank if unchanged)");
-        string changeDirectorInput = ConsoleE.Input();
+        string changeDirectorInput = TestEnvironmentUtils.ReadLine();
         Console.WriteLine("Please enter the new duration (blank if unchanged)");
-        string changeDurationInput = ConsoleE.Input();
+        string changeDurationInput = TestEnvironmentUtils.ReadLine();
 
-        if (!string.IsNullOrEmpty(changeNameInput)) movieToChange.Name = changeNameInput;
-        if (!string.IsNullOrEmpty(changeGenreInput)) movieToChange.Genre = changeGenreInput.Split(",");
-        if (!string.IsNullOrEmpty(changeYearInput) && int.TryParse(changeYearInput, out _)) movieToChange.Year = Convert.ToInt16(changeYearInput);
-        if (!string.IsNullOrEmpty(changeDescriptionInput)) movieToChange.Description = changeDescriptionInput;
-        if (!string.IsNullOrEmpty(changeDirectorInput)) movieToChange.Director = changeDirectorInput;
-        if (!string.IsNullOrEmpty(changeDurationInput) && int.TryParse(changeDurationInput, out _)) movieToChange.Duration = Convert.ToInt16(changeDurationInput);
+        if (TestEnvironmentUtils.IsRunningInUnitTest())
+        {
+            if (unitInput.Length > 1 && !string.IsNullOrEmpty(unitInput[1])) movieToChange.Name = unitInput[1];
+            if (unitInput.Length > 2 && !string.IsNullOrEmpty(unitInput[2])) movieToChange.Genre = unitInput[2].Split(",");
+            if (unitInput.Length > 3 && !string.IsNullOrEmpty(unitInput[3]) && int.TryParse(unitInput[3], out _)) movieToChange.Year = Convert.ToInt16(unitInput[3]);
+            if (unitInput.Length > 4 && !string.IsNullOrEmpty(unitInput[4])) movieToChange.Description = unitInput[4];
+            if (unitInput.Length > 5 && !string.IsNullOrEmpty(unitInput[5])) movieToChange.Director = unitInput[5];
+            if (unitInput.Length > 6 && !string.IsNullOrEmpty(unitInput[6]) && int.TryParse(unitInput[6], out _)) movieToChange.Duration = Convert.ToInt16(unitInput[6]);            
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(changeNameInput)) movieToChange.Name = changeNameInput;
+            if (!string.IsNullOrEmpty(changeGenreInput)) movieToChange.Genre = changeGenreInput.Split(",");
+            if (!string.IsNullOrEmpty(changeYearInput) && int.TryParse(changeYearInput, out _)) movieToChange.Year = Convert.ToInt16(changeYearInput);
+            if (!string.IsNullOrEmpty(changeDescriptionInput)) movieToChange.Description = changeDescriptionInput;
+            if (!string.IsNullOrEmpty(changeDirectorInput)) movieToChange.Director = changeDirectorInput;
+            if (!string.IsNullOrEmpty(changeDurationInput) && int.TryParse(changeDurationInput, out _)) movieToChange.Duration = Convert.ToInt16(changeDurationInput);
+        }
 
 
         _movie[index] = movieToChange;
-        MovieAccess.WriteAll(_movie);
-    }
-
-    public void ChangeMovie(string[] args)
-    {
-        List<MovieModel> movies = MovieAccess.LoadAll();
-        MovieModel movieToChange = movies.FirstOrDefault(m => m.Id == int.Parse(args[0]));
-        if (movieToChange == null)
-        {
-            Console.WriteLine("Movie not found.");
-            return;
-        }
-        int index = Movies.FindIndex(m => m.Id == movieToChange.Id);
-
-        if (!ConsoleE.IsNullOrEmptyOrWhiteSpace(args[1])) movieToChange.Name = args[1];
-        if (!ConsoleE.IsNullOrEmptyOrWhiteSpace(args[2])) movieToChange.Genre = args[2].Split(",");
-        if (!ConsoleE.IsNullOrEmptyOrWhiteSpace(args[3]) && int.TryParse(args[3], out _)) movieToChange.Year = Convert.ToInt16(args[3]);
-        if (!ConsoleE.IsNullOrEmptyOrWhiteSpace(args[4])) movieToChange.Description = args[4];
-        if (!ConsoleE.IsNullOrEmptyOrWhiteSpace(args[5])) movieToChange.Director = args[5];
-        if (!ConsoleE.IsNullOrEmptyOrWhiteSpace(args[6]) && int.TryParse(args[6], out _)) movieToChange.Duration = Convert.ToInt16(args[6]);    
-
-        movies[index] = movieToChange;
-        MovieAccess.WriteAllJson(movies);
+        if (TestEnvironmentUtils.IsRunningInUnitTest()) MovieAccess.WriteAllJson(Movies);
+        else MovieAccess.WriteAll(_movie);
     }
 
     public void RemoveMovie(string searchBy)

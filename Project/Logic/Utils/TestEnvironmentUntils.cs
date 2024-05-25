@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Newtonsoft.Json;
 
 public static class TestEnvironmentUtils
 {
@@ -20,4 +21,11 @@ public static class TestEnvironmentUtils
     {
         return _userInput.ReadLine();
     }
+
+    public static T DeepClone<T>(this T self)
+    {
+        var serialized = JsonConvert.SerializeObject(self);
+        return JsonConvert.DeserializeObject<T>(serialized);
+    }
+  
 }

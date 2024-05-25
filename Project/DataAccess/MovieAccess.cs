@@ -39,19 +39,18 @@ public static class MovieAccess
         return movieCollection.ToList() ?? new List<MovieModel>( );
     }
 
+    public static void WriteAll(List<MovieModel> movies)
+    {
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        string json = JsonSerializer.Serialize(movies, options);
+        File.WriteAllText(path, json);
+    }
 
     public static void WriteAllJson(List<MovieModel> movies)
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(movies, options);
         FileWrapper.WriteAllText(path, json);
-    }
-
-    public static void WriteAll(List<MovieModel> movies)
-    {
-        var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(movies, options);
-        File.WriteAllText(path, json);
     }
 
 }
