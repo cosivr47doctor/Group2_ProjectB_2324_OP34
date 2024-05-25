@@ -5,35 +5,14 @@ static class AddReservation
 {
     static private FoodLogic foodLogic = new FoodLogic();
     static private MovieLogic movieLogic = new MovieLogic();
-    static private Reservation reservation = new Reservation();
-    private static List<ReservationModel> _reservations = ReservationAccess.LoadAll();
-
-    public static void UpdateList(ReservationModel resv)
-    {
-        // For auto-increment
-        int maxId = _reservations.Count > 0 ? _reservations.Max(m => m.Id) : 0;
-        //Find if there is already a model with the same id
-        int index = _reservations.FindIndex(s => s.Id == resv.Id);
-
-        if (index != -1)
-        {
-            _reservations[index] = resv;
-        }
-        else
-        {
-            resv.Id = maxId + 1;
-            _reservations.Add(resv);
-        }
-        ReservationAccess.WriteAll(_reservations);
-    }
 
     public static (int, int) SelectSession(int movieId, int accId)
     {
-        List<MovieScheduleModel> schedule = MovieSchedulingAccess.LoadAll();
-        List<MovieModel> movies = MovieAccess.LoadAll();
+        List<MovieScheduleModel> schedule = GenericAccess<MovieScheduleModel>.LoadAll();
+        List<MovieModel> movies = GenericAccess<MovieModel>.LoadAll();
 
         // List<MovieScheduleModel>
-        var matchingSchedules = schedule.Where(resv => resv.TimeIdPair.Values.First().Split(" ")[1].Trim() == Convert.ToString(movieId)).ToList();
+        var matchingSchedules = schedule.Where(resv => resv.MovieId == movieId).ToList();
         if (!matchingSchedules.Any())
         {
             Console.WriteLine("No sessions found for the selected movie.");
@@ -49,7 +28,7 @@ static class AddReservation
             Console.WriteLine($"ID: {session.Id}, Date: {date}, Session time: {session.TimeIdPair.Keys.First()}, Room: {session.Room}");
         }
 
-        int sessionId = Convert.ToInt32(ConsoleE.IntInput("Please select a session"));
+        int sessionId = Convert.ToInt32(ConsoleE.IntInput("Please select a session ID"));
 
         if (sessionId < 0 || !matchingSchedules.Any(resv => resv.Id == sessionId))
         {
@@ -82,8 +61,9 @@ static class AddReservation
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("");
                 //zie welke films je kan kiezen
-                Console.Write("Enter the name or id of the movie: ");
+                Console.Write("Enter the name or id of the movie or [Q] to go back: ");
                 string userInput = Console.ReadLine();
+                if (ConsoleE.BackContains(userInput)) UserMenu.Start(accId);
                 if (string.IsNullOrEmpty(userInput))
                 {
                     Console.WriteLine("Invalid input, try again.");
@@ -109,11 +89,11 @@ static class AddReservation
         else
         {
             // MovieModel dummyMovie = movieLogic.SelectForResv("3");
-            AskForFood(accId, 1, 7, "101", 0, dummyAccId);
+            AskForFood(accId, 1, 7, "101", 0, new RoomModel(0, 1, 1, new List<int>{1}), dummyAccId);
             Console.WriteLine("Reservation added for the dummy account. Check updated json.");
         }
     }
-    public static void AskForFood(int accId, int sessionId, int movieId, string seatsStr, int price, int dummyAccId=-1)
+    public static void AskForFood(int accId, int sessionId, int movieId, string seatsStr, int price, RoomModel roomDetails=null, int dummyAccId=-1)
     {
         AccountsLogic objAccountsLogic = new(); bool isAdmin = objAccountsLogic.GetByArg(accId).isAdmin;
         int accountId;
@@ -122,32 +102,39 @@ static class AddReservation
 
         List<string> options = new(){
             "Yes",
-            "No"
+            "No",
+            "Cancel"
         };
 
-        int selectedOption = DisplayFoodUtil.DisplayF(options);
+        int selectedOption = DisplayUtil.DisplayAddFood(options);
         Console.WriteLine($"Would you like to add food?");
         switch (selectedOption)
         {
             case 0:
-                addFoodResv(accountId, sessionId, movieId, seatsStr, price, dummyAccId);
+                addFoodResv(accountId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId);
                 break;
             case 1: 
+                GenericMethods.UpdateList(roomDetails);
                 Console.WriteLine("No");
                 DateTime purchaseTime = DateTime.Now;
                 ReservationModel newReservation = new ReservationModel(accountId, sessionId, movieId, seatsStr, new string[0] {}, price, purchaseTime);
-                UpdateList(newReservation);
+                GenericMethods.UpdateList(newReservation);
                 Console.ResetColor();
                 if (isAdmin) AdminMenu.Start(accId);
                 else UserMenu.Start(accId);
                 //ResvDetails.ResvConfirmation(intUserAccountId, index);
+                break;
+            case 2:
+                Console.WriteLine("Reservation cancelled.");
+                Thread.Sleep(2500);
+                UserMenu.Start(accId);
                 break;
             default:
                 throw new Exception("error");
         }
     }
 
-    public static void addFoodResv(int accId, int sessionId, int movieId, string seatsStr, int price, int dummyAccId=-1)
+    public static void addFoodResv(int accId, int sessionId, int movieId, string seatsStr, int price, RoomModel roomDetails, int dummyAccId=-1)
     {
         AccountsLogic objAccountsLogic = new(); bool isAdmin = objAccountsLogic.GetByArg(accId).isAdmin;
 
@@ -155,9 +142,10 @@ static class AddReservation
         {
             SeeJsons.PrintFoodJson(@"DataSources/food.json");
             Console.WriteLine("");
-            Console.Write("Enter the name or id of the food you like to order: ");
+            Console.Write("Enter the name or id of the food you like to order or [Q] to go back: ");
             string userInput = Console.ReadLine();
 
+            if (ConsoleE.BackContains(userInput)) AskForFood(accId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId=-1);
             if (string.IsNullOrEmpty(userInput))
             {
                 Console.WriteLine("Please enter the name or id of the food.");
@@ -177,8 +165,9 @@ static class AddReservation
             int quantity;
             while (true)
             {
-                Console.Write("Enter the amount: ");
+                Console.Write("Enter the amount: [Q to go back]");
                 string quantityInput = Console.ReadLine();
+                if (ConsoleE.BackContains(quantityInput)) AskForFood(accId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId=-1);
                 if (int.TryParse(quantityInput, out quantity) && quantity > 0)
                 {
                     break;
@@ -194,9 +183,10 @@ static class AddReservation
             Console.WriteLine($"Total Price: {totalPrice}");
             DateTime purchaseTime = DateTime.Now;
             ReservationModel newReservation = new ReservationModel(accId, sessionId, movieId, seatsStr, foodArray, totalPrice, purchaseTime);
-            reservation.UpdateList(newReservation);
+            GenericMethods.UpdateList(newReservation);
             // SeeJsons.PrintLastResvGJson(@"DataSources/reservations.json");
-            // Console.WriteLine("Press any key to continue");
+            // Console.WriteLine("Press any key to continue");\
+            GenericMethods.UpdateList(roomDetails);
             Console.WriteLine("Reservation added successfully");
             // Console.ReadLine();
             if (isAdmin) AdminMenu.Start(accId);
@@ -204,4 +194,23 @@ static class AddReservation
             //ResvDetails.ResvConfirmation(intUserAccountId, index);
         }
     }
+
+    public static void CancelReservation(int id)
+    {
+        List<ReservationModel> reservations = GenericAccess<ReservationModel>.LoadAll();
+        ReservationModel reservationToCancel = reservations.FirstOrDefault(resv => resv.Id == id);
+
+        if (reservationToCancel != null)
+        {
+            reservations.Remove(reservationToCancel);
+            // Save the updated list back to the file
+            GenericAccess<ReservationModel>.WriteAll(reservations);
+            Console.WriteLine("Reservation cancelled successfully.");
+        }
+        else
+        {
+            Console.WriteLine("Reservation not found.");
+        }
+    }
+
 }

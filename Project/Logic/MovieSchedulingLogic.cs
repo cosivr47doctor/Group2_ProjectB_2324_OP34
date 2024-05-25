@@ -8,8 +8,8 @@ class MovieSchedulingLogic
 
     public MovieSchedulingLogic()
     {
-        _movieSchedule = MovieSchedulingAccess.LoadAll();
-        _movies = MovieAccess.LoadAll();
+        _movieSchedule = GenericAccess<MovieScheduleModel>.LoadAll();
+        _movies = GenericAccess<MovieModel>.LoadAll();
     }
 
     /// RESOURCES
@@ -137,7 +137,7 @@ class MovieSchedulingLogic
 
                     MovieLogic objMovieLogic = new MovieLogic();
                     MovieModel randomMovie = objMovieLogic.SelectRandomMovie();
-                    MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Id, randomMovie.Name);
+                    MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Id, randomMovie.Name, randomMovie.Duration);
 
                     // Create the dictionary for the movie schedule model
                     Dictionary<string, MovieDetailsModel> scheduleDetails = new Dictionary<string, MovieDetailsModel>();
@@ -160,11 +160,12 @@ class MovieSchedulingLogic
             }
         }
 
-        MovieSchedulingAccess.WriteAll(_movieSchedule);
+        GenericAccess<MovieScheduleModel>.WriteAll(_movieSchedule);
     }
 
     public void RescheduleListLogic(DateTime parsedDate, string arg)
     {
+        MovieLogic objMovieLogic = new MovieLogic();
         // Check if the parsed date is valid and falls within the range of scheduled dates
         if (parsedDate < DateTime.Today || parsedDate > DateTime.Today.AddDays(120))
         {
@@ -193,7 +194,7 @@ class MovieSchedulingLogic
             }
         }
 
-        int moviesCount = MovieAccess.LoadAll().Count;
+        int moviesCount = GenericAccess<MovieModel>.LoadAll().Count;
         Random random = new Random();
         // Iterate over each existing schedule for the parsed date and reshuffle the time slots
         foreach (MovieScheduleModel scheduleModel in schedulesForDate)
@@ -223,7 +224,8 @@ class MovieSchedulingLogic
                                 if (scheduleModel.Id == roomAndMovieId.Item3)
                                 {
                                     scheduleModel.Room = roomAndMovieId.Item1;
-                                    scheduleModel.TimeIdPair[kvp.Key] = $"MovieId: {roomAndMovieId.Item2}";
+                                    scheduleModel.TimeIdPair[kvp.Key] = $"Duration: {objMovieLogic.GetBySearch(roomAndMovieId.Item2).Duration}";
+                                    scheduleModel.MovieId = roomAndMovieId.Item2;
                                 }
                             }
                         }
@@ -235,24 +237,25 @@ class MovieSchedulingLogic
                     Dictionary<string, string> updatedTimeIdPair = new Dictionary<string, string>();
                     foreach (var kvp in scheduleModel.TimeIdPair)
                     {
-                        updatedTimeIdPair[kvp.Key] = $"MovieId: {movieId}";
+                        updatedTimeIdPair[kvp.Key] = $"Duration: {objMovieLogic.GetBySearch(movieId).Duration}";
                     }
                     scheduleModel.TimeIdPair = updatedTimeIdPair;
+                    scheduleModel.MovieId = movieId;
                 }
                 else if (arg == "A")
                 {
-
-                    int popularMovieId = AlgorhythmDecider.findSinglePopularMovie();
+                    MovieModel popularMovie = AlgorhythmDecider.findSinglePopularMovie();
                     foreach (var kvp in scheduleModel.TimeIdPair)
                     {
-                        scheduleModel.TimeIdPair[kvp.Key] = $"MovieId: {popularMovieId}";
+                        int duration = popularMovie.Duration;
+                        scheduleModel.TimeIdPair[kvp.Key] = $"Duration: {duration}";
                     }
-
+                    scheduleModel.MovieId = popularMovie.Id;
                 }
             }
         }
         Console.WriteLine("Rescheduled succesfully");
-        MovieSchedulingAccess.WriteAll(_movieSchedule);
+        GenericAccess<MovieScheduleModel>.WriteAll(_movieSchedule);
     }
 
     public void RescheduleList(string dateInput)
@@ -273,7 +276,7 @@ class MovieSchedulingLogic
                     Console.WriteLine();
                 }
             }
-            string manualOrRandom = ConsoleE.Input("Reschedule manually [M] (enter an ID until quit), randomly [R] , or algorhythmically [A]?").ToUpper();
+            string manualOrRandom = ConsoleE.Input("Reschedule manually [M] (enter an ID until quit), randomly [R], or algorhythmically [A]?").ToUpper();
             if (manualOrRandom == "M") RescheduleListLogic(parsedDate, manualOrRandom);
             else if (manualOrRandom == "R") RescheduleListLogic(parsedDate, manualOrRandom);
             else if (manualOrRandom == "A") RescheduleListLogic(parsedDate, manualOrRandom);

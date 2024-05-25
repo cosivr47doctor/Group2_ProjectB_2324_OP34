@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 
 static class ConsoleE
 {
+    public static string[] backContains = new string[] {"q", "Q", "[q]", "[Q]", "go back"};
     public static string Input(string message = "Press enter to go back", bool hideInput = false)
     {
         string userInput = "";
@@ -31,7 +32,7 @@ static class ConsoleE
         Console.WriteLine(message);
         int intParsed;
         bool intParsedString = int.TryParse(Console.ReadLine(), out intParsed);
-        if (intParsedString) return intParsed;
+        if (intParsedString) {return intParsed;}
         Console.WriteLine("Invalid input: not numeric");
         return null;
     }
@@ -62,5 +63,11 @@ static class ConsoleE
         if (string.IsNullOrWhiteSpace(str)) isNullOrEmptyOrWhiteSpace = true;
 
         return isNullOrEmptyOrWhiteSpace;
+    }
+
+    public static bool BackContains(string message)
+    {
+        if (backContains.Contains(message)) return true;
+        return false;
     }
 }

@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 using System.Text;
 
-class MovieScheduleModel
+class MovieScheduleModel : IModel
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
@@ -12,8 +12,11 @@ class MovieScheduleModel
     [JsonPropertyName("date")]
     public DateTime Date { get; set; }
 
-    [JsonPropertyName("Time")]
+    [JsonPropertyName("sessionTime")]
     public Dictionary<string, string> TimeIdPair { get; set; }
+
+    [JsonPropertyName("movieId")]
+    public int MovieId {get; set;}
 
     // Exclude from JSON serialization
     // Data gets erased after the first serialization & deserialization, so no data is accessed in the overriden ToString() method
@@ -41,7 +44,8 @@ class MovieScheduleModel
         TimeIdPair = new Dictionary<string, string>() {};
         foreach (var kvp in TimeDict)
         {
-            TimeIdPair[kvp.Key] = $"MovieId: {kvp.Value.Id}";
+            TimeIdPair[kvp.Key] = $"Duration: {kvp.Value.Duration} minutes";
+            MovieId = kvp.Value.Id;
         }
 
     }
@@ -56,11 +60,11 @@ class MovieScheduleModel
         {
             string timeslot = kvp.Key.ToString(); // Convert TimeSpan to string
             sb.AppendLine($"Timeslot: {timeslot}");
-            int movieId = (int)Char.GetNumericValue(kvp.Value[kvp.Value.Length - 1]);
-            var movie = MovieAccess.LoadAll().FirstOrDefault(m => m.Id == movieId);
-            string movieTitle = movie?.Name ?? MovieAccess.LoadAll().Last().Name;
-            sb.AppendLine($"Movie title: {movieTitle}");
         }
+        int idOfMovie = this.MovieId;
+        var movie = GenericAccess<MovieModel>.LoadAll().FirstOrDefault(m => m.Id == idOfMovie);
+        string movieTitle = movie?.Name ?? GenericAccess<MovieModel>.LoadAll().Last().Name;
+        sb.AppendLine($"Movie title: {movieTitle}");
         return sb.ToString();
     }
 

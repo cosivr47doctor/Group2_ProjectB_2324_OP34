@@ -13,7 +13,11 @@ static class GenericAccess<TModel>
         }
         return JsonSerializer.Deserialize<List<TModel>>(json);
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> main
 
     public static void WriteAll(List<TModel> dataModelList)
     {
@@ -24,7 +28,11 @@ static class GenericAccess<TModel>
     }
 
 
+<<<<<<< HEAD
     private static string PathFinder()
+=======
+    /*private static string PathFinder()
+>>>>>>> main
     {
         string path = "";
         string modelName = typeof(TModel).Name.ToLower();
@@ -35,6 +43,27 @@ static class GenericAccess<TModel>
         else if (modelName is ReservationModel) path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"DataSources/reservations.json"));
 
         return path;
+<<<<<<< HEAD
     }
 
 }
+=======
+    }*/
+
+    private static string PathFinder()
+    {
+
+        string path = "";
+        string modelName = typeof(TModel).Name.ToLower();
+        if (modelName == "accountmodel") path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"DataSources/accounts.json"));
+        else if (modelName == "foodmodel") path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"DataSources/food.json"));
+        else if (modelName == "moviemodel") path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"DataSources/movies.json"));
+        else if (modelName == "movieschedulemodel") path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"DataSources/movieSessions.json"));
+        else if (modelName == "reservationmodel") path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"DataSources/reservations.json"));
+        else if (modelName == "roommodel") path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"DataSources/rooms.json"));
+
+        return path;
+    }
+}
+
+>>>>>>> main

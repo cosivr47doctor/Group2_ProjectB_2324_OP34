@@ -7,7 +7,7 @@ static class MainMenu
     static public void Start()
     {
         MovieSchedulingLogic objMovieScheduling = new MovieSchedulingLogic(); objMovieScheduling.StartupUpdateList();
-        AccountsLogic objAccountsLogic = new AccountsLogic(); objAccountsLogic.StartupUpdateList();
+        AccountsLogic objAccountsLogic = new AccountsLogic();
 
         List<string> options = new(){
             "Login",
@@ -18,7 +18,7 @@ static class MainMenu
             // "Test room seats"
         };
 
-        int selectedOption = DisplayUtil.Display(options);
+        int selectedOption = DisplayUtil.MenuDisplay(options);
         switch (selectedOption)
         {
             case 0:
@@ -47,6 +47,7 @@ static class MainMenu
                 break;
             case 4:
                 Console.ResetColor();
+                Environment.Exit(0);
                 break;
             // case 5:
             //     AddReservation.addMovieResv();

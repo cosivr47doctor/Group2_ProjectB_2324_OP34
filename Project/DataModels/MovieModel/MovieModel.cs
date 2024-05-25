@@ -4,7 +4,11 @@ using System.Collections;
 using System.Text;
 
 
+<<<<<<< HEAD
 public class MovieModel : ICloneable
+=======
+public class MovieModel : IModel
+>>>>>>> main
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }

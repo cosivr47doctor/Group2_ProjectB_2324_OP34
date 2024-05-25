@@ -20,31 +20,10 @@ public class MovieLogic
 
     public MovieLogic()
     {
-        _movie = MovieAccess.LoadAll();
+        _movie = GenericAccess<MovieModel>.LoadAll();
     }
 
-
-    public void UpdateList(MovieModel movie)
-    {
-        //Find if there is already an model with the same id
-        int maxId = _movie.Count > 0 ? _movie.Max(m => m.Id) : 0;
-        int index = _movie.FindIndex(s => s.Name == movie.Name);
-
-        if (index != -1)
-        {
-            //update existing model
-            _movie[index] = movie;
-        }
-        else
-        {
-            //add new model
-            movie.Id = maxId + 1;
-            _movie.Add(movie);
-        }
-        MovieAccess.WriteAll(_movie);
-
-    }
-
+    public MovieModel GetBySearch(int id) => _movie.Find(movie => movie.Id == id);
     public MovieModel GetBySearch(string searchBy)
     {
         string searchLower = searchBy.ToLower();
@@ -54,6 +33,17 @@ public class MovieLogic
             movie.Year.ToString() == searchBy ||
             movie.Name.ToLower().Contains(searchLower) ||  // This is unhandy in case of movies with duplicate names
             movie.Director.ToLower().Contains(searchLower));  // This is unhandy in case of movies with duplicate directors
+    }
+
+    public List<MovieModel> GetAllBySearch(string searchBy) // finds all for searching options
+    {
+        string searchLower = searchBy.ToLower();
+
+        return _movie.FindAll(movie =>
+            movie.Id.ToString() == searchBy ||
+            movie.Year.ToString() == searchBy ||
+            movie.Name.ToLower().Contains(searchLower) ||  
+            movie.Director.ToLower().Contains(searchLower));  
     }
 
     public MovieModel SelectForResv(string searchBy)
@@ -118,6 +108,13 @@ public class MovieLogic
             if (!string.IsNullOrEmpty(changeDescriptionInput)) movieToChange.Description = changeDescriptionInput;
             if (!string.IsNullOrEmpty(changeDirectorInput)) movieToChange.Director = changeDirectorInput;
             if (!string.IsNullOrEmpty(changeDurationInput) && int.TryParse(changeDurationInput, out _)) movieToChange.Duration = Convert.ToInt16(changeDurationInput);
+<<<<<<< HEAD
+=======
+
+
+            _movie[index] = movieToChange;
+            GenericAccess<MovieModel>.WriteAll(_movie);
+>>>>>>> main
         }
 
 
@@ -133,7 +130,7 @@ public class MovieLogic
         if (movieToRemove != null)
         {
             _movie.Remove(movieToRemove);
-            MovieAccess.WriteAll(_movie);
+            GenericAccess<MovieModel>.WriteAll(_movie);
         }
     }
 
@@ -198,7 +195,7 @@ public class MovieLogic
 
             MovieModel clonedMovie = CreateMovieFromValues(newPropertyValues);
             clonedMovie.Id = 0;
-            UpdateList(clonedMovie);
+            GenericMethods.UpdateList(clonedMovie);
             Console.WriteLine("Movie succesfully cloned");
         }
         else
@@ -216,7 +213,7 @@ public class MovieLogic
 
     public MovieModel SelectRandomMovie()
     {
-        List<MovieModel> allMovies = MovieAccess.LoadAll();
+        List<MovieModel> allMovies = GenericAccess<MovieModel>.LoadAll();
         if (allMovies.Count == 0)
         {
             return null; // No movies loaded

@@ -6,13 +6,7 @@ class Reservation
     public List<ReservationModel> Reservations => _reservation;
     public Reservation()
     {
-        _reservation = ReservationAccess.LoadAll();
-    }
-
-    public void UpdateList(ReservationModel newReservation)
-    {
-        _reservation.Add(newReservation);
-        ReservationAccess.WriteAll(_reservation);
+        _reservation = GenericAccess<ReservationModel>.LoadAll();
     }
 
     // public static void ReserveMovie(int intUserAccountId = 1)

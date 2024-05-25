@@ -18,31 +18,9 @@ class FoodLogic
 
     public FoodLogic()
     {
-        _food = FoodAccess.LoadAll();
+        _food = GenericAccess<FoodModel>.LoadAll();
     }
 
-
-    public void UpdateList(FoodModel foodItem)
-    {
-        // For auto-increment
-        int maxId = _food.Count > 0 ? _food.Max(m => m.Id) : 0;
-        //Find if there is already an model with the same id
-        int index = _food.FindIndex(s => s.Name == foodItem.Name);
-
-        if (index != -1)
-        {
-            //update existing model
-            _food[index] = foodItem;
-        }
-        else
-        {
-            //add new model
-            foodItem.Id = maxId + 1;
-            _food.Add(foodItem);
-        }
-        FoodAccess.WriteAll(_food);
-
-    }
     public FoodModel SelectForResv(string searchBy)
     {
         string searchLower = searchBy.ToLower();

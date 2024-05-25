@@ -18,42 +18,12 @@ class AccountsLogic
 
     public AccountsLogic()
     {
-        _accounts = AccountsAccess.LoadAll();
+        _accounts = GenericAccess<AccountModel>.LoadAll();
     }
-
-
-    public void StartupUpdateList()
-    {
-        AccountsAccess.WriteAll(_accounts);
-    }
-
-
-     public void UpdateList(AccountModel acc)
-    {
-        // For auto-increment
-        int maxId = _accounts.Count > 0 ? _accounts.Max(m => m.Id) : 0;
-        //Find if there is already a model with the same id
-        int index = _accounts.FindIndex(s => s.Id == acc.Id);
-
-        if (index != -1)
-        {
-            //update existing model
-            _accounts[index] = acc;
-        }
-        else
-        {
-            //add new model
-            acc.Id = maxId + 1;
-            _accounts.Add(acc);
-        }
-        AccountsAccess.WriteAll(_accounts);
-
-    }
-    
 
     public static void UpdateAccount(AccountModel updatedAccount)
     {
-        List<AccountModel> accounts = AccountsAccess.LoadAll(); // Load all accounts from the file
+        List<AccountModel> accounts = GenericAccess<AccountModel>.LoadAll(); // Load all accounts from the file
 
         // Find the index of the account to update
         int index = accounts.FindIndex(a => a.Id == updatedAccount.Id);
@@ -63,7 +33,7 @@ class AccountsLogic
             // Update the account at the found index
             accounts[index] = updatedAccount;
 
-            AccountsAccess.WriteAll(accounts);
+            GenericAccess<AccountModel>.WriteAll(accounts);
         }
         else
         {
@@ -97,6 +67,7 @@ class AccountsLogic
         CurrentAccount = _accounts.Find(i => i.EmailAddress == email && PasswordHasher.ValidatePassword(password, i.Password));
         if (CurrentAccount is not null)
         {
+            /*
             // Now check if the account has been banned
             if (CurrentAccount.Suspense.HasValue && CurrentAccount.Suspense.Value > DateTime.Today)
             {
@@ -109,6 +80,8 @@ class AccountsLogic
                 UpdateAccount(CurrentAccount);
                 return CurrentAccount;
             }
+            */
+            return CurrentAccount;
         }
         else
         {
@@ -120,6 +93,7 @@ class AccountsLogic
         }
     }
 
+/*
     public void ChangeUserStatus(string change_status_input, string find_by_arg, int accId)
     {
         CurrentAccount = GetByArg(find_by_arg);
@@ -166,9 +140,10 @@ class AccountsLogic
         {
             CurrentAccount.isAdmin = false;
         }
-        UpdateList(CurrentAccount);
+        GenericMethods.UpdateList(CurrentAccount);
         AdminMenu.Start(accId);
     }
+*/
 }
 
 

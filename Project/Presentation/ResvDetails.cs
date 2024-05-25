@@ -1,11 +1,13 @@
 static class ResvDetails
 {
+
+    static private Reservation reservationLogic = new Reservation();
     public static void ResvHistory(int accountId)
     {
         Console.Clear();
         AccountsLogic accountsLogic = new();
         AccountModel account = accountsLogic.GetByArg(accountId);
-        List<ReservationModel> reservations = ReservationAccess.LoadAll();
+        List<ReservationModel> reservations = GenericAccess<ReservationModel>.LoadAll();
 
         if (account == null)
         {
@@ -16,9 +18,9 @@ static class ResvDetails
         Console.WriteLine("Reservation History:");
         Console.WriteLine("-----------------------------------");
 
-        foreach (int reservationId in account.ReservationIds)
+        foreach (ReservationModel resv in reservations)
         {
-            Console.WriteLine(reservations.Where(resv => resv.Id == reservationId));
+            Console.WriteLine(reservations.Where(resv => resv.AccountId == account.Id));
             Console.WriteLine("-----------------------------------");
         }
     }
@@ -27,7 +29,7 @@ static class ResvDetails
         Console.Clear();
         AccountsLogic accountsLogic = new();
         AccountModel account = accountsLogic.GetByArg(accountId);
-        List<ReservationModel> reservations = ReservationAccess.LoadAll();
+        List<ReservationModel> reservations = GenericAccess<ReservationModel>.LoadAll();
 
         if (account == null)
         {
@@ -39,7 +41,7 @@ static class ResvDetails
         Console.WriteLine("Reservation receipt:");
         Console.WriteLine("-----------------------------------");
 
-        int lastReservationId = account.ReservationIds.FirstOrDefault(Id => Id == resvID);
+        int lastReservationId = reservations.Where(resv => resv.AccountId == account.Id).Last().Id;
 
         if (lastReservationId != null)
         {
@@ -50,6 +52,23 @@ static class ResvDetails
         else
         {
             Console.WriteLine("No reservations found.");
+        }
+    }
+
+    public static void ResvReceipt(string filePath)
+    {
+        Console.Clear();
+        Console.WriteLine("Reservation conformation");
+        Console.WriteLine("---------------------------------------------------------------------------------------------------");
+        Console.WriteLine("---------------------------------------------------------------------------------------------------");
+        Console.WriteLine("|       Date        |           Title          |            Seats           |         Selected food          |       Price      |");
+        Console.WriteLine("---------------------------------------------------------------------------------------------------");
+
+        foreach (var reservation in reservationLogic.Reservations)
+        {
+            string resvDetails = $"| {reservation.MovieId,4} | {reservation.MovieId,-25} | {reservation.Seats,6} | {string.Join(", ", reservation.Food),23} | {reservation.TotalPrice,9} |";
+            Console.WriteLine(resvDetails);
+            Console.WriteLine("-----------------------------------");
         }
     }
 }

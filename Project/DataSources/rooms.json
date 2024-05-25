@@ -1,0 +1,81 @@
+[
+  {
+    "ID": 1,
+    "Session id": 36,
+    "Row": 5,
+    "Taken seats": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "ID": 2,
+    "Session id": 36,
+    "Row": 2,
+    "Taken seats": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "ID": 3,
+    "Session id": 366,
+    "Row": 2,
+    "Taken seats": [
+      10,
+      9
+    ]
+  },
+  {
+    "ID": 4,
+    "Session id": 73,
+    "Row": 2,
+    "Taken seats": [
+      2,
+      3
+    ]
+  },
+  {
+    "ID": 5,
+    "Session id": 73,
+    "Row": 4,
+    "Taken seats": [
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "ID": 6,
+    "Session id": 423,
+    "Row": 2,
+    "Taken seats": [
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "ID": 7,
+    "Session id": 411,
+    "Row": 4,
+    "Taken seats": [
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "ID": 8,
+    "Session id": 263,
+    "Row": 13,
+    "Taken seats": [
+      2,
+      3
+    ]
+  }
+]

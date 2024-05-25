@@ -1,18 +1,16 @@
+using System.Text.Json;
 using System.Text.RegularExpressions;
 
 static class Adding
 {
-    static private FoodLogic foodLogic = new FoodLogic();
-    static private MovieLogic movieLogic = new MovieLogic();
-
-
-    public static void addFood()
+    public static void addFood(int accId=-1)
     {
         Console.Clear();
         //need id
         Console.WriteLine("Add food to the menu:");
-        Console.WriteLine("Please enter the name of the food item");
+        Console.WriteLine("Please enter the name of the food item or [Q] to go back");
         string name = Console.ReadLine();
+        if (ConsoleE.BackContains(name)) AdminMenu.Start(accId);
 
         decimal price;
         while (true)
@@ -30,16 +28,17 @@ static class Adding
         }
         
         FoodModel foodItem = new FoodModel(name, price);
-        foodLogic.UpdateList(foodItem);
+        GenericMethods.UpdateList(foodItem);
 
     }
 
-    public static void addMovie()
+    public static void addMovie(int accId)
     {
         Console.Clear();
         Console.WriteLine("Add movie to the cinema:");
-        Console.WriteLine("Please enter the name of the movie");
+        Console.WriteLine("Please enter the name of the movie or [Q] to go back");
         string name = Console.ReadLine();
+        if (ConsoleE.BackContains(name)) AdminMenu.Start(accId);
         Console.WriteLine("Please enter the genre of the movie");
         string[] genre = Console.ReadLine().Split(",");
 
@@ -79,7 +78,7 @@ static class Adding
         }
 
         MovieModel movies = new MovieModel(name, genre, year, description, director, duration);
-        movieLogic.UpdateList(movies);
+        GenericMethods.UpdateList(movies);
 
     }
 
@@ -87,9 +86,9 @@ static class Adding
     {
         Console.Clear();
         Console.WriteLine("Welcome to the registration page");
-        Console.WriteLine("Enter 0 to go back or type enter to continue");
+        Console.WriteLine("Enter [Q] to go back or type enter to continue");
         string Choice = Console.ReadLine();
-        if (Choice != "0")
+        if (!ConsoleE.BackContains(Choice))
         {
             string emailAddress = "";
             while(true)
@@ -99,11 +98,32 @@ static class Adding
                 string pattern = @"^[^\.][\w\.-]+@[\w\.-]+\.[\w]+$";
                 if (emailAddress.Contains("@")&& emailAddress.Contains(".")&&Regex.IsMatch(emailAddress, pattern))
                 {
+
+                    string path = @"DataSources\accounts.json";
+                    var jsonString = File.ReadAllText(path);
+                    List<AccountModel> accounts = JsonSerializer.Deserialize<List<AccountModel>>(jsonString);
+
+                    bool emailExists = false;
+                    foreach (var account in accounts)
+                    {
+                        if (account.EmailAddress == emailAddress)
+                        {
+                            emailExists = true;
+                            break;
+                        }
+                    }
+
+                    if (emailExists)
+                    {
+                        Console.WriteLine("An account with this email address already exists.");
+                        Console.WriteLine("Please enter a different email address.");
+                        continue;
+                    }
                     break;
                 }
                 else
                 {
-                    Console.WriteLine("Invalid email address format. Please make sure your email address contains");
+                    Console.WriteLine("Invalid email address format. Please make sure your email address contains a @ and a .");
                 }
             }      
             string password = "";
@@ -169,7 +189,7 @@ static class Adding
 
             AccountModel newAccount = new AccountModel(0 , emailAddress, HashedPassword, fullName, PhoneNumber);
 
-            accountsLogic.UpdateList(newAccount);
+            GenericMethods.UpdateList(newAccount);
         }
         else
         {
