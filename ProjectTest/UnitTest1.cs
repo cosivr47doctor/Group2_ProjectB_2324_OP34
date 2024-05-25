@@ -37,24 +37,27 @@ public class TestEditMovie
             });
 
         // Inject the mock into MovieAccess
-        MovieAccess.FileWrapper = fileMock.Object;
+        MovieAccessForJson.FileWrapper = fileMock.Object;
     }
 
+    // BUG: SOMEHOW RUNS INDEFINITELY DURING UNITTEST RUNTIME, SO INSTEAD DO `DOTNET RUN`
     [TestMethod]
     public void TestChangeMovie()
     {
         // Make sure you communicate in the details that you changed them.
-        List<MovieModel> movies = MovieAccess.LoadAllJson();
+        List<MovieModel> movies = MovieAccessForJson.LoadAllJson();
         MovieModel movieToChange = movies.FirstOrDefault(m => m.Id == 12);
         movieToChange.Should().NotBeNull();  // Forget about ToString() as it arouses issues in the unittest run environment
 
         MovieModel cloneOfOriginalMovie = TestEnvironmentUtils.DeepClone(movieToChange);
         cloneOfOriginalMovie.Name = "ChangedYo";
+        movieToChange.Name.Should().NotBe(cloneOfOriginalMovie.Name);
         
+        // Can't ask for actual input in a unittest or dotnet test run environment
         string unitInput = "12;ChangedName;Drama, Horror;2022;New description;New Director;150";
         movieLogic.ChangeMovie(unitInput);
 
-        List<MovieModel> updatedMovies = MovieAccess.LoadAllJson();
+        List<MovieModel> updatedMovies = MovieAccessForJson.LoadAllJson();
         MovieModel changedMovie = updatedMovies.FirstOrDefault(m => m.Id == 12);
         changedMovie.Should().NotBeNull();
         changedMovie.Name.Should().Be("UnitChangedDetailsSuccessfully");

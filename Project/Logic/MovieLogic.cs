@@ -20,7 +20,8 @@ public class MovieLogic
 
     public MovieLogic()
     {
-        _movie = GenericAccess<MovieModel>.LoadAll();
+        if (TestEnvironmentUtils.IsRunningInUnitTest()) _movie = MovieAccessForJson.LoadAllJson();
+        else _movie = GenericAccess<MovieModel>.LoadAll();
     }
 
     public MovieModel GetBySearch(int id) => _movie.Find(movie => movie.Id == id);
@@ -108,19 +109,12 @@ public class MovieLogic
             if (!string.IsNullOrEmpty(changeDescriptionInput)) movieToChange.Description = changeDescriptionInput;
             if (!string.IsNullOrEmpty(changeDirectorInput)) movieToChange.Director = changeDirectorInput;
             if (!string.IsNullOrEmpty(changeDurationInput) && int.TryParse(changeDurationInput, out _)) movieToChange.Duration = Convert.ToInt16(changeDurationInput);
-<<<<<<< HEAD
-=======
-
-
-            _movie[index] = movieToChange;
-            GenericAccess<MovieModel>.WriteAll(_movie);
->>>>>>> main
         }
 
 
         _movie[index] = movieToChange;
-        if (TestEnvironmentUtils.IsRunningInUnitTest()) MovieAccess.WriteAllJson(Movies);
-        else MovieAccess.WriteAll(_movie);
+        if (TestEnvironmentUtils.IsRunningInUnitTest()) MovieAccessForJson.WriteAllJson(Movies);
+        else GenericAccess<MovieModel>.WriteAll(_movie);
     }
 
     public void RemoveMovie(string searchBy)

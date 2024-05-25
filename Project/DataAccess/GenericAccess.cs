@@ -1,8 +1,11 @@
 using System.Text.Json;
+using System.Collections.Generic;
+using System.IO;
 
 // Generic Access class for AccountModel, FoodModel, MovieModel, MovieScheduleModel, and ReservationModel
-static class GenericAccess<TModel>
+public static class GenericAccess<TModel>
 {
+    public static IFileWrapper FileWrapper = new FileWrapper();
     public static List<TModel> LoadAll()
     {
         string path = PathFinder();
@@ -13,11 +16,21 @@ static class GenericAccess<TModel>
         }
         return JsonSerializer.Deserialize<List<TModel>>(json);
     }
-<<<<<<< HEAD
-    
-=======
+    public static List<MovieModel> unitLoadMM()
+    {
+        return new List<MovieModel>();
+    }
+    public static List<MovieModel> LoadAllJson()
+    {
+        string path = PathFinder();
+        string json = FileWrapper.ReadAllText(path);
+        if (string.IsNullOrEmpty(json))
+        {
+            return new List<MovieModel>();
+        }
+        return JsonSerializer.Deserialize<List<MovieModel>>(json);
+    }
 
->>>>>>> main
 
     public static void WriteAll(List<TModel> dataModelList)
     {
@@ -26,13 +39,16 @@ static class GenericAccess<TModel>
         string json = JsonSerializer.Serialize(dataModelList, options);
         File.WriteAllText(path, json);
     }
+    public static void WriteAllJson(List<MovieModel> movies)
+    {
+        string path = PathFinder();
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        string json = JsonSerializer.Serialize(movies, options);
+        FileWrapper.WriteAllText(path, json);
+    }
 
 
-<<<<<<< HEAD
-    private static string PathFinder()
-=======
     /*private static string PathFinder()
->>>>>>> main
     {
         string path = "";
         string modelName = typeof(TModel).Name.ToLower();
@@ -43,16 +59,10 @@ static class GenericAccess<TModel>
         else if (modelName is ReservationModel) path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"DataSources/reservations.json"));
 
         return path;
-<<<<<<< HEAD
-    }
-
-}
-=======
     }*/
 
     private static string PathFinder()
     {
-
         string path = "";
         string modelName = typeof(TModel).Name.ToLower();
         if (modelName == "accountmodel") path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"DataSources/accounts.json"));
@@ -66,4 +76,3 @@ static class GenericAccess<TModel>
     }
 }
 
->>>>>>> main
