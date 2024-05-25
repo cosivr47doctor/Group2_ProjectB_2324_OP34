@@ -84,5 +84,17 @@
     ],
     "totalPrice": 41.00,
     "purchaseTime": "2024-05-24T20:05:27.9390689+02:00"
+  },
+  {
+    "id": 9,
+    "accountId": 6,
+    "sessionId": 411,
+    "movieId": 1,
+    "seats": "row: 10, seats: 3,4,5,6",
+    "food": [
+      "cola"
+    ],
+    "totalPrice": 53.00,
+    "purchaseTime": "2024-05-25T15:58:19.7265824+02:00"
   }
 ]

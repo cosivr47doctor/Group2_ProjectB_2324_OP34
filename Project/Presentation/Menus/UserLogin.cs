@@ -15,7 +15,7 @@ static class UserLogin
              |___/                      |___/                                                                                                                        
 ");        
         Console.WriteLine("Welcome to the login page\n enter [Q] to go back");
-        Console.WriteLine("Please enter your email address or");
+        Console.WriteLine("Please enter your email address");
         string email = Console.ReadLine();
         if (ConsoleE.BackContains(email)) MainMenu.Start();
         Console.WriteLine("Please enter your password");

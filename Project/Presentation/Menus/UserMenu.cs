@@ -9,6 +9,7 @@ static class UserMenu
             List<string> options = new(){
                 "Make a reservation",
                 //"Order some food",
+                "Cancel a reservation",
                 "See all available movies",
                 "See the movies schedule",
                 "Search a movie",
@@ -45,14 +46,33 @@ static class UserMenu
 
             //     Start(accId, isAdmin);
             //     break;
-            case 1:
+
+            case 1: // If "Cancel a reservation" is the second option
+                Console.WriteLine("");
+                Console.WriteLine("Enter the id of the reservation you want to cancel:");
+                string input = Console.ReadLine();
+                int id;
+                if (int.TryParse(input, out id))
+                {
+                    AddReservation.CancelReservation(id);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a number.");
+                }
+                Console.WriteLine("Press enter to go back.");
+                Console.ReadLine();
+                Start(accId, isAdmin);
+                break;
+
+            case 2:
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
                 Start(accId, isAdmin);
                 break;
-            case 2:
+            case 3:
                 MovieSchedulingLogic objMovieSchedulingLogic = new();
                 List<string> scheduleOptions = new(){
                 "See entire schedule",
@@ -98,14 +118,14 @@ static class UserMenu
                 Console.ReadLine();
                 Start(accId, isAdmin);
                 break;
-            case 3:
+            case 4:
                 Search.searchMovie();
                 Console.WriteLine("");
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
                 Start(accId, isAdmin);
                 break;
-            case 4:
+            case 5:
                 Console.ResetColor();
                 Console.WriteLine("Reservation history function");
                 Console.WriteLine("");
@@ -115,11 +135,11 @@ static class UserMenu
                 Console.ReadLine();
                 Start(accId, isAdmin);
                 break;
-            case 5:
+            case 6:
                 Console.ResetColor();
                 MainMenu.Start();
                 break;
-            case 6:
+            case 7:
                 if (isAdmin) 
                 {
                     Console.ResetColor();

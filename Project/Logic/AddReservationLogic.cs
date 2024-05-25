@@ -194,4 +194,23 @@ static class AddReservation
             //ResvDetails.ResvConfirmation(intUserAccountId, index);
         }
     }
+
+    public static void CancelReservation(int id)
+    {
+        List<ReservationModel> reservations = GenericAccess<ReservationModel>.LoadAll();
+        ReservationModel reservationToCancel = reservations.FirstOrDefault(resv => resv.Id == id);
+
+        if (reservationToCancel != null)
+        {
+            reservations.Remove(reservationToCancel);
+            // Save the updated list back to the file
+            GenericAccess<ReservationModel>.WriteAll(reservations);
+            Console.WriteLine("Reservation cancelled successfully.");
+        }
+        else
+        {
+            Console.WriteLine("Reservation not found.");
+        }
+    }
+
 }
