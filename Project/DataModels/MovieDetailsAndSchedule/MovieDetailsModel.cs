@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 
 
-class MovieDetailsModel : ICloneable, IModel
+class MovieDetailsModel : IModel
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
@@ -15,20 +15,6 @@ class MovieDetailsModel : ICloneable, IModel
         Id = id;
         Title = title;
         Duration = duration;
-    }
-
-    public object Clone() // unused
-    {
-        // Create a new instance of MovieDetailsModel
-        MovieDetailsModel clonedMovieDetails = new MovieDetailsModel()
-        {
-            Id = this.Id,
-            Title = this.Title,
-            Duration = this.Duration,
-            // Copy other properties as needed
-        };
-
-        return clonedMovieDetails;
     }
 
 }

@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
 using Microsoft.VisualBasic;
 using System.Collections;
+using System.Text;
 
 
 public class MovieModel : IModel
@@ -53,4 +54,19 @@ public class MovieModel : IModel
         return HashCode.Combine(Id, Name); // Adjust as necessary
     }
 
+    public object Clone()
+    {
+        string clone = this.ToString();
+        return clone;
+    }
+
+    public override string ToString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine($"ID: {Id}"); sb.AppendLine($"Name: {Name}");
+        sb.AppendLine($"Genre: {String.Join(", ", Genre)}");
+        sb.AppendLine($"Year: {Year}");
+        sb.AppendLine($"Description: {Description}"); sb.AppendLine($"Director: {Director}"); sb.AppendLine($"Duration: {Duration}");
+        return sb.ToString();
+    }
 }

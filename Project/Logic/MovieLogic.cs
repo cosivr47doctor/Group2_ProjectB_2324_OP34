@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Reflection;
+using System.Linq;
 
 
 //This class is not static so later on we can use inheritance and interfaces
-class MovieLogic
+public class MovieLogic
 {
     private List<MovieModel> _movie;
     public List<MovieModel> Movies => _movie;
@@ -19,7 +20,8 @@ class MovieLogic
 
     public MovieLogic()
     {
-        _movie = GenericAccess<MovieModel>.LoadAll();
+        if (TestEnvironmentUtils.IsRunningInUnitTest()) _movie = MovieAccessForJson.LoadAllJson();
+        else _movie = GenericAccess<MovieModel>.LoadAll();
     }
 
     public MovieModel GetBySearch(int id) => _movie.Find(movie => movie.Id == id);
@@ -54,39 +56,65 @@ class MovieLogic
             movie.Name.ToLower().Contains(searchLower));  // This is unhandy in case of movies with duplicate directors
     }
 
-    public void ChangeMovie(string searchBy)
+    public void ChangeMovie(string input)
     {
+        string searchBy;
+        string[] unitInput = null;
+        if (input.Contains(';'))
+        {
+            unitInput = input.Split(';');
+        }
+
+        if (TestEnvironmentUtils.IsRunningInUnitTest()) searchBy = unitInput[0];
+        else searchBy = input;
+
         MovieModel movieToChange = GetBySearch(searchBy);
+        if (movieToChange == null)
+        {
+            Console.WriteLine("Movie not found.");
+            return;
+        }
         int index = Movies.FindIndex(m => m.Id == movieToChange.Id);
 
-        if (movieToChange != null)
+        Console.WriteLine("Invalid inputs will simply be ingored\n");
+
+        Console.WriteLine("Please enter the new title (blank if unchanged)");
+        string changeNameInput = TestEnvironmentUtils.ReadLine();
+        // string changeNameInput = TestEnvironmentUtils.ReadLine();
+        Console.WriteLine("Please enter the new genre (blank if unchanged)");
+        string changeGenreInput = TestEnvironmentUtils.ReadLine();
+        Console.WriteLine("Please enter the new year of release (blank if unchanged)");
+        string changeYearInput = TestEnvironmentUtils.ReadLine();
+        Console.WriteLine("Please enter the new description (blank if unchanged)");
+        string changeDescriptionInput = TestEnvironmentUtils.ReadLine();
+        Console.WriteLine("Please enter the new director (blank if unchanged)");
+        string changeDirectorInput = TestEnvironmentUtils.ReadLine();
+        Console.WriteLine("Please enter the new duration (blank if unchanged)");
+        string changeDurationInput = TestEnvironmentUtils.ReadLine();
+
+        if (TestEnvironmentUtils.IsRunningInUnitTest())
         {
-            Console.WriteLine("Invalid inputs will simply be ingored\n");
-
-            Console.WriteLine("Please enter the new title (blank if unchanged)");
-            string changeNameInput = Console.ReadLine();
-            Console.WriteLine("Please enter the new genre (blank if unchanged)");
-            string changeGenreInput = Console.ReadLine();
-            Console.WriteLine("Please enter the new year of release (blank if unchanged)");
-            string changeYearInput = Console.ReadLine();
-            Console.WriteLine("Please enter the new description (blank if unchanged)");
-            string changeDescriptionInput = Console.ReadLine();
-            Console.WriteLine("Please enter the new director (blank if unchanged)");
-            string changeDirectorInput = Console.ReadLine();
-            Console.WriteLine("Please enter the new duration (blank if unchanged)");
-            string changeDurationInput = Console.ReadLine();
-
+            if (unitInput.Length > 1 && !string.IsNullOrEmpty(unitInput[1])) movieToChange.Name = unitInput[1];
+            if (unitInput.Length > 2 && !string.IsNullOrEmpty(unitInput[2])) movieToChange.Genre = unitInput[2].Split(",");
+            if (unitInput.Length > 3 && !string.IsNullOrEmpty(unitInput[3]) && int.TryParse(unitInput[3], out _)) movieToChange.Year = Convert.ToInt16(unitInput[3]);
+            if (unitInput.Length > 4 && !string.IsNullOrEmpty(unitInput[4])) movieToChange.Description = unitInput[4];
+            if (unitInput.Length > 5 && !string.IsNullOrEmpty(unitInput[5])) movieToChange.Director = unitInput[5];
+            if (unitInput.Length > 6 && !string.IsNullOrEmpty(unitInput[6]) && int.TryParse(unitInput[6], out _)) movieToChange.Duration = Convert.ToInt16(unitInput[6]);            
+        }
+        else
+        {
             if (!string.IsNullOrEmpty(changeNameInput)) movieToChange.Name = changeNameInput;
-            if (!string.IsNullOrEmpty(changeGenreInput)) movieToChange.Genre = changeNameInput.Split(",");
+            if (!string.IsNullOrEmpty(changeGenreInput)) movieToChange.Genre = changeGenreInput.Split(",");
             if (!string.IsNullOrEmpty(changeYearInput) && int.TryParse(changeYearInput, out _)) movieToChange.Year = Convert.ToInt16(changeYearInput);
             if (!string.IsNullOrEmpty(changeDescriptionInput)) movieToChange.Description = changeDescriptionInput;
             if (!string.IsNullOrEmpty(changeDirectorInput)) movieToChange.Director = changeDirectorInput;
             if (!string.IsNullOrEmpty(changeDurationInput) && int.TryParse(changeDurationInput, out _)) movieToChange.Duration = Convert.ToInt16(changeDurationInput);
-
-
-            _movie[index] = movieToChange;
-            GenericAccess<MovieModel>.WriteAll(_movie);
         }
+
+
+        _movie[index] = movieToChange;
+        if (TestEnvironmentUtils.IsRunningInUnitTest()) MovieAccessForJson.WriteAllJson(Movies);
+        else GenericAccess<MovieModel>.WriteAll(_movie);
     }
 
     public void RemoveMovie(string searchBy)
@@ -102,28 +130,51 @@ class MovieLogic
 
     public void CloneMovie(string searchBy)
     {
+        string[] details = null;
+        if (TestEnvironmentUtils.IsRunningInUnitTest())
+        {
+            var inputs = searchBy.Split(" ");
+            searchBy = inputs[0]; // First part is the searchBy input
+            if (inputs.Length > 1)
+            {
+                details = inputs.Skip(1).ToArray(); // Remaining parts are details
+            }
+        }
         MovieModel movieToClone = GetBySearch(searchBy);
 
         if (movieToClone != null)
         {
             List<object> newPropertyValues  = new List<object>();
-
             PropertyInfo[] movieProperties = movieToClone.GetType().GetProperties();
+            int detailIndex = 0;
+
             foreach (PropertyInfo property in movieProperties.Skip(1))
             {
-                string userInput = ConsoleE.Input($"Enter new {property.Name}. Blank if unchanged.");
-                if (!String.IsNullOrEmpty(userInput) && !String.IsNullOrWhiteSpace(userInput))
+                string userOrUnitInput = string.Empty;
+                if (!TestEnvironmentUtils.IsRunningInUnitTest())
+                {
+                    userOrUnitInput = ConsoleE.Input($"Enter new {property.Name}. Blank if unchanged.");
+                }
+                else
+                {
+                    if (details != null && detailIndex < details.Length)
+                    {
+                        userOrUnitInput = details[detailIndex];
+                        detailIndex++;
+                    }
+                }
+                if (!String.IsNullOrEmpty(userOrUnitInput) && !String.IsNullOrWhiteSpace(userOrUnitInput))
                 {
                     try
                     {
                         object newValue;
                         if (property.PropertyType == typeof(string[]))
                         {
-                            newValue = userInput.Split(',').Select(s => s.Trim()).ToArray();
+                            newValue = userOrUnitInput.Split(',').Select(s => s.Trim()).ToArray();
                         }
                         else
                         {
-                            newValue = Convert.ChangeType(userInput, property.PropertyType);
+                            newValue = Convert.ChangeType(userOrUnitInput, property.PropertyType);
                         }
                         newPropertyValues.Add(newValue);
                     }
@@ -140,6 +191,10 @@ class MovieLogic
             clonedMovie.Id = 0;
             GenericMethods.UpdateList(clonedMovie);
             Console.WriteLine("Movie succesfully cloned");
+        }
+        else
+        {
+            Console.WriteLine("Movie not found for cloning.");
         }
     }
 
