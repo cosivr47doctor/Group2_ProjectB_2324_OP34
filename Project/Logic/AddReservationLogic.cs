@@ -118,6 +118,7 @@ static class AddReservation
                 Console.WriteLine("No");
                 DateTime purchaseTime = DateTime.Now;
                 ReservationModel newReservation = new ReservationModel(accountId, sessionId, movieId, seatsStr, new string[0] {}, price, purchaseTime);
+                EmailConf.GenerateEmailBody(accountId, newReservation);
                 GenericMethods.UpdateList(newReservation);
                 Console.ResetColor();
                 if (isAdmin) AdminMenu.Start(accId);
@@ -183,6 +184,7 @@ static class AddReservation
             Console.WriteLine($"Total Price: {totalPrice}");
             DateTime purchaseTime = DateTime.Now;
             ReservationModel newReservation = new ReservationModel(accId, sessionId, movieId, seatsStr, foodArray, totalPrice, purchaseTime);
+            EmailConf.GenerateEmailBody(accId, newReservation);
             GenericMethods.UpdateList(newReservation);
             // SeeJsons.PrintLastResvGJson(@"DataSources/reservations.json");
             // Console.WriteLine("Press any key to continue");\

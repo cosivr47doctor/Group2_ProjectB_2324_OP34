@@ -54,7 +54,12 @@ class ReservationModel : IModel
         foreach (PropertyInfo property in this.GetType().GetProperties())
         {
             var value = property.GetValue(this, null);
-            sb.AppendLine($"{property.Name}: {value}");
+            if (property.Name == "Food" && value is string[])
+            {
+                string foodString = string.Join(", ", (string[])value);
+                sb.AppendLine($"{property.Name}: {foodString}");
+            }
+            else sb.AppendLine($"{property.Name}: {value}");
         }
         return sb.ToString();
     }

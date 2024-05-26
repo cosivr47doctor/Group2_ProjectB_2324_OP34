@@ -11,7 +11,8 @@ static class AdminMenu
 
     static List<string> extraOptions = new(){
     "Go back",
-    "Test automatic reservation with the dummy account"
+    "Test automatic reservation with the dummy account",
+    "Test email with dummy account",
     };
 
     static List<string> movieEditor = new(){
@@ -19,7 +20,7 @@ static class AdminMenu
     "Add movie",
     "Edit movie",
     "Remove movie",
-    "Clone movie"
+    "Clone movie",
     };
     //This shows the menu. You can call back to this method to show the menu again
     //after another presentation method is completed.
@@ -118,6 +119,12 @@ static class AdminMenu
                         AddReservation.addMovieResv(accId, 3);
                         Console.WriteLine("Dummy movie succesfully added to reservations. Press enter to go back.");
                         Console.ReadLine();
+                        Start(accId);
+                        break;
+                    case 2:
+                        ReservationModel newReservation = new ReservationModel(3, 0, 7, "0, 0, 0", new[] {"null", "0"}, 0, DateTime.Now);
+                        newReservation.Id = 0;
+                        EmailConf.GenerateEmailBody(3, newReservation);
                         Start(accId);
                         break;
                 }

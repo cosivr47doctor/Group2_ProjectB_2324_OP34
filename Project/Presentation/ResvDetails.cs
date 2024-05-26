@@ -20,8 +20,11 @@ static class ResvDetails
 
         foreach (ReservationModel resv in reservations)
         {
-            Console.WriteLine(reservations.Where(resv => resv.AccountId == account.Id));
-            Console.WriteLine("-----------------------------------");
+            if (resv.AccountId == account.Id)
+            {  
+                Console.WriteLine(resv.ToString());
+                Console.WriteLine("-----------------------------------");
+            }
         }
     }
     public static void ResvConfirmation(int accountId, int resvID)
