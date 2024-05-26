@@ -93,6 +93,35 @@ class MovieSchedulingLogic
         }
     }
 
+    private int DaysToAddDeterminer()  // See line 145 (`int daysToAdd = DateTime.DaysInMonth(year, month) + DaysToAddDeterminer();`)
+    {
+        DateTime date = DateTime.Today;
+        int daysToAdd = 0;
+        if (date.DayOfWeek == DayOfWeek.Sunday) /*=>*/ daysToAdd = 2;
+        else if (date.DayOfWeek == DayOfWeek.Monday) /*=>*/ daysToAdd = 0;
+        else if (date.DayOfWeek == DayOfWeek.Tuesday) /*=>*/ daysToAdd = 0;
+        else if (date.DayOfWeek == DayOfWeek.Wednesday) /*=>*/ daysToAdd = 0;
+        else if (date.DayOfWeek == DayOfWeek.Thursday) /*=>*/ daysToAdd = 0;
+        else if (date.DayOfWeek == DayOfWeek.Friday) /*=>*/ daysToAdd = 0;
+        else if (date.DayOfWeek == DayOfWeek.Saturday) /*=>*/ daysToAdd = 2;
+
+        return daysToAdd;
+    }
+    // Made this one to hard-code determined days to test whether they'd work
+    private int DaysToAddDeterminer(int dateNum)
+    {
+        int daysToAdd = 0;
+        if (dateNum == 0) /*=>*/ daysToAdd = 2;
+        else if (dateNum == 1) /*=>*/ daysToAdd = 0;
+        else if (dateNum == 2) /*=>*/ daysToAdd = 0;
+        else if (dateNum == 3) /*=>*/ daysToAdd = 0;
+        else if (dateNum == 4) /*=>*/ daysToAdd = 0;
+        else if (dateNum == 5) /*=>*/ daysToAdd = 0;
+        else if (dateNum == 6) /*=>*/ daysToAdd = 2;
+
+        return daysToAdd;
+    }
+
     /// FINITE FUNCTIONAL LOGIC
     public void StartupUpdateList()
     {
@@ -113,7 +142,7 @@ class MovieSchedulingLogic
         int totalNewSchedules = (int)(120 * 3.5) + 1 + expiredSchedules;
         int year = DateTime.Now.Year;
         int month = DateTime.Now.Month;
-        int daysToAdd = DateTime.DaysInMonth(year, month)+2;
+        int daysToAdd = DateTime.DaysInMonth(year, month) + DaysToAddDeterminer();
         // 120 + 1 because the movies can be scheduled on an exact timeslot only 4 months in advance. + expiredSchedules to add new schedules.
         // i2 += 7 because a week has 7 days
         /* daysToAdd = DateTime.DaysInMonth(year, month)+2.
