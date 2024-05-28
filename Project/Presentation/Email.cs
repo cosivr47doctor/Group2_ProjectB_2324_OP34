@@ -14,11 +14,11 @@ $@"
 |Thank you for your reservation. Here are your reservation details:      |
 |                                                                        |
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                        |
-|Reservation ID: {reservation.Id}                                                       |
-|Movie: {movie.Name}                                                    |
-|Date: {reservation.PurchaseTime}                                                |
-|Seat(s): {string.Join(", ", reservation.Seats)}                                                             |
-|Total price: {reservation.TotalPrice }                                                         |
+|Reservation ID: {reservation.Id}  
+|Movie: {movie.Name}                                                   
+|Date: {reservation.PurchaseTime}
+|Seat(s): {string.Join(", ", reservation.Seats)}
+|Total price: {reservation.TotalPrice }
 |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                        |
 |Enjoy your movie!                                                       |
 |                                                                        |

@@ -138,15 +138,20 @@ static class AddReservation
     public static void addFoodResv(int accId, int sessionId, int movieId, string seatsStr, int price, RoomModel roomDetails, int dummyAccId=-1)
     {
         AccountsLogic objAccountsLogic = new(); bool isAdmin = objAccountsLogic.GetByArg(accId).isAdmin;
-
-        while (true)
+        List<(FoodModel food, int quantity)> selectedFoods = new();
+        do
         {
             SeeJsons.PrintFoodJson(@"DataSources/food.json");
             Console.WriteLine("");
             Console.Write("Enter the name or id of the food you like to order or [Q] to go back: ");
             string userInput = Console.ReadLine();
 
-            if (ConsoleE.BackContains(userInput)) AskForFood(accId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId=-1);
+            if (ConsoleE.BackContains(userInput)) 
+            {
+                AskForFood(accId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId=-1);
+                return;
+            }
+
             if (string.IsNullOrEmpty(userInput))
             {
                 Console.WriteLine("Please enter the name or id of the food.");
@@ -168,9 +173,14 @@ static class AddReservation
             {
                 Console.Write("Enter the amount: [Q to go back]");
                 string quantityInput = Console.ReadLine();
-                if (ConsoleE.BackContains(quantityInput)) AskForFood(accId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId=-1);
+                if (ConsoleE.BackContains(quantityInput)) 
+                {
+                    AskForFood(accId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId=-1);
+                    return;
+                }
                 if (int.TryParse(quantityInput, out quantity) && quantity > 0)
                 {
+                    selectedFoods.Add((foundFood, quantity));
                     break;
                 }
                 else
@@ -178,24 +188,53 @@ static class AddReservation
                     Console.WriteLine("Invalid input. Please enter a valid amount.");
                 }
             }
+        } while (PromptOrderMore());
 
-            string[] foodArray = foundFood.Name.Split(",");
-            decimal totalPrice = foundFood.Price * quantity + price;
+        // Finalize the order if there are selected foods
+        if (selectedFoods.Count > 0)
+        {
+            List<string> foodNames = new List<string>();
+            decimal totalPrice = price;
+
+            foreach ((FoodModel food, int quantity) in selectedFoods)
+            {
+                for (int i = 0; i < quantity; i++)
+                {
+                    foodNames.Add(food.Name);
+                }
+                totalPrice += food.Price * quantity;
+            }
+
             Console.WriteLine($"Total Price: {totalPrice}");
             DateTime purchaseTime = DateTime.Now;
-            ReservationModel newReservation = new ReservationModel(accId, sessionId, movieId, seatsStr, foodArray, totalPrice, purchaseTime);
+            ReservationModel newReservation = new ReservationModel(accId, sessionId, movieId, seatsStr, foodNames.ToArray(), totalPrice, purchaseTime);
             EmailConf.GenerateEmailBody(accId, newReservation);
             GenericMethods.UpdateList(newReservation);
-            // SeeJsons.PrintLastResvGJson(@"DataSources/reservations.json");
-            // Console.WriteLine("Press any key to continue");\
-            GenericMethods.UpdateList(roomDetails);
             Console.WriteLine("Reservation added successfully");
-            // Console.ReadLine();
-            if (isAdmin) AdminMenu.Start(accId);
-            else UserMenu.Start(accId);
-            //ResvDetails.ResvConfirmation(intUserAccountId, index);
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Console.Clear();
+
+        }
+
+        GenericMethods.UpdateList(roomDetails);
+        if (isAdmin) 
+        {
+            AdminMenu.Start(accId);
+        }
+        else 
+        {
+            UserMenu.Start(accId);
         }
     }
+
+    private static bool PromptOrderMore()
+    {
+        Console.Write("Do you want to order more food? (Y/N): ");
+        string moreFoodInput = Console.ReadLine().Trim().ToUpper();
+        return moreFoodInput == "Y";
+    }
+
 
     public static void CancelReservation(int id)
     {
