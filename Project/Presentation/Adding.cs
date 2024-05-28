@@ -99,7 +99,7 @@ static class Adding
                 if (emailAddress.Contains("@")&& emailAddress.Contains(".")&&Regex.IsMatch(emailAddress, pattern))
                 {
 
-                    string path = @"DataSources\accounts.json";
+                    /*string path = @"DataSources\accounts.json";
                     var jsonString = File.ReadAllText(path);
                     List<AccountModel> accounts = JsonSerializer.Deserialize<List<AccountModel>>(jsonString);
 
@@ -111,9 +111,9 @@ static class Adding
                             emailExists = true;
                             break;
                         }
-                    }
+                    }*/
 
-                    if (emailExists)
+                    if (accountsLogic.EmailExists(emailAddress))
                     {
                         Console.WriteLine("An account with this email address already exists.");
                         Console.WriteLine("Please enter a different email address.");
