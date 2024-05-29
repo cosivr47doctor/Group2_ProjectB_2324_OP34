@@ -4,6 +4,20 @@ using FluentAssertions;
 
 namespace ProjectTest;
 
+[TestClass]
+public class TestAdmin
+{
+    [TestMethod]
+    public void isAdmin()
+    {
+        AccountModel adminAcc = GenericAccess<AccountModel>.LoadAllJson().Where(acc => acc.Id == 1).FirstOrDefault();
+        adminAcc.Should().NotBeNull(); adminAcc.isAdmin.Should().BeTrue();
+        AccountModel dummyAcc = GenericAccess<AccountModel>.LoadAllJson().Where(acc => acc.Id == 3).FirstOrDefault();
+        dummyAcc.Should().NotBeNull(); dummyAcc.isAdmin.Should().BeFalse();
+
+        adminAcc.EmailAddress.Should().NotBe(dummyAcc.EmailAddress);
+    }
+}
 
 [TestClass]
 public class TestEditMovie
