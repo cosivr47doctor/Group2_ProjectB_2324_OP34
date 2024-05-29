@@ -2,7 +2,7 @@ using System.Reflection;
 using System.Text.Json.Serialization;
 using System.Text;
 
-class ReservationModel : IModel
+public class ReservationModel : IModel
 {
     [JsonPropertyName("id")]
     public int Id {get; set;}

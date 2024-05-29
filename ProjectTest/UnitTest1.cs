@@ -1,10 +1,6 @@
 using Moq;
-using System.IO;
 using System.Text.Json;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions; using Xunit;
+using FluentAssertions;
 
 namespace ProjectTest;
 
@@ -32,6 +28,7 @@ public class TestEditMovie
         fileMock.Setup(f => f.ReadAllText(It.IsAny<string>())).Returns(initialJson);
         fileMock.Setup(f => f.WriteAllText(It.IsAny<string>(), It.IsAny<string>()))
             .Callback<string, string>((path, json) => {
+                Console.WriteLine("WriteAllText Callback invoked");
                 // Overwrite the ReadAllText setup to return the updated json
                 fileMock.Setup(f => f.ReadAllText(It.IsAny<string>())).Returns(json);
             });
@@ -42,26 +39,31 @@ public class TestEditMovie
 
     // BUG: SOMEHOW RUNS INDEFINITELY DURING UNITTEST RUNTIME, SO INSTEAD DO `DOTNET RUN`
     [TestMethod]
-    public void TestChangeMovie()
+    public void TestChangeMovie()  // Sp2
     {
+        TestEnvironmentUtils.UserInput = new MockUserInput(new[] {
+        "UnitChangedDetailsSuccessfully", "Drama,Horror", "2022", "Changed successfully", "New Director", "150"
+        });
         // Make sure you communicate in the details that you changed them.
         List<MovieModel> movies = MovieAccessForJson.LoadAllJson();
         MovieModel movieToChange = movies.FirstOrDefault(m => m.Id == 12);
         movieToChange.Should().NotBeNull();  // Forget about ToString() as it arouses issues in the unittest run environment
+        movieToChange.Name.Should().Be("InitialMovie");
+        movieToChange.Director.Should().Be("InitialDirector");
 
         MovieModel cloneOfOriginalMovie = TestEnvironmentUtils.DeepClone(movieToChange);
         cloneOfOriginalMovie.Name = "ChangedYo";
         movieToChange.Name.Should().NotBe(cloneOfOriginalMovie.Name);
         
         // Can't ask for actual input in a unittest or dotnet test run environment
-        string unitInput = "12;ChangedName;Drama, Horror;2022;New description;New Director;150";
+        string unitInput = "12;UnitChangedDetailsSuccessfully;Drama, Horror;2022;Changed successfully;New Director;150";
         movieLogic.ChangeMovie(unitInput);
 
         List<MovieModel> updatedMovies = MovieAccessForJson.LoadAllJson();
         MovieModel changedMovie = updatedMovies.FirstOrDefault(m => m.Id == 12);
         changedMovie.Should().NotBeNull();
         changedMovie.Name.Should().Be("UnitChangedDetailsSuccessfully");
-        changedMovie.Description.Should().BeEquivalentTo("Changed description successfully");
+        changedMovie.Description.Should().BeEquivalentTo("Changed successfully");
 
         // changedMovie.Should().NotBeEquivalentTo(originalString, changedMovie.ToString()); Unneccessary
         fileMock.Verify(f => f.WriteAllText(It.IsAny<string>(), It.IsAny<string>()), Times.Once);

@@ -67,4 +67,11 @@ static class AlgorhythmDecider
 
         return moviesByPopularity;
     }
+
+    /*
+    public static ? SessionsBasedOnMoviesDurationDecider()
+    {
+        
+    }
+    */
 }
