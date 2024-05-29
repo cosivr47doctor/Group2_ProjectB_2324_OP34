@@ -53,6 +53,12 @@ class AccountsLogic
             return _accounts.Find(i => i.EmailAddress == input);
         }
     }
+
+    public bool EmailExists(string email)
+    {
+        return _accounts.Exists(account => account.EmailAddress == email);
+
+    }
     public AccountModel GetByArg(int id)
     {
         return _accounts.Find(i => i.Id == id);
