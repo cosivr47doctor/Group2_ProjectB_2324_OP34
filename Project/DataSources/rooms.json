@@ -77,5 +77,25 @@
       2,
       3
     ]
+  },
+  {
+    "ID": 9,
+    "Session id": 312,
+    "Row": 5,
+    "Taken seats": [
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "ID": 10,
+    "Session id": 312,
+    "Row": 2,
+    "Taken seats": [
+      1,
+      2
+    ]
   }
 ]

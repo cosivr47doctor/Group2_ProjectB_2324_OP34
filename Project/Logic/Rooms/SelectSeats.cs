@@ -5,11 +5,46 @@ using System.Threading;
 
 public static class SelectSeats
 {
-    private static bool IsWhiteSpace(List<List<string>> options, int row, int col)
+    private static bool IsExpensiveSeat(int i, int j, string roomNumber)
     {
-        return options[row][col] == "  ";
+        if (roomNumber == "roomOne")
+        {
+            return (i == 3 && j >= 5 && j <= 6) || (i == 4 && j >= 4 && j <= 7) || (i == 10 && j >= 5 && j <= 6) || (i == 9 && j >= 4 && j <= 7) ||
+            (i == 5 && j >= 3 && j <= 4) || (i == 6 && j >= 3 && j <= 4) || (i == 7 && j >= 3 && j <= 4) || (i == 8 && j >= 3 && j <= 4) ||
+            (i == 5 && j >= 7 && j <= 8) || (i == 6 && j >= 7 && j <= 8) || (i == 7 && j >= 7 && j <= 8) || (i == 8 && j >= 7 && j <= 8);
+        }
+        else if (roomNumber == "roomTwo")
+        {
+            return false;
+        }
+        else if (roomNumber == "roomThree")
+        {
+            return false;
+        }
+        else 
+        {
+            return false;
+        }
     }
-
+        private static bool IsMoreExpensiveSeat(int i, int j, string roomNumber)
+    {
+        if (roomNumber == "roomOne")
+        {
+            return (i == 5 && j >= 5 && j <= 6) || (i == 6 && j >= 5 && j <= 6) || (i == 7 && j >= 5 && j <= 6) || (i == 8 && j >= 5 && j <= 6);
+        }
+        else if (roomNumber == "roomTwo")
+        {
+            return false;
+        }
+        else if (roomNumber == "roomThree")
+        {
+            return false;
+        }
+        else 
+        {
+            return false;
+        }
+    }
     public static (int, int, int) DisplaySeats(int accId, int sessionId, int movieId, List<List<string>> options, int seatsCount, string roomNumber)
     {
         Console.Clear();
@@ -40,46 +75,29 @@ public static class SelectSeats
                 string rowLabel = (seatsCount - i).ToString().PadLeft(2, ' ');
                 Console.Write($"{rowLabel} | ");
                 Console.ResetColor();
+
                 for (int j = 0; j < options[i].Count; j++)
                 {
                     if (selectedRow == i && selectedColumn == j)
                     {
                         Console.ForegroundColor = ConsoleColor.Green; // Change color for the selected option
                     }
-                    else if (options[i][j] == " X")
+                    else if (options[i][j] == "🟥")
                     {
                         Console.ForegroundColor = ConsoleColor.Red; // Change color for taken seats
                     }
-
-                    else if (roomNumber == "roomOne") //colors for different price seat for different rooms:
+                    else if (IsExpensiveSeat(i,j, roomNumber))
                     {
-                        if ((i == 3 && j >= 5 && j <= 6) || (i == 4 && j >= 4 && j <= 7) || (i == 10 && j >= 5 && j <= 6) || (i == 9 && j >= 4 && j <= 7) || 
-                        (i == 5 && j >= 3 && j <= 4) || (i == 6 && j >= 3 && j <= 4) || (i == 7 && j >= 3 && j <= 4) || (i == 8 && j >= 3 && j <= 4) ||
-                        (i == 5 && j >= 7 && j <= 8) || (i == 6 && j >= 7 && j <= 8) || (i == 7 && j >= 7 && j <= 8) || (i == 8 && j >= 7 && j <= 8))
                         Console.ForegroundColor = ConsoleColor.Yellow; // Change color for specified seats
-                        else if ((i == 5 && j >= 5 && j <= 6) || (i == 6 && j >= 5 && j <= 6) || (i == 7 && j >= 5 && j <= 6) || (i == 8 && j >= 5 && j <= 6))
+                    }
+                    else if (IsMoreExpensiveSeat(i,j, roomNumber))
+                    {
                         Console.ForegroundColor = ConsoleColor.Blue; // Change color for specified seats (more expensive)
                     }
-                    // else if (roomNumber == "roomOne") //colors for different price seat for different rooms:
-                    // {
-                    //     if ((i == 3 && j >= 5 && j <= 6) || (i == 4 && j >= 4 && j <= 7) || (i == 3 && j >= 3 && j <= 8) || (i == 7 && j >= 3 && j <= 6) || (i == 4 && j >= 2 && j <= 2) || (i == 5 && j >= 2 && j <= 2) || (i == 5 && j >= 7 && j <= 7) || (i == 4 && j >= 7 && j <= 7))
-                    //     Console.ForegroundColor = ConsoleColor.Yellow; // Change color for specified seats
-                    //     else if ((i == 5 && j >= 5 && j <= 6) || (i == 6 && j >= 5 && j <= 6) || (i == 7 && j >= 5 && j <= 6) || (i == 8 && j >= 5 && j <= 6))
-                    //     Console.ForegroundColor = ConsoleColor.Blue; // Change color for specified seats (more expensive)
-                    // }
-                    // else if (roomNumber == "roomOne") //colors for different price seat for different rooms:
-                    // {
-                    //     if ((i == 3 && j >= 5 && j <= 6) || (i == 4 && j >= 4 && j <= 7) || (i == 3 && j >= 3 && j <= 8) || (i == 7 && j >= 3 && j <= 6) || (i == 4 && j >= 2 && j <= 2) || (i == 5 && j >= 2 && j <= 2) || (i == 5 && j >= 7 && j <= 7) || (i == 4 && j >= 7 && j <= 7))
-                    //     Console.ForegroundColor = ConsoleColor.Yellow; // Change color for specified seats
-                    //     else if ((i == 5 && j >= 5 && j <= 6) || (i == 6 && j >= 5 && j <= 6) || (i == 7 && j >= 5 && j <= 6) || (i == 8 && j >= 5 && j <= 6))
-                    //     Console.ForegroundColor = ConsoleColor.Blue; // Change color for specified seats (more expensive)
-                    // }
-
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.White; // Reset color for other options
                     }
-
                     Console.Write($"{options[i][j]} ");
                     Console.ResetColor();
                 }
@@ -88,63 +106,61 @@ public static class SelectSeats
             RoomInfo.RoomInformation();
 
             key = Console.ReadKey(true);
-
             switch (key.Key)
             {
                 case ConsoleKey.UpArrow:
-                    if (selectedRow > 0 && !IsWhiteSpace(options, selectedRow - 1, selectedColumn))
+                    if (selectedRow > 0 && options[selectedRow][selectedColumn] == "  ")
                     {
-                        selectedRow--;
-                    }
-                    else if (options[selectedRow][selectedColumn] == "  ")
-                    {
-                        
-                        while (selectedRow > 0 && IsWhiteSpace(options, selectedRow - 1, selectedColumn))
+                        while (selectedRow > 0 && options[selectedRow - 1][selectedColumn] == "  ")
                         {
                             selectedRow--;
                         }
                     }
+                    else if (selectedRow > 0 && options[selectedRow - 1][selectedColumn] != "  ")
+                    {
+                        selectedRow--;
+                    }
                     break;
 
                 case ConsoleKey.DownArrow:
-                    if (selectedRow < seatsCount - 1 && !IsWhiteSpace(options, selectedRow + 1, selectedColumn))
+                    if (selectedRow < options.Count - 1 && options[selectedRow][selectedColumn] == "  ")
                     {
-                        selectedRow++;
-                    }
-                    else if (options[selectedRow][selectedColumn] == "  ")
-                    {
-                        while (selectedRow < seatsCount - 1 && IsWhiteSpace(options, selectedRow + 1, selectedColumn))
+                        while (selectedRow < options.Count - 1 && options[selectedRow + 1][selectedColumn] == "  ")
                         {
                             selectedRow++;
                         }
                     }
+                    if (selectedRow < options.Count - 1 && options[selectedRow + 1][selectedColumn] != "  ")
+                    {
+                        selectedRow++;
+                    }
                     break;
 
                 case ConsoleKey.LeftArrow:
-                    if (selectedColumn > 0 && !IsWhiteSpace(options, selectedRow, selectedColumn - 1))
+                    if (selectedColumn > 0 && options[selectedRow][selectedColumn] == "  ")
                     {
-                        selectedColumn--;
-                    }
-                    else if (options[selectedRow][selectedColumn] == "  ")
-                    {
-                        while (selectedColumn > 0 && IsWhiteSpace(options, selectedRow, selectedColumn - 1))
+                        while (selectedColumn > 0 && options[selectedRow][selectedColumn - 1] == "  ")
                         {
                             selectedColumn--;
                         }
                     }
+                    else if (selectedColumn > 0 && options[selectedRow][selectedColumn - 1] != "  ")
+                    {
+                        selectedColumn--;
+                    }
                     break;
 
                 case ConsoleKey.RightArrow:
-                    if (selectedColumn < options[selectedRow].Count - 1 && !IsWhiteSpace(options, selectedRow, selectedColumn + 1))
+                    if (selectedColumn < options[selectedRow].Count - 1 && options[selectedRow][selectedColumn] == "  ")
                     {
-                        selectedColumn++;
-                    }
-                    else if (options[selectedRow][selectedColumn] == "  ")
-                    {
-                        while (selectedColumn < options[selectedRow].Count - 1 && IsWhiteSpace(options, selectedRow, selectedColumn + 1))
+                        while (selectedColumn < options[selectedRow].Count - 1 && options[selectedRow][selectedColumn + 1] == "  ")
                         {
                             selectedColumn++;
-                        }
+                        }   
+                    }
+                    if (selectedColumn < options[selectedRow].Count - 1 && options[selectedRow][selectedColumn + 1] != "  ")
+                    {
+                        selectedColumn++;
                     }
                     break;
 
@@ -154,7 +170,7 @@ public static class SelectSeats
                     {
                         Console.WriteLine("\nNo seat selected.");
                     }
-                    else if (options[selectedRow][selectedColumn] == " X")
+                    else if (options[selectedRow][selectedColumn] == "🟥")
                     {
                         Console.WriteLine("\nSeat already taken.");
                     }
@@ -182,7 +198,7 @@ public static class SelectSeats
                                 seatsTaken.Add(seatSelected);
                                 seatsTakenColumn.Add(selectedColumn);
                                 seatsNumbers.Add(SeatNum);
-                                options[selectedRow][selectedColumn] = " X"; // Mark the seat as taken
+                                options[selectedRow][selectedColumn] = "🟥"; // Mark the seat as taken
                                 seatsNumbers.Sort();
                                 Console.WriteLine($"Selected seats: {string.Join(", ", seatsNumbers)} on row: {stringRow}");
                             }
@@ -201,11 +217,12 @@ public static class SelectSeats
                             seatsTakenColumn.Add(selectedColumn);
                             int SeatNum = int.Parse(seatSelected);
                             seatsNumbers.Add(SeatNum);
-                            options[selectedRow][selectedColumn] = " X"; // Mark the seat as taken
+                            options[selectedRow][selectedColumn] = "--"; // Mark the seat as taken
                             Console.WriteLine($"Selected seat: {string.Join(", ", seatsNumbers)} on row: {stringRow}");
                         }
                     }
                     break;
+
 
                 case ConsoleKey.Spacebar:
                     if (seatsNumbers.Count <= 0)
@@ -220,11 +237,25 @@ public static class SelectSeats
                         Console.WriteLine("Seats confirmed");
                         Thread.Sleep(3000);
                         string seatsString = $"row: {stringRow}, seats: {string.Join(",", seatsNumbers)}";
-                        int seatprice = 12;
-                        int price = seatprice * seatsNumbers.Count;
+
+                        int price = 0;
+                        foreach (var seatColumn in seatsTakenColumn)
+                        {
+                            if (IsMoreExpensiveSeat(enteredRow, seatColumn, roomNumber))
+                            {
+                                price += 16;
+                            }
+                            else if (IsExpensiveSeat(enteredRow, seatColumn, roomNumber))
+                            {
+                                price += 14;
+                            }
+                            else
+                            {
+                                price += 12;
+                            }
+                        }
 
                         RoomModel roomDetails = new RoomModel(0, sessionId, enteredRow, seatsTakenColumn);
-
                         AddReservation.AskForFood(accId, sessionId, movieId, seatsString, price, roomDetails);
                     }
                     break;
@@ -238,7 +269,6 @@ public static class SelectSeats
                     break;
             }
         }
-
         Console.ResetColor();
         return (selectedRow, selectedColumn, accId);
     }
