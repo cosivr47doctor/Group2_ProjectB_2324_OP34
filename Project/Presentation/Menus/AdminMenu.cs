@@ -122,7 +122,8 @@ static class AdminMenu
                         Start(accId);
                         break;
                     case 2:
-                        ReservationModel newReservation = new ReservationModel(3, 0, 7, "0, 0, 0", new[] {"null", "0"}, 0, DateTime.Now);
+                        
+                        ReservationModel newReservation = new ReservationModel("ABC123", 3, 0, 7, "0, 0, 0", new[] {"null", "0"}, 0, DateTime.Now);
                         newReservation.Id = 0;
                         EmailConf.GenerateEmailBody(3, newReservation);
                         Start(accId);

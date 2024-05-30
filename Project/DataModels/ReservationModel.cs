@@ -7,6 +7,9 @@ public class ReservationModel : IModel
     [JsonPropertyName("id")]
     public int Id {get; set;}
 
+    [JsonPropertyName("reservationCode")]
+    public string ReservationCode {get; set;}
+
     // [JsonPropertyName("movieObject")]
     // public MovieModel ObjMovieModel {get; set;}
 
@@ -36,8 +39,9 @@ public class ReservationModel : IModel
     {
     }
 
-    public ReservationModel(int accountId, int sessionId, int movieId, string seats, string[] food, decimal totalPrice, DateTime purchaseTime) //MovieModel movieModel
+    public ReservationModel(string reservationcode, int accountId, int sessionId, int movieId, string seats, string[] food, decimal totalPrice, DateTime purchaseTime) //MovieModel movieModel
     {
+        ReservationCode = reservationcode;
         AccountId = accountId;
         SessionId = sessionId;
         MovieId = movieId;
@@ -61,6 +65,8 @@ public class ReservationModel : IModel
             }
             else sb.AppendLine($"{property.Name}: {value}");
         }
+        MovieScheduleModel session = GenericAccess<MovieScheduleModel>.LoadAll().Where(ms => ms.Id == SessionId).FirstOrDefault();
+        sb.AppendLine($"Date: {session.Date.Date.ToString("yyyy-MM-dd")}, time: {session.TimeIdPair.Keys.First()}");
         return sb.ToString();
     }
 }
