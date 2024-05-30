@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 using System.Text;
 
-class MovieScheduleModel : IModel
+public class MovieScheduleModel : IModel
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }
@@ -44,7 +44,7 @@ class MovieScheduleModel : IModel
         TimeIdPair = new Dictionary<string, string>() {};
         foreach (var kvp in TimeDict)
         {
-            TimeIdPair[kvp.Key] = $"Duration: {kvp.Value.Duration} minutes";
+            TimeIdPair[kvp.Key] = $"Movie duration: {kvp.Value.Duration} minutes";
             MovieId = kvp.Value.Id;
         }
 

@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 
 
-class MovieDetailsModel : IModel
+public class MovieDetailsModel : IModel
 {
     [JsonPropertyName("id")]
     public int Id { get; set; }

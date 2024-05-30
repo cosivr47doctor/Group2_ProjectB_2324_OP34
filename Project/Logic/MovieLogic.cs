@@ -205,7 +205,7 @@ public class MovieLogic
                             (string)propertyValues[4], (int)propertyValues[5]);
     }
 
-    public MovieModel SelectRandomMovie()
+    public static MovieModel SelectRandomMovie()
     {
         List<MovieModel> allMovies = GenericAccess<MovieModel>.LoadAll();
         if (allMovies.Count == 0)

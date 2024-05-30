@@ -2,1941 +2,1935 @@
   {
     "id": 0,
     "room": 1,
-    "date": "2024-05-26T00:00:00+02:00",
+    "date": "2024-05-30T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 500 minutes"
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
     },
-    "movieId": 11
+    "movieId": 12
   },
   {
     "id": 1,
     "room": 2,
-    "date": "2024-05-26T00:00:00+02:00",
+    "date": "2024-05-30T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 55 minutes"
+      "15:20:00 - 18:40:00": "Duration: 175 minutes"
     },
-    "movieId": 9
+    "movieId": 3
   },
   {
     "id": 2,
     "room": 3,
-    "date": "2024-05-27T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 3,
-    "room": 1,
-    "date": "2024-05-27T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 4,
-    "room": 2,
-    "date": "2024-05-27T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 5,
-    "room": 3,
-    "date": "2024-05-27T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 6,
-    "room": 1,
-    "date": "2024-05-27T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 7,
-    "room": 2,
-    "date": "2024-05-28T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 8,
-    "room": 3,
-    "date": "2024-05-28T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 9,
-    "room": 1,
-    "date": "2024-05-28T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 10,
-    "room": 2,
-    "date": "2024-05-28T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 11,
-    "room": 3,
-    "date": "2024-05-28T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 12,
-    "room": 1,
-    "date": "2024-05-29T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 97 minutes"
-    },
-    "movieId": 5
-  },
-  {
-    "id": 13,
-    "room": 2,
-    "date": "2024-05-29T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 14,
-    "room": 3,
-    "date": "2024-05-29T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 15,
-    "room": 1,
-    "date": "2024-05-29T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 16,
-    "room": 2,
     "date": "2024-05-30T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 17,
-    "room": 3,
-    "date": "2024-05-30T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 18,
-    "room": 1,
-    "date": "2024-05-30T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 19,
-    "room": 2,
-    "date": "2024-05-30T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 20,
-    "room": 3,
-    "date": "2024-05-30T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 21,
-    "room": 1,
-    "date": "2024-05-31T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 22,
-    "room": 2,
-    "date": "2024-05-31T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 23,
-    "room": 3,
-    "date": "2024-05-31T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 24,
-    "room": 1,
-    "date": "2024-05-31T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 25,
-    "room": 2,
-    "date": "2024-05-31T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 26,
-    "room": 3,
-    "date": "2024-05-31T00:00:00+02:00",
-    "sessionTime": {
-      "22:00:00 - 22:00:00": "Duration: 175 minutes",
-      "00:00:00 - 00:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 27,
-    "room": 1,
-    "date": "2024-06-01T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 28,
-    "room": 2,
-    "date": "2024-06-01T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 29,
-    "room": 3,
-    "date": "2024-06-01T00:00:00+02:00",
-    "sessionTime": {
-      "17:00:00 - 19:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 30,
-    "room": 1,
-    "date": "2024-06-01T00:00:00+02:00",
-    "sessionTime": {
-      "19:00:00 - 21:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 31,
-    "room": 2,
-    "date": "2024-06-02T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 32,
-    "room": 3,
-    "date": "2024-06-02T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 33,
-    "room": 1,
-    "date": "2024-06-02T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 34,
-    "room": 2,
-    "date": "2024-06-02T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 35,
-    "room": 3,
-    "date": "2024-06-03T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 97 minutes"
-    },
-    "movieId": 5
-  },
-  {
-    "id": 36,
-    "room": 1,
-    "date": "2024-06-03T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 37,
-    "room": 2,
-    "date": "2024-06-03T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 38,
-    "room": 3,
-    "date": "2024-06-03T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 39,
-    "room": 1,
-    "date": "2024-06-03T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 40,
-    "room": 2,
-    "date": "2024-06-04T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 41,
-    "room": 3,
-    "date": "2024-06-04T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 97 minutes"
-    },
-    "movieId": 5
-  },
-  {
-    "id": 42,
-    "room": 1,
-    "date": "2024-06-04T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 43,
-    "room": 2,
-    "date": "2024-06-04T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 44,
-    "room": 3,
-    "date": "2024-06-04T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 45,
-    "room": 1,
-    "date": "2024-06-05T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 46,
-    "room": 2,
-    "date": "2024-06-05T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 47,
-    "room": 3,
-    "date": "2024-06-05T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 48,
-    "room": 1,
-    "date": "2024-06-05T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 49,
-    "room": 2,
-    "date": "2024-06-06T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 50,
-    "room": 3,
-    "date": "2024-06-06T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 51,
-    "room": 1,
-    "date": "2024-06-06T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 52,
-    "room": 2,
-    "date": "2024-06-06T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 53,
-    "room": 3,
-    "date": "2024-06-06T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 54,
-    "room": 1,
-    "date": "2024-06-07T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 55,
-    "room": 2,
-    "date": "2024-06-07T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 56,
-    "room": 3,
-    "date": "2024-06-07T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 57,
-    "room": 1,
-    "date": "2024-06-07T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 58,
-    "room": 2,
-    "date": "2024-06-07T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 59,
-    "room": 3,
-    "date": "2024-06-07T00:00:00+02:00",
-    "sessionTime": {
-      "22:00:00 - 22:00:00": "Duration: 120 minutes",
-      "00:00:00 - 00:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 60,
-    "room": 1,
-    "date": "2024-06-08T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 61,
-    "room": 2,
-    "date": "2024-06-08T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 62,
-    "room": 3,
-    "date": "2024-06-08T00:00:00+02:00",
-    "sessionTime": {
-      "17:00:00 - 19:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 63,
-    "room": 1,
-    "date": "2024-06-08T00:00:00+02:00",
-    "sessionTime": {
-      "19:00:00 - 21:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 64,
-    "room": 2,
-    "date": "2024-06-09T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 65,
-    "room": 3,
-    "date": "2024-06-09T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 66,
-    "room": 1,
-    "date": "2024-06-09T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 67,
-    "room": 2,
-    "date": "2024-06-09T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 68,
-    "room": 3,
-    "date": "2024-06-10T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 69,
-    "room": 1,
-    "date": "2024-06-10T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 70,
-    "room": 2,
-    "date": "2024-06-10T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 71,
-    "room": 3,
-    "date": "2024-06-10T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 72,
-    "room": 1,
-    "date": "2024-06-10T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 73,
-    "room": 2,
-    "date": "2024-06-11T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 74,
-    "room": 3,
-    "date": "2024-06-11T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 75,
-    "room": 1,
-    "date": "2024-06-11T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 76,
-    "room": 2,
-    "date": "2024-06-11T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 77,
-    "room": 3,
-    "date": "2024-06-11T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 78,
-    "room": 1,
-    "date": "2024-06-12T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 79,
-    "room": 2,
-    "date": "2024-06-12T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 80,
-    "room": 3,
-    "date": "2024-06-12T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 81,
-    "room": 1,
-    "date": "2024-06-12T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 82,
-    "room": 2,
-    "date": "2024-06-13T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 83,
-    "room": 3,
-    "date": "2024-06-13T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 84,
-    "room": 1,
-    "date": "2024-06-13T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 85,
-    "room": 2,
-    "date": "2024-06-13T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 86,
-    "room": 3,
-    "date": "2024-06-13T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 87,
-    "room": 1,
-    "date": "2024-06-14T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 88,
-    "room": 2,
-    "date": "2024-06-14T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 89,
-    "room": 3,
-    "date": "2024-06-14T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 90,
-    "room": 1,
-    "date": "2024-06-14T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 91,
-    "room": 2,
-    "date": "2024-06-14T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 92,
-    "room": 3,
-    "date": "2024-06-14T00:00:00+02:00",
-    "sessionTime": {
-      "22:00:00 - 22:00:00": "Duration: 175 minutes",
-      "00:00:00 - 00:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 93,
-    "room": 1,
-    "date": "2024-06-15T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 94,
-    "room": 2,
-    "date": "2024-06-15T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 95,
-    "room": 3,
-    "date": "2024-06-15T00:00:00+02:00",
-    "sessionTime": {
-      "17:00:00 - 19:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 96,
-    "room": 1,
-    "date": "2024-06-15T00:00:00+02:00",
-    "sessionTime": {
-      "19:00:00 - 21:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 97,
-    "room": 2,
-    "date": "2024-06-16T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 98,
-    "room": 3,
-    "date": "2024-06-16T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 99,
-    "room": 1,
-    "date": "2024-06-16T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 100,
-    "room": 2,
-    "date": "2024-06-16T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 101,
-    "room": 3,
-    "date": "2024-06-17T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 102,
-    "room": 1,
-    "date": "2024-06-17T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 103,
-    "room": 2,
-    "date": "2024-06-17T00:00:00+02:00",
     "sessionTime": {
       "16:00:00 - 18:00:00": "Duration: 97 minutes"
     },
     "movieId": 5
   },
   {
-    "id": 104,
-    "room": 3,
-    "date": "2024-06-17T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 105,
+    "id": 3,
     "room": 1,
-    "date": "2024-06-17T00:00:00+02:00",
+    "date": "2024-05-30T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
+      "18:10:00 - 19:30:00": "Duration: 55 minutes"
     },
     "movieId": 9
   },
   {
-    "id": 106,
+    "id": 4,
+    "room": 2,
+    "date": "2024-05-30T00:00:00+02:00",
+    "sessionTime": {
+      "18:50:00 - 20:10:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 5,
+    "room": 3,
+    "date": "2024-05-31T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:40:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 6,
+    "room": 1,
+    "date": "2024-05-31T00:00:00+02:00",
+    "sessionTime": {
+      "14:40:00 - 15:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 7,
+    "room": 2,
+    "date": "2024-05-31T00:00:00+02:00",
+    "sessionTime": {
+      "15:20:00 - 16:00:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 8,
+    "room": 3,
+    "date": "2024-05-31T00:00:00+02:00",
+    "sessionTime": {
+      "16:00:00 - 18:00:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 9,
+    "room": 1,
+    "date": "2024-05-31T00:00:00+02:00",
+    "sessionTime": {
+      "18:00:00 - 18:10:00": "Duration: 30 minutes"
+    },
+    "movieId": 13
+  },
+  {
+    "id": 10,
+    "room": 2,
+    "date": "2024-05-31T00:00:00+02:00",
+    "sessionTime": {
+      "18:10:00 - 20:20:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 11,
+    "room": 3,
+    "date": "2024-06-01T00:00:00+02:00",
+    "sessionTime": {
+      "13:00:00 - 15:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 12,
+    "room": 1,
+    "date": "2024-06-01T00:00:00+02:00",
+    "sessionTime": {
+      "15:20:00 - 16:40:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 13,
+    "room": 2,
+    "date": "2024-06-01T00:00:00+02:00",
+    "sessionTime": {
+      "16:40:00 - 19:20:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 14,
+    "room": 3,
+    "date": "2024-06-01T00:00:00+02:00",
+    "sessionTime": {
+      "18:50:00 - 20:10:00": "Duration: 55 minutes"
+    },
+    "movieId": 10
+  },
+  {
+    "id": 15,
+    "room": 1,
+    "date": "2024-06-02T00:00:00+02:00",
+    "sessionTime": {
+      "13:00:00 - 15:40:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 16,
+    "room": 2,
+    "date": "2024-06-02T00:00:00+02:00",
+    "sessionTime": {
+      "15:20:00 - 17:20:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 17,
+    "room": 3,
+    "date": "2024-06-03T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 12:50:00": "Duration: 30 minutes"
+    },
+    "movieId": 13
+  },
+  {
+    "id": 18,
+    "room": 1,
+    "date": "2024-06-03T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 15:40:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 19,
+    "room": 2,
+    "date": "2024-06-03T00:00:00+02:00",
+    "sessionTime": {
+      "16:00:00 - 18:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 20,
+    "room": 3,
+    "date": "2024-06-03T00:00:00+02:00",
+    "sessionTime": {
+      "17:40:00 - 20:20:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 21,
+    "room": 1,
+    "date": "2024-06-03T00:00:00+02:00",
+    "sessionTime": {
+      "19:20:00 - 21:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 22,
+    "room": 2,
+    "date": "2024-06-04T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 12:50:00": "Duration: 30 minutes"
+    },
+    "movieId": 13
+  },
+  {
+    "id": 23,
+    "room": 3,
+    "date": "2024-06-04T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 16:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 24,
+    "room": 1,
+    "date": "2024-06-04T00:00:00+02:00",
+    "sessionTime": {
+      "16:30:00 - 17:50:00": "Duration: 55 minutes"
+    },
+    "movieId": 10
+  },
+  {
+    "id": 25,
+    "room": 2,
+    "date": "2024-06-04T00:00:00+02:00",
+    "sessionTime": {
+      "18:10:00 - 21:00:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 26,
+    "room": 3,
+    "date": "2024-06-04T00:00:00+02:00",
+    "sessionTime": {
+      "19:50:00 - 21:50:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 27,
+    "room": 1,
+    "date": "2024-06-05T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:00:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 28,
+    "room": 2,
+    "date": "2024-06-05T00:00:00+02:00",
+    "sessionTime": {
+      "14:40:00 - 17:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 29,
+    "room": 3,
+    "date": "2024-06-05T00:00:00+02:00",
+    "sessionTime": {
+      "16:20:00 - 18:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 12
+  },
+  {
+    "id": 30,
+    "room": 1,
+    "date": "2024-06-05T00:00:00+02:00",
+    "sessionTime": {
+      "17:00:00 - 19:50:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 31,
+    "room": 2,
+    "date": "2024-06-06T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 32,
+    "room": 3,
+    "date": "2024-06-06T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 17:00:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 33,
+    "room": 1,
+    "date": "2024-06-06T00:00:00+02:00",
+    "sessionTime": {
+      "16:00:00 - 18:40:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 34,
+    "room": 2,
+    "date": "2024-06-06T00:00:00+02:00",
+    "sessionTime": {
+      "17:40:00 - 20:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 35,
+    "room": 3,
+    "date": "2024-06-06T00:00:00+02:00",
+    "sessionTime": {
+      "19:20:00 - 20:40:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 36,
+    "room": 1,
+    "date": "2024-06-06T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:50:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 37,
+    "room": 2,
+    "date": "2024-06-06T00:00:00+02:00",
+    "sessionTime": {
+      "13:20:00 - 15:20:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 38,
+    "room": 3,
+    "date": "2024-06-06T00:00:00+02:00",
+    "sessionTime": {
+      "15:30:00 - 18:10:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 39,
+    "room": 1,
+    "date": "2024-06-06T00:00:00+02:00",
+    "sessionTime": {
+      "17:10:00 - 19:30:00": "Duration: 120 minutes"
+    },
+    "movieId": 12
+  },
+  {
+    "id": 40,
+    "room": 2,
+    "date": "2024-06-06T00:00:00+02:00",
+    "sessionTime": {
+      "17:50:00 - 19:10:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 41,
+    "room": 3,
+    "date": "2024-06-07T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:40:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 42,
+    "room": 1,
+    "date": "2024-06-07T00:00:00+02:00",
+    "sessionTime": {
+      "14:40:00 - 16:00:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 43,
+    "room": 2,
+    "date": "2024-06-07T00:00:00+02:00",
+    "sessionTime": {
+      "16:00:00 - 17:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 12
+  },
+  {
+    "id": 44,
+    "room": 3,
+    "date": "2024-06-07T00:00:00+02:00",
+    "sessionTime": {
+      "17:40:00 - 19:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 45,
+    "room": 1,
+    "date": "2024-06-07T00:00:00+02:00",
+    "sessionTime": {
+      "19:20:00 - 21:30:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 46,
+    "room": 2,
+    "date": "2024-06-07T00:00:00+02:00",
+    "sessionTime": {
+      "21:30:00 - 22:10:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 47,
+    "room": 3,
+    "date": "2024-06-08T00:00:00+02:00",
+    "sessionTime": {
+      "13:00:00 - 14:20:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 48,
+    "room": 1,
+    "date": "2024-06-08T00:00:00+02:00",
+    "sessionTime": {
+      "15:50:00 - 17:10:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 49,
+    "room": 2,
+    "date": "2024-06-08T00:00:00+02:00",
+    "sessionTime": {
+      "17:10:00 - 18:30:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 50,
+    "room": 3,
+    "date": "2024-06-08T00:00:00+02:00",
+    "sessionTime": {
+      "18:50:00 - 20:10:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 51,
+    "room": 1,
+    "date": "2024-06-09T00:00:00+02:00",
+    "sessionTime": {
+      "13:00:00 - 14:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 10
+  },
+  {
+    "id": 52,
+    "room": 2,
+    "date": "2024-06-09T00:00:00+02:00",
+    "sessionTime": {
+      "15:00:00 - 16:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 53,
+    "room": 3,
+    "date": "2024-06-10T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:40:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 54,
+    "room": 1,
+    "date": "2024-06-10T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 15:40:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 55,
+    "room": 2,
+    "date": "2024-06-10T00:00:00+02:00",
+    "sessionTime": {
+      "14:30:00 - 15:50:00": "Duration: 55 minutes"
+    },
+    "movieId": 10
+  },
+  {
+    "id": 56,
+    "room": 3,
+    "date": "2024-06-10T00:00:00+02:00",
+    "sessionTime": {
+      "16:30:00 - 18:50:00": "Duration: 120 minutes"
+    },
+    "movieId": 12
+  },
+  {
+    "id": 57,
+    "room": 1,
+    "date": "2024-06-10T00:00:00+02:00",
+    "sessionTime": {
+      "18:30:00 - 19:20:00": "Duration: 30 minutes"
+    },
+    "movieId": 13
+  },
+  {
+    "id": 58,
+    "room": 2,
+    "date": "2024-06-11T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:50:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 59,
+    "room": 3,
+    "date": "2024-06-11T00:00:00+02:00",
+    "sessionTime": {
+      "12:50:00 - 15:40:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 60,
+    "room": 1,
+    "date": "2024-06-11T00:00:00+02:00",
+    "sessionTime": {
+      "14:30:00 - 17:20:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 61,
+    "room": 2,
+    "date": "2024-06-11T00:00:00+02:00",
+    "sessionTime": {
+      "16:10:00 - 18:50:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 62,
+    "room": 3,
+    "date": "2024-06-11T00:00:00+02:00",
+    "sessionTime": {
+      "18:20:00 - 19:40:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 63,
+    "room": 1,
+    "date": "2024-06-12T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 13:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 64,
+    "room": 2,
+    "date": "2024-06-12T00:00:00+02:00",
+    "sessionTime": {
+      "13:20:00 - 15:20:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 65,
+    "room": 3,
+    "date": "2024-06-12T00:00:00+02:00",
+    "sessionTime": {
+      "15:00:00 - 16:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 66,
+    "room": 1,
+    "date": "2024-06-12T00:00:00+02:00",
+    "sessionTime": {
+      "17:10:00 - 19:10:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 67,
+    "room": 2,
+    "date": "2024-06-13T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 68,
+    "room": 3,
+    "date": "2024-06-13T00:00:00+02:00",
+    "sessionTime": {
+      "15:20:00 - 16:40:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 69,
+    "room": 1,
+    "date": "2024-06-13T00:00:00+02:00",
+    "sessionTime": {
+      "17:00:00 - 19:50:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 70,
+    "room": 2,
+    "date": "2024-06-13T00:00:00+02:00",
+    "sessionTime": {
+      "18:40:00 - 21:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 71,
+    "room": 3,
+    "date": "2024-06-13T00:00:00+02:00",
+    "sessionTime": {
+      "20:20:00 - 21:40:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 72,
+    "room": 1,
+    "date": "2024-06-13T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 13:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 73,
+    "room": 2,
+    "date": "2024-06-13T00:00:00+02:00",
+    "sessionTime": {
+      "14:50:00 - 16:10:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 74,
+    "room": 3,
+    "date": "2024-06-13T00:00:00+02:00",
+    "sessionTime": {
+      "16:30:00 - 17:50:00": "Duration: 55 minutes"
+    },
+    "movieId": 10
+  },
+  {
+    "id": 75,
+    "room": 1,
+    "date": "2024-06-13T00:00:00+02:00",
+    "sessionTime": {
+      "17:10:00 - 18:30:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 76,
+    "room": 2,
+    "date": "2024-06-13T00:00:00+02:00",
+    "sessionTime": {
+      "19:10:00 - 21:50:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 77,
+    "room": 3,
+    "date": "2024-06-14T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 13:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 78,
+    "room": 1,
+    "date": "2024-06-14T00:00:00+02:00",
+    "sessionTime": {
+      "13:20:00 - 16:00:00": "Duration: 175 minutes"
+    },
+    "movieId": 3
+  },
+  {
+    "id": 79,
+    "room": 2,
+    "date": "2024-06-14T00:00:00+02:00",
+    "sessionTime": {
+      "16:00:00 - 18:10:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 80,
+    "room": 3,
+    "date": "2024-06-14T00:00:00+02:00",
+    "sessionTime": {
+      "18:10:00 - 19:50:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 81,
+    "room": 1,
+    "date": "2024-06-14T00:00:00+02:00",
+    "sessionTime": {
+      "19:50:00 - 22:00:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 82,
+    "room": 2,
+    "date": "2024-06-14T00:00:00+02:00",
+    "sessionTime": {
+      "22:00:00 - 23:20:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 83,
+    "room": 3,
+    "date": "2024-06-15T00:00:00+02:00",
+    "sessionTime": {
+      "13:00:00 - 15:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 84,
+    "room": 1,
+    "date": "2024-06-15T00:00:00+02:00",
+    "sessionTime": {
+      "15:20:00 - 18:40:00": "Duration: 175 minutes"
+    },
+    "movieId": 3
+  },
+  {
+    "id": 85,
+    "room": 2,
+    "date": "2024-06-15T00:00:00+02:00",
+    "sessionTime": {
+      "17:30:00 - 19:30:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 86,
+    "room": 3,
+    "date": "2024-06-15T00:00:00+02:00",
+    "sessionTime": {
+      "18:10:00 - 19:30:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 87,
+    "room": 1,
+    "date": "2024-06-16T00:00:00+02:00",
+    "sessionTime": {
+      "13:00:00 - 15:00:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 88,
+    "room": 2,
+    "date": "2024-06-16T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 16:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 89,
+    "room": 3,
+    "date": "2024-06-17T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 90,
+    "room": 1,
+    "date": "2024-06-17T00:00:00+02:00",
+    "sessionTime": {
+      "13:20:00 - 14:40:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 91,
+    "room": 2,
+    "date": "2024-06-17T00:00:00+02:00",
+    "sessionTime": {
+      "14:40:00 - 16:00:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 92,
+    "room": 3,
+    "date": "2024-06-17T00:00:00+02:00",
+    "sessionTime": {
+      "16:50:00 - 19:10:00": "Duration: 120 minutes"
+    },
+    "movieId": 12
+  },
+  {
+    "id": 93,
+    "room": 1,
+    "date": "2024-06-17T00:00:00+02:00",
+    "sessionTime": {
+      "17:30:00 - 18:20:00": "Duration: 30 minutes"
+    },
+    "movieId": 13
+  },
+  {
+    "id": 94,
     "room": 2,
     "date": "2024-06-18T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
+      "12:00:00 - 13:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 95,
+    "room": 3,
+    "date": "2024-06-18T00:00:00+02:00",
+    "sessionTime": {
+      "14:50:00 - 15:40:00": "Duration: 30 minutes"
+    },
+    "movieId": 13
+  },
+  {
+    "id": 96,
+    "room": 1,
+    "date": "2024-06-18T00:00:00+02:00",
+    "sessionTime": {
+      "15:30:00 - 17:50:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 97,
+    "room": 2,
+    "date": "2024-06-18T00:00:00+02:00",
+    "sessionTime": {
+      "17:30:00 - 19:50:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 98,
+    "room": 3,
+    "date": "2024-06-18T00:00:00+02:00",
+    "sessionTime": {
+      "19:10:00 - 20:30:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 99,
+    "room": 1,
+    "date": "2024-06-19T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 15:20:00": "Duration: 175 minutes"
+    },
+    "movieId": 3
+  },
+  {
+    "id": 100,
+    "room": 2,
+    "date": "2024-06-19T00:00:00+02:00",
+    "sessionTime": {
+      "14:50:00 - 16:10:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 101,
+    "room": 3,
+    "date": "2024-06-19T00:00:00+02:00",
+    "sessionTime": {
+      "15:30:00 - 18:20:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 102,
+    "room": 1,
+    "date": "2024-06-19T00:00:00+02:00",
+    "sessionTime": {
+      "18:10:00 - 19:30:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 103,
+    "room": 2,
+    "date": "2024-06-20T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 104,
+    "room": 3,
+    "date": "2024-06-20T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 16:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 105,
+    "room": 1,
+    "date": "2024-06-20T00:00:00+02:00",
+    "sessionTime": {
+      "16:30:00 - 17:50:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 106,
+    "room": 2,
+    "date": "2024-06-20T00:00:00+02:00",
+    "sessionTime": {
+      "18:10:00 - 20:30:00": "Duration: 120 minutes"
     },
     "movieId": 6
   },
   {
     "id": 107,
     "room": 3,
-    "date": "2024-06-18T00:00:00+02:00",
+    "date": "2024-06-20T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 108,
-    "room": 1,
-    "date": "2024-06-18T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 109,
-    "room": 2,
-    "date": "2024-06-18T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 110,
-    "room": 3,
-    "date": "2024-06-18T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 97 minutes"
+      "18:50:00 - 20:50:00": "Duration: 97 minutes"
     },
     "movieId": 5
   },
   {
-    "id": 111,
+    "id": 108,
     "room": 1,
-    "date": "2024-06-19T00:00:00+02:00",
+    "date": "2024-06-20T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
+      "12:00:00 - 12:50:00": "Duration: 30 minutes"
     },
-    "movieId": 6
+    "movieId": 13
   },
   {
-    "id": 112,
+    "id": 109,
     "room": 2,
-    "date": "2024-06-19T00:00:00+02:00",
+    "date": "2024-06-20T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 113,
-    "room": 3,
-    "date": "2024-06-19T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 175 minutes"
+      "14:20:00 - 17:40:00": "Duration: 175 minutes"
     },
     "movieId": 3
   },
   {
-    "id": 114,
-    "room": 1,
-    "date": "2024-06-19T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 115,
-    "room": 2,
-    "date": "2024-06-20T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 116,
+    "id": 110,
     "room": 3,
     "date": "2024-06-20T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 117,
-    "room": 1,
-    "date": "2024-06-20T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 136 minutes"
+      "16:20:00 - 19:00:00": "Duration: 136 minutes"
     },
     "movieId": 4
   },
   {
-    "id": 118,
-    "room": 2,
+    "id": 111,
+    "room": 1,
     "date": "2024-06-20T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 119,
-    "room": 3,
-    "date": "2024-06-20T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 142 minutes"
+      "17:00:00 - 19:50:00": "Duration: 142 minutes"
     },
     "movieId": 2
   },
   {
-    "id": 120,
+    "id": 112,
+    "room": 2,
+    "date": "2024-06-20T00:00:00+02:00",
+    "sessionTime": {
+      "18:40:00 - 19:30:00": "Duration: 30 minutes"
+    },
+    "movieId": 13
+  },
+  {
+    "id": 113,
+    "room": 3,
+    "date": "2024-06-21T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 13:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 114,
     "room": 1,
     "date": "2024-06-21T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
+      "13:20:00 - 14:40:00": "Duration: 97 minutes"
     },
-    "movieId": 8
+    "movieId": 5
+  },
+  {
+    "id": 115,
+    "room": 2,
+    "date": "2024-06-21T00:00:00+02:00",
+    "sessionTime": {
+      "14:40:00 - 15:20:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 116,
+    "room": 3,
+    "date": "2024-06-21T00:00:00+02:00",
+    "sessionTime": {
+      "15:20:00 - 16:00:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 117,
+    "room": 1,
+    "date": "2024-06-21T00:00:00+02:00",
+    "sessionTime": {
+      "16:00:00 - 16:40:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 118,
+    "room": 2,
+    "date": "2024-06-21T00:00:00+02:00",
+    "sessionTime": {
+      "16:40:00 - 18:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 119,
+    "room": 3,
+    "date": "2024-06-22T00:00:00+02:00",
+    "sessionTime": {
+      "13:00:00 - 16:20:00": "Duration: 175 minutes"
+    },
+    "movieId": 3
+  },
+  {
+    "id": 120,
+    "room": 1,
+    "date": "2024-06-22T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 17:10:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
   },
   {
     "id": 121,
     "room": 2,
-    "date": "2024-06-21T00:00:00+02:00",
+    "date": "2024-06-22T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 175 minutes"
+      "16:30:00 - 19:50:00": "Duration: 175 minutes"
     },
     "movieId": 3
   },
   {
     "id": 122,
     "room": 3,
-    "date": "2024-06-21T00:00:00+02:00",
+    "date": "2024-06-22T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 500 minutes"
+      "17:10:00 - 18:30:00": "Duration: 60 minutes"
     },
     "movieId": 11
   },
   {
     "id": 123,
     "room": 1,
-    "date": "2024-06-21T00:00:00+02:00",
+    "date": "2024-06-23T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 124,
-    "room": 2,
-    "date": "2024-06-21T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 125,
-    "room": 3,
-    "date": "2024-06-21T00:00:00+02:00",
-    "sessionTime": {
-      "22:00:00 - 22:00:00": "Duration: 142 minutes",
-      "00:00:00 - 00:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 126,
-    "room": 1,
-    "date": "2024-06-22T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 127,
-    "room": 2,
-    "date": "2024-06-22T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 97 minutes"
-    },
-    "movieId": 5
-  },
-  {
-    "id": 128,
-    "room": 3,
-    "date": "2024-06-22T00:00:00+02:00",
-    "sessionTime": {
-      "17:00:00 - 19:00:00": "Duration: 120 minutes"
+      "13:00:00 - 15:20:00": "Duration: 120 minutes"
     },
     "movieId": 8
   },
   {
-    "id": 129,
-    "room": 1,
-    "date": "2024-06-22T00:00:00+02:00",
-    "sessionTime": {
-      "19:00:00 - 21:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 130,
+    "id": 124,
     "room": 2,
     "date": "2024-06-23T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 55 minutes"
+      "15:00:00 - 16:20:00": "Duration: 55 minutes"
     },
-    "movieId": 9
+    "movieId": 7
   },
   {
-    "id": 131,
+    "id": 125,
     "room": 3,
-    "date": "2024-06-23T00:00:00+02:00",
+    "date": "2024-06-24T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 120 minutes"
+      "12:00:00 - 12:50:00": "Duration: 30 minutes"
     },
-    "movieId": 6
+    "movieId": 13
   },
   {
-    "id": 132,
+    "id": 126,
     "room": 1,
-    "date": "2024-06-23T00:00:00+02:00",
+    "date": "2024-06-24T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 142 minutes"
+      "13:20:00 - 16:10:00": "Duration: 142 minutes"
     },
     "movieId": 2
   },
   {
+    "id": 127,
+    "room": 2,
+    "date": "2024-06-24T00:00:00+02:00",
+    "sessionTime": {
+      "15:00:00 - 17:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 128,
+    "room": 3,
+    "date": "2024-06-24T00:00:00+02:00",
+    "sessionTime": {
+      "16:40:00 - 19:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 129,
+    "room": 1,
+    "date": "2024-06-24T00:00:00+02:00",
+    "sessionTime": {
+      "18:50:00 - 20:10:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 130,
+    "room": 2,
+    "date": "2024-06-25T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 12
+  },
+  {
+    "id": 131,
+    "room": 3,
+    "date": "2024-06-25T00:00:00+02:00",
+    "sessionTime": {
+      "14:50:00 - 16:10:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 132,
+    "room": 1,
+    "date": "2024-06-25T00:00:00+02:00",
+    "sessionTime": {
+      "16:30:00 - 18:50:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
     "id": 133,
     "room": 2,
-    "date": "2024-06-23T00:00:00+02:00",
+    "date": "2024-06-25T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 136 minutes"
+      "18:40:00 - 21:00:00": "Duration: 120 minutes"
     },
-    "movieId": 4
+    "movieId": 12
   },
   {
     "id": 134,
     "room": 3,
-    "date": "2024-06-24T00:00:00+02:00",
+    "date": "2024-06-25T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
+      "19:20:00 - 20:40:00": "Duration: 60 minutes"
     },
-    "movieId": 10
+    "movieId": 11
   },
   {
     "id": 135,
     "room": 1,
-    "date": "2024-06-24T00:00:00+02:00",
+    "date": "2024-06-26T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 136 minutes"
+      "12:00:00 - 14:40:00": "Duration: 136 minutes"
     },
     "movieId": 4
   },
   {
     "id": 136,
     "room": 2,
-    "date": "2024-06-24T00:00:00+02:00",
+    "date": "2024-06-26T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
+      "13:20:00 - 15:40:00": "Duration: 120 minutes"
     },
-    "movieId": 10
+    "movieId": 8
   },
   {
     "id": 137,
     "room": 3,
-    "date": "2024-06-24T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 138,
-    "room": 1,
-    "date": "2024-06-24T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 139,
-    "room": 2,
-    "date": "2024-06-25T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 140,
-    "room": 3,
-    "date": "2024-06-25T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 141,
-    "room": 1,
-    "date": "2024-06-25T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 142,
-    "room": 2,
-    "date": "2024-06-25T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 143,
-    "room": 3,
-    "date": "2024-06-25T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 97 minutes"
-    },
-    "movieId": 5
-  },
-  {
-    "id": 144,
-    "room": 1,
     "date": "2024-06-26T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 145,
-    "room": 2,
-    "date": "2024-06-26T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 146,
-    "room": 3,
-    "date": "2024-06-26T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 142 minutes"
+      "14:00:00 - 16:50:00": "Duration: 142 minutes"
     },
     "movieId": 2
   },
   {
-    "id": 147,
+    "id": 138,
     "room": 1,
     "date": "2024-06-26T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
+      "15:40:00 - 18:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 139,
+    "room": 2,
+    "date": "2024-06-27T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 15:20:00": "Duration: 175 minutes"
+    },
+    "movieId": 3
+  },
+  {
+    "id": 140,
+    "room": 3,
+    "date": "2024-06-27T00:00:00+02:00",
+    "sessionTime": {
+      "14:00:00 - 16:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 141,
+    "room": 1,
+    "date": "2024-06-27T00:00:00+02:00",
+    "sessionTime": {
+      "16:40:00 - 19:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 142,
+    "room": 2,
+    "date": "2024-06-27T00:00:00+02:00",
+    "sessionTime": {
+      "18:20:00 - 21:00:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 143,
+    "room": 3,
+    "date": "2024-06-27T00:00:00+02:00",
+    "sessionTime": {
+      "20:30:00 - 21:50:00": "Duration: 55 minutes"
     },
     "movieId": 10
+  },
+  {
+    "id": 144,
+    "room": 1,
+    "date": "2024-06-27T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:50:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 145,
+    "room": 2,
+    "date": "2024-06-27T00:00:00+02:00",
+    "sessionTime": {
+      "13:20:00 - 14:40:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 146,
+    "room": 3,
+    "date": "2024-06-27T00:00:00+02:00",
+    "sessionTime": {
+      "15:00:00 - 17:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 147,
+    "room": 1,
+    "date": "2024-06-27T00:00:00+02:00",
+    "sessionTime": {
+      "15:10:00 - 17:30:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
   },
   {
     "id": 148,
     "room": 2,
     "date": "2024-06-27T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 149,
-    "room": 3,
-    "date": "2024-06-27T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 148 minutes"
+      "15:50:00 - 18:40:00": "Duration: 148 minutes"
     },
     "movieId": 1
   },
   {
+    "id": 149,
+    "room": 3,
+    "date": "2024-06-28T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
     "id": 150,
     "room": 1,
-    "date": "2024-06-27T00:00:00+02:00",
+    "date": "2024-06-28T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
+      "14:20:00 - 14:30:00": "Duration: 30 minutes"
     },
-    "movieId": 10
+    "movieId": 13
   },
   {
     "id": 151,
     "room": 2,
-    "date": "2024-06-27T00:00:00+02:00",
+    "date": "2024-06-28T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 175 minutes"
+      "14:30:00 - 15:10:00": "Duration: 55 minutes"
     },
-    "movieId": 3
+    "movieId": 9
   },
   {
     "id": 152,
     "room": 3,
-    "date": "2024-06-27T00:00:00+02:00",
+    "date": "2024-06-28T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 136 minutes"
+      "15:10:00 - 16:50:00": "Duration: 120 minutes"
     },
-    "movieId": 4
+    "movieId": 6
   },
   {
     "id": 153,
     "room": 1,
     "date": "2024-06-28T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
+      "16:50:00 - 17:30:00": "Duration: 60 minutes"
     },
-    "movieId": 10
+    "movieId": 11
   },
   {
     "id": 154,
     "room": 2,
     "date": "2024-06-28T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
+      "17:30:00 - 18:10:00": "Duration: 55 minutes"
     },
-    "movieId": 9
+    "movieId": 10
   },
   {
     "id": 155,
     "room": 3,
-    "date": "2024-06-28T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 156,
-    "room": 1,
-    "date": "2024-06-28T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 157,
-    "room": 2,
-    "date": "2024-06-28T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 158,
-    "room": 3,
-    "date": "2024-06-28T00:00:00+02:00",
-    "sessionTime": {
-      "22:00:00 - 22:00:00": "Duration: 55 minutes",
-      "00:00:00 - 00:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 159,
-    "room": 1,
     "date": "2024-06-29T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 160,
-    "room": 2,
-    "date": "2024-06-29T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 161,
-    "room": 3,
-    "date": "2024-06-29T00:00:00+02:00",
-    "sessionTime": {
-      "17:00:00 - 19:00:00": "Duration: 97 minutes"
-    },
-    "movieId": 5
-  },
-  {
-    "id": 162,
-    "room": 1,
-    "date": "2024-06-29T00:00:00+02:00",
-    "sessionTime": {
-      "19:00:00 - 21:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 163,
-    "room": 2,
-    "date": "2024-06-30T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 142 minutes"
+      "13:00:00 - 15:50:00": "Duration: 142 minutes"
     },
     "movieId": 2
   },
   {
-    "id": 164,
-    "room": 3,
-    "date": "2024-06-30T00:00:00+02:00",
+    "id": 156,
+    "room": 1,
+    "date": "2024-06-29T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 120 minutes"
+      "16:20:00 - 18:40:00": "Duration: 120 minutes"
     },
     "movieId": 6
   },
   {
-    "id": 165,
-    "room": 1,
-    "date": "2024-06-30T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 166,
+    "id": 157,
     "room": 2,
-    "date": "2024-06-30T00:00:00+02:00",
+    "date": "2024-06-29T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 167,
-    "room": 3,
-    "date": "2024-07-01T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 168,
-    "room": 1,
-    "date": "2024-07-01T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 169,
-    "room": 2,
-    "date": "2024-07-01T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 170,
-    "room": 3,
-    "date": "2024-07-01T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 171,
-    "room": 1,
-    "date": "2024-07-01T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 172,
-    "room": 2,
-    "date": "2024-07-02T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 173,
-    "room": 3,
-    "date": "2024-07-02T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 174,
-    "room": 1,
-    "date": "2024-07-02T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 175,
-    "room": 2,
-    "date": "2024-07-02T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 500 minutes"
+      "17:00:00 - 18:20:00": "Duration: 60 minutes"
     },
     "movieId": 11
   },
   {
-    "id": 176,
+    "id": 158,
+    "room": 3,
+    "date": "2024-06-29T00:00:00+02:00",
+    "sessionTime": {
+      "17:10:00 - 19:30:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 159,
+    "room": 1,
+    "date": "2024-06-30T00:00:00+02:00",
+    "sessionTime": {
+      "13:00:00 - 13:50:00": "Duration: 30 minutes"
+    },
+    "movieId": 13
+  },
+  {
+    "id": 160,
+    "room": 2,
+    "date": "2024-06-30T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 15:10:00": "Duration: 30 minutes"
+    },
+    "movieId": 13
+  },
+  {
+    "id": 161,
+    "room": 3,
+    "date": "2024-07-01T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 162,
+    "room": 1,
+    "date": "2024-07-01T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 16:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 163,
+    "room": 2,
+    "date": "2024-07-01T00:00:00+02:00",
+    "sessionTime": {
+      "15:00:00 - 16:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 164,
+    "room": 3,
+    "date": "2024-07-01T00:00:00+02:00",
+    "sessionTime": {
+      "17:00:00 - 17:50:00": "Duration: 30 minutes"
+    },
+    "movieId": 13
+  },
+  {
+    "id": 165,
+    "room": 1,
+    "date": "2024-07-01T00:00:00+02:00",
+    "sessionTime": {
+      "17:40:00 - 20:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 166,
+    "room": 2,
+    "date": "2024-07-02T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:50:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 167,
     "room": 3,
     "date": "2024-07-02T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
+      "14:20:00 - 17:10:00": "Duration: 148 minutes"
     },
-    "movieId": 7
+    "movieId": 1
   },
   {
-    "id": 177,
+    "id": 168,
+    "room": 1,
+    "date": "2024-07-02T00:00:00+02:00",
+    "sessionTime": {
+      "15:00:00 - 17:50:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 169,
+    "room": 2,
+    "date": "2024-07-02T00:00:00+02:00",
+    "sessionTime": {
+      "17:10:00 - 18:00:00": "Duration: 30 minutes"
+    },
+    "movieId": 13
+  },
+  {
+    "id": 170,
+    "room": 3,
+    "date": "2024-07-02T00:00:00+02:00",
+    "sessionTime": {
+      "17:50:00 - 20:40:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 171,
     "room": 1,
     "date": "2024-07-03T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 172,
+    "room": 2,
+    "date": "2024-07-03T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 16:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 173,
+    "room": 3,
+    "date": "2024-07-03T00:00:00+02:00",
+    "sessionTime": {
+      "15:00:00 - 17:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 174,
+    "room": 1,
+    "date": "2024-07-03T00:00:00+02:00",
+    "sessionTime": {
+      "16:20:00 - 18:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 12
+  },
+  {
+    "id": 175,
+    "room": 2,
+    "date": "2024-07-04T00:00:00+02:00",
     "sessionTime": {
       "12:00:00 - 14:00:00": "Duration: 97 minutes"
     },
     "movieId": 5
   },
   {
+    "id": 176,
+    "room": 3,
+    "date": "2024-07-04T00:00:00+02:00",
+    "sessionTime": {
+      "13:20:00 - 14:40:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 177,
+    "room": 1,
+    "date": "2024-07-04T00:00:00+02:00",
+    "sessionTime": {
+      "15:00:00 - 17:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
     "id": 178,
     "room": 2,
-    "date": "2024-07-03T00:00:00+02:00",
+    "date": "2024-07-04T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 148 minutes"
+      "17:40:00 - 19:40:00": "Duration: 97 minutes"
     },
-    "movieId": 1
+    "movieId": 5
   },
   {
     "id": 179,
     "room": 3,
-    "date": "2024-07-03T00:00:00+02:00",
+    "date": "2024-07-04T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 175 minutes"
+      "19:50:00 - 22:10:00": "Duration: 120 minutes"
     },
-    "movieId": 3
+    "movieId": 6
   },
   {
     "id": 180,
     "room": 1,
-    "date": "2024-07-03T00:00:00+02:00",
+    "date": "2024-07-04T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
     },
-    "movieId": 7
+    "movieId": 12
   },
   {
     "id": 181,
     "room": 2,
     "date": "2024-07-04T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
+      "12:50:00 - 14:10:00": "Duration: 60 minutes"
     },
-    "movieId": 9
+    "movieId": 11
   },
   {
     "id": 182,
     "room": 3,
     "date": "2024-07-04T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 142 minutes"
+      "13:30:00 - 14:50:00": "Duration: 55 minutes"
     },
-    "movieId": 2
+    "movieId": 9
   },
   {
     "id": 183,
     "room": 1,
     "date": "2024-07-04T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
+      "16:10:00 - 19:00:00": "Duration: 148 minutes"
     },
-    "movieId": 8
+    "movieId": 1
   },
   {
     "id": 184,
     "room": 2,
     "date": "2024-07-04T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 97 minutes"
+      "16:50:00 - 18:50:00": "Duration: 97 minutes"
     },
     "movieId": 5
   },
   {
     "id": 185,
     "room": 3,
-    "date": "2024-07-04T00:00:00+02:00",
+    "date": "2024-07-05T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 175 minutes"
+      "12:00:00 - 14:50:00": "Duration: 142 minutes"
     },
-    "movieId": 3
+    "movieId": 2
   },
   {
     "id": 186,
     "room": 1,
     "date": "2024-07-05T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 500 minutes"
+      "14:50:00 - 17:30:00": "Duration: 175 minutes"
     },
-    "movieId": 11
+    "movieId": 3
   },
   {
     "id": 187,
     "room": 2,
     "date": "2024-07-05T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 120 minutes"
+      "17:30:00 - 19:40:00": "Duration: 142 minutes"
     },
-    "movieId": 6
+    "movieId": 2
   },
   {
     "id": 188,
     "room": 3,
     "date": "2024-07-05T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
+      "19:40:00 - 21:50:00": "Duration: 148 minutes"
     },
-    "movieId": 10
+    "movieId": 1
   },
   {
     "id": 189,
     "room": 1,
     "date": "2024-07-05T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
+      "21:50:00 - 00:00:00": "Duration: 148 minutes"
     },
-    "movieId": 9
+    "movieId": 1
   },
   {
     "id": 190,
     "room": 2,
     "date": "2024-07-05T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
+      "00:00:00 - 00:40:00": "Duration: 55 minutes"
     },
     "movieId": 9
   },
   {
     "id": 191,
     "room": 3,
-    "date": "2024-07-05T00:00:00+02:00",
+    "date": "2024-07-06T00:00:00+02:00",
     "sessionTime": {
-      "22:00:00 - 22:00:00": "Duration: 97 minutes",
-      "00:00:00 - 00:00:00": "Duration: 97 minutes"
+      "13:00:00 - 15:20:00": "Duration: 120 minutes"
     },
-    "movieId": 5
+    "movieId": 12
   },
   {
     "id": 192,
     "room": 1,
     "date": "2024-07-06T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 142 minutes"
+      "15:20:00 - 16:40:00": "Duration: 55 minutes"
     },
-    "movieId": 2
+    "movieId": 9
   },
   {
     "id": 193,
     "room": 2,
     "date": "2024-07-06T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 500 minutes"
+      "17:00:00 - 19:50:00": "Duration: 142 minutes"
     },
-    "movieId": 11
+    "movieId": 2
   },
   {
     "id": 194,
     "room": 3,
     "date": "2024-07-06T00:00:00+02:00",
     "sessionTime": {
-      "17:00:00 - 19:00:00": "Duration: 120 minutes"
+      "17:10:00 - 19:10:00": "Duration: 97 minutes"
     },
-    "movieId": 8
+    "movieId": 5
   },
   {
     "id": 195,
     "room": 1,
-    "date": "2024-07-06T00:00:00+02:00",
+    "date": "2024-07-07T00:00:00+02:00",
     "sessionTime": {
-      "19:00:00 - 21:00:00": "Duration: 142 minutes"
+      "13:00:00 - 14:20:00": "Duration: 55 minutes"
     },
-    "movieId": 2
+    "movieId": 10
   },
   {
     "id": 196,
     "room": 2,
     "date": "2024-07-07T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 148 minutes"
+      "15:20:00 - 16:40:00": "Duration: 55 minutes"
     },
-    "movieId": 1
+    "movieId": 10
   },
   {
     "id": 197,
     "room": 3,
-    "date": "2024-07-07T00:00:00+02:00",
+    "date": "2024-07-08T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 148 minutes"
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
     },
-    "movieId": 1
+    "movieId": 14
   },
   {
     "id": 198,
     "room": 1,
-    "date": "2024-07-07T00:00:00+02:00",
+    "date": "2024-07-08T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 55 minutes"
+      "14:20:00 - 16:40:00": "Duration: 120 minutes"
     },
-    "movieId": 9
+    "movieId": 12
   },
   {
     "id": 199,
     "room": 2,
-    "date": "2024-07-07T00:00:00+02:00",
+    "date": "2024-07-08T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 148 minutes"
+      "16:30:00 - 17:50:00": "Duration: 55 minutes"
     },
-    "movieId": 1
+    "movieId": 10
   },
   {
     "id": 200,
     "room": 3,
     "date": "2024-07-08T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 175 minutes"
+      "18:10:00 - 21:00:00": "Duration: 148 minutes"
     },
-    "movieId": 3
+    "movieId": 1
   },
   {
     "id": 201,
     "room": 1,
     "date": "2024-07-08T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 142 minutes"
+      "19:50:00 - 22:10:00": "Duration: 120 minutes"
     },
-    "movieId": 2
+    "movieId": 14
   },
   {
     "id": 202,
     "room": 2,
-    "date": "2024-07-08T00:00:00+02:00",
+    "date": "2024-07-09T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
     },
-    "movieId": 8
+    "movieId": 12
   },
   {
     "id": 203,
     "room": 3,
-    "date": "2024-07-08T00:00:00+02:00",
+    "date": "2024-07-09T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
+      "15:20:00 - 16:40:00": "Duration: 55 minutes"
     },
-    "movieId": 7
+    "movieId": 10
   },
   {
     "id": 204,
     "room": 1,
-    "date": "2024-07-08T00:00:00+02:00",
+    "date": "2024-07-09T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
+      "16:40:00 - 18:00:00": "Duration: 60 minutes"
     },
-    "movieId": 9
+    "movieId": 11
   },
   {
     "id": 205,
     "room": 2,
     "date": "2024-07-09T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
+      "18:20:00 - 19:40:00": "Duration: 55 minutes"
     },
-    "movieId": 7
+    "movieId": 9
   },
   {
     "id": 206,
     "room": 3,
     "date": "2024-07-09T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 97 minutes"
+      "19:00:00 - 19:50:00": "Duration: 30 minutes"
     },
-    "movieId": 5
+    "movieId": 13
   },
   {
     "id": 207,
     "room": 1,
-    "date": "2024-07-09T00:00:00+02:00",
+    "date": "2024-07-10T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 148 minutes"
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
     },
-    "movieId": 1
+    "movieId": 8
   },
   {
     "id": 208,
     "room": 2,
-    "date": "2024-07-09T00:00:00+02:00",
+    "date": "2024-07-10T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 120 minutes"
+      "13:20:00 - 15:40:00": "Duration: 120 minutes"
     },
     "movieId": 8
   },
   {
     "id": 209,
     "room": 3,
-    "date": "2024-07-09T00:00:00+02:00",
+    "date": "2024-07-10T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
+      "14:00:00 - 16:00:00": "Duration: 97 minutes"
     },
-    "movieId": 9
+    "movieId": 5
   },
   {
     "id": 210,
     "room": 1,
     "date": "2024-07-10T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 148 minutes"
+      "15:40:00 - 18:20:00": "Duration: 136 minutes"
     },
-    "movieId": 1
+    "movieId": 4
   },
   {
     "id": 211,
     "room": 2,
-    "date": "2024-07-10T00:00:00+02:00",
+    "date": "2024-07-11T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 148 minutes"
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
     },
-    "movieId": 1
+    "movieId": 6
   },
   {
     "id": 212,
     "room": 3,
-    "date": "2024-07-10T00:00:00+02:00",
+    "date": "2024-07-11T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
+      "14:20:00 - 15:40:00": "Duration: 55 minutes"
     },
-    "movieId": 7
+    "movieId": 10
   },
   {
     "id": 213,
     "room": 1,
-    "date": "2024-07-10T00:00:00+02:00",
+    "date": "2024-07-11T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
+      "17:00:00 - 19:20:00": "Duration: 120 minutes"
     },
-    "movieId": 7
+    "movieId": 8
   },
   {
     "id": 214,
     "room": 2,
     "date": "2024-07-11T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 97 minutes"
+      "18:20:00 - 20:20:00": "Duration: 97 minutes"
     },
     "movieId": 5
   },
@@ -1945,224 +1939,223 @@
     "room": 3,
     "date": "2024-07-11T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 120 minutes"
+      "20:30:00 - 21:50:00": "Duration: 55 minutes"
     },
-    "movieId": 8
+    "movieId": 9
   },
   {
     "id": 216,
     "room": 1,
     "date": "2024-07-11T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
+      "12:00:00 - 14:40:00": "Duration: 136 minutes"
     },
-    "movieId": 7
+    "movieId": 4
   },
   {
     "id": 217,
     "room": 2,
     "date": "2024-07-11T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
+      "15:20:00 - 16:40:00": "Duration: 55 minutes"
     },
-    "movieId": 10
+    "movieId": 7
   },
   {
     "id": 218,
     "room": 3,
     "date": "2024-07-11T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
+      "18:00:00 - 20:20:00": "Duration: 120 minutes"
     },
-    "movieId": 9
+    "movieId": 14
   },
   {
     "id": 219,
     "room": 1,
-    "date": "2024-07-12T00:00:00+02:00",
+    "date": "2024-07-11T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 175 minutes"
+      "19:40:00 - 22:00:00": "Duration: 120 minutes"
     },
-    "movieId": 3
+    "movieId": 12
   },
   {
     "id": 220,
     "room": 2,
-    "date": "2024-07-12T00:00:00+02:00",
+    "date": "2024-07-11T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 175 minutes"
+      "21:50:00 - 23:30:00": "Duration: 120 minutes"
     },
-    "movieId": 3
+    "movieId": 12
   },
   {
     "id": 221,
     "room": 3,
     "date": "2024-07-12T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
+      "12:00:00 - 14:50:00": "Duration: 148 minutes"
     },
-    "movieId": 7
+    "movieId": 1
   },
   {
     "id": 222,
     "room": 1,
     "date": "2024-07-12T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 120 minutes"
+      "14:50:00 - 17:30:00": "Duration: 175 minutes"
     },
-    "movieId": 6
+    "movieId": 3
   },
   {
     "id": 223,
     "room": 2,
     "date": "2024-07-12T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 136 minutes"
+      "17:30:00 - 20:10:00": "Duration: 175 minutes"
     },
-    "movieId": 4
+    "movieId": 3
   },
   {
     "id": 224,
     "room": 3,
     "date": "2024-07-12T00:00:00+02:00",
     "sessionTime": {
-      "22:00:00 - 22:00:00": "Duration: 55 minutes",
-      "00:00:00 - 00:00:00": "Duration: 55 minutes"
+      "20:10:00 - 21:30:00": "Duration: 97 minutes"
     },
-    "movieId": 7
+    "movieId": 5
   },
   {
     "id": 225,
     "room": 1,
-    "date": "2024-07-13T00:00:00+02:00",
+    "date": "2024-07-12T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 55 minutes"
+      "21:30:00 - 23:40:00": "Duration: 148 minutes"
     },
-    "movieId": 10
+    "movieId": 1
   },
   {
     "id": 226,
     "room": 2,
-    "date": "2024-07-13T00:00:00+02:00",
+    "date": "2024-07-12T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 55 minutes"
+      "23:40:00 - 01:20:00": "Duration: 120 minutes"
     },
-    "movieId": 9
+    "movieId": 12
   },
   {
     "id": 227,
     "room": 3,
     "date": "2024-07-13T00:00:00+02:00",
     "sessionTime": {
-      "17:00:00 - 19:00:00": "Duration: 142 minutes"
+      "13:00:00 - 15:40:00": "Duration: 136 minutes"
     },
-    "movieId": 2
+    "movieId": 4
   },
   {
     "id": 228,
     "room": 1,
     "date": "2024-07-13T00:00:00+02:00",
     "sessionTime": {
-      "19:00:00 - 21:00:00": "Duration: 136 minutes"
+      "14:20:00 - 16:40:00": "Duration: 120 minutes"
     },
-    "movieId": 4
+    "movieId": 6
   },
   {
     "id": 229,
     "room": 2,
-    "date": "2024-07-14T00:00:00+02:00",
+    "date": "2024-07-13T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 55 minutes"
+      "15:00:00 - 17:00:00": "Duration: 97 minutes"
     },
-    "movieId": 10
+    "movieId": 5
   },
   {
     "id": 230,
     "room": 3,
-    "date": "2024-07-14T00:00:00+02:00",
+    "date": "2024-07-13T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 175 minutes"
+      "15:40:00 - 17:00:00": "Duration: 55 minutes"
     },
-    "movieId": 3
+    "movieId": 7
   },
   {
     "id": 231,
     "room": 1,
     "date": "2024-07-14T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 55 minutes"
+      "13:00:00 - 15:40:00": "Duration: 136 minutes"
     },
-    "movieId": 10
+    "movieId": 4
   },
   {
     "id": 232,
     "room": 2,
     "date": "2024-07-14T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 136 minutes"
+      "15:50:00 - 17:10:00": "Duration: 55 minutes"
     },
-    "movieId": 4
+    "movieId": 10
   },
   {
     "id": 233,
     "room": 3,
     "date": "2024-07-15T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
+      "12:00:00 - 13:20:00": "Duration: 55 minutes"
     },
-    "movieId": 9
+    "movieId": 10
   },
   {
     "id": 234,
     "room": 1,
     "date": "2024-07-15T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 500 minutes"
+      "14:40:00 - 18:00:00": "Duration: 175 minutes"
     },
-    "movieId": 11
+    "movieId": 3
   },
   {
     "id": 235,
     "room": 2,
     "date": "2024-07-15T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
+      "16:20:00 - 17:10:00": "Duration: 30 minutes"
     },
-    "movieId": 6
+    "movieId": 13
   },
   {
     "id": 236,
     "room": 3,
     "date": "2024-07-15T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 142 minutes"
+      "17:00:00 - 17:50:00": "Duration: 30 minutes"
     },
-    "movieId": 2
+    "movieId": 13
   },
   {
     "id": 237,
     "room": 1,
     "date": "2024-07-15T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
+      "17:40:00 - 20:00:00": "Duration: 120 minutes"
     },
-    "movieId": 7
+    "movieId": 12
   },
   {
     "id": 238,
     "room": 2,
     "date": "2024-07-16T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
+      "12:00:00 - 13:20:00": "Duration: 55 minutes"
     },
-    "movieId": 10
+    "movieId": 7
   },
   {
     "id": 239,
     "room": 3,
     "date": "2024-07-16T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 97 minutes"
+      "13:20:00 - 15:20:00": "Duration: 97 minutes"
     },
     "movieId": 5
   },
@@ -2171,1430 +2164,1560 @@
     "room": 1,
     "date": "2024-07-16T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
+      "14:00:00 - 16:00:00": "Duration: 97 minutes"
     },
-    "movieId": 8
+    "movieId": 5
   },
   {
     "id": 241,
     "room": 2,
     "date": "2024-07-16T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 97 minutes"
+      "15:40:00 - 17:00:00": "Duration: 55 minutes"
     },
-    "movieId": 5
+    "movieId": 7
   },
   {
     "id": 242,
     "room": 3,
     "date": "2024-07-16T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 97 minutes"
+      "15:50:00 - 17:10:00": "Duration: 55 minutes"
     },
-    "movieId": 5
+    "movieId": 9
   },
   {
     "id": 243,
     "room": 1,
     "date": "2024-07-17T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 148 minutes"
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
     },
-    "movieId": 1
+    "movieId": 12
   },
   {
     "id": 244,
     "room": 2,
     "date": "2024-07-17T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 97 minutes"
+      "14:20:00 - 15:40:00": "Duration: 60 minutes"
     },
-    "movieId": 5
+    "movieId": 11
   },
   {
     "id": 245,
     "room": 3,
     "date": "2024-07-17T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
+      "15:00:00 - 17:20:00": "Duration: 120 minutes"
     },
-    "movieId": 8
+    "movieId": 6
   },
   {
     "id": 246,
     "room": 1,
     "date": "2024-07-17T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 175 minutes"
+      "15:10:00 - 18:00:00": "Duration: 142 minutes"
     },
-    "movieId": 3
+    "movieId": 2
   },
   {
     "id": 247,
     "room": 2,
     "date": "2024-07-18T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 97 minutes"
+      "12:00:00 - 15:20:00": "Duration: 175 minutes"
     },
-    "movieId": 5
+    "movieId": 3
   },
   {
     "id": 248,
     "room": 3,
     "date": "2024-07-18T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 120 minutes"
+      "14:00:00 - 15:20:00": "Duration: 60 minutes"
     },
-    "movieId": 6
+    "movieId": 11
   },
   {
     "id": 249,
     "room": 1,
     "date": "2024-07-18T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 97 minutes"
+      "14:40:00 - 17:00:00": "Duration: 120 minutes"
     },
-    "movieId": 5
+    "movieId": 8
   },
   {
     "id": 250,
     "room": 2,
     "date": "2024-07-18T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 175 minutes"
+      "16:50:00 - 19:10:00": "Duration: 120 minutes"
     },
-    "movieId": 3
+    "movieId": 8
   },
   {
     "id": 251,
     "room": 3,
     "date": "2024-07-18T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 252,
-    "room": 1,
-    "date": "2024-07-19T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
+      "17:00:00 - 19:20:00": "Duration: 120 minutes"
     },
     "movieId": 6
   },
   {
+    "id": 252,
+    "room": 1,
+    "date": "2024-07-18T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
     "id": 253,
     "room": 2,
-    "date": "2024-07-19T00:00:00+02:00",
+    "date": "2024-07-18T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
+      "14:20:00 - 16:40:00": "Duration: 120 minutes"
     },
-    "movieId": 10
+    "movieId": 8
   },
   {
     "id": 254,
     "room": 3,
-    "date": "2024-07-19T00:00:00+02:00",
+    "date": "2024-07-18T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 175 minutes"
+      "16:30:00 - 19:20:00": "Duration: 148 minutes"
     },
-    "movieId": 3
+    "movieId": 1
   },
   {
     "id": 255,
     "room": 1,
-    "date": "2024-07-19T00:00:00+02:00",
+    "date": "2024-07-18T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
+      "18:10:00 - 20:30:00": "Duration: 120 minutes"
     },
-    "movieId": 7
+    "movieId": 14
   },
   {
     "id": 256,
     "room": 2,
-    "date": "2024-07-19T00:00:00+02:00",
+    "date": "2024-07-18T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 148 minutes"
+      "18:50:00 - 20:10:00": "Duration: 55 minutes"
     },
-    "movieId": 1
+    "movieId": 10
   },
   {
     "id": 257,
     "room": 3,
     "date": "2024-07-19T00:00:00+02:00",
     "sessionTime": {
-      "22:00:00 - 22:00:00": "Duration: 97 minutes",
-      "00:00:00 - 00:00:00": "Duration: 97 minutes"
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
     },
-    "movieId": 5
+    "movieId": 8
   },
   {
     "id": 258,
     "room": 1,
-    "date": "2024-07-20T00:00:00+02:00",
+    "date": "2024-07-19T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 97 minutes"
+      "14:20:00 - 16:00:00": "Duration: 120 minutes"
     },
-    "movieId": 5
+    "movieId": 6
   },
   {
     "id": 259,
     "room": 2,
-    "date": "2024-07-20T00:00:00+02:00",
+    "date": "2024-07-19T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 175 minutes"
+      "16:00:00 - 18:40:00": "Duration: 175 minutes"
     },
     "movieId": 3
   },
   {
     "id": 260,
     "room": 3,
-    "date": "2024-07-20T00:00:00+02:00",
+    "date": "2024-07-19T00:00:00+02:00",
     "sessionTime": {
-      "17:00:00 - 19:00:00": "Duration: 120 minutes"
+      "18:40:00 - 19:20:00": "Duration: 55 minutes"
     },
-    "movieId": 6
+    "movieId": 7
   },
   {
     "id": 261,
     "room": 1,
-    "date": "2024-07-20T00:00:00+02:00",
+    "date": "2024-07-19T00:00:00+02:00",
     "sessionTime": {
-      "19:00:00 - 21:00:00": "Duration: 136 minutes"
+      "19:20:00 - 21:00:00": "Duration: 120 minutes"
     },
-    "movieId": 4
+    "movieId": 14
   },
   {
     "id": 262,
     "room": 2,
-    "date": "2024-07-21T00:00:00+02:00",
+    "date": "2024-07-19T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 120 minutes"
+      "21:00:00 - 23:40:00": "Duration: 175 minutes"
     },
-    "movieId": 8
+    "movieId": 3
   },
   {
     "id": 263,
     "room": 3,
-    "date": "2024-07-21T00:00:00+02:00",
+    "date": "2024-07-20T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 148 minutes"
+      "13:00:00 - 13:50:00": "Duration: 30 minutes"
     },
-    "movieId": 1
+    "movieId": 13
   },
   {
     "id": 264,
     "room": 1,
-    "date": "2024-07-21T00:00:00+02:00",
+    "date": "2024-07-20T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 55 minutes"
+      "15:40:00 - 17:00:00": "Duration: 55 minutes"
     },
-    "movieId": 9
+    "movieId": 10
   },
   {
     "id": 265,
     "room": 2,
-    "date": "2024-07-21T00:00:00+02:00",
+    "date": "2024-07-20T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 500 minutes"
+      "17:50:00 - 20:40:00": "Duration: 142 minutes"
     },
-    "movieId": 11
+    "movieId": 2
   },
   {
     "id": 266,
     "room": 3,
-    "date": "2024-07-22T00:00:00+02:00",
+    "date": "2024-07-20T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 500 minutes"
+      "18:30:00 - 21:20:00": "Duration: 148 minutes"
     },
-    "movieId": 11
+    "movieId": 1
   },
   {
     "id": 267,
     "room": 1,
-    "date": "2024-07-22T00:00:00+02:00",
+    "date": "2024-07-21T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 120 minutes"
+      "13:00:00 - 14:20:00": "Duration: 55 minutes"
     },
-    "movieId": 6
+    "movieId": 7
   },
   {
     "id": 268,
     "room": 2,
-    "date": "2024-07-22T00:00:00+02:00",
+    "date": "2024-07-21T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 175 minutes"
+      "15:50:00 - 17:10:00": "Duration: 55 minutes"
     },
-    "movieId": 3
+    "movieId": 7
   },
   {
     "id": 269,
     "room": 3,
     "date": "2024-07-22T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 142 minutes"
+      "12:00:00 - 14:50:00": "Duration: 148 minutes"
     },
-    "movieId": 2
+    "movieId": 1
   },
   {
     "id": 270,
     "room": 1,
     "date": "2024-07-22T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 136 minutes"
+      "14:20:00 - 15:10:00": "Duration: 30 minutes"
     },
-    "movieId": 4
+    "movieId": 13
   },
   {
     "id": 271,
     "room": 2,
-    "date": "2024-07-23T00:00:00+02:00",
+    "date": "2024-07-22T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
+      "16:00:00 - 18:20:00": "Duration: 120 minutes"
     },
-    "movieId": 10
+    "movieId": 6
   },
   {
     "id": 272,
     "room": 3,
-    "date": "2024-07-23T00:00:00+02:00",
+    "date": "2024-07-22T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 148 minutes"
+      "16:40:00 - 17:30:00": "Duration: 30 minutes"
     },
-    "movieId": 1
+    "movieId": 13
   },
   {
     "id": 273,
     "room": 1,
-    "date": "2024-07-23T00:00:00+02:00",
+    "date": "2024-07-22T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 142 minutes"
+      "18:20:00 - 19:40:00": "Duration: 55 minutes"
     },
-    "movieId": 2
+    "movieId": 9
   },
   {
     "id": 274,
     "room": 2,
     "date": "2024-07-23T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 175 minutes"
+      "12:00:00 - 13:20:00": "Duration: 55 minutes"
     },
-    "movieId": 3
+    "movieId": 7
   },
   {
     "id": 275,
     "room": 3,
     "date": "2024-07-23T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
+      "15:20:00 - 18:10:00": "Duration: 142 minutes"
     },
-    "movieId": 9
+    "movieId": 2
   },
   {
     "id": 276,
     "room": 1,
-    "date": "2024-07-24T00:00:00+02:00",
+    "date": "2024-07-23T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 136 minutes"
+      "16:00:00 - 18:20:00": "Duration: 120 minutes"
     },
-    "movieId": 4
+    "movieId": 8
   },
   {
     "id": 277,
     "room": 2,
-    "date": "2024-07-24T00:00:00+02:00",
+    "date": "2024-07-23T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 136 minutes"
+      "18:10:00 - 19:30:00": "Duration: 55 minutes"
     },
-    "movieId": 4
+    "movieId": 9
   },
   {
     "id": 278,
     "room": 3,
-    "date": "2024-07-24T00:00:00+02:00",
+    "date": "2024-07-23T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
+      "18:50:00 - 20:10:00": "Duration: 55 minutes"
     },
-    "movieId": 6
+    "movieId": 7
   },
   {
     "id": 279,
     "room": 1,
     "date": "2024-07-24T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 120 minutes"
+      "12:00:00 - 13:20:00": "Duration: 55 minutes"
     },
-    "movieId": 6
+    "movieId": 10
   },
   {
     "id": 280,
     "room": 2,
-    "date": "2024-07-25T00:00:00+02:00",
+    "date": "2024-07-24T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
+      "13:20:00 - 14:40:00": "Duration: 55 minutes"
     },
     "movieId": 7
   },
   {
     "id": 281,
     "room": 3,
-    "date": "2024-07-25T00:00:00+02:00",
+    "date": "2024-07-24T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 136 minutes"
+      "14:40:00 - 17:00:00": "Duration: 120 minutes"
     },
-    "movieId": 4
+    "movieId": 12
   },
   {
     "id": 282,
     "room": 1,
-    "date": "2024-07-25T00:00:00+02:00",
+    "date": "2024-07-24T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
+      "14:50:00 - 17:10:00": "Duration: 120 minutes"
     },
-    "movieId": 9
+    "movieId": 12
   },
   {
     "id": 283,
     "room": 2,
     "date": "2024-07-25T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 97 minutes"
+      "12:00:00 - 13:20:00": "Duration: 55 minutes"
     },
-    "movieId": 5
+    "movieId": 9
   },
   {
     "id": 284,
     "room": 3,
     "date": "2024-07-25T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 136 minutes"
+      "13:20:00 - 15:40:00": "Duration: 120 minutes"
     },
-    "movieId": 4
+    "movieId": 8
   },
   {
     "id": 285,
     "room": 1,
-    "date": "2024-07-26T00:00:00+02:00",
+    "date": "2024-07-25T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 175 minutes"
+      "14:40:00 - 17:00:00": "Duration: 120 minutes"
     },
-    "movieId": 3
+    "movieId": 8
   },
   {
     "id": 286,
     "room": 2,
-    "date": "2024-07-26T00:00:00+02:00",
+    "date": "2024-07-25T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 287,
-    "room": 3,
-    "date": "2024-07-26T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 288,
-    "room": 1,
-    "date": "2024-07-26T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 289,
-    "room": 2,
-    "date": "2024-07-26T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 290,
-    "room": 3,
-    "date": "2024-07-26T00:00:00+02:00",
-    "sessionTime": {
-      "22:00:00 - 22:00:00": "Duration: 175 minutes",
-      "00:00:00 - 00:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 291,
-    "room": 1,
-    "date": "2024-07-27T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 292,
-    "room": 2,
-    "date": "2024-07-27T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 293,
-    "room": 3,
-    "date": "2024-07-27T00:00:00+02:00",
-    "sessionTime": {
-      "17:00:00 - 19:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 294,
-    "room": 1,
-    "date": "2024-07-27T00:00:00+02:00",
-    "sessionTime": {
-      "19:00:00 - 21:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 295,
-    "room": 2,
-    "date": "2024-07-28T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 296,
-    "room": 3,
-    "date": "2024-07-28T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 297,
-    "room": 1,
-    "date": "2024-07-28T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 298,
-    "room": 2,
-    "date": "2024-07-28T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 55 minutes"
+      "16:20:00 - 17:40:00": "Duration: 55 minutes"
     },
     "movieId": 9
   },
   {
+    "id": 287,
+    "room": 3,
+    "date": "2024-07-25T00:00:00+02:00",
+    "sessionTime": {
+      "18:00:00 - 19:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 288,
+    "room": 1,
+    "date": "2024-07-25T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 15:20:00": "Duration: 175 minutes"
+    },
+    "movieId": 3
+  },
+  {
+    "id": 289,
+    "room": 2,
+    "date": "2024-07-25T00:00:00+02:00",
+    "sessionTime": {
+      "13:20:00 - 14:40:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 290,
+    "room": 3,
+    "date": "2024-07-25T00:00:00+02:00",
+    "sessionTime": {
+      "15:00:00 - 17:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 291,
+    "room": 1,
+    "date": "2024-07-25T00:00:00+02:00",
+    "sessionTime": {
+      "17:10:00 - 19:30:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 292,
+    "room": 2,
+    "date": "2024-07-25T00:00:00+02:00",
+    "sessionTime": {
+      "18:50:00 - 21:40:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 293,
+    "room": 3,
+    "date": "2024-07-26T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 13:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 10
+  },
+  {
+    "id": 294,
+    "room": 1,
+    "date": "2024-07-26T00:00:00+02:00",
+    "sessionTime": {
+      "13:20:00 - 14:00:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 295,
+    "room": 2,
+    "date": "2024-07-26T00:00:00+02:00",
+    "sessionTime": {
+      "14:00:00 - 14:40:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 296,
+    "room": 3,
+    "date": "2024-07-26T00:00:00+02:00",
+    "sessionTime": {
+      "14:40:00 - 16:50:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 297,
+    "room": 1,
+    "date": "2024-07-26T00:00:00+02:00",
+    "sessionTime": {
+      "16:50:00 - 18:30:00": "Duration: 120 minutes"
+    },
+    "movieId": 12
+  },
+  {
+    "id": 298,
+    "room": 2,
+    "date": "2024-07-26T00:00:00+02:00",
+    "sessionTime": {
+      "18:30:00 - 20:40:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
     "id": 299,
     "room": 3,
-    "date": "2024-07-29T00:00:00+02:00",
+    "date": "2024-07-27T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 500 minutes"
+      "13:00:00 - 14:20:00": "Duration: 60 minutes"
     },
     "movieId": 11
   },
   {
     "id": 300,
     "room": 1,
-    "date": "2024-07-29T00:00:00+02:00",
+    "date": "2024-07-27T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 175 minutes"
+      "15:50:00 - 18:10:00": "Duration: 120 minutes"
     },
-    "movieId": 3
+    "movieId": 8
   },
   {
     "id": 301,
     "room": 2,
-    "date": "2024-07-29T00:00:00+02:00",
+    "date": "2024-07-27T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 136 minutes"
+      "16:30:00 - 18:50:00": "Duration: 120 minutes"
     },
-    "movieId": 4
+    "movieId": 14
   },
   {
     "id": 302,
     "room": 3,
-    "date": "2024-07-29T00:00:00+02:00",
+    "date": "2024-07-27T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 175 minutes"
+      "18:10:00 - 20:30:00": "Duration: 120 minutes"
     },
-    "movieId": 3
+    "movieId": 6
   },
   {
     "id": 303,
     "room": 1,
-    "date": "2024-07-29T00:00:00+02:00",
+    "date": "2024-07-28T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 304,
-    "room": 2,
-    "date": "2024-07-30T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 305,
-    "room": 3,
-    "date": "2024-07-30T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 306,
-    "room": 1,
-    "date": "2024-07-30T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 307,
-    "room": 2,
-    "date": "2024-07-30T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
+      "13:00:00 - 14:20:00": "Duration: 55 minutes"
     },
     "movieId": 10
   },
   {
-    "id": 308,
-    "room": 3,
-    "date": "2024-07-30T00:00:00+02:00",
+    "id": 304,
+    "room": 2,
+    "date": "2024-07-28T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 120 minutes"
+      "15:00:00 - 17:20:00": "Duration: 120 minutes"
     },
-    "movieId": 6
+    "movieId": 14
   },
   {
-    "id": 309,
-    "room": 1,
-    "date": "2024-07-31T00:00:00+02:00",
+    "id": 305,
+    "room": 3,
+    "date": "2024-07-29T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 136 minutes"
+      "12:00:00 - 14:40:00": "Duration: 136 minutes"
     },
     "movieId": 4
   },
   {
+    "id": 306,
+    "room": 1,
+    "date": "2024-07-29T00:00:00+02:00",
+    "sessionTime": {
+      "12:50:00 - 14:50:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 307,
+    "room": 2,
+    "date": "2024-07-29T00:00:00+02:00",
+    "sessionTime": {
+      "14:30:00 - 16:50:00": "Duration: 120 minutes"
+    },
+    "movieId": 12
+  },
+  {
+    "id": 308,
+    "room": 3,
+    "date": "2024-07-29T00:00:00+02:00",
+    "sessionTime": {
+      "16:30:00 - 17:50:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 309,
+    "room": 1,
+    "date": "2024-07-29T00:00:00+02:00",
+    "sessionTime": {
+      "18:40:00 - 20:00:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
     "id": 310,
     "room": 2,
-    "date": "2024-07-31T00:00:00+02:00",
+    "date": "2024-07-30T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 142 minutes"
+      "12:00:00 - 14:40:00": "Duration: 136 minutes"
     },
-    "movieId": 2
+    "movieId": 4
   },
   {
     "id": 311,
     "room": 3,
-    "date": "2024-07-31T00:00:00+02:00",
+    "date": "2024-07-30T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 148 minutes"
+      "13:20:00 - 14:10:00": "Duration: 30 minutes"
     },
-    "movieId": 1
+    "movieId": 13
   },
   {
     "id": 312,
     "room": 1,
-    "date": "2024-07-31T00:00:00+02:00",
+    "date": "2024-07-30T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 97 minutes"
+      "15:00:00 - 17:20:00": "Duration: 120 minutes"
     },
-    "movieId": 5
+    "movieId": 12
   },
   {
     "id": 313,
     "room": 2,
-    "date": "2024-08-01T00:00:00+02:00",
+    "date": "2024-07-30T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
+      "16:40:00 - 19:20:00": "Duration: 136 minutes"
     },
-    "movieId": 6
+    "movieId": 4
   },
   {
     "id": 314,
     "room": 3,
-    "date": "2024-08-01T00:00:00+02:00",
+    "date": "2024-07-30T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 148 minutes"
+      "18:50:00 - 21:40:00": "Duration: 142 minutes"
     },
-    "movieId": 1
+    "movieId": 2
   },
   {
     "id": 315,
     "room": 1,
-    "date": "2024-08-01T00:00:00+02:00",
+    "date": "2024-07-31T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
+      "12:00:00 - 14:50:00": "Duration: 142 minutes"
     },
-    "movieId": 9
+    "movieId": 2
   },
   {
     "id": 316,
     "room": 2,
-    "date": "2024-08-01T00:00:00+02:00",
+    "date": "2024-07-31T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
+      "14:50:00 - 16:10:00": "Duration: 55 minutes"
     },
-    "movieId": 7
+    "movieId": 10
   },
   {
     "id": 317,
     "room": 3,
-    "date": "2024-08-01T00:00:00+02:00",
+    "date": "2024-07-31T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 97 minutes"
+      "16:10:00 - 17:00:00": "Duration: 30 minutes"
     },
-    "movieId": 5
+    "movieId": 13
   },
   {
     "id": 318,
     "room": 1,
-    "date": "2024-08-02T00:00:00+02:00",
+    "date": "2024-07-31T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 175 minutes"
+      "17:50:00 - 20:10:00": "Duration: 120 minutes"
     },
-    "movieId": 3
+    "movieId": 8
   },
   {
     "id": 319,
     "room": 2,
-    "date": "2024-08-02T00:00:00+02:00",
+    "date": "2024-08-01T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 136 minutes"
+      "12:00:00 - 14:40:00": "Duration: 136 minutes"
     },
     "movieId": 4
   },
   {
     "id": 320,
     "room": 3,
-    "date": "2024-08-02T00:00:00+02:00",
+    "date": "2024-08-01T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 321,
-    "room": 1,
-    "date": "2024-08-02T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 97 minutes"
-    },
-    "movieId": 5
-  },
-  {
-    "id": 322,
-    "room": 2,
-    "date": "2024-08-02T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 323,
-    "room": 3,
-    "date": "2024-08-02T00:00:00+02:00",
-    "sessionTime": {
-      "22:00:00 - 22:00:00": "Duration: 500 minutes",
-      "00:00:00 - 00:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 324,
-    "room": 1,
-    "date": "2024-08-03T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 325,
-    "room": 2,
-    "date": "2024-08-03T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 97 minutes"
-    },
-    "movieId": 5
-  },
-  {
-    "id": 326,
-    "room": 3,
-    "date": "2024-08-03T00:00:00+02:00",
-    "sessionTime": {
-      "17:00:00 - 19:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 327,
-    "room": 1,
-    "date": "2024-08-03T00:00:00+02:00",
-    "sessionTime": {
-      "19:00:00 - 21:00:00": "Duration: 120 minutes"
+      "14:50:00 - 17:10:00": "Duration: 120 minutes"
     },
     "movieId": 8
   },
   {
-    "id": 328,
-    "room": 2,
-    "date": "2024-08-04T00:00:00+02:00",
+    "id": 321,
+    "room": 1,
+    "date": "2024-08-01T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 120 minutes"
+      "16:10:00 - 17:00:00": "Duration: 30 minutes"
     },
-    "movieId": 6
+    "movieId": 13
   },
   {
-    "id": 329,
-    "room": 3,
-    "date": "2024-08-04T00:00:00+02:00",
+    "id": 322,
+    "room": 2,
+    "date": "2024-08-01T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 500 minutes"
+      "16:50:00 - 18:10:00": "Duration: 60 minutes"
     },
     "movieId": 11
   },
   {
-    "id": 330,
-    "room": 1,
-    "date": "2024-08-04T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 331,
-    "room": 2,
-    "date": "2024-08-04T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 332,
+    "id": 323,
     "room": 3,
-    "date": "2024-08-05T00:00:00+02:00",
+    "date": "2024-08-01T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 333,
-    "room": 1,
-    "date": "2024-08-05T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 334,
-    "room": 2,
-    "date": "2024-08-05T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 335,
-    "room": 3,
-    "date": "2024-08-05T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 97 minutes"
+      "18:30:00 - 20:30:00": "Duration: 97 minutes"
     },
     "movieId": 5
   },
   {
-    "id": 336,
+    "id": 324,
     "room": 1,
-    "date": "2024-08-05T00:00:00+02:00",
+    "date": "2024-08-01T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 175 minutes"
+      "12:00:00 - 14:00:00": "Duration: 97 minutes"
     },
-    "movieId": 3
+    "movieId": 5
   },
   {
-    "id": 337,
+    "id": 325,
     "room": 2,
-    "date": "2024-08-06T00:00:00+02:00",
+    "date": "2024-08-01T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
+      "13:20:00 - 14:40:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 326,
+    "room": 3,
+    "date": "2024-08-01T00:00:00+02:00",
+    "sessionTime": {
+      "14:00:00 - 16:50:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 327,
+    "room": 1,
+    "date": "2024-08-01T00:00:00+02:00",
+    "sessionTime": {
+      "15:20:00 - 16:40:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 328,
+    "room": 2,
+    "date": "2024-08-01T00:00:00+02:00",
+    "sessionTime": {
+      "16:00:00 - 17:20:00": "Duration: 55 minutes"
     },
     "movieId": 10
   },
   {
-    "id": 338,
+    "id": 329,
     "room": 3,
-    "date": "2024-08-06T00:00:00+02:00",
+    "date": "2024-08-02T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 175 minutes"
+      "12:00:00 - 14:50:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 330,
+    "room": 1,
+    "date": "2024-08-02T00:00:00+02:00",
+    "sessionTime": {
+      "14:50:00 - 16:30:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 331,
+    "room": 2,
+    "date": "2024-08-02T00:00:00+02:00",
+    "sessionTime": {
+      "16:30:00 - 19:10:00": "Duration: 175 minutes"
     },
     "movieId": 3
   },
   {
+    "id": 332,
+    "room": 3,
+    "date": "2024-08-02T00:00:00+02:00",
+    "sessionTime": {
+      "19:10:00 - 19:50:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 333,
+    "room": 1,
+    "date": "2024-08-02T00:00:00+02:00",
+    "sessionTime": {
+      "19:50:00 - 22:00:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 334,
+    "room": 2,
+    "date": "2024-08-02T00:00:00+02:00",
+    "sessionTime": {
+      "22:00:00 - 23:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 335,
+    "room": 3,
+    "date": "2024-08-03T00:00:00+02:00",
+    "sessionTime": {
+      "13:00:00 - 15:50:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 336,
+    "room": 1,
+    "date": "2024-08-03T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 15:40:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 337,
+    "room": 2,
+    "date": "2024-08-03T00:00:00+02:00",
+    "sessionTime": {
+      "15:00:00 - 17:50:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 338,
+    "room": 3,
+    "date": "2024-08-03T00:00:00+02:00",
+    "sessionTime": {
+      "17:10:00 - 20:00:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
     "id": 339,
     "room": 1,
-    "date": "2024-08-06T00:00:00+02:00",
+    "date": "2024-08-04T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
+      "13:00:00 - 14:20:00": "Duration: 55 minutes"
     },
     "movieId": 7
   },
   {
     "id": 340,
     "room": 2,
-    "date": "2024-08-06T00:00:00+02:00",
+    "date": "2024-08-04T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 136 minutes"
+      "15:20:00 - 16:40:00": "Duration: 55 minutes"
     },
-    "movieId": 4
+    "movieId": 10
   },
   {
     "id": 341,
     "room": 3,
-    "date": "2024-08-06T00:00:00+02:00",
+    "date": "2024-08-05T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
+      "12:00:00 - 15:20:00": "Duration: 175 minutes"
     },
-    "movieId": 7
+    "movieId": 3
   },
   {
     "id": 342,
     "room": 1,
-    "date": "2024-08-07T00:00:00+02:00",
+    "date": "2024-08-05T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 500 minutes"
+      "15:20:00 - 16:40:00": "Duration: 55 minutes"
     },
-    "movieId": 11
+    "movieId": 9
   },
   {
     "id": 343,
     "room": 2,
-    "date": "2024-08-07T00:00:00+02:00",
+    "date": "2024-08-05T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 120 minutes"
+      "18:00:00 - 21:20:00": "Duration: 175 minutes"
     },
-    "movieId": 8
+    "movieId": 3
   },
   {
     "id": 344,
     "room": 3,
-    "date": "2024-08-07T00:00:00+02:00",
+    "date": "2024-08-05T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 175 minutes"
+      "19:20:00 - 22:10:00": "Duration: 142 minutes"
     },
-    "movieId": 3
+    "movieId": 2
   },
   {
     "id": 345,
     "room": 1,
-    "date": "2024-08-07T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 346,
-    "room": 2,
-    "date": "2024-08-08T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 347,
-    "room": 3,
-    "date": "2024-08-08T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 348,
-    "room": 1,
-    "date": "2024-08-08T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 97 minutes"
-    },
-    "movieId": 5
-  },
-  {
-    "id": 349,
-    "room": 2,
-    "date": "2024-08-08T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 97 minutes"
-    },
-    "movieId": 5
-  },
-  {
-    "id": 350,
-    "room": 3,
-    "date": "2024-08-08T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 351,
-    "room": 1,
-    "date": "2024-08-09T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 352,
-    "room": 2,
-    "date": "2024-08-09T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 353,
-    "room": 3,
-    "date": "2024-08-09T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 354,
-    "room": 1,
-    "date": "2024-08-09T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 355,
-    "room": 2,
-    "date": "2024-08-09T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 356,
-    "room": 3,
-    "date": "2024-08-09T00:00:00+02:00",
-    "sessionTime": {
-      "22:00:00 - 22:00:00": "Duration: 97 minutes",
-      "00:00:00 - 00:00:00": "Duration: 97 minutes"
-    },
-    "movieId": 5
-  },
-  {
-    "id": 357,
-    "room": 1,
-    "date": "2024-08-10T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 358,
-    "room": 2,
-    "date": "2024-08-10T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 359,
-    "room": 3,
-    "date": "2024-08-10T00:00:00+02:00",
-    "sessionTime": {
-      "17:00:00 - 19:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 360,
-    "room": 1,
-    "date": "2024-08-10T00:00:00+02:00",
-    "sessionTime": {
-      "19:00:00 - 21:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 361,
-    "room": 2,
-    "date": "2024-08-11T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 362,
-    "room": 3,
-    "date": "2024-08-11T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 363,
-    "room": 1,
-    "date": "2024-08-11T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 364,
-    "room": 2,
-    "date": "2024-08-11T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 365,
-    "room": 3,
-    "date": "2024-08-12T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 366,
-    "room": 1,
-    "date": "2024-08-12T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 97 minutes"
-    },
-    "movieId": 5
-  },
-  {
-    "id": 367,
-    "room": 2,
-    "date": "2024-08-12T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 368,
-    "room": 3,
-    "date": "2024-08-12T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 369,
-    "room": 1,
-    "date": "2024-08-12T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 370,
-    "room": 2,
-    "date": "2024-08-13T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 371,
-    "room": 3,
-    "date": "2024-08-13T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 372,
-    "room": 1,
-    "date": "2024-08-13T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 373,
-    "room": 2,
-    "date": "2024-08-13T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 374,
-    "room": 3,
-    "date": "2024-08-13T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 375,
-    "room": 1,
-    "date": "2024-08-14T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 376,
-    "room": 2,
-    "date": "2024-08-14T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 377,
-    "room": 3,
-    "date": "2024-08-14T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 378,
-    "room": 1,
-    "date": "2024-08-14T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 379,
-    "room": 2,
-    "date": "2024-08-15T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 380,
-    "room": 3,
-    "date": "2024-08-15T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 381,
-    "room": 1,
-    "date": "2024-08-15T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 382,
-    "room": 2,
-    "date": "2024-08-15T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 383,
-    "room": 3,
-    "date": "2024-08-15T00:00:00+02:00",
+    "date": "2024-08-05T00:00:00+02:00",
     "sessionTime": {
       "20:00:00 - 22:00:00": "Duration: 97 minutes"
     },
     "movieId": 5
   },
   {
-    "id": 384,
-    "room": 1,
-    "date": "2024-08-16T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 385,
+    "id": 346,
     "room": 2,
-    "date": "2024-08-16T00:00:00+02:00",
+    "date": "2024-08-06T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 386,
-    "room": 3,
-    "date": "2024-08-16T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 387,
-    "room": 1,
-    "date": "2024-08-16T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 388,
-    "room": 2,
-    "date": "2024-08-16T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 389,
-    "room": 3,
-    "date": "2024-08-16T00:00:00+02:00",
-    "sessionTime": {
-      "22:00:00 - 22:00:00": "Duration: 97 minutes",
-      "00:00:00 - 00:00:00": "Duration: 97 minutes"
+      "12:00:00 - 14:00:00": "Duration: 97 minutes"
     },
     "movieId": 5
   },
   {
-    "id": 390,
+    "id": 347,
+    "room": 3,
+    "date": "2024-08-06T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 15:40:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 348,
     "room": 1,
-    "date": "2024-08-17T00:00:00+02:00",
+    "date": "2024-08-06T00:00:00+02:00",
+    "sessionTime": {
+      "15:00:00 - 17:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 349,
+    "room": 2,
+    "date": "2024-08-06T00:00:00+02:00",
+    "sessionTime": {
+      "15:40:00 - 18:20:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 350,
+    "room": 3,
+    "date": "2024-08-06T00:00:00+02:00",
+    "sessionTime": {
+      "17:40:00 - 19:40:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 351,
+    "room": 1,
+    "date": "2024-08-07T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 13:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 352,
+    "room": 2,
+    "date": "2024-08-07T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 16:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 12
+  },
+  {
+    "id": 353,
+    "room": 3,
+    "date": "2024-08-07T00:00:00+02:00",
+    "sessionTime": {
+      "16:00:00 - 18:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 354,
+    "room": 1,
+    "date": "2024-08-07T00:00:00+02:00",
+    "sessionTime": {
+      "17:40:00 - 18:30:00": "Duration: 30 minutes"
+    },
+    "movieId": 13
+  },
+  {
+    "id": 355,
+    "room": 2,
+    "date": "2024-08-08T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 12
+  },
+  {
+    "id": 356,
+    "room": 3,
+    "date": "2024-08-08T00:00:00+02:00",
+    "sessionTime": {
+      "14:40:00 - 17:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 357,
+    "room": 1,
+    "date": "2024-08-08T00:00:00+02:00",
+    "sessionTime": {
+      "16:00:00 - 18:40:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 358,
+    "room": 2,
+    "date": "2024-08-08T00:00:00+02:00",
+    "sessionTime": {
+      "17:40:00 - 19:40:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 359,
+    "room": 3,
+    "date": "2024-08-08T00:00:00+02:00",
+    "sessionTime": {
+      "19:50:00 - 22:10:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 360,
+    "room": 1,
+    "date": "2024-08-08T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 361,
+    "room": 2,
+    "date": "2024-08-08T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 16:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 362,
+    "room": 3,
+    "date": "2024-08-08T00:00:00+02:00",
+    "sessionTime": {
+      "17:00:00 - 20:20:00": "Duration: 175 minutes"
+    },
+    "movieId": 3
+  },
+  {
+    "id": 363,
+    "room": 1,
+    "date": "2024-08-08T00:00:00+02:00",
+    "sessionTime": {
+      "19:40:00 - 22:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 364,
+    "room": 2,
+    "date": "2024-08-08T00:00:00+02:00",
+    "sessionTime": {
+      "22:20:00 - 00:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 12
+  },
+  {
+    "id": 365,
+    "room": 3,
+    "date": "2024-08-09T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 15:20:00": "Duration: 175 minutes"
+    },
+    "movieId": 3
+  },
+  {
+    "id": 366,
+    "room": 1,
+    "date": "2024-08-09T00:00:00+02:00",
+    "sessionTime": {
+      "15:20:00 - 17:30:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 367,
+    "room": 2,
+    "date": "2024-08-09T00:00:00+02:00",
+    "sessionTime": {
+      "17:30:00 - 19:40:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 368,
+    "room": 3,
+    "date": "2024-08-09T00:00:00+02:00",
+    "sessionTime": {
+      "19:40:00 - 20:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 10
+  },
+  {
+    "id": 369,
+    "room": 1,
+    "date": "2024-08-09T00:00:00+02:00",
+    "sessionTime": {
+      "20:20:00 - 22:20:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 370,
+    "room": 2,
+    "date": "2024-08-09T00:00:00+02:00",
+    "sessionTime": {
+      "22:20:00 - 23:40:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 371,
+    "room": 3,
+    "date": "2024-08-10T00:00:00+02:00",
     "sessionTime": {
       "13:00:00 - 15:00:00": "Duration: 97 minutes"
     },
     "movieId": 5
   },
   {
-    "id": 391,
-    "room": 2,
-    "date": "2024-08-17T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 392,
-    "room": 3,
-    "date": "2024-08-17T00:00:00+02:00",
-    "sessionTime": {
-      "17:00:00 - 19:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 393,
+    "id": 372,
     "room": 1,
-    "date": "2024-08-17T00:00:00+02:00",
+    "date": "2024-08-10T00:00:00+02:00",
     "sessionTime": {
-      "19:00:00 - 21:00:00": "Duration: 55 minutes"
+      "14:20:00 - 16:20:00": "Duration: 97 minutes"
     },
-    "movieId": 10
+    "movieId": 5
   },
   {
-    "id": 394,
+    "id": 373,
     "room": 2,
-    "date": "2024-08-18T00:00:00+02:00",
+    "date": "2024-08-10T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 6
-  },
-  {
-    "id": 395,
-    "room": 3,
-    "date": "2024-08-18T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 175 minutes"
-    },
-    "movieId": 3
-  },
-  {
-    "id": 396,
-    "room": 1,
-    "date": "2024-08-18T00:00:00+02:00",
-    "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 142 minutes"
-    },
-    "movieId": 2
-  },
-  {
-    "id": 397,
-    "room": 2,
-    "date": "2024-08-18T00:00:00+02:00",
-    "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 136 minutes"
+      "16:30:00 - 19:10:00": "Duration: 136 minutes"
     },
     "movieId": 4
   },
   {
+    "id": 374,
+    "room": 3,
+    "date": "2024-08-10T00:00:00+02:00",
+    "sessionTime": {
+      "17:50:00 - 18:40:00": "Duration: 30 minutes"
+    },
+    "movieId": 13
+  },
+  {
+    "id": 375,
+    "room": 1,
+    "date": "2024-08-11T00:00:00+02:00",
+    "sessionTime": {
+      "13:00:00 - 15:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 376,
+    "room": 2,
+    "date": "2024-08-11T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 17:10:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 377,
+    "room": 3,
+    "date": "2024-08-12T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:00:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 378,
+    "room": 1,
+    "date": "2024-08-12T00:00:00+02:00",
+    "sessionTime": {
+      "14:40:00 - 17:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 379,
+    "room": 2,
+    "date": "2024-08-12T00:00:00+02:00",
+    "sessionTime": {
+      "16:20:00 - 18:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 380,
+    "room": 3,
+    "date": "2024-08-12T00:00:00+02:00",
+    "sessionTime": {
+      "17:00:00 - 19:50:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 381,
+    "room": 1,
+    "date": "2024-08-12T00:00:00+02:00",
+    "sessionTime": {
+      "17:40:00 - 19:00:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 382,
+    "room": 2,
+    "date": "2024-08-13T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:50:00": "Duration: 142 minutes"
+    },
+    "movieId": 2
+  },
+  {
+    "id": 383,
+    "room": 3,
+    "date": "2024-08-13T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 17:00:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 384,
+    "room": 1,
+    "date": "2024-08-13T00:00:00+02:00",
+    "sessionTime": {
+      "16:00:00 - 19:20:00": "Duration: 175 minutes"
+    },
+    "movieId": 3
+  },
+  {
+    "id": 385,
+    "room": 2,
+    "date": "2024-08-13T00:00:00+02:00",
+    "sessionTime": {
+      "17:40:00 - 20:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 386,
+    "room": 3,
+    "date": "2024-08-13T00:00:00+02:00",
+    "sessionTime": {
+      "19:50:00 - 21:10:00": "Duration: 55 minutes"
+    },
+    "movieId": 10
+  },
+  {
+    "id": 387,
+    "room": 1,
+    "date": "2024-08-14T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 13:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 388,
+    "room": 2,
+    "date": "2024-08-14T00:00:00+02:00",
+    "sessionTime": {
+      "13:20:00 - 15:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 389,
+    "room": 3,
+    "date": "2024-08-14T00:00:00+02:00",
+    "sessionTime": {
+      "14:00:00 - 16:50:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 390,
+    "room": 1,
+    "date": "2024-08-14T00:00:00+02:00",
+    "sessionTime": {
+      "15:40:00 - 18:30:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 391,
+    "room": 2,
+    "date": "2024-08-15T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:50:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
+    "id": 392,
+    "room": 3,
+    "date": "2024-08-15T00:00:00+02:00",
+    "sessionTime": {
+      "13:20:00 - 14:40:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 393,
+    "room": 1,
+    "date": "2024-08-15T00:00:00+02:00",
+    "sessionTime": {
+      "14:00:00 - 15:20:00": "Duration: 60 minutes"
+    },
+    "movieId": 11
+  },
+  {
+    "id": 394,
+    "room": 2,
+    "date": "2024-08-15T00:00:00+02:00",
+    "sessionTime": {
+      "14:40:00 - 16:40:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 395,
+    "room": 3,
+    "date": "2024-08-15T00:00:00+02:00",
+    "sessionTime": {
+      "16:50:00 - 19:10:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 396,
+    "room": 1,
+    "date": "2024-08-15T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:00:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 397,
+    "room": 2,
+    "date": "2024-08-15T00:00:00+02:00",
+    "sessionTime": {
+      "13:20:00 - 16:10:00": "Duration: 148 minutes"
+    },
+    "movieId": 1
+  },
+  {
     "id": 398,
+    "room": 3,
+    "date": "2024-08-15T00:00:00+02:00",
+    "sessionTime": {
+      "15:20:00 - 17:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 399,
+    "room": 1,
+    "date": "2024-08-15T00:00:00+02:00",
+    "sessionTime": {
+      "16:00:00 - 17:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 400,
+    "room": 2,
+    "date": "2024-08-15T00:00:00+02:00",
+    "sessionTime": {
+      "16:40:00 - 19:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 401,
+    "room": 3,
+    "date": "2024-08-16T00:00:00+02:00",
+    "sessionTime": {
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 402,
+    "room": 1,
+    "date": "2024-08-16T00:00:00+02:00",
+    "sessionTime": {
+      "14:20:00 - 16:00:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 403,
+    "room": 2,
+    "date": "2024-08-16T00:00:00+02:00",
+    "sessionTime": {
+      "16:00:00 - 17:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 404,
+    "room": 3,
+    "date": "2024-08-16T00:00:00+02:00",
+    "sessionTime": {
+      "17:40:00 - 19:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 6
+  },
+  {
+    "id": 405,
+    "room": 1,
+    "date": "2024-08-16T00:00:00+02:00",
+    "sessionTime": {
+      "19:20:00 - 21:20:00": "Duration: 136 minutes"
+    },
+    "movieId": 4
+  },
+  {
+    "id": 406,
+    "room": 2,
+    "date": "2024-08-16T00:00:00+02:00",
+    "sessionTime": {
+      "21:20:00 - 22:40:00": "Duration: 97 minutes"
+    },
+    "movieId": 5
+  },
+  {
+    "id": 407,
+    "room": 3,
+    "date": "2024-08-17T00:00:00+02:00",
+    "sessionTime": {
+      "13:00:00 - 15:20:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 408,
+    "room": 1,
+    "date": "2024-08-17T00:00:00+02:00",
+    "sessionTime": {
+      "13:50:00 - 17:10:00": "Duration: 175 minutes"
+    },
+    "movieId": 3
+  },
+  {
+    "id": 409,
+    "room": 2,
+    "date": "2024-08-17T00:00:00+02:00",
+    "sessionTime": {
+      "15:30:00 - 17:50:00": "Duration: 120 minutes"
+    },
+    "movieId": 8
+  },
+  {
+    "id": 410,
+    "room": 3,
+    "date": "2024-08-17T00:00:00+02:00",
+    "sessionTime": {
+      "17:40:00 - 19:00:00": "Duration: 55 minutes"
+    },
+    "movieId": 7
+  },
+  {
+    "id": 411,
+    "room": 1,
+    "date": "2024-08-18T00:00:00+02:00",
+    "sessionTime": {
+      "13:00:00 - 16:20:00": "Duration: 175 minutes"
+    },
+    "movieId": 3
+  },
+  {
+    "id": 412,
+    "room": 2,
+    "date": "2024-08-18T00:00:00+02:00",
+    "sessionTime": {
+      "15:50:00 - 17:10:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 413,
     "room": 3,
     "date": "2024-08-19T00:00:00+02:00",
     "sessionTime": {
@@ -3603,274 +3726,165 @@
     "movieId": 5
   },
   {
-    "id": 399,
-    "room": 1,
-    "date": "2024-08-19T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 9
-  },
-  {
-    "id": 400,
-    "room": 2,
-    "date": "2024-08-19T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 401,
-    "room": 3,
-    "date": "2024-08-19T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 402,
-    "room": 1,
-    "date": "2024-08-19T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 403,
-    "room": 2,
-    "date": "2024-08-20T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 136 minutes"
-    },
-    "movieId": 4
-  },
-  {
-    "id": 404,
-    "room": 3,
-    "date": "2024-08-20T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 405,
-    "room": 1,
-    "date": "2024-08-20T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 7
-  },
-  {
-    "id": 406,
-    "room": 2,
-    "date": "2024-08-20T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 97 minutes"
-    },
-    "movieId": 5
-  },
-  {
-    "id": 407,
-    "room": 3,
-    "date": "2024-08-20T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 408,
-    "room": 1,
-    "date": "2024-08-21T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 409,
-    "room": 2,
-    "date": "2024-08-21T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 148 minutes"
-    },
-    "movieId": 1
-  },
-  {
-    "id": 410,
-    "room": 3,
-    "date": "2024-08-21T00:00:00+02:00",
-    "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 411,
-    "room": 1,
-    "date": "2024-08-21T00:00:00+02:00",
-    "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 55 minutes"
-    },
-    "movieId": 10
-  },
-  {
-    "id": 412,
-    "room": 2,
-    "date": "2024-08-22T00:00:00+02:00",
-    "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 500 minutes"
-    },
-    "movieId": 11
-  },
-  {
-    "id": 413,
-    "room": 3,
-    "date": "2024-08-22T00:00:00+02:00",
-    "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
     "id": 414,
     "room": 1,
-    "date": "2024-08-22T00:00:00+02:00",
+    "date": "2024-08-19T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 136 minutes"
+      "14:50:00 - 16:10:00": "Duration: 55 minutes"
     },
-    "movieId": 4
+    "movieId": 7
   },
   {
     "id": 415,
     "room": 2,
-    "date": "2024-08-22T00:00:00+02:00",
+    "date": "2024-08-19T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 500 minutes"
+      "15:30:00 - 16:50:00": "Duration: 60 minutes"
     },
     "movieId": 11
   },
   {
     "id": 416,
     "room": 3,
-    "date": "2024-08-22T00:00:00+02:00",
+    "date": "2024-08-19T00:00:00+02:00",
     "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 55 minutes"
+      "16:10:00 - 18:30:00": "Duration: 120 minutes"
     },
-    "movieId": 7
+    "movieId": 14
   },
   {
     "id": 417,
     "room": 1,
-    "date": "2024-08-23T00:00:00+02:00",
+    "date": "2024-08-19T00:00:00+02:00",
     "sessionTime": {
-      "12:00:00 - 14:00:00": "Duration: 120 minutes"
+      "17:50:00 - 20:10:00": "Duration: 120 minutes"
     },
     "movieId": 8
   },
   {
     "id": 418,
     "room": 2,
-    "date": "2024-08-23T00:00:00+02:00",
+    "date": "2024-08-20T00:00:00+02:00",
     "sessionTime": {
-      "14:00:00 - 16:00:00": "Duration: 148 minutes"
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
     },
-    "movieId": 1
+    "movieId": 12
   },
   {
     "id": 419,
     "room": 3,
-    "date": "2024-08-23T00:00:00+02:00",
+    "date": "2024-08-20T00:00:00+02:00",
     "sessionTime": {
-      "16:00:00 - 18:00:00": "Duration: 500 minutes"
+      "14:00:00 - 15:20:00": "Duration: 55 minutes"
     },
-    "movieId": 11
+    "movieId": 7
   },
   {
     "id": 420,
     "room": 1,
-    "date": "2024-08-23T00:00:00+02:00",
+    "date": "2024-08-20T00:00:00+02:00",
     "sessionTime": {
-      "18:00:00 - 20:00:00": "Duration: 120 minutes"
-    },
-    "movieId": 8
-  },
-  {
-    "id": 421,
-    "room": 2,
-    "date": "2024-08-23T00:00:00+02:00",
-    "sessionTime": {
-      "20:00:00 - 22:00:00": "Duration: 148 minutes"
+      "14:40:00 - 17:30:00": "Duration: 148 minutes"
     },
     "movieId": 1
   },
   {
+    "id": 421,
+    "room": 2,
+    "date": "2024-08-20T00:00:00+02:00",
+    "sessionTime": {
+      "15:20:00 - 17:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 12
+  },
+  {
     "id": 422,
     "room": 3,
-    "date": "2024-08-23T00:00:00+02:00",
+    "date": "2024-08-20T00:00:00+02:00",
     "sessionTime": {
-      "22:00:00 - 22:00:00": "Duration: 120 minutes",
-      "00:00:00 - 00:00:00": "Duration: 120 minutes"
+      "17:00:00 - 19:20:00": "Duration: 120 minutes"
     },
-    "movieId": 6
+    "movieId": 8
   },
   {
     "id": 423,
     "room": 1,
-    "date": "2024-08-24T00:00:00+02:00",
+    "date": "2024-08-21T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 500 minutes"
+      "12:00:00 - 14:20:00": "Duration: 120 minutes"
     },
-    "movieId": 11
+    "movieId": 6
   },
   {
     "id": 424,
     "room": 2,
-    "date": "2024-08-24T00:00:00+02:00",
+    "date": "2024-08-21T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 55 minutes"
+      "14:00:00 - 15:20:00": "Duration: 55 minutes"
     },
     "movieId": 9
   },
   {
     "id": 425,
     "room": 3,
-    "date": "2024-08-24T00:00:00+02:00",
+    "date": "2024-08-21T00:00:00+02:00",
     "sessionTime": {
-      "17:00:00 - 19:00:00": "Duration: 500 minutes"
+      "14:40:00 - 17:00:00": "Duration: 120 minutes"
     },
-    "movieId": 11
+    "movieId": 6
   },
   {
     "id": 426,
     "room": 1,
-    "date": "2024-08-24T00:00:00+02:00",
+    "date": "2024-08-21T00:00:00+02:00",
     "sessionTime": {
-      "19:00:00 - 21:00:00": "Duration: 120 minutes"
+      "15:20:00 - 16:40:00": "Duration: 55 minutes"
     },
-    "movieId": 8
+    "movieId": 7
   },
   {
     "id": 427,
     "room": 2,
-    "date": "2024-08-25T00:00:00+02:00",
+    "date": "2024-08-22T00:00:00+02:00",
     "sessionTime": {
-      "13:00:00 - 15:00:00": "Duration: 175 minutes"
+      "12:00:00 - 14:00:00": "Duration: 97 minutes"
     },
-    "movieId": 3
+    "movieId": 5
   },
   {
     "id": 428,
     "room": 3,
-    "date": "2024-08-25T00:00:00+02:00",
+    "date": "2024-08-22T00:00:00+02:00",
     "sessionTime": {
-      "15:00:00 - 17:00:00": "Duration: 55 minutes"
+      "13:20:00 - 15:40:00": "Duration: 120 minutes"
+    },
+    "movieId": 14
+  },
+  {
+    "id": 429,
+    "room": 1,
+    "date": "2024-08-22T00:00:00+02:00",
+    "sessionTime": {
+      "14:00:00 - 15:20:00": "Duration: 55 minutes"
+    },
+    "movieId": 9
+  },
+  {
+    "id": 430,
+    "room": 2,
+    "date": "2024-08-22T00:00:00+02:00",
+    "sessionTime": {
+      "14:40:00 - 16:00:00": "Duration: 55 minutes"
     },
     "movieId": 7
+  },
+  {
+    "id": 431,
+    "room": 3,
+    "date": "2024-08-22T00:00:00+02:00",
+    "sessionTime": {
+      "16:20:00 - 19:40:00": "Duration: 175 minutes"
+    },
+    "movieId": 3
   }
 ]

@@ -8,7 +8,7 @@ namespace ProjectTest;
 public class TestAdmin
 {
     [TestMethod]
-    public void isAdmin()
+    public void IsAdmin()
     {
         AccountModel adminAcc = GenericAccess<AccountModel>.LoadAllJson().Where(acc => acc.Id == 1).FirstOrDefault();
         adminAcc.Should().NotBeNull(); adminAcc.isAdmin.Should().BeTrue();
@@ -82,4 +82,11 @@ public class TestEditMovie
         // changedMovie.Should().NotBeEquivalentTo(originalString, changedMovie.ToString()); Unneccessary
         fileMock.Verify(f => f.WriteAllText(It.IsAny<string>(), It.IsAny<string>()), Times.Once);
     }
+}
+
+[TestClass]
+public class TestSchedule
+{
+    private static readonly MovieSchedulingLogic objScheduleLogic = new MovieSchedulingLogic();
+    private static Mock<IFileWrapper> fileMock;
 }

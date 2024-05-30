@@ -51,7 +51,7 @@ public class TestDummy
 
         ReservationModel resvClone = _reservations.Last()/*.DeepClone()*/;
 
-        ReservationModel dummyResv = new ReservationModel(3, 0, 7, "row: 0, seats: 0, 0, 0", new[] {"dumchos", "dum chips", "dummy!'s"}, 0, DateTime.Now)
+        ReservationModel dummyResv = new ReservationModel("DummyCode",3, 0, 7, "row: 0, seats: 0, 0, 0", new[] {"dumchos", "dum chips", "dummy!'s"}, 0, DateTime.Now)
         {Id = 1 + resvClone.Id};
         _reservations.Add(dummyResv);
 

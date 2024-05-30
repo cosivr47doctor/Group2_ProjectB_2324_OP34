@@ -1,6 +1,6 @@
 using System.Globalization;
 using System.Runtime.CompilerServices;
-class MovieSchedulingLogic
+public class MovieSchedulingLogic
 {
     private List<MovieModel> _movies;
     private List<MovieScheduleModel> _movieSchedule;
@@ -97,13 +97,13 @@ class MovieSchedulingLogic
     {
         DateTime date = DateTime.Today;
         int daysToAdd = 0;
-        if (date.DayOfWeek == DayOfWeek.Sunday) /*=>*/ daysToAdd = 2;
-        else if (date.DayOfWeek == DayOfWeek.Monday) /*=>*/ daysToAdd = 0;
-        else if (date.DayOfWeek == DayOfWeek.Tuesday) /*=>*/ daysToAdd = 0;
-        else if (date.DayOfWeek == DayOfWeek.Wednesday) /*=>*/ daysToAdd = 0;
-        else if (date.DayOfWeek == DayOfWeek.Thursday) /*=>*/ daysToAdd = 0;
-        else if (date.DayOfWeek == DayOfWeek.Friday) /*=>*/ daysToAdd = 0;
-        else if (date.DayOfWeek == DayOfWeek.Saturday) /*=>*/ daysToAdd = 2;
+        if (date.DayOfWeek == DayOfWeek.Sunday) /*=>*/ daysToAdd = 5;
+        else if (date.DayOfWeek == DayOfWeek.Monday) /*=>*/ daysToAdd = 5;
+        else if (date.DayOfWeek == DayOfWeek.Tuesday) /*=>*/ daysToAdd = 5;
+        else if (date.DayOfWeek == DayOfWeek.Wednesday) /*=>*/ daysToAdd = 5;
+        else if (date.DayOfWeek == DayOfWeek.Thursday) /*=>*/ daysToAdd = 5;
+        else if (date.DayOfWeek == DayOfWeek.Friday) /*=>*/ daysToAdd = 5;
+        else if (date.DayOfWeek == DayOfWeek.Saturday) /*=>*/ daysToAdd = 5;
 
         return daysToAdd;
     }
@@ -111,13 +111,13 @@ class MovieSchedulingLogic
     private int DaysToAddDeterminer(int dateNum)
     {
         int daysToAdd = 0;
-        if (dateNum == 0) /*=>*/ daysToAdd = 2;
-        else if (dateNum == 1) /*=>*/ daysToAdd = 0;
-        else if (dateNum == 2) /*=>*/ daysToAdd = 0;
-        else if (dateNum == 3) /*=>*/ daysToAdd = 0;
-        else if (dateNum == 4) /*=>*/ daysToAdd = 0;
-        else if (dateNum == 5) /*=>*/ daysToAdd = 0;
-        else if (dateNum == 6) /*=>*/ daysToAdd = 2;
+        if (dateNum == 0) /*=>*/ daysToAdd = 5;
+        else if (dateNum == 1) /*=>*/ daysToAdd = 5;
+        else if (dateNum == 2) /*=>*/ daysToAdd = 5;
+        else if (dateNum == 3) /*=>*/ daysToAdd = 5;
+        else if (dateNum == 4) /*=>*/ daysToAdd = 5;
+        else if (dateNum == 5) /*=>*/ daysToAdd = 5;
+        else if (dateNum == 6) /*=>*/ daysToAdd = 5;
 
         return daysToAdd;
     }
@@ -155,7 +155,10 @@ class MovieSchedulingLogic
             {
                 DateTime date = DateTime.Today.AddDays(i2 + j);
                 Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayOfWeek(date);
+                // List<MutuablePair<TimeSpanGrouping, MovieModel>>
+                var list_TimeSlotId_TimeSlot_Movie = AlgorhythmDecider.SessionsBasedOnMoviesDurationDecider(availableTimeSlots, date);
                 int lastKey = availableTimeSlots.Keys.Last();
+                int movieIndex = 0;
 
                 foreach (var kvp in availableTimeSlots)
                 {
@@ -164,27 +167,25 @@ class MovieSchedulingLogic
                     int currentRoom = roomNumber % 3;
                     roomNumber++;
 
-                    MovieLogic objMovieLogic = new MovieLogic();
-                    MovieModel randomMovie = objMovieLogic.SelectRandomMovie();
+                    //   MovieLogic objMovieLogic = new MovieLogic();
+                    MovieModel randomMovie = list_TimeSlotId_TimeSlot_Movie[kvp.Key].Item2;
                     MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Id, randomMovie.Name, randomMovie.Duration);
 
                     // Create the dictionary for the movie schedule model
                     Dictionary<string, MovieDetailsModel> scheduleDetails = new Dictionary<string, MovieDetailsModel>();
 
                     // Group consecutive time slots into ranges
-                    var timeRanges = GetTimeRanges(kvp.Value);
+                    // var timeRanges = list_TimeSlotId_TimeSlot_Movie[movieIndex].Item2;
 
-                    // Iterate over the time ranges
-                    foreach (var timeRange in timeRanges)
-                    {
-                        string key = $"{timeRange.Item1:hh\\:mm\\:ss} - {timeRange.Item2:hh\\:mm\\:ss}";
-                        scheduleDetails.Add(key, newMovieDetails);
-                    }
+                    var timeRanges = list_TimeSlotId_TimeSlot_Movie[movieIndex].Item1;
+                    string key = $"{timeRanges.StartTM:hh\\:mm\\:ss} - {timeRanges.EndTM:hh\\:mm\\:ss}";
+                    scheduleDetails.Add(key, newMovieDetails);
 
                     MovieScheduleModel newMovieScheduleModel = new MovieScheduleModel(daysOffSet+j, currentRoom + 1, date, scheduleDetails);
                     _movieSchedule.Add(newMovieScheduleModel);
                     
                     if (kvp.Key != lastKey) daysOffSet ++;
+                    movieIndex ++;
                 }
             }
         }
@@ -253,7 +254,7 @@ class MovieSchedulingLogic
                                 if (scheduleModel.Id == roomAndMovieId.Item3)
                                 {
                                     scheduleModel.Room = roomAndMovieId.Item1;
-                                    scheduleModel.TimeIdPair[kvp.Key] = $"Duration: {objMovieLogic.GetBySearch(roomAndMovieId.Item2).Duration}";
+                                    scheduleModel.TimeIdPair[kvp.Key] = $"Movie duration: {objMovieLogic.GetBySearch(roomAndMovieId.Item2).Duration}";
                                     scheduleModel.MovieId = roomAndMovieId.Item2;
                                 }
                             }
@@ -266,7 +267,7 @@ class MovieSchedulingLogic
                     Dictionary<string, string> updatedTimeIdPair = new Dictionary<string, string>();
                     foreach (var kvp in scheduleModel.TimeIdPair)
                     {
-                        updatedTimeIdPair[kvp.Key] = $"Duration: {objMovieLogic.GetBySearch(movieId).Duration}";
+                        updatedTimeIdPair[kvp.Key] = $"Movie duration: {objMovieLogic.GetBySearch(movieId).Duration}";
                     }
                     scheduleModel.TimeIdPair = updatedTimeIdPair;
                     scheduleModel.MovieId = movieId;
@@ -277,7 +278,7 @@ class MovieSchedulingLogic
                     foreach (var kvp in scheduleModel.TimeIdPair)
                     {
                         int duration = popularMovie.Duration;
-                        scheduleModel.TimeIdPair[kvp.Key] = $"Duration: {duration}";
+                        scheduleModel.TimeIdPair[kvp.Key] = $"Movie duration: {duration}";
                     }
                     scheduleModel.MovieId = popularMovie.Id;
                 }
