@@ -1,9 +1,34 @@
 public static class RoomInfo
 {
-    public static void RoomInformation()
+    public static (string, string) checkRoom(string roomNumber)
+    {
+            if (roomNumber == "roomOne")
+            {
+                string roomPrint = "Row                Room 1\n-----------------------------------------";
+                string screen = "-----------------------------------------\n                   Screen";
+                return (roomPrint, screen);
+            }
+            else if (roomNumber == "roomTwo")
+            {
+                string roomPrint = "Row                          Room 2\n----------------------------------------------------------";
+                string screen = "----------------------------------------------------------\n                   Screen";
+                return (roomPrint, screen);
+            }
+            else if (roomNumber == "roomThree")
+            {
+                string roomPrint = "Row                                            Room 3\n------------------------------------------------------------------------------------------";
+                string screen = "------------------------------------------------------------------------------------------\n                   Screen";
+                return (roomPrint, screen);
+            }
+            else
+            {
+                return(null, null);
+            }
+    }
+    public static void RoomInformation(string roomNumber)
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("-----------------------------------------\n                   Screen");
+        Console.WriteLine(checkRoom(roomNumber).Item2);
         Console.ResetColor();
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("\nX = Seat already taken");

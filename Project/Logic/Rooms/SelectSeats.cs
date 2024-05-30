@@ -66,7 +66,8 @@ public static class SelectSeats
             Console.SetCursorPosition(0, 0);
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Row                Room 1\n-----------------------------------------");
+
+            Console.WriteLine(RoomInfo.checkRoom(roomNumber).Item1);
             Console.ResetColor();
 
             for (int i = 0; i < seatsCount; i++)
@@ -82,7 +83,7 @@ public static class SelectSeats
                     {
                         Console.ForegroundColor = ConsoleColor.Green; // Change color for the selected option
                     }
-                    else if (options[i][j] == "🟥")
+                    else if (options[i][j] == "XX")
                     {
                         Console.ForegroundColor = ConsoleColor.Red; // Change color for taken seats
                     }
@@ -103,7 +104,7 @@ public static class SelectSeats
                 }
                 Console.WriteLine("");
             }
-            RoomInfo.RoomInformation();
+            RoomInfo.RoomInformation(roomNumber);
 
             key = Console.ReadKey(true);
             switch (key.Key)
@@ -170,7 +171,7 @@ public static class SelectSeats
                     {
                         Console.WriteLine("\nNo seat selected.");
                     }
-                    else if (options[selectedRow][selectedColumn] == "🟥")
+                    else if (options[selectedRow][selectedColumn] == "XX")
                     {
                         Console.WriteLine("\nSeat already taken.");
                     }
@@ -198,7 +199,7 @@ public static class SelectSeats
                                 seatsTaken.Add(seatSelected);
                                 seatsTakenColumn.Add(selectedColumn);
                                 seatsNumbers.Add(SeatNum);
-                                options[selectedRow][selectedColumn] = "🟥"; // Mark the seat as taken
+                                options[selectedRow][selectedColumn] = "XX"; // Mark the seat as taken
                                 seatsNumbers.Sort();
                                 Console.WriteLine($"Selected seats: {string.Join(", ", seatsNumbers)} on row: {stringRow}");
                             }
@@ -217,7 +218,7 @@ public static class SelectSeats
                             seatsTakenColumn.Add(selectedColumn);
                             int SeatNum = int.Parse(seatSelected);
                             seatsNumbers.Add(SeatNum);
-                            options[selectedRow][selectedColumn] = "--"; // Mark the seat as taken
+                            options[selectedRow][selectedColumn] = "XX"; // Mark the seat as taken
                             Console.WriteLine($"Selected seat: {string.Join(", ", seatsNumbers)} on row: {stringRow}");
                         }
                     }
