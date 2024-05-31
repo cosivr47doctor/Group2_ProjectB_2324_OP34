@@ -37,7 +37,7 @@ public static class CinemInfo
                 break;
         }
             
-        Console.WriteLine($" Closes today at {closingTime}");
+        Console.WriteLine($" Closes regularily today at {closingTime} (see the schedule for precise details)");
         Console.WriteLine("");
         Console.WriteLine(@"Monday      12:00-22:00
 Tuesday     12:00-22:00
