@@ -102,7 +102,7 @@ public class MovieSchedulingLogic
         else if (date.DayOfWeek == DayOfWeek.Tuesday) /*=>*/ daysToAdd = 5;
         else if (date.DayOfWeek == DayOfWeek.Wednesday) /*=>*/ daysToAdd = 5;
         else if (date.DayOfWeek == DayOfWeek.Thursday) /*=>*/ daysToAdd = 5;
-        else if (date.DayOfWeek == DayOfWeek.Friday) /*=>*/ daysToAdd = 5;
+        else if (date.DayOfWeek == DayOfWeek.Friday) /*=>*/ daysToAdd = 6;
         else if (date.DayOfWeek == DayOfWeek.Saturday) /*=>*/ daysToAdd = 5;
 
         return daysToAdd;
@@ -116,7 +116,7 @@ public class MovieSchedulingLogic
         else if (dateNum == 2) /*=>*/ daysToAdd = 5;
         else if (dateNum == 3) /*=>*/ daysToAdd = 5;
         else if (dateNum == 4) /*=>*/ daysToAdd = 5;
-        else if (dateNum == 5) /*=>*/ daysToAdd = 5;
+        else if (dateNum == 5) /*=>*/ daysToAdd = 6;
         else if (dateNum == 6) /*=>*/ daysToAdd = 5;
 
         return daysToAdd;
@@ -140,20 +140,21 @@ public class MovieSchedulingLogic
             else if (objMovieScheduleModel.Date < DateTime.Today) expiredSchedules ++;
         }
         int totalNewSchedules = (int)(120 * 3.5) + 1 + expiredSchedules;
+        DateTime startDate = DateTime.Now;
+        int endOfWeekAddend = 0;
         int year = DateTime.Now.Year;
         int month = DateTime.Now.Month;
         int daysToAdd = DateTime.DaysInMonth(year, month) + DaysToAddDeterminer();
         // 120 + 1 because the movies can be scheduled on an exact timeslot only 4 months in advance. + expiredSchedules to add new schedules.
         // i2 += 7 because a week has 7 days
-        /* daysToAdd = DateTime.DaysInMonth(year, month)+2.
-            Why +2? Probably because the start index is 0 and after a month the index needs to increment with 1.*/
         for (int i = moviesSchedulesCount, i2 = moviesSchedulesCount; i < totalNewSchedules; i+= daysToAdd, i2+= 7)
         {
             // To avoid skipping days equal to the amount of movies
             int daysOffSet = i;
             for (int j = 0; j < 8; j++)
             {
-                DateTime date = DateTime.Today.AddDays(i2 + j);
+                DateTime date = DateTime.Today.AddDays(i2 + j + endOfWeekAddend);
+                if ((daysOffSet+j) != 0 && (daysOffSet+j) % daysToAdd == 0) {date = date.AddDays(1); endOfWeekAddend++;}
                 Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayOfWeek(date);
                 // List<MutuablePair<TimeSpanGrouping, MovieModel>>
                 var list_TimeSlotId_TimeSlot_Movie = AlgorhythmDecider.SessionsBasedOnMoviesDurationDecider(availableTimeSlots, date);
@@ -186,6 +187,7 @@ public class MovieSchedulingLogic
                     
                     if (kvp.Key != lastKey) daysOffSet ++;
                     movieIndex ++;
+                    // if ((date - startDate).Days % 7 == 0) date = date.AddDays(1);
                 }
             }
         }

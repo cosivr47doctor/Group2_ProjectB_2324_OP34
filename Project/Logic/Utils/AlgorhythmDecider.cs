@@ -97,7 +97,7 @@ static class AlgorhythmDecider
             if (i > 0)
             {
                 prevSchedEndTime = newSessionsOnDate[i-1].Item1.EndTM;
-                startTime = prevSchedEndTime - TimeSpan.FromMinutes(40);
+                startTime = prevSchedEndTime - TimeSpan.FromMinutes(20);
                 movieEndTime = startTime + movieDuration;
                 endTime = RoundUpTimeSpan(movieEndTime) + TimeSpan.FromMinutes(20);
                 timeSpansGrp = new(prevSchedEndTime, endTime);
@@ -157,16 +157,31 @@ static class AlgorhythmDecider
     private static List<MutablePair<TimeSpanGrouping, MovieModel>> RecursiveTimespanBoundsChecker
         (List<MutablePair<TimeSpanGrouping, MovieModel>> NSOD, int index, TimeSpan dayClosureTime)
     {        
-        if (index < 0)
+        if (index < 0 || index >= NSOD.Count())
         {
             return NSOD;
         }
 
         var MP = NSOD[index];  // MutuablePair<TimeSpanGrouping, MovieModel>
 
+        if (NSOD[NSOD.Count()-1].Item1.EndTM <= dayClosureTime)
+        {
+            return NSOD;
+        }
+
         if (!_movies.Any(m => MP.Item1.StartTM + TimeSpan.FromMinutes(m.Duration) <= dayClosureTime))
         {
-            index -= 1;
+            List<MovieModel> shorterMoviesCandidates = _movies.Where(m => m.Duration < MP.Item2.Duration).ToList();
+
+            if (shorterMoviesCandidates.Count() > 0)
+            {
+                MovieModel randMovie = shorterMoviesCandidates[random.Next(0, shorterMoviesCandidates.Count)];
+                MP.Item1.EndTM = MP.Item1.StartTM + RoundUpTimeSpan(TimeSpan.FromMinutes(randMovie.Duration + 20));
+                MP.Item2 = randMovie;
+                index++;
+                return RecursiveTimespanBoundsChecker(NSOD, index, dayClosureTime);
+            }
+            index --;
             return RecursiveTimespanBoundsChecker(NSOD, index, dayClosureTime);
         }
         else
