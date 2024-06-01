@@ -47,23 +47,37 @@ static class UserMenu
             //     Start(accId, isAdmin);
             //     break;
 
-            case 1: // If "Cancel a reservation" is the second option
+            /*case 1: // If "Cancel a reservation" is the second option
                 Console.WriteLine("");
-                Console.WriteLine("Enter the id of the reservation you want to cancel:");
-                string input = Console.ReadLine();
-                int id;
-                if (int.TryParse(input, out id))
+                bool validInput = false;
+                while (!validInput)
                 {
-                    AddReservation.CancelReservation(id);
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter a number.");
+                    Console.WriteLine("Enter the reservation code of the reservation you want to cancel:");
+                    string input = Console.ReadLine();
+                    int sessionId;
+                    if (int.TryParse(input, out sessionId))
+                    {
+                        AddReservation.CancelReservation(accId, sessionId);
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a a valid code.");
+                    }
                 }
                 Console.WriteLine("Press enter to go back.");
                 Console.ReadLine();
                 Start(accId, isAdmin);
-                break;
+                break;*/
+
+            case 1: 
+            Console.WriteLine("");
+            AddReservation.CancelReservation(accId);
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start(accId, isAdmin);
+            break;
+
 
             case 2:
                 SeeJsons.PrintMoviesJson(@"DataSources/movies.json");

@@ -1,5 +1,7 @@
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 static class AddReservation
 {
@@ -237,10 +239,10 @@ static class AddReservation
     }
 
 
-    public static void CancelReservation(int id)
+    /*public static void CancelReservation(int accountId, int sessionId)
     {
         List<ReservationModel> reservations = GenericAccess<ReservationModel>.LoadAll();
-        ReservationModel reservationToCancel = reservations.FirstOrDefault(resv => resv.Id == id);
+        ReservationModel reservationToCancel = reservations.FirstOrDefault(resv => resv.SessionId == sessionId && resv.AccountId == accountId);
 
         if (reservationToCancel != null)
         {
@@ -251,8 +253,48 @@ static class AddReservation
         }
         else
         {
-            Console.WriteLine("Reservation not found.");
+            Console.WriteLine("Reservation not found or you do not have permission to cancel this reservation.");
+        }
+    }*/
+
+    public static void CancelReservation(int accountId)
+    {
+        List<ReservationModel> reservations = GenericAccess<ReservationModel>.LoadAll();
+        List<RoomModel> rooms = GenericAccess<RoomModel>.LoadAll();
+        bool validInput = false;
+        while (!validInput)
+        {
+            Console.WriteLine("Enter the reservation code of the reservation you want to cancel:");
+            string sessionInput = Console.ReadLine();
+            int sessionId;
+
+            if (int.TryParse(sessionInput, out sessionId))
+            {
+                ReservationModel reservationToCancel = reservations.FirstOrDefault(resv => resv.SessionId == sessionId && resv.AccountId == accountId);
+                RoomModel roomToCancel = rooms.FirstOrDefault(room => room.SessionId == sessionId);
+            
+            if (reservationToCancel != null)
+            {
+                reservations.Remove(reservationToCancel);
+                rooms.Remove(roomToCancel);
+                // Save the updated list back to the file
+                GenericAccess<ReservationModel>.WriteAll(reservations);
+                GenericAccess<RoomModel>.WriteAll(rooms);
+                
+
+                Console.WriteLine("Reservation cancelled successfully.");
+                validInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Reservation not found or you do not have permission to cancel this reservation.");
+                    validInput = true;
+                }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid reservation code.");
+            }
         }
     }
-
 }

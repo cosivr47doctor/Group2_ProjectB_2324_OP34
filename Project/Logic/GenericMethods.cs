@@ -46,5 +46,6 @@ public static class GenericMethods
         GenericAccess<MovieModel>.LoadAll();
         GenericAccess<MovieScheduleModel>.LoadAll();
         GenericAccess<ReservationModel>.LoadAll();
+        GenericAccess<RoomModel>.LoadAll();
     }
 }
