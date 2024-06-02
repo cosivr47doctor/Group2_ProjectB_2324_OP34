@@ -5,11 +5,15 @@ public class MovieSchedulingLogic
     private List<MovieModel> _movies;
     private List<MovieScheduleModel> _movieSchedule;
     public List<MovieScheduleModel> movieSchedules => _movieSchedule;
+    private static int _moviesCount = 0;
+    private static int _endOfTriadCounter = 0;
+    private static TimeSpanGrouping prevTPG = null;
 
     public MovieSchedulingLogic()
     {
         _movieSchedule = GenericAccess<MovieScheduleModel>.LoadAll();
         _movies = GenericAccess<MovieModel>.LoadAll();
+        _moviesCount = _movies.Count();
     }
 
     /// RESOURCES
@@ -70,15 +74,11 @@ public class MovieSchedulingLogic
         switch (dayOfWeek)
         {
             case DayOfWeek.Monday:
-                workDaysTimeSlots.Add(4, new List<TimeSpan>{TimeSpan.Parse("20:00"), TimeSpan.Parse("22:00")});
-                return workDaysTimeSlots;
             case DayOfWeek.Tuesday:
+            case DayOfWeek.Thursday:
                 workDaysTimeSlots.Add(4, new List<TimeSpan>{TimeSpan.Parse("20:00"), TimeSpan.Parse("22:00")});
                 return workDaysTimeSlots;
             case DayOfWeek.Wednesday:
-                return workDaysTimeSlots;
-            case DayOfWeek.Thursday:
-                workDaysTimeSlots.Add(4, new List<TimeSpan>{TimeSpan.Parse("20:00"), TimeSpan.Parse("22:00")});
                 return workDaysTimeSlots;
             case DayOfWeek.Friday:
                 workDaysTimeSlots.Add(4, new List<TimeSpan>{TimeSpan.Parse("20:00"), TimeSpan.Parse("22:00")});
@@ -157,7 +157,6 @@ public class MovieSchedulingLogic
                 if ((daysOffSet+j) != 0 && (daysOffSet+j) % daysToAdd == 0) {date = date.AddDays(1); endOfWeekAddend++;}
                 Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayOfWeek(date);
                 // List<MutuablePair<TimeSpanGrouping, MovieModel>>
-                var list_TimeSlotId_TimeSlot_Movie = AlgorhythmDecider.SessionsBasedOnMoviesDurationDecider(availableTimeSlots, date);
                 int lastKey = availableTimeSlots.Keys.Last();
                 int movieIndex = 0;
 
@@ -165,29 +164,36 @@ public class MovieSchedulingLogic
                 {
                     // kvp.Key is the room number, kvp.Value is the TimeSpan
                     // Assign a unique room number for each movie
-                    int currentRoom = roomNumber % 3;
-                    roomNumber++;
+                    for (int k = 0; k < 3; k++)
+                    {
+                        var list_TimeSlotId_TimeSlot_Movie = AlgorhythmDecider.SessionsBasedOnMoviesDurationDecider(availableTimeSlots, date, prevTPG);
+                        int currentRoom = (roomNumber % 3) + 1;
+                        roomNumber++;
 
-                    //   MovieLogic objMovieLogic = new MovieLogic();
-                    MovieModel randomMovie = list_TimeSlotId_TimeSlot_Movie[kvp.Key].Item2;
-                    MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Id, randomMovie.Name, randomMovie.Duration);
+                        //   MovieLogic objMovieLogic = new MovieLogic();
+                        MovieModel randomMovie = list_TimeSlotId_TimeSlot_Movie[kvp.Key].Item2;
+                        MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Id, randomMovie.Name, randomMovie.Duration);
 
-                    // Create the dictionary for the movie schedule model
-                    Dictionary<string, MovieDetailsModel> scheduleDetails = new Dictionary<string, MovieDetailsModel>();
+                        // Create the dictionary for the movie schedule model
+                        Dictionary<string, MovieDetailsModel> scheduleDetails = new Dictionary<string, MovieDetailsModel>();
 
-                    // Group consecutive time slots into ranges
-                    // var timeRanges = list_TimeSlotId_TimeSlot_Movie[movieIndex].Item2;
+                        // Group consecutive time slots into ranges
+                        // var timeRanges = list_TimeSlotId_TimeSlot_Movie[movieIndex].Item2;
 
-                    var timeRanges = list_TimeSlotId_TimeSlot_Movie[movieIndex].Item1;
-                    string key = $"{timeRanges.StartTM:hh\\:mm\\:ss} - {timeRanges.EndTM:hh\\:mm\\:ss}";
-                    scheduleDetails.Add(key, newMovieDetails);
+                        var timeRanges = list_TimeSlotId_TimeSlot_Movie[movieIndex].Item1;
+                        string key = $"{timeRanges.StartTM:hh\\:mm\\:ss} - {timeRanges.EndTM:hh\\:mm\\:ss}";
+                        scheduleDetails.Add(key, newMovieDetails);
 
-                    MovieScheduleModel newMovieScheduleModel = new MovieScheduleModel(daysOffSet+j, currentRoom + 1, date, scheduleDetails);
-                    _movieSchedule.Add(newMovieScheduleModel);
-                    
-                    if (kvp.Key != lastKey) daysOffSet ++;
-                    movieIndex ++;
-                    // if ((date - startDate).Days % 7 == 0) date = date.AddDays(1);
+                        MovieScheduleModel newMovieScheduleModel = new MovieScheduleModel
+                            (daysOffSet+j+k+_endOfTriadCounter, currentRoom, date, scheduleDetails);
+
+                        _movieSchedule.Add(newMovieScheduleModel);
+
+                        prevTPG = timeRanges;
+                        if (kvp.Key != lastKey && k == 2) daysOffSet ++;
+                    }
+                movieIndex ++;  // Check later whether right or wrong
+                _endOfTriadCounter += 2;
                 }
             }
         }

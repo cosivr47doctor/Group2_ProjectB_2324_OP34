@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Linq;
 using Newtonsoft.Json;
 
@@ -15,6 +16,10 @@ public static class TestEnvironmentUtils
     {
         return AppDomain.CurrentDomain.GetAssemblies()
                    .Any(a => a.FullName.ToLowerInvariant().StartsWith("microsoft.testplatform"));
+    }
+    public static bool IsRunningInDebugger()
+    {
+        return Debugger.IsAttached;
     }
 
     public static string ReadLine()

@@ -5,7 +5,7 @@ static class Adding
 {
     public static void addFood(int accId=-1)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         //need id
         Console.WriteLine("Add food to the menu:");
         Console.WriteLine("Please enter the name of the food item or [Q] to go back");
@@ -34,7 +34,7 @@ static class Adding
 
     public static void addMovie(int accId)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         Console.WriteLine("Add movie to the cinema:");
         Console.WriteLine("Please enter the name of the movie or [Q] to go back");
         string name = Console.ReadLine();
@@ -84,7 +84,7 @@ static class Adding
 
     public static void addUser(AccountsLogic accountsLogic)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         Console.WriteLine("Welcome to the registration page");
         Console.WriteLine("Enter [Q] to go back or type enter to continue");
         string Choice = Console.ReadLine();

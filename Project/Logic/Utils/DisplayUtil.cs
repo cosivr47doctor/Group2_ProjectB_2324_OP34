@@ -2,14 +2,14 @@ public static class DisplayUtil
 {
     public static int MenuDisplay(List<string> options)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         Header.DisplayHeader();
         return Display(options);
     }
 
     public static int DisplayAddFood(List<string> options)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         Console.WriteLine($"Would you like to add food?");
         return Display(options);
     }
@@ -17,7 +17,7 @@ public static class DisplayUtil
 
     public static int Display(List<string> options)
     {
-        Console.CursorVisible = false;
+        ConsoleE.CursorVisible(false);    // Console.CursorVisible = false;
         (int left, int top) = Console.GetCursorPosition();
         int selectedOption = 0;
 

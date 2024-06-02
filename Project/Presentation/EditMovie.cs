@@ -4,7 +4,7 @@ public static class EditMovie
 
     public static void ChangeMovie()
     {
-        Console.Clear();
+        ConsoleE.Clear();
         Console.WriteLine("Please enter the movie you want to change: ");
         string searchBy = ConsoleE.Input();
         Console.WriteLine(searchBy);
@@ -13,7 +13,7 @@ public static class EditMovie
 
     public static void RemoveMovie()
     {
-        Console.Clear();
+        ConsoleE.Clear();
         Console.WriteLine("Please enter the movie you want to remove: ");
         string searchBy = ConsoleE.Input();
         movieLogic.RemoveMovie(searchBy);
@@ -21,7 +21,7 @@ public static class EditMovie
 
     public static void CloneMovie()
     {
-        Console.Clear();
+        ConsoleE.Clear();
         Console.WriteLine("Please enter the movie you want to change: ");
         string searchBy = ConsoleE.Input();
         movieLogic.CloneMovie(searchBy);

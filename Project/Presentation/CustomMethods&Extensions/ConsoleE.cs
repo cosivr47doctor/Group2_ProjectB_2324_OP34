@@ -1,5 +1,7 @@
 using System.Runtime.Intrinsics.Arm;
 using Newtonsoft.Json;
+using System.Diagnostics;
+using System.Security.Cryptography;
 
 static class ConsoleE
 {
@@ -69,5 +71,22 @@ static class ConsoleE
     {
         if (backContains.Contains(message)) return true;
         return false;
+    }
+
+    public static void Clear()
+    {
+        if (!Debugger.IsAttached) Console.Clear();
+    }
+
+    public static void CursorVisible(bool visible)
+    {
+        if (!visible)
+        {
+            if (!Debugger.IsAttached) Console.CursorVisible = false;
+        }
+        else
+        {
+            if (!Debugger.IsAttached) Console.CursorVisible = true;
+        }
     }
 }

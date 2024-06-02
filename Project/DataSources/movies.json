@@ -86,7 +86,7 @@
     "Year": 2000,
     "Description": "hoi",
     "Director": "henk jan",
-    "Duration": 120
+    "Duration": 124
   },
   {
     "id": 9,
@@ -130,7 +130,7 @@
     "Year": 2023,
     "Description": "The details must be changed...",
     "Director": "Thh",
-    "Duration": 120
+    "Duration": 111
   },
   {
     "id": 13,
@@ -152,6 +152,6 @@
     "Year": 2023,
     "Description": "We need a part 2!!",
     "Director": "Thh",
-    "Duration": 120
+    "Duration": 117
   }
 ]

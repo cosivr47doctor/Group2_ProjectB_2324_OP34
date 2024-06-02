@@ -16,7 +16,7 @@ public static class DisplayFoodUtil
 
     public static int DisplayF(List<string> options)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         Console.WriteLine($"Would you like to add food?");
         Console.CursorVisible = false;
         (int left, int top) = Console.GetCursorPosition();

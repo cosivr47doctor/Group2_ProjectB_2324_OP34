@@ -5,7 +5,7 @@ static class UserLogin
 
     public static void Start()
     {
-        Console.Clear();
+        // ConsoleE.Clear();
         Console.WriteLine(@"
   _                _         ____                  
  | |    ___   __ _(_)_ __   |  _ \ __ _  __ _  ___ 

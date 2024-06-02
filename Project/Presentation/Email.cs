@@ -4,7 +4,7 @@ static class EmailConf
 {
     public static void GenerateEmailBody(AccountModel account, ReservationModel reservation)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         MovieModel movie = GenericAccess<MovieModel>.LoadAll().Where(m => m.Id == reservation.Id).ToList().FirstOrDefault();
         Console.WriteLine(
 $@"
@@ -42,7 +42,7 @@ $@"
  
     public static void GenerateEmailBody(int accountId, ReservationModel reservation)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         AccountModel account = GenericAccess<AccountModel>.LoadAll().Where(a => a.Id == accountId).ToList().FirstOrDefault();
         MovieModel movie = GenericAccess<MovieModel>.LoadAll().Where(m => m.Id == reservation.MovieId).ToList().FirstOrDefault();
         Console.WriteLine(

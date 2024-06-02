@@ -8,7 +8,7 @@ public static class SeeJsons
     static private MovieSchedulingLogic movieSchedulingLogic = new MovieSchedulingLogic();
     public static void PrintFoodJson(string filePath)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         // split food and drinks
         
         // movieLogic.
@@ -26,7 +26,7 @@ public static class SeeJsons
 
     public static void PrintMoviesJson(string filePath)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         Console.WriteLine("Cinema movies:");
         Console.WriteLine("---------------------------------------------------------------------------------------------------");
         Console.WriteLine("---------------------------------------------------------------------------------------------------");
@@ -43,7 +43,7 @@ public static class SeeJsons
 
     public static void PrintSchedulesJson(string filePath, DateTime? fromDate = null, DateTime? untilDate = null)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         Console.WriteLine("Movies schedule:");
         Console.WriteLine("-----------------------------------");
 
@@ -70,7 +70,7 @@ public static class SeeJsons
 
         public static void PrintLastResvGJson(string filePath)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         Console.WriteLine("Last Reservation details:");
         Console.WriteLine("-----------------------------------");
  

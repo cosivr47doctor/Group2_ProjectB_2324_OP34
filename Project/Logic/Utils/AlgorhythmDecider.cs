@@ -3,7 +3,11 @@ static class AlgorhythmDecider
     static Random random = new Random();
     static TimeSpan defInterval = TimeSpan.FromMinutes(10);
 
+    static private int _SBOMDDC_Calls_Counter = 0; //_sessionsBasedOnMoviesDurationDeciderCallsCounter;
     static private List<MovieModel> _movies;
+    static private TimeSpanGrouping _prevTSG;
+    static private TimeSpan[] validTPs = new TimeSpan[]
+        {new TimeSpan(0,-20,0), new TimeSpan(0,-10,0), new TimeSpan(0, 0, 0), new TimeSpan(0,10,0), new TimeSpan(0,20,0)};
 
     public static MovieModel findSinglePopularMovie()
     {
@@ -71,15 +75,20 @@ static class AlgorhythmDecider
         return moviesByPopularity;
     }
 
+
+    //////////
     public static List<MutablePair<TimeSpanGrouping/*session's primitive start time & end time*/, MovieModel>>
-        SessionsBasedOnMoviesDurationDecider (Dictionary<int, List<TimeSpan>> sessionsOnDate, DateTime date)
+        SessionsBasedOnMoviesDurationDecider (Dictionary<int, List<TimeSpan>> sessionsOnDate, DateTime date, TimeSpanGrouping prevTSG)
     {
+        _SBOMDDC_Calls_Counter = (_SBOMDDC_Calls_Counter + 1) % 4;
+        _prevTSG = prevTSG;
+
         List<MovieModel> randomMovies = new List<MovieModel>();
         var newSessionsOnDate = new List<MutablePair<TimeSpanGrouping, MovieModel>>();  // The Dicts have a length of 1
+        _movies = GenericAccess<MovieModel>.LoadAll();
 
         for (int i = 0; i < sessionsOnDate.Keys.Count(); i++)
         {
-            _movies = GenericAccess<MovieModel>.LoadAll();
             MovieModel randMovie = _movies[random.Next(0, _movies.Count())];
             randomMovies.Add(randMovie);
         }
@@ -151,7 +160,14 @@ static class AlgorhythmDecider
         }
         // TimeSpan dayClosurePlus20Mins = dayClosureTime + TimeSpan.FromMinutes(20);  // The duration of the last session must not exceed this one
 
+        List<MutablePair<TimeSpanGrouping, MovieModel>> adjustedTimeSpans;
+        if (_SBOMDDC_Calls_Counter > 1)
+        {
+            adjustedTimeSpans = TimeSpansAdjuster(NSOD);
+            NSOD = adjustedTimeSpans;
+        }
         var correctedSessionsOnDate = RecursiveTimespanBoundsChecker(NSOD, NSOD.Count()-1, dayClosureTime);
+        //correctedSessionsOnDate = filterUnSchedulableSessions(correctedSessionsOnDate);
         return correctedSessionsOnDate;
     }
     private static List<MutablePair<TimeSpanGrouping, MovieModel>> RecursiveTimespanBoundsChecker
@@ -196,7 +212,50 @@ static class AlgorhythmDecider
             return RecursiveTimespanBoundsChecker(NSOD, index - 1, dayClosureTime);
         }
     }
+
+    private static List<MutablePair<TimeSpanGrouping, MovieModel>> TimeSpansAdjuster(List<MutablePair<TimeSpanGrouping, MovieModel>> NSOD)
+    {
+        int randomTimeSpanIndx;
+        TimeSpan randomTSPN;
+        if (_SBOMDDC_Calls_Counter > 1)
+        {
+            for (int i = 0; i < NSOD.Count(); i++)
+            {
+                if (i == 0)
+                {
+                    randomTimeSpanIndx = random.Next(2, validTPs.Length);
+                    randomTSPN = validTPs[randomTimeSpanIndx];
+                    NSOD[i].Item1.StartTM += randomTSPN;     NSOD[i].Item1.EndTM = NSOD[i].Item1.EndTM.Add(randomTSPN);
+                }
+                else if (i == NSOD.Count()-1)
+                {
+                    randomTimeSpanIndx = random.Next(0, validTPs.Length-2);
+                    randomTSPN = validTPs[randomTimeSpanIndx];
+                    NSOD[i].Item1.StartTM = NSOD[i].Item1.StartTM.Add(randomTSPN);   NSOD[i].Item1.EndTM = NSOD[i].Item1.EndTM.Add(randomTSPN);
+                }
+                else
+                {
+                    randomTimeSpanIndx = random.Next(0, validTPs.Length);
+                    randomTSPN = validTPs[randomTimeSpanIndx];
+                    NSOD[i].Item1.StartTM = NSOD[i].Item1.StartTM.Add(randomTSPN);  NSOD[i].Item1.EndTM =  NSOD[i].Item1.EndTM.Add(randomTSPN);  
+                }
+            }
+        }
+        return NSOD;
+    }
     
+    private static List<MutablePair<TimeSpanGrouping, MovieModel>> filterUnSchedulableSessions(List<MutablePair<TimeSpanGrouping, MovieModel>> NSOD)
+    {
+        foreach (MutablePair<TimeSpanGrouping, MovieModel> MP in NSOD)
+        {
+            if (MP.Item1.StartTM < _prevTSG.EndTM)
+            {
+                NSOD.Remove(MP);
+            }
+        }
+        return NSOD;
+    }
+
     private static TimeSpan RoundUpTimeSpan(TimeSpan time)
     {
         TimeSpan interval = defInterval;

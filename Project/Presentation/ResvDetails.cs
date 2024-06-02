@@ -4,7 +4,7 @@ static class ResvDetails
     static private Reservation reservationLogic = new Reservation();
     public static void ResvHistory(int accountId)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         AccountsLogic accountsLogic = new();
         AccountModel account = accountsLogic.GetByArg(accountId);
         List<ReservationModel> reservations = GenericAccess<ReservationModel>.LoadAll();
@@ -29,7 +29,7 @@ static class ResvDetails
     }
     public static void ResvConfirmation(int accountId, int resvID)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         AccountsLogic accountsLogic = new();
         AccountModel account = accountsLogic.GetByArg(accountId);
         List<ReservationModel> reservations = GenericAccess<ReservationModel>.LoadAll();
@@ -60,7 +60,7 @@ static class ResvDetails
 
     public static void ResvReceipt(string filePath)
     {
-        Console.Clear();
+        ConsoleE.Clear();
         Console.WriteLine("Reservation conformation");
         Console.WriteLine("---------------------------------------------------------------------------------------------------");
         Console.WriteLine("---------------------------------------------------------------------------------------------------");

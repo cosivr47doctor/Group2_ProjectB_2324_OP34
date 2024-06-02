@@ -5,7 +5,7 @@ static class Search
 
     public static void searchMovie()
     {
-        Console.Clear();
+        ConsoleE.Clear();
         Console.WriteLine("Pleas enter the movie name or id: ");
         string searchBy = Console.ReadLine();
         MovieModel movie = movieLogic.GetBySearch(searchBy);
