@@ -5,15 +5,22 @@ public class MovieSchedulingLogic
     private List<MovieModel> _movies;
     private List<MovieScheduleModel> _movieSchedule;
     public List<MovieScheduleModel> movieSchedules => _movieSchedule;
-    private static int _moviesCount = 0;
-    private static int _endOfTriadCounter = 0;
-    private static TimeSpanGrouping prevTPG = null;
+
+    // To keep the autoincrement in check, distract this from _currMovieId
+    private static int _skipIdInt = 0;
+    // As a placeholder so that the id's don't get lost when the if- statement at line 183 returns false
+    private static int _currMovieId;
+    // Because you want 3 rooms for each time range (roughly like 2 hours, like 12:00-14:00), you need this as an addent to _currMovieId
+    private static int _endOfTriadCounter = 0;  // module 3 (% 3)
+    // As a placeholder so the roomId won't get lost at line 183
+    private static int _currentRoom;
+    // Same story, but used in AlgorhythymDecider which returns the timeranges
+    private static TimeSpanGrouping[] _prevTimeRanges = null;
 
     public MovieSchedulingLogic()
     {
         _movieSchedule = GenericAccess<MovieScheduleModel>.LoadAll();
         _movies = GenericAccess<MovieModel>.LoadAll();
-        _moviesCount = _movies.Count();
     }
 
     /// RESOURCES
@@ -98,24 +105,25 @@ public class MovieSchedulingLogic
         DateTime date = DateTime.Today;
         int daysToAdd = 0;
         if (date.DayOfWeek == DayOfWeek.Sunday) /*=>*/ daysToAdd = 5;
-        else if (date.DayOfWeek == DayOfWeek.Monday) /*=>*/ daysToAdd = 5;
-        else if (date.DayOfWeek == DayOfWeek.Tuesday) /*=>*/ daysToAdd = 5;
-        else if (date.DayOfWeek == DayOfWeek.Wednesday) /*=>*/ daysToAdd = 5;
-        else if (date.DayOfWeek == DayOfWeek.Thursday) /*=>*/ daysToAdd = 5;
+        else if (date.DayOfWeek == DayOfWeek.Monday) /*=>*/ daysToAdd = 6;
+        else if (date.DayOfWeek == DayOfWeek.Tuesday) /*=>*/ daysToAdd = 6;
+        else if (date.DayOfWeek == DayOfWeek.Wednesday) /*=>*/ daysToAdd = 6;
+        else if (date.DayOfWeek == DayOfWeek.Thursday) /*=>*/ daysToAdd = 6;
         else if (date.DayOfWeek == DayOfWeek.Friday) /*=>*/ daysToAdd = 6;
         else if (date.DayOfWeek == DayOfWeek.Saturday) /*=>*/ daysToAdd = 5;
 
         return daysToAdd;
     }
-    // Made this one to hard-code determined days to test whether they'd work
+    // Made this one to hard-code determined days to test whether they'd work.
+    // This test will only work until commit 5eb6afbf5e6a5b43b78790b8a9ebb5efa27215c4
     private int DaysToAddDeterminer(int dateNum)
     {
         int daysToAdd = 0;
         if (dateNum == 0) /*=>*/ daysToAdd = 5;
-        else if (dateNum == 1) /*=>*/ daysToAdd = 5;
-        else if (dateNum == 2) /*=>*/ daysToAdd = 5;
-        else if (dateNum == 3) /*=>*/ daysToAdd = 5;
-        else if (dateNum == 4) /*=>*/ daysToAdd = 5;
+        else if (dateNum == 1) /*=>*/ daysToAdd = 6;
+        else if (dateNum == 2) /*=>*/ daysToAdd = 6;
+        else if (dateNum == 3) /*=>*/ daysToAdd = 6;
+        else if (dateNum == 4) /*=>*/ daysToAdd = 6;
         else if (dateNum == 5) /*=>*/ daysToAdd = 6;
         else if (dateNum == 6) /*=>*/ daysToAdd = 5;
 
@@ -141,11 +149,11 @@ public class MovieSchedulingLogic
         }
         int totalNewSchedules = (int)(120 * 3.5) + 1 + expiredSchedules;
         DateTime startDate = DateTime.Now;
-        int endOfWeekAddend = 0;
+        int endOfWeekAddend = 0;  // For autoincrement, after a week an extra int must be added
         int year = DateTime.Now.Year;
         int month = DateTime.Now.Month;
         int daysToAdd = DateTime.DaysInMonth(year, month) + DaysToAddDeterminer();
-        // 120 + 1 because the movies can be scheduled on an exact timeslot only 4 months in advance. + expiredSchedules to add new schedules.
+        // 120 days + 1 because the movies can be scheduled on an exact timeslot only 3.5 months in advance. + expiredSchedules to add new schedules.
         // i2 += 7 because a week has 7 days
         for (int i = moviesSchedulesCount, i2 = moviesSchedulesCount; i < totalNewSchedules; i+= daysToAdd, i2+= 7)
         {
@@ -164,34 +172,40 @@ public class MovieSchedulingLogic
                 {
                     // kvp.Key is the room number, kvp.Value is the TimeSpan
                     // Assign a unique room number for each movie
-                    for (int k = 0; k < 3; k++)
+                    TimeSpanGrouping[] prevTimeRangesArr = new TimeSpanGrouping[3];
+                    for (int k = 0; k < 3; k++)  // To add 3 rooms for each timespan
                     {
-                        var list_TimeSlotId_TimeSlot_Movie = AlgorhythmDecider.SessionsBasedOnMoviesDurationDecider(availableTimeSlots, date, prevTPG);
-                        int currentRoom = (roomNumber % 3) + 1;
+                        var list_TimeSlotId_TimeSlot_Movie = AlgorhythmDecider.SessionsBasedOnMoviesDurationDecider
+                            (availableTimeSlots, date, _prevTimeRanges);
+                        _currentRoom = (roomNumber % 3) + 1;  // Must be either 1, 2, or 3
                         roomNumber++;
+                        _currMovieId = daysOffSet+j+k+_endOfTriadCounter-_skipIdInt;  // See notes atop file
+                        if (list_TimeSlotId_TimeSlot_Movie[movieIndex].Item1 != null)
+                        {
+                            MovieModel randomMovie = list_TimeSlotId_TimeSlot_Movie[kvp.Key].Item2;
+                            // Because of (de)serialisation issues I think. I forgot, but it is important.
+                            MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Id, randomMovie.Name, randomMovie.Duration);
 
-                        //   MovieLogic objMovieLogic = new MovieLogic();
-                        MovieModel randomMovie = list_TimeSlotId_TimeSlot_Movie[kvp.Key].Item2;
-                        MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Id, randomMovie.Name, randomMovie.Duration);
+                            // Create the dictionary for the movie schedule model
+                            Dictionary<string, MovieDetailsModel> scheduleDetails = new Dictionary<string, MovieDetailsModel>();
 
-                        // Create the dictionary for the movie schedule model
-                        Dictionary<string, MovieDetailsModel> scheduleDetails = new Dictionary<string, MovieDetailsModel>();
+                            // Group consecutive time slots into ranges
 
-                        // Group consecutive time slots into ranges
-                        // var timeRanges = list_TimeSlotId_TimeSlot_Movie[movieIndex].Item2;
+                            var timeRanges = list_TimeSlotId_TimeSlot_Movie[movieIndex].Item1;
+                            string key = $"{timeRanges.StartTM:hh\\:mm\\:ss} - {timeRanges.EndTM:hh\\:mm\\:ss}";
+                            scheduleDetails.Add(key, newMovieDetails);
 
-                        var timeRanges = list_TimeSlotId_TimeSlot_Movie[movieIndex].Item1;
-                        string key = $"{timeRanges.StartTM:hh\\:mm\\:ss} - {timeRanges.EndTM:hh\\:mm\\:ss}";
-                        scheduleDetails.Add(key, newMovieDetails);
+                            MovieScheduleModel newMovieScheduleModel = new MovieScheduleModel
+                                (_currMovieId, _currentRoom, date, scheduleDetails);
 
-                        MovieScheduleModel newMovieScheduleModel = new MovieScheduleModel
-                            (daysOffSet+j+k+_endOfTriadCounter, currentRoom, date, scheduleDetails);
+                            _movieSchedule.Add(newMovieScheduleModel);
 
-                        _movieSchedule.Add(newMovieScheduleModel);
-
-                        prevTPG = timeRanges;
+                            prevTimeRangesArr[k] = timeRanges;
+                        }
+                        else _skipIdInt++;  // For autoincrement
                         if (kvp.Key != lastKey && k == 2) daysOffSet ++;
                     }
+                _prevTimeRanges = prevTimeRangesArr;
                 movieIndex ++;  // Check later whether right or wrong
                 _endOfTriadCounter += 2;
                 }
@@ -232,7 +246,7 @@ public class MovieSchedulingLogic
             }
         }
 
-        int moviesCount = GenericAccess<MovieModel>.LoadAll().Count;
+        int moviesCount = _movies.Count();
         Random random = new Random();
         // Iterate over each existing schedule for the parsed date and reshuffle the time slots
         foreach (MovieScheduleModel scheduleModel in schedulesForDate)

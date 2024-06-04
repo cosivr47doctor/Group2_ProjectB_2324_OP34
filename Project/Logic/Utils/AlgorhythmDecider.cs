@@ -4,8 +4,10 @@ static class AlgorhythmDecider
     static TimeSpan defInterval = TimeSpan.FromMinutes(10);
 
     static private int _SBOMDDC_Calls_Counter = 0; //_sessionsBasedOnMoviesDurationDeciderCallsCounter;
+    static private int _currRoom = 0; // To memorise the current room
+    static private TimeSpan _dayClosureTime; // Same story
     static private List<MovieModel> _movies;
-    static private TimeSpanGrouping _prevTSG;
+    static private TimeSpanGrouping[] _prevTimeRanges = null;
     static private TimeSpan[] validTPs = new TimeSpan[]
         {new TimeSpan(0,-20,0), new TimeSpan(0,-10,0), new TimeSpan(0, 0, 0), new TimeSpan(0,10,0), new TimeSpan(0,20,0)};
 
@@ -56,9 +58,9 @@ static class AlgorhythmDecider
         return finalInt;
     }
 
-    public static List<int> findPopularMovies()
+    public static List<int> findPopularMovies(List<MovieModel> moviesList = null)  // Predefined list possible, but not used for now.
     {
-        List<MovieModel> moviesList = GenericAccess<MovieModel>.LoadAll();
+        if (moviesList is null) moviesList = GenericAccess<MovieModel>.LoadAll();
         List<ReservationModel> reservationsList = GenericAccess<ReservationModel>.LoadAll();
 
         List<int> moviesByPopularity = new();
@@ -78,10 +80,11 @@ static class AlgorhythmDecider
 
     //////////
     public static List<MutablePair<TimeSpanGrouping/*session's primitive start time & end time*/, MovieModel>>
-        SessionsBasedOnMoviesDurationDecider (Dictionary<int, List<TimeSpan>> sessionsOnDate, DateTime date, TimeSpanGrouping prevTSG)
+        SessionsBasedOnMoviesDurationDecider (Dictionary<int, List<TimeSpan>> sessionsOnDate, DateTime date, TimeSpanGrouping[] prevTimeRangesArr)
     {
         _SBOMDDC_Calls_Counter = (_SBOMDDC_Calls_Counter + 1) % 4;
-        _prevTSG = prevTSG;
+        _currRoom = (_currRoom % 3) + 1;
+        _prevTimeRanges = prevTimeRangesArr;
 
         List<MovieModel> randomMovies = new List<MovieModel>();
         var newSessionsOnDate = new List<MutablePair<TimeSpanGrouping, MovieModel>>();  // The Dicts have a length of 1
@@ -158,7 +161,7 @@ static class AlgorhythmDecider
                 dayClosureTime = TimeSpan.Parse("17:00");
                 break;
         }
-        // TimeSpan dayClosurePlus20Mins = dayClosureTime + TimeSpan.FromMinutes(20);  // The duration of the last session must not exceed this one
+        _dayClosureTime = dayClosureTime;
 
         List<MutablePair<TimeSpanGrouping, MovieModel>> adjustedTimeSpans;
         if (_SBOMDDC_Calls_Counter > 1)
@@ -167,9 +170,13 @@ static class AlgorhythmDecider
             NSOD = adjustedTimeSpans;
         }
         var correctedSessionsOnDate = RecursiveTimespanBoundsChecker(NSOD, NSOD.Count()-1, dayClosureTime);
-        //correctedSessionsOnDate = filterUnSchedulableSessions(correctedSessionsOnDate);
-        return correctedSessionsOnDate;
+        var filteredSessionsOnDate = filterUnSchedulableSessions(correctedSessionsOnDate);
+        return filteredSessionsOnDate;
     }
+    
+    // Recursive method to ensure the movie timespans with the same roomId won't overlap and limit the chance for the last movie duration
+    // To exceed that of the closure time. `filterUnschedulableSessions` on that part completes the picure and removes all unschedulable
+    // sessions.
     private static List<MutablePair<TimeSpanGrouping, MovieModel>> RecursiveTimespanBoundsChecker
         (List<MutablePair<TimeSpanGrouping, MovieModel>> NSOD, int index, TimeSpan dayClosureTime)
     {        
@@ -213,6 +220,8 @@ static class AlgorhythmDecider
         }
     }
 
+    // Instead of having all rooms on the first session start at the same time (like 12:00), give the option to alter the times but not if it
+    // Collides with the bounds of the days opening time, closure time, or start and/or end of a session with the same roomId.
     private static List<MutablePair<TimeSpanGrouping, MovieModel>> TimeSpansAdjuster(List<MutablePair<TimeSpanGrouping, MovieModel>> NSOD)
     {
         int randomTimeSpanIndx;
@@ -244,18 +253,29 @@ static class AlgorhythmDecider
         return NSOD;
     }
     
+    // Final method to roughly remove all sessions that don't fit in the schedule.
     private static List<MutablePair<TimeSpanGrouping, MovieModel>> filterUnSchedulableSessions(List<MutablePair<TimeSpanGrouping, MovieModel>> NSOD)
     {
-        foreach (MutablePair<TimeSpanGrouping, MovieModel> MP in NSOD)
+        if (NSOD != null && _prevTimeRanges != null)
         {
-            if (MP.Item1.StartTM < _prevTSG.EndTM)
+            NSOD.ForEach(MP =>
             {
-                NSOD.Remove(MP);
-            }
+                if (MP != null && MP.Item1 != null)
+                {
+                    if (_prevTimeRanges[_currRoom-1] != null)
+                    {
+                        if (MP.Item1.StartTM < _prevTimeRanges[_currRoom-1].EndTM || MP.Item1.EndTM > _dayClosureTime)
+                        {
+                            MP.Item1 = null;
+                        }
+                    }
+                }
+            });
         }
         return NSOD;
     }
 
+    // 14:17 becomes 14:20 so a session isn't ending at 14:17...
     private static TimeSpan RoundUpTimeSpan(TimeSpan time)
     {
         TimeSpan interval = defInterval;
