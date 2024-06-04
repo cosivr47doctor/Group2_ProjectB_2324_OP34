@@ -256,7 +256,8 @@ public static class SelectSeats
                             }
                         }
 
-                        RoomModel roomDetails = new RoomModel(0, sessionId, enteredRow, seatsTakenColumn);
+                        string reservationCode = GenerateResvCode.GenerateCode();
+                        RoomModel roomDetails = new RoomModel(0, reservationCode, sessionId, enteredRow, seatsTakenColumn);
                         AddReservation.AskForFood(accId, sessionId, movieId, seatsString, price, roomDetails);
                     }
                     break;

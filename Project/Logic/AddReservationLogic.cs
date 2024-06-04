@@ -91,7 +91,7 @@ static class AddReservation
         else
         {
             // MovieModel dummyMovie = movieLogic.SelectForResv("3");
-            AskForFood(accId, 1, 7, "101", 0, new RoomModel(0, 1, 1, new List<int>{1}), dummyAccId);
+            AskForFood(accId, 1, 7, "101", 0, new RoomModel(0, "test", 1, 1, new List<int>{1}), dummyAccId);
             Console.WriteLine("Reservation added for the dummy account. Check updated json.");
         }
     }
@@ -116,11 +116,10 @@ static class AddReservation
                 addFoodResv(accountId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId);
                 break;
             case 1: 
-                string reservationCode = GenerateResvCode.GenerateCode();
                 GenericMethods.UpdateList(roomDetails);
                 Console.WriteLine("No");
                 DateTime purchaseTime = DateTime.Now;
-                ReservationModel newReservation = new ReservationModel(reservationCode, accountId, sessionId, movieId, seatsStr, new string[0] {}, price, purchaseTime);
+                ReservationModel newReservation = new ReservationModel(roomDetails.ReservationCode, accountId, sessionId, movieId, seatsStr, new string[0] {}, price, purchaseTime);
                 EmailConf.GenerateEmailBody(accountId, newReservation);
                 GenericMethods.UpdateList(newReservation);
                 Console.ResetColor();
@@ -207,10 +206,9 @@ static class AddReservation
                 }
                 totalPrice += food.Price * quantity;
             }
-            string ReservationCode = GenerateResvCode.GenerateCode();
             Console.WriteLine($"Total Price: {totalPrice}");
             DateTime purchaseTime = DateTime.Now;
-            ReservationModel newReservation = new ReservationModel(ReservationCode, accId, sessionId, movieId, seatsStr, foodNames.ToArray(), totalPrice, purchaseTime);
+            ReservationModel newReservation = new ReservationModel(roomDetails.ReservationCode, accId, sessionId, movieId, seatsStr, foodNames.ToArray(), totalPrice, purchaseTime);
             EmailConf.GenerateEmailBody(accId, newReservation);
             GenericMethods.UpdateList(newReservation);
             Console.WriteLine("Reservation added successfully");
