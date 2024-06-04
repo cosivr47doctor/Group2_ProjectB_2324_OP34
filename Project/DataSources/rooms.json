@@ -1,6 +1,7 @@
 [
   {
     "ID": 1,
+    "reservationCode": null,
     "Session id": 36,
     "Row": 5,
     "Taken seats": [
@@ -12,6 +13,7 @@
   },
   {
     "ID": 2,
+    "reservationCode": null,
     "Session id": 36,
     "Row": 2,
     "Taken seats": [
@@ -22,6 +24,7 @@
   },
   {
     "ID": 3,
+    "reservationCode": null,
     "Session id": 366,
     "Row": 2,
     "Taken seats": [
@@ -31,6 +34,7 @@
   },
   {
     "ID": 4,
+    "reservationCode": null,
     "Session id": 73,
     "Row": 2,
     "Taken seats": [
@@ -40,6 +44,7 @@
   },
   {
     "ID": 5,
+    "reservationCode": null,
     "Session id": 73,
     "Row": 4,
     "Taken seats": [
@@ -50,6 +55,7 @@
   },
   {
     "ID": 6,
+    "reservationCode": null,
     "Session id": 423,
     "Row": 2,
     "Taken seats": [
@@ -60,6 +66,7 @@
   },
   {
     "ID": 8,
+    "reservationCode": null,
     "Session id": 263,
     "Row": 13,
     "Taken seats": [
@@ -69,6 +76,7 @@
   },
   {
     "ID": 9,
+    "reservationCode": null,
     "Session id": 312,
     "Row": 5,
     "Taken seats": [
@@ -80,11 +88,22 @@
   },
   {
     "ID": 10,
+    "reservationCode": null,
     "Session id": 312,
     "Row": 2,
     "Taken seats": [
       1,
       2
+    ]
+  },
+  {
+    "ID": 12,
+    "reservationCode": "JODR4B",
+    "Session id": 1340,
+    "Row": 6,
+    "Taken seats": [
+      2,
+      3
     ]
   }
 ]

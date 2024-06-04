@@ -123,5 +123,16 @@
     ],
     "totalPrice": 41.94,
     "purchaseTime": "2024-05-30T11:12:14.5581116+02:00"
+  },
+  {
+    "id": 13,
+    "reservationCode": "JODR4B",
+    "accountId": 6,
+    "sessionId": 1340,
+    "movieId": 2,
+    "seats": "row: 8, seats: 3,4",
+    "food": [],
+    "totalPrice": 26,
+    "purchaseTime": "2024-06-04T18:46:22.5148332+02:00"
   }
 ]
