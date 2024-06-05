@@ -275,9 +275,14 @@ static class AlgorhythmDecider
             {
                 if (MP != null && MP.Item1 != null)
                 {
-
-                    if (MP.Item1.StartTM > _dayClosureTime || MP.Item1.EndTM > _dayClosureTime + TimeSpan.FromMinutes(1)) MP.Item1 = null;
-
+                    if (_date.DayOfWeek == DayOfWeek.Friday)
+                    {
+                        if (MP.Item1.EndTM < TimeSpan.FromHours(1)) MP.Item1 = null;
+                    }
+                    else
+                    {
+                        if (MP.Item1.StartTM > _dayClosureTime || MP.Item1.EndTM > _dayClosureTime + TimeSpan.FromMinutes(1)) MP.Item1 = null;
+                    }
                 }
             });
         }
