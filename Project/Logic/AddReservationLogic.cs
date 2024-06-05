@@ -110,31 +110,30 @@ static class AddReservation
 
         int selectedOption = DisplayUtil.DisplayAddFood(options);
         Console.WriteLine($"Would you like to add food?");
-        switch (selectedOption)
+        if (selectedOption == 0)
         {
-            case 0:
-                addFoodResv(accountId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId);
-                break;
-            case 1: 
-                GenericMethods.UpdateList(roomDetails);
-                Console.WriteLine("No");
-                DateTime purchaseTime = DateTime.Now;
-                ReservationModel newReservation = new ReservationModel(roomDetails.ReservationCode, accountId, sessionId, movieId, seatsStr, new string[0] {}, price, purchaseTime);
-                EmailConf.GenerateEmailBody(accountId, newReservation);
-                GenericMethods.UpdateList(newReservation);
-                Console.ResetColor();
-                if (isAdmin) AdminMenu.Start(accId);
-                else UserMenu.Start(accId);
-                //ResvDetails.ResvConfirmation(intUserAccountId, index);
-                break;
-            case 2:
-                Console.WriteLine("Reservation cancelled.");
-                Thread.Sleep(2500);
-                UserMenu.Start(accId);
-                break;
-            default:
-                throw new Exception("error");
+            addFoodResv(accountId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId);
         }
+        else if (selectedOption == 1)
+        {
+            GenericMethods.UpdateList(roomDetails);
+            Console.WriteLine("No");
+            DateTime purchaseTime = DateTime.Now;
+            ReservationModel newReservation = new ReservationModel(roomDetails.ReservationCode, accountId, sessionId, movieId, seatsStr, new string[0] {}, price, purchaseTime);
+            EmailConf.GenerateEmailBody(accountId, newReservation);
+            GenericMethods.UpdateList(newReservation);
+            Console.ResetColor();
+            if (isAdmin) AdminMenu.Start(accId);
+            else UserMenu.Start(accId);
+            //ResvDetails.ResvConfirmation(intUserAccountId, index);
+        }
+        else if (selectedOption == 1)
+        {
+            Console.WriteLine("Reservation cancelled.");
+            Thread.Sleep(2500);
+            UserMenu.Start(accId);
+        }
+         else throw new Exception("error");
     }
 
     public static void addFoodResv(int accId, int sessionId, int movieId, string seatsStr, int price, RoomModel roomDetails, int dummyAccId=-1)

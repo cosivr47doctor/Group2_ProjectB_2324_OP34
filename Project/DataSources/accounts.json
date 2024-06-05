@@ -49,34 +49,18 @@
   },
   {
     "id": 7,
-    "emailAddress": "test@gmail.com",
-    "password": "$2a$11$TFyqMwaEQsi8qC.grn47NOoKd6sk7QXiTmzUzv1jQ/ciOIUP.oHKW",
-    "fullName": "Test Test",
+    "emailAddress": "mexxycat@gmail.com",
+    "password": "$2a$11$rgYw52CTBcFJqmQBdQ/Xiun4AY236kYmp5PpPVNO3eA9yrE6ELKoS",
+    "fullName": "taha abbady",
     "isAdmin": false,
-    "PhoneNumber": 612345678
+    "PhoneNumber": 6
   },
   {
     "id": 8,
-    "emailAddress": "test@gmail.com",
-    "password": "$2a$11$UnLFSyCxsc6XOn6QuQ0fM.xJJW3jCG/2gVT00cT9WGUSA2TjFbCZW",
-    "fullName": "Test Test",
-    "isAdmin": false,
-    "PhoneNumber": 612345678
-  },
-  {
-    "id": 9,
-    "emailAddress": "test@gmail.com",
-    "password": "$2a$11$8U9XXHBHV89rl.GgnUaDOukGdHAQa9gnlMl4Ha3UNkyERTOHuf0ny",
-    "fullName": "Test Test",
-    "isAdmin": false,
-    "PhoneNumber": 6123456
-  },
-  {
-    "id": 10,
-    "emailAddress": "test@gmail.com",
-    "password": "$2a$11$5mwtHwlIuCGPLGACDWOaF.lSwi7th0sc2Wc2oAHvVdj0m.mn5aUfS",
-    "fullName": "Test Test",
-    "isAdmin": false,
-    "PhoneNumber": 612345678
+    "emailAddress": "Emadabbady2@gmail.com",
+    "password": "$2a$11$pxv3B3lx9J4c2ezi5ypwEuz9BXyMEBrPKmt9QkpcsoxTjBwImitSe",
+    "fullName": "Willem Hendrikson",
+    "isAdmin": true,
+    "PhoneNumber": 61349518
   }
 ]

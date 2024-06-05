@@ -19,41 +19,39 @@ static class MainMenu
         };
 
         int selectedOption = DisplayUtil.MenuDisplay(options);
-        switch (selectedOption)
+        if (selectedOption == 0)
         {
-            case 0:
-                UserLogin.Start();
-                break;
-            case 1: 
-                Adding.addUser(objAccountsLogic);
-                Console.WriteLine("User registered successfully!");
-                Console.WriteLine("Press enter to go back.");
-                Console.ReadLine();
-                Start();
-                break;
-            case 2:
-                SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
-                Console.WriteLine("");
-                Console.WriteLine("Press enter to go back.");
-                Console.ReadLine();
-                Start();
-                break;
-            case 3:
-                CinemInfo.CinemInformation();
-                Console.WriteLine("");
-                Console.WriteLine("Press enter to go back.");
-                Console.ReadLine();
-                Start();
-                break;
-            case 4:
-                Console.ResetColor();
-                Environment.Exit(0);
-                break;
-            // case 5:
-            //     AddReservation.addMovieResv();
-            //     break;
-            default:
-                throw new Exception("error");
+            UserLogin.Start();
         }
+        else if (selectedOption == 1)
+        {
+            Adding.addUser(objAccountsLogic);
+            Console.WriteLine("User registered successfully!");
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start();
+        }
+        else if (selectedOption == 2)
+        {
+            SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
+            Console.WriteLine("");
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start();
+        }
+        else if (selectedOption == 3)
+        {
+            CinemInfo.CinemInformation();
+            Console.WriteLine("");
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start();
+        }
+        else if (selectedOption == 4)
+        {
+            Console.ResetColor();
+            Environment.Exit(0);
+        }
+        else throw new Exception("error");
     }
 }

@@ -6,8 +6,10 @@ static class AlgorhythmDecider
     static private int _SBOMDDC_Calls_Counter = 0; //_sessionsBasedOnMoviesDurationDeciderCallsCounter;
     static private int _currRoom = 0; // To memorise the current room
     static private TimeSpan _dayClosureTime; // Same story
+    static private DateTime _date;
     static private List<MovieModel> _movies;
     static private TimeSpanGrouping[] _prevTimeRanges = null;
+    static private TimeSpan[] _midnightHours = new TimeSpan[2] {new TimeSpan(0, 1, 0), new TimeSpan(3, 0, 0)};
     static private TimeSpan[] validTPs = new TimeSpan[]
         {new TimeSpan(0,-20,0), new TimeSpan(0,-10,0), new TimeSpan(0, 0, 0), new TimeSpan(0,10,0), new TimeSpan(0,20,0)};
 
@@ -85,6 +87,7 @@ static class AlgorhythmDecider
         _SBOMDDC_Calls_Counter = (_SBOMDDC_Calls_Counter + 1) % 4;
         _currRoom = (_currRoom % 3) + 1;
         _prevTimeRanges = prevTimeRangesArr;
+        _date = date;
 
         List<MovieModel> randomMovies = new List<MovieModel>();
         var newSessionsOnDate = new List<MutablePair<TimeSpanGrouping, MovieModel>>();  // The Dicts have a length of 1
@@ -127,17 +130,17 @@ static class AlgorhythmDecider
             newSessionsOnDate.Add(timeSlotId_TimeSlot_Movie);
         }
          // newSessionsOnDate.ForEach(x => Console.WriteLine(x.Item2)); < Works
-        var correctedSessionsOnDate = RandMoviesBasedOnDayOfWeek(newSessionsOnDate, date);
+        var correctedSessionsOnDate = RandMoviesBasedOnDayOfWeek(newSessionsOnDate);
         return correctedSessionsOnDate;
         // Latest update
     }
 
     private static List<MutablePair<TimeSpanGrouping, MovieModel>>
-        RandMoviesBasedOnDayOfWeek(List<MutablePair<TimeSpanGrouping, MovieModel>> NSOD, DateTime date)
+        RandMoviesBasedOnDayOfWeek(List<MutablePair<TimeSpanGrouping, MovieModel>> NSOD)
     {
         // NSOD = newSessionsOnDate
         TimeSpan dayClosureTime;  // The duration of the last movie must not exceed this one
-        switch (date.DayOfWeek)
+        switch (_date.DayOfWeek)
         {
             case DayOfWeek.Monday:
                 dayClosureTime = TimeSpan.Parse("22:00");
@@ -152,7 +155,7 @@ static class AlgorhythmDecider
                 dayClosureTime = TimeSpan.Parse("22:00");
                 break;
             case DayOfWeek.Friday:
-                dayClosureTime = TimeSpan.Parse("00:00");
+                dayClosureTime = TimeSpan.Parse("00:00");  // 23:59
                 break;
             case DayOfWeek.Saturday:
                 dayClosureTime = TimeSpan.Parse("21:00");
@@ -264,11 +267,17 @@ static class AlgorhythmDecider
                 {
                     if (_prevTimeRanges[_currRoom-1] != null)
                     {
-                        if (MP.Item1.StartTM < _prevTimeRanges[_currRoom-1].EndTM || MP.Item1.EndTM > _dayClosureTime)
-                        {
-                            MP.Item1 = null;
-                        }
+                        if (MP.Item1.StartTM < _prevTimeRanges[_currRoom-1].EndTM) MP.Item1 = null;
                     }
+                }
+            });
+            NSOD.ForEach(MP =>
+            {
+                if (MP != null && MP.Item1 != null)
+                {
+
+                    if (MP.Item1.StartTM > _dayClosureTime || MP.Item1.EndTM > _dayClosureTime + TimeSpan.FromMinutes(1)) MP.Item1 = null;
+
                 }
             });
         }

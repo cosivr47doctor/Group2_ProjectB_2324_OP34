@@ -42,95 +42,80 @@ static class AdminMenu
         Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -\n");
 
 
-        switch (selectedOption)
+        if (selectedOption == 0)
         {
-            case 0:
-                UserMenu.Start(accId, true);
-                break;
-            case 1:
-                MainMenu.Start();
-                break;
-/*
-            case 2:
-                AccountsLogic obj_AccountsLogic = new();
-                string findByInput = ConsoleE.Input("Please submit the ID or Email address of a user, or [Q] to go back");
-                if (ConsoleE.BackContains(findByInput)) Start(accId);
-                if (obj_AccountsLogic.GetByArg(findByInput) != null)
-                {
-                    Console.WriteLine(@"What would you like to do?
-[1] ban user
-[2] unban user
-[3] promote to admin
-[4] depromote to user");
-                    string change_user_status_input = Console.ReadLine();
-                    if (Enumerable.Range(1, 4).Contains(Convert.ToInt16(change_user_status_input)))
-                    {
-                        obj_AccountsLogic.ChangeUserStatus(change_user_status_input, findByInput, accId);
-                    }
-                }
-                Console.WriteLine("Press enter to go back.");
+
+            UserMenu.Start(accId, true);
+        }
+        else if (selectedOption == 1)
+        {
+            MainMenu.Start();
+        }
+        else if (selectedOption == 2)
+        {
+            Adding.addFood(accId);
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start(accId);
+        }
+        else if (selectedOption == 3)
+        {
+            int movieEditorOptions = DisplayUtil.Display(movieEditor);
+            if (movieEditorOptions == 0)
+            {
+                Start(accId);
+            }
+            else if (movieEditorOptions == 1)
+            {
+                Adding.addMovie(accId);
+                Start(accId);
+            }
+            else if (movieEditorOptions == 2)
+            {
+                EditMovie.ChangeMovie();
+                Start(accId);
+            }
+            else if (movieEditorOptions == 3)
+            {
+                EditMovie.RemoveMovie();
+                Start(accId);
+            }
+            else if (movieEditorOptions == 4)
+            {
+                EditMovie.CloneMovie();
+                Start(accId);
+            }
+        }
+        else if (selectedOption == 4)
+        {
+            string dateInput = ConsoleE.Input("Enter a date (yyyy-MM-dd) or [Q] to go back");
+            if (ConsoleE.BackContains(dateInput)) Start(accId);
+            objMovieSchedulingLogic.RescheduleList(dateInput);
+            ConsoleE.Input("Press enter to go back", true);
+            Start(accId);
+        }
+        else if (selectedOption == 5)
+        {
+            Console.WriteLine("Enter [Q] to go back");
+            Console.WriteLine("Enter `TR` to test the TEST_RESERVE function that will automatically add a reservation to the dummy account");
+            int extraInput = DisplayUtil.Display(extraOptions);
+            if (extraInput == 0)
+            {
+                Start(accId);
+            }
+            else if (extraInput == 1)
+            {
+                AddReservation.addMovieResv(accId, 3);
+                Console.WriteLine("Dummy movie succesfully added to reservations. Press enter to go back.");
                 Console.ReadLine();
                 Start(accId);
-                break;
-*/
-            case 2:
-                Adding.addFood(accId);
-                Console.WriteLine("Press enter to go back.");
-                Console.ReadLine();
+            }
+            else if (extraInput == 2)
+            {
+                ReservationModel newReservation = new ReservationModel("ABC123", 3, 0, 7, "0, 0, 0", new[] {"null", "0"}, 0, DateTime.Now) {Id = 0};
+                EmailConf.GenerateEmailBody(3, newReservation);
                 Start(accId);
-                break;
-            case 3:
-                int movieEditorOptions = DisplayUtil.Display(movieEditor);
-                switch (movieEditorOptions)
-                {
-                    case 0:
-                        Start(accId);
-                        break;
-                    case 1:
-                        Adding.addMovie(accId);
-                        break;
-                    case 2:
-                        EditMovie.ChangeMovie();
-                        break;
-                    case 3:
-                        EditMovie.RemoveMovie();
-                        break;
-                    case 4:
-                        EditMovie.CloneMovie();
-                        break;
-                }
-                break;
-            case 4:
-                string dateInput = ConsoleE.Input("Enter a date (yyyy-MM-dd) or [Q] to go back");
-                if (ConsoleE.BackContains(dateInput)) Start(accId);
-                objMovieSchedulingLogic.RescheduleList(dateInput);
-                ConsoleE.Input("Press enter to go back", true);
-                Start(accId);
-                break;
-            case 5:
-                Console.WriteLine("Enter [Q] to go back");
-                Console.WriteLine("Enter `TR` to test the TEST_RESERVE function that will automatically add a reservation to the dummy account");
-                int extraInput = DisplayUtil.Display(extraOptions);
-                switch (extraInput)
-                {
-                    case 0:
-                        break;
-                    case 1:
-                        AddReservation.addMovieResv(accId, 3);
-                        Console.WriteLine("Dummy movie succesfully added to reservations. Press enter to go back.");
-                        Console.ReadLine();
-                        Start(accId);
-                        break;
-                    case 2:
-                        
-                        ReservationModel newReservation = new ReservationModel("ABC123", 3, 0, 7, "0, 0, 0", new[] {"null", "0"}, 0, DateTime.Now);
-                        newReservation.Id = 0;
-                        EmailConf.GenerateEmailBody(3, newReservation);
-                        Start(accId);
-                        break;
-                }
-                break;
-            //{}
+            }
         }
     }
 }

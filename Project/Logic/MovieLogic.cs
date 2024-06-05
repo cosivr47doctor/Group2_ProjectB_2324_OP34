@@ -28,7 +28,7 @@ public class MovieLogic
     public MovieModel GetBySearch(string searchBy)
     {
         string searchLower = searchBy.ToLower();
-        
+        if (ConsoleE.IsNullOrEmptyOrWhiteSpace(searchLower)) return null;
         
         return _movie.Find(movie =>
             movie.Id.ToString() == searchBy ||
@@ -59,6 +59,7 @@ public class MovieLogic
 
     public void ChangeMovie(string input)
     {
+        Console.ResetColor();
         string searchBy;
         string[] unitInput = null;
         if (input.Contains(';'))
@@ -120,6 +121,7 @@ public class MovieLogic
 
     public void RemoveMovie(string searchBy)
     {
+        Console.ResetColor();
         MovieModel movieToRemove = GetBySearch(searchBy);
 
         if (movieToRemove != null)
@@ -131,6 +133,7 @@ public class MovieLogic
 
     public void CloneMovie(string searchBy)
     {
+        Console.ResetColor();
         string[] details = null;
         if (TestEnvironmentUtils.IsRunningInUnitTest())
         {
@@ -143,7 +146,7 @@ public class MovieLogic
         }
         MovieModel movieToClone = GetBySearch(searchBy);
 
-        if (movieToClone != null)
+        if (!ConsoleE.IsNullOrEmptyOrWhiteSpace(movieToClone))
         {
             List<object> newPropertyValues  = new List<object>();
             PropertyInfo[] movieProperties = movieToClone.GetType().GetProperties();

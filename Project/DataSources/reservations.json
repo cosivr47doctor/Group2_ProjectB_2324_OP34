@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "reservationCode": null,
+    "reservationCode": "HELLO1",
     "accountId": 1,
     "sessionId": 1,
     "movieId": 7,
@@ -12,7 +12,7 @@
   },
   {
     "id": 2,
-    "reservationCode": null,
+    "reservationCode": "3DB81N",
     "accountId": 1,
     "sessionId": 48,
     "movieId": 5,
@@ -23,7 +23,7 @@
   },
   {
     "id": 3,
-    "reservationCode": null,
+    "reservationCode": "94T091",
     "accountId": 1,
     "sessionId": 396,
     "movieId": 5,
@@ -36,7 +36,7 @@
   },
   {
     "id": 4,
-    "reservationCode": null,
+    "reservationCode": "VH1IJK",
     "accountId": 4,
     "sessionId": 36,
     "movieId": 1,
@@ -47,7 +47,7 @@
   },
   {
     "id": 5,
-    "reservationCode": null,
+    "reservationCode": "43LAM5",
     "accountId": 4,
     "sessionId": 36,
     "movieId": 1,
@@ -58,7 +58,7 @@
   },
   {
     "id": 6,
-    "reservationCode": null,
+    "reservationCode": "7NB99T",
     "accountId": 4,
     "sessionId": 366,
     "movieId": 3,
@@ -69,7 +69,7 @@
   },
   {
     "id": 7,
-    "reservationCode": null,
+    "reservationCode": "VW678L",
     "accountId": 4,
     "sessionId": 73,
     "movieId": 1,
@@ -82,7 +82,7 @@
   },
   {
     "id": 8,
-    "reservationCode": null,
+    "reservationCode": "AD11AD",
     "accountId": 4,
     "sessionId": 73,
     "movieId": 1,
@@ -95,7 +95,7 @@
   },
   {
     "id": 10,
-    "reservationCode": null,
+    "reservationCode": "KB5R5B",
     "accountId": 4,
     "sessionId": 312,
     "movieId": 5,
@@ -106,7 +106,7 @@
   },
   {
     "id": 11,
-    "reservationCode": null,
+    "reservationCode": "OADR4B",
     "accountId": 4,
     "sessionId": 312,
     "movieId": 5,

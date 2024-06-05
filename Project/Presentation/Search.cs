@@ -3,11 +3,11 @@ static class Search
     static private MovieLogic movieLogic = new MovieLogic();
 
 
-    public static void searchMovie()
+    public static void searchMovie(int accId)
     {
-        ConsoleE.Clear();
-        Console.WriteLine("Pleas enter the movie name or id: ");
+        Console.WriteLine("Pleas enter the movie name or id or [Q] to go back: ");
         string searchBy = Console.ReadLine();
+        if (ConsoleE.BackContains(searchBy)) UserMenu.Start(accId);
         List<MovieModel> movies = movieLogic.GetAllBySearch(searchBy);
 
         if (movies.Count > 0)
@@ -31,7 +31,7 @@ static class Search
             Console.WriteLine("Movie not found");
             Console.WriteLine("Press enter to go back to the menu");
             Console.ReadKey();
-            UserMenu.Start();
+            UserMenu.Start(accId);
         }
     }
 

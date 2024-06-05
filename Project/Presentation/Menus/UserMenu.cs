@@ -24,18 +24,18 @@ static class UserMenu
         }
 
         int selectedOption = DisplayUtil.MenuDisplay(options);
-        switch (selectedOption)
+        ConsoleE.Clear();
+        if (selectedOption == 0)
         {
-            case 0:
-                SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
-                Console.WriteLine("");
-                AddReservation.addMovieResv(accId);
+            SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
+            Console.WriteLine("");
+            AddReservation.addMovieResv(accId);
 
-                Console.WriteLine("");
-                Console.WriteLine("Press enter to go back.");
-                Console.ReadLine();
-                Start(accId, isAdmin);
-                break;
+            Console.WriteLine("");
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start(accId, isAdmin);
+        }
             // case 1:
             //     SeeJsons.PrintFoodJson(@"DataSources/food.json");
             //     //Reservation.ReserveFood(accId);
@@ -70,107 +70,115 @@ static class UserMenu
                 Start(accId, isAdmin);
                 break;*/
 
-            case 1: 
+        else if (selectedOption == 1)
+        {
             Console.WriteLine("");
             AddReservation.CancelReservation(accId);
             Console.WriteLine("Press enter to go back.");
             Console.ReadLine();
             Start(accId, isAdmin);
-            break;
+        }
+        else if (selectedOption == 2)
+        {
+            SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
+            Console.WriteLine("");
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start(accId, isAdmin);
+        }
+        else if (selectedOption == 3)
+        {
+            MovieSchedulingLogic objMovieSchedulingLogic = new();
+            List<string> scheduleOptions = new(){
+            "See entire schedule",
+            "See schedule for a specific date",
+            "See schedule for up until a specific date",
+            "See schedule for specific range of dates "
+            };
 
-
-            case 2:
-                SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
-                Console.WriteLine("");
-                Console.WriteLine("Press enter to go back.");
+            int seeScheduleInput = DisplayUtil.MenuDisplay(scheduleOptions);
+            if (seeScheduleInput == 0)
+            {
+                SeeJsons.PrintSchedulesJson("@DateSources/movieSessions.json");
+            }
+            else if (seeScheduleInput == 1)
+            {
+                string specificDateInput = ConsoleE.Input("Which date? (yyyy-MM-dd)");
+                objMovieSchedulingLogic.Print(specificDateInput);
+                Console.WriteLine("Press enter to go back to the option menu");
                 Console.ReadLine();
                 Start(accId, isAdmin);
-                break;
-            case 3:
-                MovieSchedulingLogic objMovieSchedulingLogic = new();
-                List<string> scheduleOptions = new(){
-                "See entire schedule",
-                "See schedule for a specific date",
-                "See schedule for up until a specific date",
-                "See schedule for specific range of dates "
-                };
-
-                int seeScheduleInput = DisplayUtil.MenuDisplay(scheduleOptions);
-                switch (seeScheduleInput)
-                {
-                    case 0:
-                        SeeJsons.PrintSchedulesJson("@DateSources/movieSessions.json");
-                        break;
-                    case 1:
-                        string specificDateInput = ConsoleE.Input("Which date? (yyyy-MM-dd)");
-                        objMovieSchedulingLogic.Print(specificDateInput);
-                        Console.WriteLine("Press enter to go back to the option menu");
-                        Console.ReadLine();
-                        Start(accId, isAdmin);
-                        break;
-                    case 2:
-                        string untilSpecificDateInput = ConsoleE.Input("Until which date? (yyyy-MM-dd)");
-                        objMovieSchedulingLogic.Print(DateTime.Today, untilSpecificDateInput);
-                        Console.WriteLine("Press enter to go back to the option menu");
-                        Console.ReadLine();
-                        Start(accId, isAdmin);
-                        break;
-                    case 3:
-                        string dateRangesInput = ConsoleE.Input("Which dates? (yyyy-MM-dd); comma separated (,)");
-                        objMovieSchedulingLogic.Print(dateRangesInput);
-                        Console.WriteLine("Press enter to go back to the option menu");
-                        Console.ReadLine();
-                        Start(accId, isAdmin);
-                        break;
-                    default:
-                        Console.WriteLine("Invalid input");
-                        Start(accId, isAdmin);
-                        break;
-                }
-                Console.WriteLine("");
-                Console.WriteLine("Press enter to go back.");
+            }
+            else if (seeScheduleInput == 1)
+            {
+                string untilSpecificDateInput = ConsoleE.Input("Until which date? (yyyy-MM-dd)");
+                objMovieSchedulingLogic.Print(DateTime.Today, untilSpecificDateInput);
+                Console.WriteLine("Press enter to go back to the option menu");
                 Console.ReadLine();
                 Start(accId, isAdmin);
-                break;
-            case 4:
-                Search.searchMovie();
-                Console.WriteLine("");
-                Console.WriteLine("Press enter to go back.");
+            }
+            else if (seeScheduleInput == 1)
+            {
+                string dateRangesInput = ConsoleE.Input("Which dates? (yyyy-MM-dd); comma separated (,)");
+                objMovieSchedulingLogic.Print(dateRangesInput);
+                Console.WriteLine("Press enter to go back to the option menu");
                 Console.ReadLine();
                 Start(accId, isAdmin);
-                break;
-            case 5:
-                Console.ResetColor();
-                Console.WriteLine("Reservation history function");
-                Console.WriteLine("");
-                ResvDetails.ResvHistory(accId);
-                Console.WriteLine("");
-                Console.WriteLine("Press enter to go back.");
-                Console.ReadLine();
-                Start(accId, isAdmin);
-                break;
-            case 6:
-                Console.ResetColor();
-                MainMenu.Start();
-                break;
-            case 7:
-                if (isAdmin) 
-                {
-                    Console.ResetColor();
-                    AdminMenu.Start(accId);
-                }
-                else 
-                {
-                    Console.ResetColor();
-                    Console.WriteLine("I don't think you have the facilities for that big man");
-                    Thread.Sleep(1000);
-                    Start(accId, isAdmin);
-                }
-                break;
-            default:
+            }
+            else
+            {
                 Console.WriteLine("Invalid input");
                 Start(accId, isAdmin);
-                break;
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start(accId, isAdmin);
+        }
+        else if (selectedOption == 4)
+        {
+            Search.searchMovie(accId);
+            Console.WriteLine("");
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start(accId, isAdmin);
+        }
+        else if (selectedOption == 5)
+        {
+            Console.ResetColor();
+            Console.WriteLine("Reservation history function");
+            Console.WriteLine("");
+            ResvDetails.ResvHistory(accId);
+            Console.WriteLine("");
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Start(accId, isAdmin);
+        }
+        else if (selectedOption == 6)
+        {
+            Console.ResetColor();
+            MainMenu.Start();
+        }
+        else if (selectedOption == 7)
+        {
+            if (isAdmin) 
+            {
+                Console.ResetColor();
+                AdminMenu.Start(accId);
+            }
+            else 
+            {
+                Console.ResetColor();
+                Console.WriteLine("I don't think you have the facilities for that big man");
+                Thread.Sleep(1000);
+                Start(accId, isAdmin);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Invalid input");
+            Start(accId, isAdmin);
+
         }
     }
 }

@@ -114,7 +114,9 @@
     "id": 11,
     "Name": "TestChangeTitle",
     "Genre": [
-      "drama", "horror", "triller"
+      "drama",
+      "horror",
+      "triller"
     ],
     "Year": 2023,
     "Description": "Can the title be changed?...",
@@ -125,7 +127,9 @@
     "id": 12,
     "Name": "UnitTestChangeDetails",
     "Genre": [
-      "drama", "horror", "triller"
+      "drama",
+      "horror",
+      "triller"
     ],
     "Year": 2023,
     "Description": "The details must be changed...",
@@ -136,7 +140,9 @@
     "id": 13,
     "Name": "UnitTestRemove",
     "Genre": [
-      "drama", "horror", "triller"
+      "drama",
+      "horror",
+      "triller"
     ],
     "Year": 2023,
     "Description": "We really, really, REALLY hate this movie... and it lasts TOO LONG... REMOVE IT!!",
@@ -147,11 +153,24 @@
     "id": 14,
     "Name": "UnitTestClone",
     "Genre": [
-      "drama", "horror", "triller"
+      "drama",
+      "horror",
+      "triller"
     ],
     "Year": 2023,
     "Description": "We need a part 2!!",
     "Director": "Thh",
     "Duration": 117
+  },
+  {
+    "id": 15,
+    "Name": "Inception",
+    "Genre": [
+      "Science Fiction"
+    ],
+    "Year": 2010,
+    "Description": "A thief who enters the dreams of others to steal their secrets from their subconscious.",
+    "Director": "Christopher Nolan",
+    "Duration": 148
   }
 ]

@@ -58,11 +58,24 @@ static class ConsoleE
         return Int32.MinValue;
     }
     */
-    public static bool IsNullOrEmptyOrWhiteSpace(string str)
+    public static bool IsNullOrEmptyOrWhiteSpace<T>(T inp)
     {
         bool isNullOrEmptyOrWhiteSpace = false;
-        if (string.IsNullOrEmpty(str)) isNullOrEmptyOrWhiteSpace = true;
-        if (string.IsNullOrWhiteSpace(str)) isNullOrEmptyOrWhiteSpace = true;
+        if (inp is string)
+        {
+            string str = Convert.ToString(inp);
+            if (string.IsNullOrEmpty(str)) isNullOrEmptyOrWhiteSpace = true;
+            if (string.IsNullOrWhiteSpace(str)) isNullOrEmptyOrWhiteSpace = true;
+        }
+        else
+        {
+            if (inp == null) isNullOrEmptyOrWhiteSpace = true;
+            if (inp is IModel)
+            {
+                IModel imodel = (IModel)inp;
+                if (imodel.Id == null) isNullOrEmptyOrWhiteSpace = true;
+            }
+        }
 
         return isNullOrEmptyOrWhiteSpace;
     }
@@ -75,7 +88,8 @@ static class ConsoleE
 
     public static void Clear()
     {
-        if (!Debugger.IsAttached) Console.Clear();
+        if (!Debugger.IsAttached)
+        Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
     public static void CursorVisible(bool visible)
