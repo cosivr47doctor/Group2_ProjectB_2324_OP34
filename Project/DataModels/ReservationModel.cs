@@ -66,7 +66,8 @@ public class ReservationModel : IModel
             else sb.AppendLine($"{property.Name}: {value}");
         }
         MovieScheduleModel session = GenericAccess<MovieScheduleModel>.LoadAll().Where(ms => ms.Id == SessionId).FirstOrDefault();
-        sb.AppendLine($"Date: {session.Date.Date.ToString("yyyy-MM-dd")}, time: {session.TimeIdPair.Keys.First()}");
+        if (session != null) sb.AppendLine($"Date: {session.Date.Date.ToString("yyyy-MM-dd")}, time: {session.TimeIdPair.Keys.First()}");
+        else sb.Append("Date: EXPIRED SESSION");
         return sb.ToString();
     }
 }

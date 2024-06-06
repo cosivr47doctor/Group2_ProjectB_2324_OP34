@@ -89,7 +89,7 @@ static class ConsoleE
     public static void Clear()
     {
         if (!Debugger.IsAttached)
-        Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        Console.Clear();
     }
 
     public static void CursorVisible(bool visible)
