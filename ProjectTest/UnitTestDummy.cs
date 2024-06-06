@@ -61,5 +61,9 @@ public class TestDummy
 
         _reservations.Last().Id.Should().Be(3);
         _reservations.Last().Id.Should().Be(_reservations.Count());
+
+        // Now test whether the session is included in the reservation.
+        ConsoleE.IsNullOrEmptyOrWhiteSpace(_reservations.Last().SessionId);
+        _reservations.Last().SessionId.Should().BeGreaterThan(-1);
     }
 }

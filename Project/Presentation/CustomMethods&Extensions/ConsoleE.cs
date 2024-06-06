@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Security.Cryptography;
 
-static class ConsoleE
+public static class ConsoleE
 {
     public static string[] backContains = new string[] {"q", "Q", "[q]", "[Q]", "go back"};
     public static string Input(string message = "Press enter to go back", bool hideInput = false)
