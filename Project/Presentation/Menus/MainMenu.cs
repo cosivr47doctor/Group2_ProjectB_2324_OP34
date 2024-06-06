@@ -6,6 +6,7 @@ static class MainMenu
     //You could edit this to show different menus depending on the user's role
     static public void Start()
     {
+        GenericMethods.Reload();
         MovieSchedulingLogic objMovieScheduling = new MovieSchedulingLogic(); objMovieScheduling.StartupUpdateList();
         AccountsLogic objAccountsLogic = new AccountsLogic();
 
