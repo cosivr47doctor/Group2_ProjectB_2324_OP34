@@ -8,12 +8,10 @@ static class UserMenu
         GenericMethods.Reload();
             List<string> options = new(){
                 "Make a reservation",
-                //"Order some food",
-                "Cancel a reservation",
+                "Manage reservations",
                 "See all available movies",
                 "See the movies schedule",
                 "Search a movie",
-                "See reservation history",
                 "Logout"
             };
         
@@ -72,7 +70,9 @@ static class UserMenu
 
         else if (selectedOption == 1)
         {
+            ConsoleE.Clear();
             Console.WriteLine("");
+            AccountsLogic.AccReservations(accId);
             AddReservation.CancelReservation(accId);
             Console.WriteLine("Press enter to go back.");
             Console.ReadLine();
@@ -82,8 +82,7 @@ static class UserMenu
         {
             SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
             Console.WriteLine("");
-            Console.WriteLine("Press enter to go back.");
-            Console.ReadLine();
+            Console.WriteLine(" or press [Q] to go back.");
             Start(accId, isAdmin);
         }
         else if (selectedOption == 3)
@@ -146,20 +145,9 @@ static class UserMenu
         else if (selectedOption == 5)
         {
             Console.ResetColor();
-            Console.WriteLine("Reservation history function");
-            Console.WriteLine("");
-            ResvDetails.ResvHistory(accId);
-            Console.WriteLine("");
-            Console.WriteLine("Press enter to go back.");
-            Console.ReadLine();
-            Start(accId, isAdmin);
-        }
-        else if (selectedOption == 6)
-        {
-            Console.ResetColor();
             MainMenu.Start();
         }
-        else if (selectedOption == 7)
+        else if (selectedOption == 6)
         {
             if (isAdmin) 
             {
@@ -169,7 +157,7 @@ static class UserMenu
             else 
             {
                 Console.ResetColor();
-                Console.WriteLine("I don't think you have the facilities for that big man");
+                Console.WriteLine("Error: no admin rights on account found.");
                 Thread.Sleep(1000);
                 Start(accId, isAdmin);
             }

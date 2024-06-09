@@ -41,7 +41,6 @@ class AccountsLogic
         }
     }
 
-
     public AccountModel GetByArg(string input)
     {
         if (input.All(char.IsDigit))
@@ -52,6 +51,14 @@ class AccountsLogic
         {
             return _accounts.Find(i => i.EmailAddress == input);
         }
+    }
+
+    public static List<ReservationModel> AccReservations(int accId)
+    {
+        List<ReservationModel> accResvs = GenericAccess<ReservationModel>.LoadAll().Where(r => r.AccountId == accId).ToList();
+        if (accResvs != null) accResvs.ForEach(r => Console.WriteLine(r.ToString()));
+        else Console.WriteLine("No reservations found");
+        return accResvs;
     }
 
     public bool EmailExists(string email)

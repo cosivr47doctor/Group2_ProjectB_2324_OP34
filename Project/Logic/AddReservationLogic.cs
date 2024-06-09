@@ -254,6 +254,15 @@ static class AddReservation
 
             if (reservationToCancel != null)
             {
+                MovieScheduleModel movieSched = GenericAccess<MovieScheduleModel>.LoadAll().Where(ms => ms.Id == reservationToCancel.SessionId).First();
+                DateTime now = DateTime.Now;
+                string[] schedSession = movieSched.TimeIdPair.Keys.First().Split(" - ");
+                DateTime scheduleDateTime = movieSched.Date.Add(DateTime.Parse(schedSession[0]).TimeOfDay);
+                if (now.Date >= scheduleDateTime)
+                {
+                    Console.WriteLine("Can't cancel: date has expired already.");
+                    return;
+                }
                 reservations.Remove(reservationToCancel);
                 // Find all rooms with the same reservation code and remove them
                 List<RoomModel> roomsToCancel = rooms.Where(room => room.ReservationCode == reservationCodeInput).ToList();
