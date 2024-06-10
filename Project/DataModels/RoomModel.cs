@@ -1,29 +1,32 @@
 using System.Text.Json.Serialization;
+using Microsoft.VisualBasic;
+using System.Collections;
+using System.Text;
+
 
 public class RoomModel : IModel
 {
-    [JsonPropertyName("ID")]
-    public int Id {get; set;}
+    [JsonPropertyName("Room")]
+    public int Id { get; set; }
 
-    [JsonPropertyName("reservationCode")]
-    public string ReservationCode {get; set;}
+    [JsonPropertyName("Seats")]
+    public List<List<string>> Seats {get; set;}
 
-    [JsonPropertyName("Session id")]
-    public int SessionId {get; set;}
+    [JsonPropertyName("Price standard seat")]
+    public decimal Price1 { get; set; }
 
-    [JsonPropertyName("Row")]
-    public int Row {get; set;}
+    [JsonPropertyName("Price deluxe seat")]
+    public decimal Price2 { get; set; }
 
-    [JsonPropertyName("Taken seats")]
-    public List<int> Seats {get; set;}
-
-
-    public RoomModel(int id, string reservationcode, int sessionId, int row, List<int> seats)
+    [JsonPropertyName("Price vip seat")]
+    public decimal Price3 { get; set; }
+    
+    public RoomModel(List<List<string>> seats, decimal price1, decimal price2, decimal price3)
     {
-        Id = id;
-        ReservationCode = reservationcode;
-        SessionId = sessionId;
-        Row = row;
+        Id = 0;
         Seats = seats;
+        Price1 = price1;
+        Price2 = price2;
+        Price3 = price3;
     }
 }

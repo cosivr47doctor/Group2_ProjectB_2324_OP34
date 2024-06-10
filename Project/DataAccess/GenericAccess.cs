@@ -58,6 +58,7 @@ public static class GenericAccess<TModel>
         else if (modelName == "movieschedulemodel") path = Path.GetFullPath(Path.Combine(BaseDirectory, @"DataSources/movieSessions.json"));
         else if (modelName == "reservationmodel") path = Path.GetFullPath(Path.Combine(BaseDirectory, @"DataSources/reservations.json"));
         else if (modelName == "roommodel") path = Path.GetFullPath(Path.Combine(BaseDirectory, @"DataSources/rooms.json"));
+        else if (modelName == "takenseatsmodel") path = Path.GetFullPath(Path.Combine(BaseDirectory, @"DataSources/takenSeats.json"));
 
         return Path.GetFullPath(path);
     }

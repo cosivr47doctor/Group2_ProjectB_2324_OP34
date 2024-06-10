@@ -1,0 +1,263 @@
+[
+  {
+    "ID": 1,
+    "reservationCode": null,
+    "Session id": 36,
+    "Row": 5,
+    "Taken seats": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "ID": 2,
+    "reservationCode": null,
+    "Session id": 36,
+    "Row": 2,
+    "Taken seats": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "ID": 3,
+    "reservationCode": null,
+    "Session id": 366,
+    "Row": 2,
+    "Taken seats": [
+      10,
+      9
+    ]
+  },
+  {
+    "ID": 4,
+    "reservationCode": null,
+    "Session id": 73,
+    "Row": 2,
+    "Taken seats": [
+      2,
+      3
+    ]
+  },
+  {
+    "ID": 5,
+    "reservationCode": null,
+    "Session id": 73,
+    "Row": 4,
+    "Taken seats": [
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "ID": 6,
+    "reservationCode": null,
+    "Session id": 423,
+    "Row": 2,
+    "Taken seats": [
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "ID": 8,
+    "reservationCode": null,
+    "Session id": 263,
+    "Row": 13,
+    "Taken seats": [
+      2,
+      3
+    ]
+  },
+  {
+    "ID": 9,
+    "reservationCode": null,
+    "Session id": 312,
+    "Row": 5,
+    "Taken seats": [
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "ID": 10,
+    "reservationCode": null,
+    "Session id": 312,
+    "Row": 2,
+    "Taken seats": [
+      1,
+      2
+    ]
+  },
+  {
+    "ID": 12,
+    "reservationCode": "JODR4B",
+    "Session id": 1340,
+    "Row": 6,
+    "Taken seats": [
+      2,
+      3
+    ]
+  },
+  {
+    "ID": 13,
+    "reservationCode": "SI91HG",
+    "Session id": 143,
+    "Row": 18,
+    "Taken seats": [
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "ID": 14,
+    "reservationCode": "00B0XY",
+    "Session id": 98,
+    "Row": 2,
+    "Taken seats": [
+      4,
+      5
+    ]
+  },
+  {
+    "ID": 15,
+    "reservationCode": "7SFMX7",
+    "Session id": 143,
+    "Row": 7,
+    "Taken seats": [
+      5,
+      6
+    ]
+  },
+  {
+    "ID": 16,
+    "reservationCode": "ALNF11",
+    "Session id": 20,
+    "Row": 4,
+    "Taken seats": [
+      6,
+      7
+    ]
+  },
+  {
+    "ID": 17,
+    "reservationCode": "R10PWB",
+    "Session id": 480,
+    "Row": 5,
+    "Taken seats": [
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "ID": 18,
+    "reservationCode": "JQPCPH",
+    "Session id": 689,
+    "Row": 1,
+    "Taken seats": [
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "ID": 19,
+    "reservationCode": "80RA4K",
+    "Session id": 677,
+    "Row": 3,
+    "Taken seats": [
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "ID": 20,
+    "reservationCode": "NMCW0X",
+    "Session id": 651,
+    "Row": 5,
+    "Taken seats": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "ID": 21,
+    "reservationCode": "820EMO",
+    "Session id": 68,
+    "Row": 5,
+    "Taken seats": [
+      2
+    ]
+  },
+  {
+    "ID": 22,
+    "reservationCode": "5SAV98",
+    "Session id": 203,
+    "Row": 1,
+    "Taken seats": [
+      7
+    ]
+  },
+  {
+    "ID": 23,
+    "reservationCode": "GGZ49N",
+    "Session id": 32,
+    "Row": 1,
+    "Taken seats": [
+      5
+    ]
+  },
+  {
+    "ID": 24,
+    "reservationCode": "M0JU75",
+    "Session id": 326,
+    "Row": 2,
+    "Taken seats": [
+      4
+    ]
+  },
+  {
+    "ID": 25,
+    "reservationCode": "K6B3AF",
+    "Session id": 250,
+    "Row": 2,
+    "Taken seats": [
+      2
+    ]
+  },
+  {
+    "ID": 26,
+    "reservationCode": "CBDLQ8",
+    "Session id": 250,
+    "Row": 0,
+    "Taken seats": [
+      5
+    ]
+  },
+  {
+    "ID": 27,
+    "reservationCode": "5MV9QH",
+    "Session id": 98,
+    "Row": 3,
+    "Taken seats": [
+      6,
+      7,
+      8
+    ]
+  }
+]

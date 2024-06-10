@@ -112,11 +112,11 @@ static class AddReservation
         else
         {
             // MovieModel dummyMovie = movieLogic.SelectForResv("3");
-            AskForFood(accId, 1, 7, "101", 0, new RoomModel(0, "test", 1, 1, new List<int>{1}), dummyAccId);
+            AskForFood(accId, 1, 7, "101", 0, new TakenSeatsModel(0, "test", 1, 1, new List<int>{1}), dummyAccId);
             Console.WriteLine("Reservation added for the dummy account. Check updated json.");
         }
     }
-    public static void AskForFood(int accId, int sessionId, int movieId, string seatsStr, int price, RoomModel roomDetails=null, int dummyAccId=-1)
+    public static void AskForFood(int accId, int sessionId, int movieId, string seatsStr, decimal price, TakenSeatsModel roomDetails=null, int dummyAccId=-1)
     {
         AccountsLogic objAccountsLogic = new(); bool isAdmin = objAccountsLogic.GetByArg(accId).isAdmin;
         int accountId;
@@ -157,7 +157,7 @@ static class AddReservation
          else throw new Exception("error");
     }
 
-    public static void addFoodResv(int accId, int sessionId, int movieId, string seatsStr, int price, RoomModel roomDetails, int dummyAccId=-1)
+    public static void addFoodResv(int accId, int sessionId, int movieId, string seatsStr, decimal price, TakenSeatsModel roomDetails, int dummyAccId=-1)
     {
         AccountsLogic objAccountsLogic = new(); bool isAdmin = objAccountsLogic.GetByArg(accId).isAdmin;
         List<(FoodModel food, int quantity)> selectedFoods = new();
@@ -259,7 +259,7 @@ static class AddReservation
     public static void CancelReservation(int accountId)
     {
         List<ReservationModel> reservations = GenericAccess<ReservationModel>.LoadAll();
-        List<RoomModel> rooms = GenericAccess<RoomModel>.LoadAll();
+        List<TakenSeatsModel> rooms = GenericAccess<TakenSeatsModel>.LoadAll();
         bool validInput = false;
         while (!validInput)
         {
@@ -286,14 +286,14 @@ static class AddReservation
                 }
                 reservations.Remove(reservationToCancel);
                 // Find all rooms with the same reservation code and remove them
-                List<RoomModel> roomsToCancel = rooms.Where(room => room.ReservationCode == reservationCodeInput).ToList();
+                List<TakenSeatsModel> roomsToCancel = rooms.Where(room => room.ReservationCode == reservationCodeInput).ToList();
                 foreach (var room in roomsToCancel)
                 {
                     rooms.Remove(room);
                 }
                 // Save the updated lists back to the file
                 GenericAccess<ReservationModel>.WriteAll(reservations);
-                GenericAccess<RoomModel>.WriteAll(rooms);
+                GenericAccess<TakenSeatsModel>.WriteAll(rooms);
 
                 Console.WriteLine("Reservation cancelled successfully.");
                 validInput = true;

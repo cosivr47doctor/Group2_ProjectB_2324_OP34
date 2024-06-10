@@ -1,34 +1,35 @@
 public static class RoomInfo
 {
-    public static (string, string) checkRoom(string roomNumber)
+    public static (string, string, string) checkRoom(int roomNumber, MovieModel forMovieName, MovieScheduleModel forSessionDetails)
     {
-            if (roomNumber == "roomOne")
-            {
-                string roomPrint = "Row                Room 1\n-----------------------------------------";
-                string screen = "-----------------------------------------\n                   Screen";
-                return (roomPrint, screen);
-            }
-            else if (roomNumber == "roomTwo")
-            {
-                string roomPrint = "Row                          Room 2\n----------------------------------------------------------";
-                string screen = "----------------------------------------------------------\n                             Screen";
-                return (roomPrint, screen);
-            }
-            else if (roomNumber == "roomThree")
-            {
-                string roomPrint = "Row                                            Room 3\n----------------------------------------------------------------------------------------------";
-                string screen = "----------------------------------------------------------------------------------------------\n                                               Screen";
-                return (roomPrint, screen);
-            }
-            else
-            {
-                return(null, null);
-            }
+        string sessionRoomDetails = $"Movie name: {forMovieName.Name}\nDate: {forSessionDetails.Date}\nTime: {forSessionDetails.TimeIdPair.Keys.First()}";
+        if (roomNumber == 1)
+        {
+            string roomPrint = $"\nRow                Room 1\n-----------------------------------------";
+            string screen = "-----------------------------------------\n                   Screen";
+            return (roomPrint, screen, sessionRoomDetails);
+        }
+        else if (roomNumber == 2)
+        {
+            string roomPrint = $"\nRow                          Room 2\n----------------------------------------------------------";
+            string screen = "----------------------------------------------------------\n                             Screen";
+            return (roomPrint, screen, sessionRoomDetails);
+        }
+        else if (roomNumber == 3)
+        {
+            string roomPrint = $"\nRow                                            Room 3\n----------------------------------------------------------------------------------------------";
+            string screen = "----------------------------------------------------------------------------------------------\n                                               Screen";
+            return (roomPrint, screen, sessionRoomDetails);
+        }
+        else
+        {
+            return(null, null, null);
+        }
     }
-    public static void RoomInformation(string roomNumber)
+    public static void RoomInformation(int roomNumber, MovieModel forMovieName, MovieScheduleModel forSessionDetails)
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine(checkRoom(roomNumber).Item2);
+        Console.WriteLine(checkRoom(roomNumber, forMovieName, forSessionDetails).Item2);
         Console.ResetColor();
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("\nX = Seat already taken");

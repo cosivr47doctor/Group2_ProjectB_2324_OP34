@@ -21,6 +21,7 @@ static class MainMenu
         int selectedOption = DisplayUtil.MenuDisplay(options);
         if (selectedOption == 0)
         {
+            Console.Clear();
             UserLogin.Start();
         }
         else if (selectedOption == 1)

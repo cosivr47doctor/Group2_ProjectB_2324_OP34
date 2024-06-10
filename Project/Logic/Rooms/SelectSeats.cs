@@ -5,67 +5,13 @@ using System.Threading;
 
 public static class SelectSeats
 {
-    private static bool IsExpensiveSeat(int i, int j, string roomNumber)
-    {
-        if (roomNumber == "roomOne")
-        {
-            return (i == 3 && j >= 5 && j <= 6) || (i == 4 && j >= 4 && j <= 7) || (i == 10 && j >= 5 && j <= 6) || (i == 9 && j >= 4 && j <= 7) ||
-            (i == 5 && j >= 3 && j <= 4) || (i == 6 && j >= 3 && j <= 4) || (i == 7 && j >= 3 && j <= 4) || (i == 8 && j >= 3 && j <= 4) ||
-            (i == 5 && j >= 7 && j <= 8) || (i == 6 && j >= 7 && j <= 8) || (i == 7 && j >= 7 && j <= 8) || (i == 8 && j >= 7 && j <= 8);
-        }
-        else if (roomNumber == "roomTwo")
-        {
-            return (i == 1 && j >= 6 && j <= 11) || (i == 2 && j >= 5 && j <= 12) || (i == 3 && j >= 5 && j <= 12) || (i == 4 && j >= 4 && j <= 13) ||
-            (i == 13 && j >= 5 && j <= 12) || (i == 14 && j >= 6 && j <= 11) || (i == 15 && j >= 6 && j <= 11) || (i == 5 && j >= 4 && j <= 7) ||
-            (i == 5 && j >= 10 && j <= 13) || (i == 6 && j >= 3 && j <= 6) || (i == 6 && j >= 11 && j <= 14) || (i == 7 && j >= 3 && j <= 6) ||
-            (i == 7 && j >= 11 && j <= 14) || (i == 8 && j >= 2 && j <= 5) || (i == 8 && j >= 12 && j <= 15) || (i == 9 && j >= 2 && j <= 5) ||
-            (i == 9 && j >= 12 && j <= 15) || (i == 10 && j >= 2 && j <= 5) || (i == 10 && j >= 12 && j <= 15) || (i == 11 && j >= 3 && j <= 6) ||
-            (i == 11 && j >= 11 && j <= 14) || (i == 12 && j >= 4 && j <= 7) || (i == 12 && j >= 10 && j <= 13);
-        }
-        else if (roomNumber == "roomThree")
-        {
-            return (i == 1 && j >= 9 && j <= 20) || (i == 2 && j >= 8 && j <= 21) || (i == 3 && j >= 8 && j <= 21) || (i == 13 && j >= 8 && j <= 21) ||
-            (i == 14 && j >= 9 && j <= 20) || (i == 15 && j >= 10 && j <= 19) || (i == 16 && j >= 12 && j <= 17) || (i == 4 && j >= 7 && j <= 12) ||
-            (i == 4 && j >= 17 && j <= 21) || (i == 5 && j >= 7 && j <= 11) || (i == 5 && j >= 18 && j <= 22) || (i == 6 && j >= 6 && j <= 10) ||
-            (i == 6 && j >= 19 && j <= 23) || (i == 7 && j >= 6 && j <= 10) || (i == 7 && j >= 19 && j <= 23) || (i == 8 && j >= 5 && j <= 10) ||
-            (i == 8 && j >= 19 && j <= 24) || (i == 9 && j >= 5 && j <= 10) || (i == 9 && j >= 19 && j <= 24) || (i == 10 && j >= 6 && j <= 10) ||
-            (i == 10 && j >= 19 && j <= 23) || (i == 11 && j >= 7 && j <= 10) || (i == 11 && j >= 19 && j <= 22) || (i == 12 && j >= 8 && j <= 12) ||
-            (i == 12 && j >= 17 && j <= 21);
-        }
-        else 
-        {
-            return false;
-        }
-    }
-        private static bool IsMoreExpensiveSeat(int i, int j, string roomNumber)
-    {
-        if (roomNumber == "roomOne")
-        {
-            return (i == 5 && j >= 5 && j <= 6) || (i == 6 && j >= 5 && j <= 6) || (i == 7 && j >= 5 && j <= 6) || (i == 8 && j >= 5 && j <= 6);
-        }
-        else if (roomNumber == "roomTwo")
-        {
-            return (i == 5 && j >= 8 && j <= 9) || (i == 6 && j >= 7 && j <= 10) || (i == 7 && j >= 6 && j <= 11) || (i == 8 && j >= 6 && j <= 11) || 
-            (i == 9 && j >= 6 && j <= 11) || (i == 10 && j >= 6 && j <= 11) || (i == 11 && j >= 7 && j <= 10) || (i == 12 && j >= 8 && j <= 9);
-        }
-        else if (roomNumber == "roomThree")
-        {
-            return (i == 4 && j >= 13 && j <= 16) || (i == 5 && j >= 12 && j <= 17) || (i == 6 && j >= 11 && j <= 18) || (i == 6 && j >= 11 && j <= 18) ||
-            (i == 7 && j >= 11 && j <= 18) || (i == 8 && j >= 11 && j <= 18) || (i == 9 && j >= 11 && j <= 18) || (i == 10 && j >= 11 && j <= 18) ||
-            (i == 11 && j >= 11 && j <= 18) || (i == 12 && j >= 13 && j <= 16);
-        }
-        else 
-        {
-            return false;
-        }
-    }
-    public static (int, int, int) DisplaySeats(int accId, int sessionId, int movieId, List<List<string>> options, int seatsCount, string roomNumber)
+    public static (int, int, int) DisplaySeats(int accId, int sessionId, int movieId, List<List<string>> options, int seatsCount, int roomNumber)
     {
         Console.Clear();
         Console.CursorVisible = false;
 
         int selectedRow = 0;
-        int selectedColumn = 0;
+        int selectedColumn = 4;
 
         ConsoleKeyInfo key;
         bool isSelected = false;
@@ -79,9 +25,17 @@ public static class SelectSeats
         {
             Console.SetCursorPosition(0, 0);
             Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Green;
 
-            Console.WriteLine(RoomInfo.checkRoom(roomNumber).Item1);
+
+            MovieLogic objMovieLogic = new MovieLogic();
+            MovieModel selectedMovieName = objMovieLogic.GetBySearch(movieId);
+
+            RoomLogic objRoomLogic = new RoomLogic();
+            MovieScheduleModel getSessionDetails = objRoomLogic.selectSessionDetails(sessionId);
+
+            Console.WriteLine($"{RoomInfo.checkRoom(roomNumber, selectedMovieName, getSessionDetails).Item3}");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{RoomInfo.checkRoom(roomNumber, selectedMovieName, getSessionDetails).Item1}");
             Console.ResetColor();
 
             for (int i = 0; i < seatsCount; i++)
@@ -101,11 +55,11 @@ public static class SelectSeats
                     {
                         Console.ForegroundColor = ConsoleColor.Red; // Change color for taken seats
                     }
-                    else if (IsExpensiveSeat(i,j, roomNumber))
+                    else if (RoomSeats.deluxeSeats(i,j, roomNumber))
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow; // Change color for specified seats
                     }
-                    else if (IsMoreExpensiveSeat(i,j, roomNumber))
+                    else if (RoomSeats.vipSeats(i,j, roomNumber))
                     {
                         Console.ForegroundColor = ConsoleColor.Blue; // Change color for specified seats (more expensive)
                     }
@@ -118,7 +72,7 @@ public static class SelectSeats
                 }
                 Console.WriteLine("");
             }
-            RoomInfo.RoomInformation(roomNumber);
+            RoomInfo.RoomInformation(roomNumber, selectedMovieName, getSessionDetails);
 
             key = Console.ReadKey(true);
             switch (key.Key)
@@ -253,31 +207,32 @@ public static class SelectSeats
                         Thread.Sleep(3000);
                         string seatsString = $"row: {stringRow}, seats: {string.Join(",", seatsNumbers)}";
 
-                        int price = 0;
+                        RoomModel selectPrice = objRoomLogic.selectRoomfromJson(roomNumber);
+                        decimal price = 0;
                         foreach (var seatColumn in seatsTakenColumn)
                         {
-                            if (IsMoreExpensiveSeat(enteredRow, seatColumn, roomNumber))
+                            if (RoomSeats.deluxeSeats(enteredRow, seatColumn, roomNumber))
                             {
-                                price += 16;
+                                price += selectPrice.Price2;
                             }
-                            else if (IsExpensiveSeat(enteredRow, seatColumn, roomNumber))
+                            else if (RoomSeats.vipSeats(enteredRow, seatColumn, roomNumber))
                             {
-                                price += 14;
+                                price += selectPrice.Price3;
                             }
                             else
                             {
-                                price += 12;
+                                price += selectPrice.Price1;
                             }
                         }
 
                         string reservationCode = GenerateResvCode.GenerateCode();
-                        RoomModel roomDetails = new RoomModel(0, reservationCode, sessionId, enteredRow, seatsTakenColumn);
+                        TakenSeatsModel roomDetails = new TakenSeatsModel(0, reservationCode, sessionId, enteredRow, seatsTakenColumn);
                         AddReservation.AskForFood(accId, sessionId, movieId, seatsString, price, roomDetails);
                     }
                     break;
 
                 case ConsoleKey.Backspace:
-                    Console.WriteLine("Heading back to the start menu");
+                    Console.WriteLine("I don't think you have the facilities for that big man");
                     break;
     
                 case ConsoleKey.Escape:
@@ -285,7 +240,7 @@ public static class SelectSeats
                     break;
             }
         }
-        Console.ResetColor();
+        Console.ForegroundColor = ConsoleColor.White;
         return (selectedRow, selectedColumn, accId);
     }
 }

@@ -64,6 +64,7 @@ public static class DisplayUtil
                     //     break;
             }
         }
+        Console.ForegroundColor = ConsoleColor.White;
         return selectedOption;
     }
 }

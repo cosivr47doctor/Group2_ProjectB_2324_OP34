@@ -174,5 +174,21 @@
     ],
     "totalPrice": 39.99,
     "purchaseTime": "2024-06-09T21:14:33.9628098+02:00"
+  },
+  {
+    "id": 17,
+    "reservationCode": "5MV9QH",
+    "accountId": 4,
+    "sessionId": 98,
+    "movieId": 1,
+    "seats": "row: 11, seats: 7,8,9",
+    "food": [
+      "nachos",
+      "nachos",
+      "nachos",
+      "nachos"
+    ],
+    "totalPrice": 56.00,
+    "purchaseTime": "2024-06-10T16:33:05.3276228+02:00"
   }
 ]
