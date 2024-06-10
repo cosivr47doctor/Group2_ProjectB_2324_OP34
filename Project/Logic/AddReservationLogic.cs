@@ -31,6 +31,12 @@ static class AddReservation
                 Console.WriteLine("---------------------------------------------------------------------");
                 Console.WriteLine();
             }
+
+            if (session.Room == 1 && previousRoom != 1)
+            {
+                Console.WriteLine("---------------------------------------------------------------------");
+            }
+            
             previousRoom = session.Room;
             string idOfMovieStr = session.TimeIdPair.Values.FirstOrDefault();
             int idOfMovie = (int)Char.GetNumericValue(idOfMovieStr[idOfMovieStr.Length - 1]);
