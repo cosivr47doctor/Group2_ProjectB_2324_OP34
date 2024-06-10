@@ -105,5 +105,27 @@
       2,
       3
     ]
+  },
+  {
+    "ID": 13,
+    "reservationCode": "U5W26V",
+    "Session id": 745,
+    "Row": 4,
+    "Taken seats": [
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "ID": 14,
+    "reservationCode": "78D74Q",
+    "Session id": 735,
+    "Row": 3,
+    "Taken seats": [
+      3,
+      4,
+      5
+    ]
   }
 ]

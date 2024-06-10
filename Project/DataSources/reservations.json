@@ -134,5 +134,45 @@
     "food": [],
     "totalPrice": 26,
     "purchaseTime": "2024-06-04T18:46:22.5148332+02:00"
+  },
+  {
+    "id": 14,
+    "reservationCode": "U5W26V",
+    "accountId": 6,
+    "sessionId": 745,
+    "movieId": 7,
+    "seats": "row: 10, seats: 4,5,6",
+    "food": [
+      "popcorn",
+      "chips"
+    ],
+    "totalPrice": 46.49,
+    "purchaseTime": "2024-06-06T14:47:41.0040252+02:00"
+  },
+  {
+    "id": 15,
+    "reservationCode": "Q808N5",
+    "accountId": 6,
+    "sessionId": 437,
+    "movieId": 8,
+    "seats": "row: 11, seats: 1,2,3",
+    "food": [
+      "cola"
+    ],
+    "totalPrice": 38.50,
+    "purchaseTime": "2024-06-06T15:32:25.6546355+02:00"
+  },
+  {
+    "id": 16,
+    "reservationCode": "78D74Q",
+    "accountId": 6,
+    "sessionId": 735,
+    "movieId": 15,
+    "seats": "row: 11, seats: 4,5,6",
+    "food": [
+      "candy"
+    ],
+    "totalPrice": 39.99,
+    "purchaseTime": "2024-06-09T21:14:33.9628098+02:00"
   }
 ]

@@ -21,13 +21,28 @@ static class AddReservation
             UserMenu.Start(accId);
             // return (-1, -1); // Return some invalid default value
         }
+        matchingSchedules = matchingSchedules.OrderBy(s => s.Room).ToList();
+
+        int previousRoom = -1;
         foreach (MovieScheduleModel session in matchingSchedules)
         {
+            if (session.Room != previousRoom && previousRoom != -1)
+            {
+                Console.WriteLine("---------------------------------------------------------------------");
+                Console.WriteLine();
+            }
+            previousRoom = session.Room;
             string idOfMovieStr = session.TimeIdPair.Values.FirstOrDefault();
             int idOfMovie = (int)Char.GetNumericValue(idOfMovieStr[idOfMovieStr.Length - 1]);
             MovieModel movie = movies.FirstOrDefault(m => m.Id == movieId);
             string date = session.Date.Date.ToString("yyyy-MM-dd");
             Console.WriteLine($"ID: {session.Id}, Date: {date}, Session time: {session.TimeIdPair.Keys.First()}, Room: {session.Room}");
+
+            Console.WriteLine();
+        }
+        if (matchingSchedules.Any())
+        {
+            Console.WriteLine("---------------------------------------------------------------------");
         }
 
         int sessionId = Convert.ToInt32(ConsoleE.IntInput("Please select a session ID"));
