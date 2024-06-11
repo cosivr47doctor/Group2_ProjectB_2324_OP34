@@ -5,7 +5,7 @@ static class AdminMenu
     "Logout",
     "Add food to the menu",
     "Add/Edit/remove/clone a movie",
-    "Reschedule a date",
+    "Manage sessions",
     "Access extra options",
     };
 
@@ -90,7 +90,9 @@ static class AdminMenu
         {
             string dateInput = ConsoleE.Input("Enter a date (yyyy-MM-dd) or [Q] to go back");
             if (ConsoleE.BackContains(dateInput)) Start(accId);
-            objMovieSchedulingLogic.RescheduleList(dateInput);
+            // string rescheduleOrDelete = ConsoleE.Input("Reschedule [R] or Delete [D] a session or date?");
+            // if (new[]{"D", "d", "Delete", "delete"}.Contains(rescheduleOrDelete)) objMovieSchedulingLogic.DeleteSession(dateInput);
+            objMovieSchedulingLogic.DeleteSession(dateInput);
             ConsoleE.Input("Press enter to go back", true);
             Start(accId);
         }

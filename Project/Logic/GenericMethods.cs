@@ -24,6 +24,12 @@ public static class GenericMethods
         GenericAccess<TModel>.LoadAll();
     }
 
+    public static List<TModel> DeleteFromList<TModel>(List<TModel> modelList, TModel modelItem) where TModel : IModel
+    {
+        modelList.Remove(modelItem); GenericAccess<TModel>.WriteAll(modelList);
+        return modelList;
+    }
+
 /*
     // Nevermind, won't work with the DataModel classes...
     // Reloads the JSON files.

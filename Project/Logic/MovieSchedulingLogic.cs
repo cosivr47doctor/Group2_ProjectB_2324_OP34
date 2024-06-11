@@ -209,6 +209,7 @@ public class MovieSchedulingLogic
                 movieIndex ++;  // Check later whether right or wrong
                 _endOfTriadCounter += 2;
                 }
+                _prevTimeRanges = null;
             }
         }
 
@@ -253,17 +254,14 @@ public class MovieSchedulingLogic
         {
             // Retrieve the available time slots for the specific day of the week
             Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayOfWeek((int)(parsedDate - DateTime.Today).TotalDays);
-
-            // Select a random room number
-            int randomRoom = random.Next(1, availableTimeSlots.Count); // Assuming rooms are numbered from 1 to 3
-            scheduleModel.Room = randomRoom;
+            var banaantje = AlgorhythmDecider.SessionsBasedOnMoviesDurationDecider(availableTimeSlots, parsedDate, null);
 
             // Iterate over the schedule details and update the room number and time slots
             foreach (var scheduleDetailPair in scheduleModel.TimeIdPair)
             {
                 string scheduleMovieId = scheduleDetailPair.Value;
                 // Reshuffle the time slots
-                var timeRanges = GetTimeRanges(availableTimeSlots[randomRoom]);
+                var timeRanges = GetTimeRanges(availableTimeSlots[0]);
                 var newTimeRange = timeRanges[new Random().Next(timeRanges.Count)];
                 if (arg == "M")
                 {
@@ -310,6 +308,25 @@ public class MovieSchedulingLogic
         GenericAccess<MovieScheduleModel>.WriteAll(_movieSchedule);
     }
 
+    public List<MovieScheduleModel> DeleteSession(string dateInput)
+    {
+        DateTime parsedDate;
+        if (DateTime.TryParseExact(dateInput, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+        {
+            Print(dateInput);
+            int? deleteInp = ConsoleE.IntInput("Please select a session id");
+            MovieScheduleModel foundSched = _movieSchedule.Where(r => r.Id == deleteInp).FirstOrDefault();
+            if (foundSched != null)
+            {
+                _movieSchedule.Remove(foundSched);
+                GenericMethods.DeleteFromList(_movieSchedule, foundSched);
+                Console.WriteLine($"{string.Join(",",foundSched)}\n Session succesfully deleted");
+            }
+            else Console.WriteLine($"Error: did you enter a wrong id? Input: {deleteInp}");
+        }
+        return _movieSchedule;
+    }
+
     public void RescheduleList(string dateInput)
     {
         int moviesCount = _movieSchedule.Count > 0 ? _movieSchedule.Max(m => m.Id) + 1 : 0;
@@ -328,6 +345,7 @@ public class MovieSchedulingLogic
                     Console.WriteLine();
                 }
             }
+            // Nah, you can't reshuffle the times of the sessions, you'd have to change the whole date's schedule instead
             string manualOrRandom = ConsoleE.Input("Reschedule manually [M] (enter an ID until quit), randomly [R], or algorhythmically [A]?").ToUpper();
             if (manualOrRandom == "M") RescheduleListLogic(parsedDate, manualOrRandom);
             else if (manualOrRandom == "R") RescheduleListLogic(parsedDate, manualOrRandom);
@@ -458,5 +476,15 @@ public class MovieSchedulingLogic
         }
 
         SeeJsons.PrintSchedulesJson("@DateSources/movieSessions.json", parsedDates[0], parsedDates[1]);
+    }
+
+    private DateTime dateParser(string dateStr)
+    {
+        DateTime parsedDate;
+        if (DateTime.TryParseExact(dateStr, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+        {
+            return parsedDate;
+        }
+        return parsedDate;
     }
 }
