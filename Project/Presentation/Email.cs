@@ -9,7 +9,7 @@ static class EmailConf
         Console.WriteLine(
 $@"
 ------------------------------------------------------------------------
-|Dear {account.FullName},                                                      |
+|Dear {account.FullName},                                                     
 |                                                                        |
 |Thank you for your reservation. Here are your reservation details:      |
 |                                                                        |
@@ -48,7 +48,7 @@ $@"
         Console.WriteLine(
 $@"
 ------------------------------------------------------------------------
-|Dear {account.FullName},                                                      |
+|Dear {account.FullName},                                                      
 |                                                                        |
 |Thank you for your reservation. Here are your reservation details:      |
 |                                                                        |

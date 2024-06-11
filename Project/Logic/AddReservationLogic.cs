@@ -95,6 +95,7 @@ static class AddReservation
                 }
 
                 MovieModel foundMovie = movieLogic.SelectForResv(userInput);
+                if (foundMovie == null) {Console.WriteLine("Invalid movie id input"); return;};
                 (int, int) sessionIdAndRoomId = SelectSession(foundMovie.Id, accId);
 
                 if (foundMovie == null)
@@ -144,11 +145,15 @@ static class AddReservation
             EmailConf.GenerateEmailBody(accountId, newReservation);
             GenericMethods.UpdateList(newReservation);
             Console.ResetColor();
+            Console.WriteLine("Reservation added successfully");
+            Console.WriteLine("Press enter to go back.");
+            Console.ReadLine();
+            Console.Clear();
             if (isAdmin) AdminMenu.Start(accId);
             else UserMenu.Start(accId);
             //ResvDetails.ResvConfirmation(intUserAccountId, index);
         }
-        else if (selectedOption == 1)
+        else if (selectedOption == 2)
         {
             Console.WriteLine("Reservation cancelled.");
             Thread.Sleep(2500);

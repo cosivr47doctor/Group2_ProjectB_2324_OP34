@@ -82,7 +82,7 @@ static class UserMenu
         {
             SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
             Console.WriteLine("");
-            Console.WriteLine(" or press [Q] to go back.");
+            ConsoleE.Input("Press [Q] to go back.");
             Start(accId, isAdmin);
         }
         else if (selectedOption == 3)
