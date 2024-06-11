@@ -160,6 +160,11 @@ static class Adding
             string HashedPassword = PasswordHasher.HashPassword(password);
             Console.WriteLine("Enter your fullname");
             string fullName = Console.ReadLine();
+            while (string.IsNullOrWhiteSpace(fullName))
+            {
+                Console.WriteLine("Fullname can not be blank. Please enter your fullname");
+                fullName = Console.ReadLine();
+            }
             /*
             try
             {
@@ -176,6 +181,8 @@ static class Adding
             {
                 Console.Write("Enter your phonenumber: 06 ");
                 string Pnumber = $"06{Console.ReadLine()}";
+                
+                
                 try
                 {
                     PhoneNumber = Convert.ToInt32(Pnumber);
@@ -185,6 +192,13 @@ static class Adding
                 {
                     Console.WriteLine("Invalid phonenumber. Please make sure your phonenumber should only contain numbers.");
                 }
+                while (Pnumber.Length != 10)
+                {
+                    Console.WriteLine("Invalid phonenumber. Please make sure your phonenumber is 10 digits long.");
+                    Console.Write("Enter your phonenumber: 06 ");
+                    Pnumber = $"06{Console.ReadLine()}";
+                }
+                
             }
 
             AccountModel newAccount = new AccountModel(0 , emailAddress, HashedPassword, fullName, PhoneNumber);
