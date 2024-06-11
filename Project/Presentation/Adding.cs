@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-static class Adding
+public static class Adding
 {
     public static void addFood(int accId=-1)
     {

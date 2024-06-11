@@ -5,7 +5,7 @@ using System.Text.Json;
 
 
 //This class is not static so later on we can use inheritance and interfaces
-class FoodLogic
+public class FoodLogic
 {
     private List<FoodModel> _food;
     public List<FoodModel> foodItems => _food;

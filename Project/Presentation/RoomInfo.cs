@@ -2,7 +2,8 @@ public static class RoomInfo
 {
     public static (string, string, string) checkRoom(int roomNumber, MovieModel forMovieName, MovieScheduleModel forSessionDetails)
     {
-        string sessionRoomDetails = $"Movie name: {forMovieName.Name}\nDate: {forSessionDetails.Date}\nTime: {forSessionDetails.TimeIdPair.Keys.First()}";
+        string date = forSessionDetails.Date.Date.ToString("yyyy-MM-dd");
+        string sessionRoomDetails = $"Movie name: {forMovieName.Name}\nDate: {date}\nTime: {forSessionDetails.TimeIdPair.Keys.First()}";
         if (roomNumber == 1)
         {
             string roomPrint = $"\nRow                Room 1\n-----------------------------------------";

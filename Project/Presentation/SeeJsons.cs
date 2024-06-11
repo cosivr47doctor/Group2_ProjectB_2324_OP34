@@ -64,7 +64,9 @@ public static class SeeJsons
             if (sessionsOnDate.Count == 0) Console.WriteLine($"No sessions between the specified dates {fromDate.Value} & {untilDate.Value} available.");
             else if (untilDate.Value > movieSchedulingLogic.movieSchedules.Last().Date)
             {
-                Console.WriteLine($"Error: no new sessions scheduled after {movieSchedulingLogic.movieSchedules.Last().Date}");
+                string date = movieSchedulingLogic.movieSchedules.Last().Date.Date.ToString("yyyy-MM-dd");
+                Console.WriteLine($"Error: no new sessions scheduled after {date}");
+ 
             }
         }
     }

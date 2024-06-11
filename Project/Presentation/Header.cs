@@ -15,6 +15,11 @@ public class Header
 ▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌     ▐░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌          
  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀       ▀       ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀           
                                          ");
+       Console.ForegroundColor = ConsoleColor.Yellow;
+       Console.WriteLine("*Use arrow keys and set terminal on full display*");
+       Console.WriteLine("");
+       Console.ForegroundColor = ConsoleColor.White;
+       Console.ResetColor();
     }
 }
 
