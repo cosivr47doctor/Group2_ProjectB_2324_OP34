@@ -59,6 +59,7 @@ public static class GenericAccess<TModel>
         else if (modelName == "reservationmodel") path = Path.GetFullPath(Path.Combine(BaseDirectory, @"DataSources/reservations.json"));
         else if (modelName == "roommodel") path = Path.GetFullPath(Path.Combine(BaseDirectory, @"DataSources/rooms.json"));
         else if (modelName == "takenseatsmodel") path = Path.GetFullPath(Path.Combine(BaseDirectory, @"DataSources/takenSeats.json"));
+        else if (modelName == "localipmodel") path = Path.GetFullPath(Path.Combine(BaseDirectory, @"DataSources/localips.json"));
 
         return Path.GetFullPath(path);
     }

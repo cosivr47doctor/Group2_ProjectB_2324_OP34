@@ -24,6 +24,13 @@ public static class GenericMethods
         GenericAccess<TModel>.LoadAll();
     }
 
+    public static void StoreIp(string modelItemStr)
+    {
+        List<LocalIpModel> _list = GenericAccess<LocalIpModel>.LoadAll();
+        LocalIpModel IP = new(modelItemStr);
+        GenericAccess<LocalIpModel>.WriteAll(_list);
+    }
+
 /*
     // Nevermind, won't work with the DataModel classes...
     // Reloads the JSON files.

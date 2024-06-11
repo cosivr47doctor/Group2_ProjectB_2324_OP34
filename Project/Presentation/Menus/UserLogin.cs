@@ -1,3 +1,6 @@
+using System.Net;
+using System.Net.Sockets;
+
 static class UserLogin
 {
     static private AccountsLogic accountsLogic = new AccountsLogic();
@@ -5,6 +8,8 @@ static class UserLogin
 
     public static void Start()
     {
+        string ip = GetLocalIPAddress();
+
         // ConsoleE.Clear();
         Console.WriteLine(@"
   _                _         ____                  
@@ -37,5 +42,25 @@ static class UserLogin
                 UserMenu.Start(acc.Id);
             }
         }
+    }
+
+    public static string GetLocalIPAddress()
+    {
+        var host = Dns.GetHostEntry(Dns.GetHostName());
+        foreach (var ip in host.AddressList)
+        {
+            if (ip.AddressFamily == AddressFamily.InterNetwork)
+            {
+                bool storedIp = Hasher.StoreIp(ip.ToString());
+                if (storedIp) return Hasher.HashPasswordOrIp(ip.ToString());
+                else LoginWithLastLogin(ip.ToString());
+            }
+        }
+        return null;
+    }
+
+    public static AccountModel LoginWithLastLogin(string ip)
+    {
+        AccountModel acc = GenericAccess<LocalIpModel>.LoadAll().Where(ipm => ipm);
     }
 }

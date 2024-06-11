@@ -5,14 +5,15 @@ public class MovieSchedulingLogic
     private List<MovieModel> _movies;
     private List<MovieScheduleModel> _movieSchedule;
     public List<MovieScheduleModel> movieSchedules => _movieSchedule;
+    private static Random random = new Random();
 
     // To keep the autoincrement in check, distract this from _currMovieId
     private static int _skipIdInt = 0;
-    // As a placeholder so that the id's don't get lost when the if- statement at line 183 returns false
+    // As a placeholder so that the id's don't get lost when the if- statement at line 185 returns false
     private static int _currMovieId;
     // Because you want 3 rooms for each time range (roughly like 2 hours, like 12:00-14:00), you need this as an addent to _currMovieId
     private static int _endOfTriadCounter = 0;  // module 3 (% 3)
-    // As a placeholder so the roomId won't get lost at line 183
+    // As a placeholder so the roomId won't get lost at line 185
     private static int _currentRoom;
     // Same story, but used in AlgorhythymDecider which returns the timeranges
     private static TimeSpanGrouping[] _prevTimeRanges = null;
@@ -247,7 +248,6 @@ public class MovieSchedulingLogic
         }
 
         int moviesCount = _movies.Count();
-        Random random = new Random();
         // Iterate over each existing schedule for the parsed date and reshuffle the time slots
         foreach (MovieScheduleModel scheduleModel in schedulesForDate)
         {
@@ -419,10 +419,12 @@ public class MovieSchedulingLogic
             DateTime parsedDate;
             if (DateTime.TryParseExact(date, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
             {
-                foreach(MovieScheduleModel movieSchedule in _movieSchedule)
+                var schedulesOnDate = _movieSchedule.Where(ms => ms.Date == parsedDate).ToList();
+                foreach(MovieScheduleModel movieSchedule in schedulesOnDate)
                 {
-                    if (movieSchedule.Date == parsedDate) Console.WriteLine(movieSchedule);
+                    Console.WriteLine(movieSchedule);
                 }
+                if (schedulesOnDate.Count == 0) Console.WriteLine($"No sessions on the specified date {date} available.");
             }
             else Console.WriteLine("Invalid input");
         }
