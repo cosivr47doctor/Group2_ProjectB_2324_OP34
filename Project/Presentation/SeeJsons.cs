@@ -56,12 +56,15 @@ public static class SeeJsons
         }
         else
         {
-            foreach (var schedule in movieSchedulingLogic.movieSchedules)
+            var sessionsOnDate = movieSchedulingLogic.movieSchedules.Where(ms => ms.Date >= fromDate.Value && ms.Date <= untilDate.Value).ToList();
+            foreach (var schedule in sessionsOnDate)
             {
-                if (schedule.Date >= fromDate.Value && schedule.Date <= untilDate.Value)
-                {
-                    Console.WriteLine(schedule.ToString());
-                }
+                Console.WriteLine(schedule.ToString());
+            }
+            if (sessionsOnDate.Count == 0) Console.WriteLine($"No sessions between the specified dates {fromDate.Value} & {untilDate.Value} available.");
+            else if (untilDate.Value > movieSchedulingLogic.movieSchedules.Last().Date)
+            {
+                Console.WriteLine($"Error: no new sessions scheduled after {movieSchedulingLogic.movieSchedules.Last().Date}");
             }
         }
     }

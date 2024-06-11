@@ -108,7 +108,7 @@ static class UserMenu
                 Console.ReadLine();
                 Start(accId, isAdmin);
             }
-            else if (seeScheduleInput == 1)
+            else if (seeScheduleInput == 2)
             {
                 string untilSpecificDateInput = ConsoleE.Input("Until which date? (yyyy-MM-dd)");
                 objMovieSchedulingLogic.Print(DateTime.Today, untilSpecificDateInput);
@@ -116,7 +116,7 @@ static class UserMenu
                 Console.ReadLine();
                 Start(accId, isAdmin);
             }
-            else if (seeScheduleInput == 1)
+            else if (seeScheduleInput == 3)
             {
                 string dateRangesInput = ConsoleE.Input("Which dates? (yyyy-MM-dd); comma separated (,)");
                 objMovieSchedulingLogic.Print(dateRangesInput);
