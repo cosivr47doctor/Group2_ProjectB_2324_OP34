@@ -142,7 +142,7 @@ static class AddReservation
             Console.WriteLine("No");
             DateTime purchaseTime = DateTime.Now;
             ReservationModel newReservation = new ReservationModel(roomDetails.ReservationCode, accountId, sessionId, movieId, seatsStr, new string[0] {}, price, purchaseTime);
-            EmailConf.GenerateEmailBody(accountId, newReservation);
+            EmailConf.GenerateEmailBodyNoFood(accountId, newReservation);
             GenericMethods.UpdateList(newReservation);
             Console.ResetColor();
             Console.WriteLine("Reservation added successfully");
