@@ -13,14 +13,41 @@ static class AddReservation
         List<MovieScheduleModel> schedule = GenericAccess<MovieScheduleModel>.LoadAll();
         List<MovieModel> movies = GenericAccess<MovieModel>.LoadAll();
 
-        // List<MovieScheduleModel>
-        var matchingSchedules = schedule.Where(resv => resv.MovieId == movieId).ToList();
-        if (!matchingSchedules.Any())
+        int? roomFilter;
+        List<MovieScheduleModel> matchingSchedules;
+
+        while (true)
         {
-            Console.WriteLine("No sessions found for the selected movie.");
-            UserMenu.Start(accId);
-            // return (-1, -1); // Return some invalid default value
+            Console.WriteLine();
+            Console.WriteLine("Please select a room (1,2,3) or enter 0 to see all sessions");
+            roomFilter = ConsoleE.IntInput("Enter your choice");
+            Console.WriteLine();
+
+            if (roomFilter == null)
+            {
+                continue;
+            }
+
+            matchingSchedules = schedule.Where(resv => resv.MovieId == movieId && (roomFilter == 0 || resv.Room == roomFilter)).ToList();
+
+            if (!matchingSchedules.Any())
+            {
+                Console.WriteLine("No sessions found for the selected movie in the selected room.");
+                Console.WriteLine("Please try again with a different room number or enter -1 to go back.");
+                if (roomFilter == -1)
+                {
+                    UserMenu.Start(accId);
+                    return (-1, -1);
+                }
+                continue;
+            }
+            break;
+
         }
+
+        // List<MovieScheduleModel>
+        
+            // return (-1, -1); // Return some invalid default value
         matchingSchedules = matchingSchedules.OrderBy(s => s.Room).ToList();
 
         int previousRoom = -1;
