@@ -103,4 +103,15 @@ public static class ConsoleE
             if (!Debugger.IsAttached) Console.CursorVisible = true;
         }
     }
+    public static bool IsDigitsOnly(string str)
+    {
+        if (IsNullOrEmptyOrWhiteSpace(str)) return false;
+        else if (str.Length > 1 && str[0] == '0') return false;
+        foreach (char c in str)
+        {
+            if (c < '0' || c > '9')
+                return false;
+        }
+        return true;
+    }
 }

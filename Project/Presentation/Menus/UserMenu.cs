@@ -90,6 +90,7 @@ static class UserMenu
             MovieSchedulingLogic objMovieSchedulingLogic = new();
             List<string> scheduleOptions = new(){
             "See entire schedule",
+            "See today's schedule",
             "See schedule for a specific date",
             "See schedule for up until a specific date",
             "See schedule for specific range of dates "
@@ -102,13 +103,17 @@ static class UserMenu
             }
             else if (seeScheduleInput == 1)
             {
+                SeeJsons.PrintSchedulesJson("@DateSources/movieSessions.json", DateTime.Today, DateTime.Today);
+            }
+            else if (seeScheduleInput == 2)
+            {
                 string specificDateInput = ConsoleE.Input("Which date? (yyyy-MM-dd)");
                 objMovieSchedulingLogic.Print(specificDateInput);
                 Console.WriteLine("Press enter to go back to the option menu");
                 Console.ReadLine();
                 Start(accId, isAdmin);
             }
-            else if (seeScheduleInput == 2)
+            else if (seeScheduleInput == 3)
             {
                 string untilSpecificDateInput = ConsoleE.Input("Until which date? (yyyy-MM-dd)");
                 objMovieSchedulingLogic.Print(DateTime.Today, untilSpecificDateInput);
@@ -116,7 +121,7 @@ static class UserMenu
                 Console.ReadLine();
                 Start(accId, isAdmin);
             }
-            else if (seeScheduleInput == 3)
+            else if (seeScheduleInput == 4)
             {
                 string dateRangesInput = ConsoleE.Input("Which dates? (yyyy-MM-dd); comma separated (,)");
                 objMovieSchedulingLogic.Print(dateRangesInput);

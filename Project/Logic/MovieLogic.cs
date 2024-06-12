@@ -69,7 +69,6 @@ public class MovieLogic
 
         if (TestEnvironmentUtils.IsRunningInUnitTest()) searchBy = unitInput[0];
         else searchBy = input;
-
         MovieModel movieToChange = GetBySearch(searchBy);
         if (movieToChange == null)
         {
@@ -117,6 +116,7 @@ public class MovieLogic
         _movie[index] = movieToChange;
         if (TestEnvironmentUtils.IsRunningInUnitTest()) MovieAccessForJson.WriteAllJson(Movies);
         else GenericAccess<MovieModel>.WriteAll(_movie);
+        Console.WriteLine(movieToChange);
     }
 
     public void RemoveMovie(string searchBy)

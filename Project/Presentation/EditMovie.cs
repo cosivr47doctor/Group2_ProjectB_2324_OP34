@@ -5,25 +5,30 @@ public static class EditMovie
     public static void ChangeMovie()
     {
         ConsoleE.Clear();
-        Console.WriteLine("Please enter the movie you want to change: ");
+        SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
+        Console.WriteLine("\nPlease enter the movie ID you want to change: ");
         string searchBy = ConsoleE.Input();
-        Console.WriteLine(searchBy);
+        if (!ConsoleE.IsDigitsOnly(searchBy)) {Console.WriteLine($"Invalid input {searchBy}; must be integers only"); return;}
         movieLogic.ChangeMovie(searchBy);
     }
 
     public static void RemoveMovie()
     {
         ConsoleE.Clear();
-        Console.WriteLine("Please enter the movie you want to remove: ");
+        SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
+        Console.WriteLine("\nPlease enter the movie ID you want to remove: ");
         string searchBy = ConsoleE.Input();
+        if (!ConsoleE.IsDigitsOnly(searchBy)) {Console.WriteLine($"Invalid input {searchBy}; must be integers only"); return;}
         movieLogic.RemoveMovie(searchBy);
     }
 
     public static void CloneMovie()
     {
         ConsoleE.Clear();
-        Console.WriteLine("Please enter the movie you want to change: ");
+        SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
+        Console.WriteLine("\nPlease enter the movie ID you want to change: ");
         string searchBy = ConsoleE.Input();
+        if (!ConsoleE.IsDigitsOnly(searchBy)) {Console.WriteLine($"Invalid input {searchBy}; must be integers only"); return;}
         movieLogic.CloneMovie(searchBy);
     }
 

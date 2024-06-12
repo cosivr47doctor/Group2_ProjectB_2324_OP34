@@ -6,6 +6,8 @@ public static class Adding
     public static void addFood(int accId=-1)
     {
         ConsoleE.Clear();
+        SeeJsons.PrintFoodJson(@"DataSources/food.json");
+        Console.WriteLine("\n^^^ These are the existing food items ^^^\n");
         //need id
         Console.WriteLine("Add food to the menu:");
         Console.WriteLine("Please enter the name of the food item or [Q] to go back");

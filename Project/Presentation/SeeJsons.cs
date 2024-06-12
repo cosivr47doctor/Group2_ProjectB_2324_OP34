@@ -2,12 +2,9 @@ using Newtonsoft.Json;
 using System;
 public static class SeeJsons
 {
-    static private FoodLogic foodLogic = new FoodLogic();
-    static private MovieLogic movieLogic = new MovieLogic();
-    static private Reservation reservationLogic = new Reservation();
-    static private MovieSchedulingLogic movieSchedulingLogic = new MovieSchedulingLogic();
     public static void PrintFoodJson(string filePath)
     {
+        FoodLogic foodLogic = new FoodLogic();
         ConsoleE.Clear();
         // split food and drinks
         
@@ -26,6 +23,7 @@ public static class SeeJsons
 
     public static void PrintMoviesJson(string filePath)
     {
+        MovieLogic movieLogic = new MovieLogic();
         ConsoleE.Clear();
         Console.WriteLine("Cinema movies:");
         Console.WriteLine("---------------------------------------------------------------------------------------------------");
@@ -43,6 +41,7 @@ public static class SeeJsons
 
     public static void PrintSchedulesJson(string filePath, DateTime? fromDate = null, DateTime? untilDate = null)
     {
+        MovieSchedulingLogic movieSchedulingLogic = new MovieSchedulingLogic();
         ConsoleE.Clear();
         Console.WriteLine("Movies schedule:");
         Console.WriteLine("-----------------------------------");
@@ -73,8 +72,9 @@ public static class SeeJsons
     
     //FillJsons.PrintFoodJson(@"DataSources/food.json");
 
-        public static void PrintLastResvGJson(string filePath)
+    public static void PrintLastResvGJson(string filePath)
     {
+        Reservation reservationLogic = new Reservation();
         ConsoleE.Clear();
         Console.WriteLine("Last Reservation details:");
         Console.WriteLine("-----------------------------------");
