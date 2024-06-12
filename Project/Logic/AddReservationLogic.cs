@@ -78,12 +78,19 @@ static class AddReservation
             Console.WriteLine("---------------------------------------------------------------------");
         }
 
-        int sessionId = Convert.ToInt32(ConsoleE.IntInput("Please select a session ID"));
-
-        if (sessionId < 0 || !matchingSchedules.Any(resv => resv.Id == sessionId))
+        int? sessionId;
+        while (true)
         {
-            Console.WriteLine("Invalid input or session ID not found.");
-            UserMenu.Start(accId);
+            sessionId = ConsoleE.IntInput("Please select a session ID");
+
+            if (sessionId == null || !matchingSchedules.Any(resv => resv.Id == sessionId))
+            {
+                Console.WriteLine("Invalid input or session ID not found. Please try again");
+            }
+            else
+            {
+                break;
+            }
         }
         int roomId = schedule.Where(resv => resv.Id == sessionId).Select(resv => resv.Room).FirstOrDefault();
         if (roomId == 0)
@@ -92,7 +99,7 @@ static class AddReservation
             UserMenu.Start(accId);
         }
 
-        return (sessionId, roomId);
+        return (sessionId.Value, roomId);
     }
 
     public static void addMovieResv(int accId = -1, int dummyAccId=-1)
