@@ -218,6 +218,7 @@ public class MovieSchedulingLogic
 
     public void RescheduleListLogic(DateTime parsedDate, string arg)
     {
+        _prevTimeRanges = null;
         MovieLogic objMovieLogic = new MovieLogic();
         // Check if the parsed date is valid and falls within the range of scheduled dates
         if (parsedDate < DateTime.Today || parsedDate > DateTime.Today.AddDays(120))
@@ -227,6 +228,7 @@ public class MovieSchedulingLogic
 
         // Retrieve the existing movie schedules for the parsed date
         var schedulesForDate = _movieSchedule.Where(s => s.Date.Date == parsedDate.Date).ToList();
+        int firstSessionOnDateId = schedulesForDate.First().Id;
 
         // If there are no schedules for the parsed date, there's nothing to reschedule
         if (schedulesForDate.Count == 0)
@@ -250,13 +252,14 @@ public class MovieSchedulingLogic
         int moviesCount = _movies.Count();
         Random random = new Random();
         // Iterate over each existing schedule for the parsed date and reshuffle the time slots
+        int idIncr = 0;
         foreach (MovieScheduleModel scheduleModel in schedulesForDate)
         {
             // Retrieve the available time slots for the specific day of the week
             Dictionary<int, List<TimeSpan>> availableTimeSlots = DetermineScheduleForSpecificDayOfWeek((int)(parsedDate - DateTime.Today).TotalDays);
-            var banaantje = AlgorhythmDecider.SessionsBasedOnMoviesDurationDecider(availableTimeSlots, parsedDate, null);
+            int randomRoom = random.Next(1, availableTimeSlots.Count); // Assuming rooms are numbered from 1 to 3
+            scheduleModel.Room = randomRoom;
 
-            // Iterate over the schedule details and update the room number and time slots
             foreach (var scheduleDetailPair in scheduleModel.TimeIdPair)
             {
                 string scheduleMovieId = scheduleDetailPair.Value;
@@ -283,14 +286,31 @@ public class MovieSchedulingLogic
                 }
                 else if (arg == "R")
                 {
-                    int movieId = random.Next(0, moviesCount);
-                    Dictionary<string, string> updatedTimeIdPair = new Dictionary<string, string>();
-                    foreach (var kvp in scheduleModel.TimeIdPair)
+                    foreach (var kvp in availableTimeSlots)
                     {
-                        updatedTimeIdPair[kvp.Key] = $"Movie duration: {objMovieLogic.GetBySearch(movieId).Duration}";
+                        TimeSpanGrouping[] prevTimeRangesArr = new TimeSpanGrouping[3];
+                        for (int i = 0; i < 3; i++)
+                        {
+                            var updatedTimeSlots = AlgorhythmDecider.SessionsBasedOnMoviesDurationDecider(availableTimeSlots, parsedDate, null);
+                            if (updatedTimeSlots[i].Item1 != null)
+                            {
+                                MovieModel randomMovie = updatedTimeSlots[i].Item2;
+                                // Because of (de)serialisation issues I think. I forgot, but it is important.
+                                MovieDetailsModel newMovieDetails = new MovieDetailsModel(randomMovie.Id, randomMovie.Name, randomMovie.Duration);
+                                // Create the dictionary for the movie schedule model
+                                Dictionary<string, MovieDetailsModel> scheduleDetails = new Dictionary<string, MovieDetailsModel>();
+                                // Group consecutive time slots into ranges
+                                var nTimeRanges = updatedTimeSlots[i].Item1;
+                                string key = $"{nTimeRanges.StartTM:hh\\:mm\\:ss} - {nTimeRanges.EndTM:hh\\:mm\\:ss}";
+                                scheduleDetails.Add(key, newMovieDetails);
+                                MovieScheduleModel newMovieScheduleModel = new MovieScheduleModel
+                                    (firstSessionOnDateId+idIncr, i+1, parsedDate, scheduleDetails);
+
+                                _movieSchedule.Add(newMovieScheduleModel);
+                                idIncr ++;
+                            }
+                        }
                     }
-                    scheduleModel.TimeIdPair = updatedTimeIdPair;
-                    scheduleModel.MovieId = movieId;
                 }
                 else if (arg == "A")
                 {
@@ -306,25 +326,6 @@ public class MovieSchedulingLogic
         }
         Console.WriteLine("Rescheduled succesfully");
         GenericAccess<MovieScheduleModel>.WriteAll(_movieSchedule);
-    }
-
-    public List<MovieScheduleModel> DeleteSession(string dateInput)
-    {
-        DateTime parsedDate;
-        if (DateTime.TryParseExact(dateInput, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
-        {
-            Print(dateInput);
-            int? deleteInp = ConsoleE.IntInput("Please select a session id");
-            MovieScheduleModel foundSched = _movieSchedule.Where(r => r.Id == deleteInp).FirstOrDefault();
-            if (foundSched != null)
-            {
-                _movieSchedule.Remove(foundSched);
-                GenericMethods.DeleteFromList(_movieSchedule, foundSched);
-                Console.WriteLine($"{string.Join(",",foundSched)}\n Session succesfully deleted");
-            }
-            else Console.WriteLine($"Error: did you enter a wrong id? Input: {deleteInp}");
-        }
-        return _movieSchedule;
     }
 
     public void RescheduleList(string dateInput)
@@ -357,6 +358,27 @@ public class MovieSchedulingLogic
             Console.WriteLine("Invalid date input");
         }
         return;
+    }
+
+    public List<MovieScheduleModel> DeleteSession(string dateInput)
+    {
+        DateTime parsedDate;
+        if (DateTime.TryParseExact(dateInput, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate))
+        {
+            Print(dateInput);
+            int? deleteInp = ConsoleE.IntInput("Please select a session id");
+            MovieScheduleModel foundSched = _movieSchedule.Where(r => r.Id == deleteInp).FirstOrDefault();
+            if (foundSched != null)
+            {
+                _movieSchedule.Remove(foundSched);
+                GenericMethods.DeleteFromList(_movieSchedule, foundSched);
+                string foundSchedStr = 
+                $"id:{foundSched.Id},roomnum:{foundSched.Room},{foundSched.Date.ToString("yyyy-MM-dd")}";
+                Console.WriteLine($"{foundSchedStr}\nSession succesfully deleted");
+            }
+            else Console.WriteLine($"Error: did you enter a wrong id? Input: {deleteInp}");
+        }
+        return _movieSchedule;
     }
 
     public List<(int, int, int)> ManuallyChangeDate(string timeStr)
