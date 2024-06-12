@@ -140,12 +140,13 @@ public class MovieSchedulingLogic
         // To add new schedules based on how many are expired
         int expiredSchedules = 0;
 
+        
         foreach (MovieScheduleModel objMovieScheduleModel in _movieSchedule)
         {
-            // Remove the movies if they are at least 7 days past the current day
-            if (objMovieScheduleModel.Date < DateTime.Today.AddDays(-7)) _movieSchedule.Remove(objMovieScheduleModel);
-            // Otherwise add to expiredSchedules
-            else if (objMovieScheduleModel.Date < DateTime.Today) expiredSchedules ++;
+                // Remove the movies if they are at least 7 days past the current day
+            // if (objMovieScheduleModel.Date < DateTime.Today.AddDays(-7)) _movieSchedule.Remove(objMovieScheduleModel);
+                // Otherwise add to expiredSchedules
+            /*else*/ if (objMovieScheduleModel.Date < DateTime.Today) expiredSchedules ++;
         }
         int totalNewSchedules = (int)(120 * 3.5) + 1 + expiredSchedules;
         DateTime startDate = DateTime.Now;
