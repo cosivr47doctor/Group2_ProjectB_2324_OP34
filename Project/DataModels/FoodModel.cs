@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using System.Text;
 
 
 public class FoodModel : IModel
@@ -17,6 +18,13 @@ public class FoodModel : IModel
         Id = 0;
         Name = name;
         Price = price;
+    }
+
+    public override string ToString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.AppendLine("Id: " + Id); sb.AppendLine("Name: " + Name); sb.AppendLine("Price: " + Price);
+        return sb.ToString();
     }
 
 }

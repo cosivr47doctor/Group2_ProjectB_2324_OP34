@@ -52,7 +52,15 @@ public class AccountsLogic
             return _accounts.Find(i => i.EmailAddress == input);
         }
     }
-
+    public AccountModel GetByArg(int id)
+    {
+        return _accounts.Find(i => i.Id == id);
+    }
+    public AccountModel GetBySearch(string searchBy)
+    {
+        return GetByArg(searchBy);
+    }
+    
     public static List<ReservationModel> AccReservations(int accId)
     {
         List<ReservationModel> accResvs = GenericAccess<ReservationModel>.LoadAll().Where(r => r.AccountId == accId).ToList();
@@ -65,10 +73,6 @@ public class AccountsLogic
     {
         return _accounts.Exists(account => account.EmailAddress == email);
 
-    }
-    public AccountModel GetByArg(int id)
-    {
-        return _accounts.Find(i => i.Id == id);
     }
 
     public AccountModel CheckLogin(string email, string password)

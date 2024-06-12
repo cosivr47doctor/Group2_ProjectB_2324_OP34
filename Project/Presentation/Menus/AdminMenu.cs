@@ -13,6 +13,7 @@ static class AdminMenu
     "Go back",
     "Test automatic reservation with the dummy account",
     "Test email with dummy account",
+    "Search in all movies, sessions and food"
     };
 
     static List<string> movieEditor = new(){
@@ -116,6 +117,13 @@ static class AdminMenu
             {
                 ReservationModel newReservation = new ReservationModel("ABC123", 3, 0, 7, "0, 0, 0", new[] {"null", "0"}, 0, DateTime.Now) {Id = 0};
                 EmailConf.GenerateEmailBody(3, newReservation);
+                Start(accId);
+            }
+            else if (extraInput == 3)
+            {
+                string searchBy = ConsoleE.Input("Please enter a string argument to search from");
+                CombinedInfo.PrintEachModelContainingInfo(searchBy);
+                ConsoleE.Input("Press enter to go back", true);
                 Start(accId);
             }
         }

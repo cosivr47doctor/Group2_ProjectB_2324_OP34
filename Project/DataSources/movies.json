@@ -56,14 +56,15 @@
   },
   {
     "id": 6,
-    "Name": "ChangeMovieTitleTest3",
+    "Name": "Interstellar",
     "Genre": [
-      "ChangeMovieTitleTest3"
+      "Science Fiction",
+      "Adventure"
     ],
-    "Year": 2024,
-    "Description": "Testing whether the description will be changed... again",
-    "Director": "Thh",
-    "Duration": 120
+    "Year": 2014,
+    "Description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "Director": "Christopher Nolan",
+    "Duration": 169
   },
   {
     "id": 7,
@@ -79,98 +80,229 @@
   },
   {
     "id": 8,
-    "Name": "henk",
+    "Name": "Parasite",
     "Genre": [
-      "sci fi"
+      "Thriller",
+      "Drama"
     ],
-    "Year": 2000,
-    "Description": "hoi",
-    "Director": "henk jan",
-    "Duration": 124
+    "Year": 2019,
+    "Description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+    "Director": "Bong Joon Ho",
+    "Duration": 132
   },
   {
     "id": 9,
-    "Name": "TestMovieClone",
+    "Name": "Pulp Fiction",
     "Genre": [
-      "sci fi"
+      "Crime",
+      "Drama"
     ],
-    "Year": 2024,
-    "Description": "Not a clone...",
-    "Director": "Thh",
-    "Duration": 55
+    "Year": 1994,
+    "Description": "The lives of two mob hitmen, a boxer, a gangster, and his wife intertwine in four tales of violence and redemption.",
+    "Director": "Quentin Tarantino",
+    "Duration": 154
   },
   {
     "id": 10,
-    "Name": "TestMovieClone2",
+    "Name": "The Dark Knight",
     "Genre": [
-      "sci fi"
+      "Action",
+      "Crime",
+      "Drama"
     ],
-    "Year": 2024,
-    "Description": "A clone!",
-    "Director": "Thh",
-    "Duration": 55
+    "Year": 2008,
+    "Description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
+    "Director": "Christopher Nolan",
+    "Duration": 152
   },
   {
     "id": 11,
-    "Name": "TestChangeTitle",
+    "Name": "Forrest Gump",
     "Genre": [
-      "drama",
-      "horror",
-      "triller"
+      "Drama",
+      "Romance"
     ],
-    "Year": 2023,
-    "Description": "Can the title be changed?...",
-    "Director": "Thh",
-    "Duration": 60
+    "Year": 1994,
+    "Description": "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other historical events unfold through the perspective of an Alabama man with an IQ of 75.",
+    "Director": "Robert Zemeckis",
+    "Duration": 142
   },
   {
     "id": 12,
-    "Name": "UnitTestChangeDetails",
+    "Name": "Gladiator",
     "Genre": [
-      "drama",
-      "horror",
-      "triller"
+      "Action",
+      "Drama"
     ],
-    "Year": 2023,
-    "Description": "The details must be changed...",
-    "Director": "Thh",
-    "Duration": 111
+    "Year": 2000,
+    "Description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+    "Director": "Ridley Scott",
+    "Duration": 155
   },
   {
     "id": 13,
-    "Name": "UnitTestRemove",
+    "Name": "Titanic",
     "Genre": [
-      "drama",
-      "horror",
-      "triller"
+      "Drama",
+      "Romance"
     ],
-    "Year": 2023,
-    "Description": "We really, really, REALLY hate this movie... and it lasts TOO LONG... REMOVE IT!!",
-    "Director": "Thh",
-    "Duration": 30
+    "Year": 1997,
+    "Description": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+    "Director": "James Cameron",
+    "Duration": 195
   },
   {
     "id": 14,
-    "Name": "UnitTestClone",
+    "Name": "Avengers: Endgame",
     "Genre": [
-      "drama",
-      "horror",
-      "triller"
+      "Action",
+      "Adventure",
+      "Drama"
     ],
-    "Year": 2023,
-    "Description": "We need a part 2!!",
-    "Director": "Thh",
-    "Duration": 117
+    "Year": 2019,
+    "Description": "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
+    "Director": "Anthony Russo, Joe Russo",
+    "Duration": 181
   },
   {
     "id": 15,
-    "Name": "Inception",
+    "Name": "The Lion King",
     "Genre": [
-      "Science Fiction"
+      "Animation",
+      "Adventure",
+      "Drama"
     ],
-    "Year": 2010,
-    "Description": "A thief who enters the dreams of others to steal their secrets from their subconscious.",
-    "Director": "Christopher Nolan",
-    "Duration": 148
-  }
+    "Year": 1994,
+    "Description": "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.",
+    "Director": "Roger Allers, Rob Minkoff",
+    "Duration": 88
+  },
+  {
+    "id": 16,
+    "Name": "Zombieland",
+    "Genre": [
+      "Comedy",
+      "Horror"
+    ],
+    "Year": 2009,
+    "Description": "A shy student trying to reach his family in Ohio, a gun-toting tough guy trying to find the last Twinkie, and a pair of sisters trying to get to an amusement park join forces to travel across a zombie-filled America.",
+    "Director": "Ruben Fleischer",
+    "Duration": 88
+  },
+  {
+    "id": 17,
+    "Name": "Get Out",
+    "Genre": [
+      "Horror",
+      "Mystery",
+      "Thriller"
+    ],
+    "Year": 2017,
+    "Description": "A young African-American man visits his white girlfriend's parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point.",
+    "Director": "Jordan Peele",
+    "Duration": 104
+  },
+  {
+    "id": 18,
+    "Name": "Mad Max: Fury Road",
+    "Genre": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "Year": 2015,
+    "Description": "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshiper, and a drifter named Max.",
+    "Director": "George Miller",
+    "Duration": 120
+  },
+  {
+    "id": 19,
+    "Name": "A Quiet Place",
+    "Genre": [
+      "Drama",
+      "Horror",
+      "Sci-Fi"
+    ],
+    "Year": 2018,
+    "Description": "In a post-apocalyptic world, a family is forced to live in silence while hiding from monsters with ultra-sensitive hearing.",
+    "Director": "John Krasinski",
+    "Duration": 90
+  },
+  {
+    "id": 20,
+    "Name": "Toy Story",
+    "Genre": [
+      "Animation",
+      "Adventure",
+      "Comedy"
+    ],
+    "Year": 1995,
+    "Description": "A cowboy doll is profoundly threatened and jealous when a new spaceman figure supplants him as top toy in a boy's room.",
+    "Director": "John Lasseter",
+    "Duration": 81
+  },
+  {
+    "id": 21,
+    "Name": "The Red Balloon",
+    "Genre": [
+      "Drama",
+      "Family",
+      "Fantasy"
+    ],
+    "Year": 1956,
+    "Description": "A red balloon with a life of its own follows a little boy around the streets of Paris.",
+    "Director": "Albert Lamorisse",
+    "Duration": 34
+  },
+  {
+    "id": 22,
+    "Name": "Winnie the Pooh",
+    "Genre": [
+      "Animation",
+      "Adventure",
+      "Comedy"
+    ],
+    "Year": 2011,
+    "Description": "Eeyore has lost his tail, and Winnie the Pooh and his friends hold a contest to get him a new one.",
+    "Director": "Stephen J. Anderson, Don Hall",
+    "Duration": 63
+  },
+  {
+    "id": 23,
+    "Name": "Koyaanisqatsi",
+    "Genre": [
+      "Documentary",
+      "Music"
+    ],
+    "Year": 1982,
+    "Description": "A collection of expertly photographed scenes of human life and religion.",
+    "Director": "Godfrey Reggio",
+    "Duration": 60
+  },
+  {
+    "id": 24,
+    "Name": "Duck Amuck",
+    "Genre": [
+      "Animation",
+      "Short",
+      "Comedy"
+    ],
+    "Year": 1953,
+    "Description": "Daffy Duck is tormented by an unseen animator, who constantly changes Daffy's locations, clothing, voice, and physical appearance.",
+    "Director": "Chuck Jones",
+    "Duration": 7
+  },
+  {
+    "id": 25,
+    "Name": "La Jetée",
+    "Genre": [
+      "Short",
+      "Drama",
+      "Sci-Fi"
+    ],
+    "Year": 1962,
+    "Description": "The story of a man forced to explore his memories in the wake of World War III's devastation, told through still images.",
+    "Director": "Chris Marker",
+    "Duration": 28
+  }    
 ]

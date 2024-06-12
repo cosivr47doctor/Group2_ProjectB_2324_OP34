@@ -277,7 +277,7 @@ static class AlgorhythmDecider
                 {
                     if (_date.DayOfWeek == DayOfWeek.Friday)
                     {
-                        if (MP.Item1.EndTM < TimeSpan.FromHours(1)) MP.Item1 = null;
+                        if (MP.Item1.EndTM < TimeSpan.FromHours(7)) MP.Item1 = null;
                     }
                     else
                     {

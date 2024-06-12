@@ -5,7 +5,7 @@ using System.Text.Json;
 
 
 //This class is not static so later on we can use inheritance and interfaces
-public class FoodLogic
+public class FoodLogic : AbstractLogic<FoodModel>
 {
     private List<FoodModel> _food;
     public List<FoodModel> foodItems => _food;
@@ -19,6 +19,12 @@ public class FoodLogic
     public FoodLogic()
     {
         _food = GenericAccess<FoodModel>.LoadAll();
+    }
+
+    public override List<FoodModel> GetAllBySearch(string searchBy)
+    {
+        FoodModel singleFoodModel = SelectForResv(searchBy);
+        return new List<FoodModel> {singleFoodModel};
     }
 
     public FoodModel SelectForResv(string searchBy)

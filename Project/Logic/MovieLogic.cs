@@ -7,7 +7,7 @@ using System.Linq;
 
 
 //This class is not static so later on we can use inheritance and interfaces
-public class MovieLogic
+public class MovieLogic : AbstractLogic<MovieModel>
 {
     private List<MovieModel> _movie;
     public List<MovieModel> Movies => _movie;
@@ -37,7 +37,7 @@ public class MovieLogic
             movie.Director.ToLower().StartsWith(searchLower));  // This is unhandy in case of movies with duplicate directors
     }
 
-    public List<MovieModel> GetAllBySearch(string searchBy) // finds all for searching options
+    public override List<MovieModel> GetAllBySearch(string searchBy) // finds all for searching options
     {
         string searchLower = searchBy.ToLower();
 

@@ -1,6 +1,6 @@
 using System.Globalization;
 using System.Runtime.CompilerServices;
-public class MovieSchedulingLogic
+public class MovieSchedulingLogic : AbstractLogic<MovieScheduleModel>
 {
     private List<MovieModel> _movies;
     private List<MovieScheduleModel> _movieSchedule;
@@ -509,5 +509,12 @@ public class MovieSchedulingLogic
             return parsedDate;
         }
         return parsedDate;
+    }
+    ///
+
+    public override List<MovieScheduleModel> GetAllBySearch(string searchBy)
+    {
+        return _movieSchedule.Where(ms => ms.Id.ToString() == searchBy
+        || ms.Date.ToString("yyyy-MM-dd") == searchBy).ToList();
     }
 }
