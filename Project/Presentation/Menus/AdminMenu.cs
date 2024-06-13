@@ -100,7 +100,6 @@ static class AdminMenu
         else if (selectedOption == 5)
         {
             Console.WriteLine("Enter [Q] to go back");
-            Console.WriteLine("Enter `TR` to test the TEST_RESERVE function that will automatically add a reservation to the dummy account");
             int extraInput = DisplayUtil.Display(extraOptions);
             if (extraInput == 0)
             {

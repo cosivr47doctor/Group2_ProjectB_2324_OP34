@@ -18,7 +18,7 @@ static class MainMenu
             // "Test room seats"
         };
 
-        int selectedOption = DisplayUtil.MenuDisplay(options);
+        int selectedOption = DisplayUtil.MenuDisplay(options, "DisplayHeader");
         if (selectedOption == 0)
         {
             Console.Clear();

@@ -1,22 +1,24 @@
 public static class DisplayUtil
 {
-    public static int MenuDisplay(List<string> options)
+    public static int MenuDisplay(List<string> options, string extraStringForDisplay=null)
     {
         ConsoleE.Clear();
         Header.DisplayHeader();
-        return Display(options);
+        return Display(options, extraStringForDisplay);
     }
 
-    public static int DisplayAddFood(List<string> options)
+    public static int DisplayAddFood(List<string> options, string extraStringForDisplay=null)
     {
         ConsoleE.Clear();
-        Console.WriteLine($"Would you like to add food?");
-        return Display(options);
+        return Display(options, "Would you like to add food?");
     }
 
 
-    public static int Display(List<string> options)
+    public static int Display(List<string> options, string extraStringForDisplay=null)
     {
+        ConsoleE.Clear();
+        if (extraStringForDisplay == "DisplayHeader") Header.DisplayHeader();
+        else Console.WriteLine(extraStringForDisplay);
         ConsoleE.CursorVisible(false);    // Console.CursorVisible = false;
         (int left, int top) = Console.GetCursorPosition();
         int selectedOption = 0;

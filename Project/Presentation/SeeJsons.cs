@@ -24,27 +24,28 @@ public static class SeeJsons
     public static void PrintMoviesJson(string filePath)
     {
         MovieLogic movieLogic = new MovieLogic();
-        ConsoleE.Clear();
+        Console.Clear();
         Console.WriteLine("Cinema movies:");
-        Console.WriteLine("---------------------------------------------------------------------------------------------------");
-        Console.WriteLine("---------------------------------------------------------------------------------------------------");
-        Console.WriteLine("|  ID  |           Title          |  Year  |          Genre          |       Director      |  Duration  |");
-        Console.WriteLine("---------------------------------------------------------------------------------------------------");
+        Console.WriteLine(new string('-', 123));
+        Console.WriteLine("|  ID  |           Title           |  Year  |           Genre                |       Director                 |  Duration |  ");
+        Console.WriteLine(new string('-', 123));
 
         foreach (var movie in movieLogic.Movies)
         {
-            string movieDetails = $"| {movie.Id,4} | {movie.Name,-25} | {movie.Year,6} | {string.Join(", ", movie.Genre),23} | {movie.Director,-20} | {movie.Duration,9} |";
+            string genres = string.Join(", ", movie.Genre);
+            string movieDetails = $"| {movie.Id,4} | {movie.Name,-25} | {movie.Year,6} | {genres,30} | {movie.Director,30} | {movie.Duration,9} |";
             Console.WriteLine(movieDetails);
-            Console.WriteLine("-----------------------------------");
+            Console.WriteLine(new string('-', 123));
         }
     }
+
 
     public static void PrintSchedulesJson(string filePath, DateTime? fromDate = null, DateTime? untilDate = null)
     {
         MovieSchedulingLogic movieSchedulingLogic = new MovieSchedulingLogic();
         ConsoleE.Clear();
         Console.WriteLine("Movies schedule:");
-        Console.WriteLine("-----------------------------------");
+        Console.WriteLine(new string('-', 120));
 
         if (fromDate is null && untilDate is null)
         {
@@ -77,7 +78,7 @@ public static class SeeJsons
         Reservation reservationLogic = new Reservation();
         ConsoleE.Clear();
         Console.WriteLine("Last Reservation details:");
-        Console.WriteLine("-----------------------------------");
+        Console.WriteLine(new string('-', 120));
  
         if (reservationLogic.Reservations.Count > 0)
         {
@@ -92,6 +93,6 @@ public static class SeeJsons
             Console.WriteLine("No reservations found.");
         }
  
-        Console.WriteLine("-----------------------------------");
+        Console.WriteLine(new string('-', 120));
     }
 }
