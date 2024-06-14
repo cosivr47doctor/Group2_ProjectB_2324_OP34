@@ -39,7 +39,7 @@ static class AdminMenu
 
         Console.WriteLine("WELCOME BACK ADMIN👋");
         Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -");
-        int selectedOption = DisplayUtil.Display(options);
+        int selectedOption = DisplayUtil.Display(options, "DisplayHeader");
         Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -\n");
 
 

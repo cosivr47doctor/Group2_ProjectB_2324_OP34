@@ -73,7 +73,7 @@ public static class ConsoleE
             if (inp is IModel)
             {
                 IModel imodel = (IModel)inp;
-                if (imodel.Id == null) isNullOrEmptyOrWhiteSpace = true;
+                if (imodel.Id == null && imodel.Id == -1) isNullOrEmptyOrWhiteSpace = true;
             }
         }
 

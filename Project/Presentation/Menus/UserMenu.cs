@@ -16,12 +16,13 @@ static class UserMenu
             };
         
 
-        if (isAdmin)
+        AccountModel acc = GenericAccess<AccountModel>.LoadAll().Find(a => a.Id == accId);
+        if (isAdmin || acc.isAdmin)
         {
             options.Add("Enter admin menu");
         }
 
-        int selectedOption = DisplayUtil.MenuDisplay(options);
+        int selectedOption = DisplayUtil.MenuDisplay(options, "DisplayHeader");
         ConsoleE.Clear();
         if (selectedOption == 0)
         {

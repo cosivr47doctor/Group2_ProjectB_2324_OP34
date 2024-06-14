@@ -64,8 +64,8 @@ public class AccountsLogic
     public static List<ReservationModel> AccReservations(int accId)
     {
         List<ReservationModel> accResvs = GenericAccess<ReservationModel>.LoadAll().Where(r => r.AccountId == accId).ToList();
-        if (accResvs != null) accResvs.ForEach(r => Console.WriteLine(r.ToString()));
-        else Console.WriteLine("No reservations found");
+        if (accResvs != null && accResvs.Count > 0) accResvs.ForEach(r => Console.WriteLine(r.ToString()));
+        else Console.WriteLine("*   *   No reservations found   *   *\n-    -   -   -   -    -");
         return accResvs;
     }
 

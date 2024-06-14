@@ -24,13 +24,14 @@ public static class Adding
                 break;
             }
             else
-            {
+            {   
                 Console.WriteLine("Invalid input. Please enter a valid price.");
             }
         }
         
         FoodModel foodItem = new FoodModel(name, price);
         GenericMethods.UpdateList(foodItem);
+        Thread.Sleep(1000);
 
     }
 

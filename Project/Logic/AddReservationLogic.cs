@@ -2,6 +2,7 @@ using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.VisualBasic;
 
 static class AddReservation
 {
@@ -155,7 +156,7 @@ static class AddReservation
     {
         AccountsLogic objAccountsLogic = new(); bool isAdmin = objAccountsLogic.GetByArg(accId).isAdmin;
         int accountId;
-        if (dummyAccId == 3) accountId = accId;
+        if (dummyAccId == 3) accountId = 3;
         else accountId = accId;
 
         List<string> options = new(){
@@ -168,7 +169,7 @@ static class AddReservation
         Console.WriteLine($"Would you like to add food?");
         if (selectedOption == 0)
         {
-            addFoodResv(accountId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId);
+            addFoodResv(accId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId);
         }
         else if (selectedOption == 1)
         {
@@ -189,8 +190,9 @@ static class AddReservation
         }
         else if (selectedOption == 2)
         {
+            ConsoleE.Clear();
             Console.WriteLine("Reservation cancelled.");
-            Thread.Sleep(2500);
+            Thread.Sleep(1500);
             UserMenu.Start(accId);
         }
          else throw new Exception("error");
@@ -199,13 +201,18 @@ static class AddReservation
     public static void addFoodResv(int accId, int sessionId, int movieId, string seatsStr, decimal price, TakenSeatsModel roomDetails, int dummyAccId=-1)
     {
         AccountsLogic objAccountsLogic = new(); bool isAdmin = objAccountsLogic.GetByArg(accId).isAdmin;
+        int accountId;
+        if (dummyAccId == 3) accountId = 3;
+        else accountId = accId;
+        bool promptOrderMore;
+        string userInput;
         List<(FoodModel food, int quantity)> selectedFoods = new();
         do
         {
             SeeJsons.PrintFoodJson(@"DataSources/food.json");
             Console.WriteLine("");
             Console.Write("Enter the name or id of the food you like to order or [Q] to go back: ");
-            string userInput = Console.ReadLine();
+            userInput = Console.ReadLine();
 
             if (ConsoleE.BackContains(userInput)) 
             {
@@ -221,16 +228,19 @@ static class AddReservation
 
             FoodModel foundFood = foodLogic.SelectForResv(userInput);
 
-            if (foundFood == null)
+            if (ConsoleE.IsNullOrEmptyOrWhiteSpace(foundFood))
             {
                 Console.WriteLine("Food not found.");
-                continue;
+                string goBackOption = ConsoleE.Input("No food selected. Want to go back? [Y/N]");
+                string goBackOptionLower = goBackOption.ToLower();
+                if (new[]{"yes", "y", "[y]"}.Contains(goBackOptionLower)) AskForFood(accId,sessionId,movieId,seatsStr,price,roomDetails,dummyAccId=-1);
+                else continue;
             }
 
             Console.WriteLine($"Selected food: {foundFood.Name}, Price: {foundFood.Price}");
 
             int quantity;
-            while (true)
+            do
             {
                 Console.Write("Enter the amount: [Q to go back]");
                 string quantityInput = Console.ReadLine();
@@ -248,8 +258,10 @@ static class AddReservation
                 {
                     Console.WriteLine("Invalid input. Please enter a valid amount.");
                 }
+                promptOrderMore = PromptOrderMore();
             }
-        } while (PromptOrderMore());
+            while (promptOrderMore);
+        } while (ConsoleE.IsNullOrEmptyOrWhiteSpace(userInput));
 
         // Finalize the order if there are selected foods
         if (selectedFoods.Count > 0)
@@ -267,8 +279,8 @@ static class AddReservation
             }
             Console.WriteLine($"Total Price: {totalPrice}");
             DateTime purchaseTime = DateTime.Now;
-            ReservationModel newReservation = new ReservationModel(roomDetails.ReservationCode, accId, sessionId, movieId, seatsStr, foodNames.ToArray(), totalPrice, purchaseTime);
-            EmailConf.GenerateEmailBody(accId, newReservation);
+            ReservationModel newReservation = new ReservationModel(roomDetails.ReservationCode, accountId, sessionId, movieId, seatsStr, foodNames.ToArray(), totalPrice, purchaseTime);
+            EmailConf.GenerateEmailBody(accountId, newReservation);
             GenericMethods.UpdateList(newReservation);
             Console.WriteLine("Reservation added successfully");
             Console.WriteLine("Press enter to go back.");
@@ -304,13 +316,14 @@ static class AddReservation
         {
             Console.WriteLine("Enter the reservation code of the reservation you want to cancel: [Q to go back]");
             string reservationCodeInput = Console.ReadLine();
+            string reservationCodeInputUpper = reservationCodeInput.ToUpper();
 
-            if (ConsoleE.BackContains(reservationCodeInput))
+            if (ConsoleE.BackContains(reservationCodeInputUpper))
             {
                 return;
             }
 
-            ReservationModel reservationToCancel = reservations.FirstOrDefault(resv => resv.ReservationCode == reservationCodeInput && resv.AccountId == accountId);
+            ReservationModel reservationToCancel = reservations.FirstOrDefault(resv => resv.ReservationCode == reservationCodeInputUpper && resv.AccountId == accountId);
 
             if (reservationToCancel != null)
             {
@@ -325,17 +338,21 @@ static class AddReservation
                 }
                 reservations.Remove(reservationToCancel);
                 // Find all rooms with the same reservation code and remove them
-                List<TakenSeatsModel> roomsToCancel = rooms.Where(room => room.ReservationCode == reservationCodeInput).ToList();
-                foreach (var room in roomsToCancel)
+                if (!ConsoleE.IsNullOrEmptyOrWhiteSpace(movieSched))
                 {
-                    rooms.Remove(room);
-                }
-                // Save the updated lists back to the file
-                GenericAccess<ReservationModel>.WriteAll(reservations);
-                GenericAccess<TakenSeatsModel>.WriteAll(rooms);
+                    List<TakenSeatsModel> roomsToCancel = rooms.Where(room => room.ReservationCode == reservationCodeInputUpper).ToList();
+                    foreach (var room in roomsToCancel)
+                    {
+                        rooms.Remove(room);
+                    }
+                    // Save the updated lists back to the file
+                    GenericAccess<ReservationModel>.WriteAll(reservations);
+                    GenericAccess<TakenSeatsModel>.WriteAll(rooms);
 
-                Console.WriteLine("Reservation cancelled successfully.");
-                validInput = true;
+                    Console.WriteLine("Reservation cancelled successfully.");
+                    validInput = true;
+                }
+                else validInput = false;
             }
             else
             {

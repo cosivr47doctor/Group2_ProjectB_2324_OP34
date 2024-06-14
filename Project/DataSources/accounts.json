@@ -36,7 +36,7 @@
     "emailAddress": "jaya@gmail.com",
     "password": "$2a$11$x1X.eH4D3pWfCSNfJFBQF.ZcAX2Ci/GjSMI3Io6pQohw.1D/qkYH2",
     "fullName": "henk jan",
-    "isAdmin": false,
+    "isAdmin": true,
     "PhoneNumber": 612345678
   },
   {
@@ -62,5 +62,13 @@
     "fullName": "Willem Hendrikson",
     "isAdmin": true,
     "PhoneNumber": 61349518
+  },
+  {
+    "id": 9,
+    "emailAddress": "qais@tamam.aiwa",
+    "password": "$2a$11$zrCn5bt4sUOhUoZ1BVXkhu6Ell3fO29W5Vo2vvXKO2Xg0cCn91V.K",
+    "fullName": "keif halek kullu tamam",
+    "isAdmin": false,
+    "PhoneNumber": 614576890
   }
 ]
