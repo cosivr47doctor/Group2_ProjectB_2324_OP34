@@ -8,10 +8,10 @@ public static class ConsoleE
     public static string[] backContains = new string[] {"q", "Q", "[q]", "[Q]", "go back"};
     public static string Input(string message = "Press enter to go back", bool hideInput = false)
     {
+        Console.WriteLine(message);
         string userInput = "";
         if (!hideInput)
         {
-            Console.WriteLine(message);
             userInput = Console.ReadLine();
         }
 
@@ -29,13 +29,13 @@ public static class ConsoleE
         return userInput;
     }
 
-    public static int? IntInput(string message)
+    public static int? IntInput(string message, bool hideError=false)
     {
         Console.WriteLine(message);
         int intParsed;
         bool intParsedString = int.TryParse(Console.ReadLine(), out intParsed);
         if (intParsedString) {return intParsed;}
-        Console.WriteLine("Invalid input: not numeric");
+        if (!hideError) Console.WriteLine("Invalid input: not numeric");
         return null;
     }
     

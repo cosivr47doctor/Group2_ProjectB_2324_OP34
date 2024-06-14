@@ -18,6 +18,7 @@ public static class DisplayUtil
     {
         ConsoleE.Clear();
         if (extraStringForDisplay == "DisplayHeader") Header.DisplayHeader();
+        else if (extraStringForDisplay == "DisplayHeaderAdmin") Header.DisplayHeaderAdmin();
         else Console.WriteLine(extraStringForDisplay);
         ConsoleE.CursorVisible(false);    // Console.CursorVisible = false;
         (int left, int top) = Console.GetCursorPosition();

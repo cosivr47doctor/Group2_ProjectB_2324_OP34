@@ -103,8 +103,7 @@ public class AccountsLogic
         else
         {
             Console.WriteLine("Account not found");
-            Console.WriteLine("press enter to head back to the login menu");
-            Console.ReadLine();
+            ConsoleE.Input("Press enter to go back.", true);
             MainMenu.Start();
             return null;
         }

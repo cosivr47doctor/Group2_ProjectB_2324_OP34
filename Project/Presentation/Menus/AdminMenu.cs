@@ -37,9 +37,7 @@ static class AdminMenu
 
         MovieSchedulingLogic objMovieSchedulingLogic = new MovieSchedulingLogic();
 
-        Console.WriteLine("WELCOME BACK ADMIN👋");
-        Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -");
-        int selectedOption = DisplayUtil.Display(options, "DisplayHeader");
+        int selectedOption = DisplayUtil.Display(options, "DisplayHeaderAdmin");
         Console.WriteLine(" -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -\n");
 
 
@@ -55,8 +53,7 @@ static class AdminMenu
         else if (selectedOption == 2)
         {
             Adding.addFood(accId);
-            Console.WriteLine("Press enter to go back.");
-            Console.ReadLine();
+            ConsoleE.Input("Press enter to go back.", true);
             Start(accId);
         }
         else if (selectedOption == 3)

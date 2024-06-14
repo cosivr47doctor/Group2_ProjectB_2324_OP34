@@ -1,6 +1,7 @@
 using System.Globalization;
 static class UserMenu
 {
+    private static bool accIsAdmin;
     static public void Start(int accId=0, bool isAdmin=false)
     {
         if (accId < 0) {Console.WriteLine("Invalid acc id"); Thread.Sleep(500); MainMenu.Start();}
@@ -16,9 +17,9 @@ static class UserMenu
             };
         
 
-        AccountModel acc = GenericAccess<AccountModel>.LoadAll().Find(a => a.Id == accId);
-        if (isAdmin || acc.isAdmin)
+        if (isAdmin || accIsAdmin)
         {
+            accIsAdmin = true;
             options.Add("Enter admin menu");
         }
 
@@ -31,8 +32,7 @@ static class UserMenu
             AddReservation.addMovieResv(accId);
 
             Console.WriteLine("");
-            Console.WriteLine("Press enter to go back.");
-            Console.ReadLine();
+            ConsoleE.Input("Press enter to go back.", true);
             Start(accId, isAdmin);
         }
             // case 1:
@@ -75,15 +75,14 @@ static class UserMenu
             Console.WriteLine("");
             AccountsLogic.AccReservations(accId);
             AddReservation.CancelReservation(accId);
-            Console.WriteLine("Press enter to go back.");
-            Console.ReadLine();
+            ConsoleE.Input("Press enter to go back.", true);
             Start(accId, isAdmin);
         }
         else if (selectedOption == 2)
         {
             SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
             Console.WriteLine("");
-            ConsoleE.Input("Press [Q] to go back.");
+            ConsoleE.Input("Press enter to go back.", true);
             Start(accId, isAdmin);
         }
         else if (selectedOption == 3)
@@ -110,24 +109,21 @@ static class UserMenu
             {
                 string specificDateInput = ConsoleE.Input("Which date? (yyyy-MM-dd)");
                 objMovieSchedulingLogic.Print(specificDateInput);
-                Console.WriteLine("Press enter to go back to the option menu");
-                Console.ReadLine();
+                ConsoleE.Input("Press enter to go back to the option menu", true);
                 Start(accId, isAdmin);
             }
             else if (seeScheduleInput == 3)
             {
                 string untilSpecificDateInput = ConsoleE.Input("Until which date? (yyyy-MM-dd)");
                 objMovieSchedulingLogic.Print(DateTime.Today, untilSpecificDateInput);
-                Console.WriteLine("Press enter to go back to the option menu");
-                Console.ReadLine();
+                ConsoleE.Input("Press enter to go back to the option menu", true);
                 Start(accId, isAdmin);
             }
             else if (seeScheduleInput == 4)
             {
                 string dateRangesInput = ConsoleE.Input("Which dates? (yyyy-MM-dd); comma separated (,)");
                 objMovieSchedulingLogic.Print(dateRangesInput);
-                Console.WriteLine("Press enter to go back to the option menu");
-                Console.ReadLine();
+                ConsoleE.Input("Press enter to go back to the option menu", true);
                 Start(accId, isAdmin);
             }
             else
@@ -136,16 +132,14 @@ static class UserMenu
                 Start(accId, isAdmin);
             }
             Console.WriteLine("");
-            Console.WriteLine("Press enter to go back.");
-            Console.ReadLine();
+            ConsoleE.Input("Press enter to go back.", true);
             Start(accId, isAdmin);
         }
         else if (selectedOption == 4)
         {
             Search.searchMovie(accId);
             Console.WriteLine("");
-            Console.WriteLine("Press enter to go back.");
-            Console.ReadLine();
+            ConsoleE.Input("Press enter to go back.", true);
             Start(accId, isAdmin);
         }
         else if (selectedOption == 5)

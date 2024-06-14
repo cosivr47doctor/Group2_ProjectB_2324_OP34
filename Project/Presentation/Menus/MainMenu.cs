@@ -28,24 +28,21 @@ static class MainMenu
         {
             Adding.addUser(objAccountsLogic);
             Console.WriteLine("User registered successfully!");
-            Console.WriteLine("Press enter to go back.");
-            Console.ReadLine();
+            ConsoleE.Input("Press enter to go back.", true);
             Start();
         }
         else if (selectedOption == 2)
         {
             SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
             Console.WriteLine("");
-            Console.WriteLine("Press enter to go back.");
-            Console.ReadLine();
+            ConsoleE.Input("Press enter to go back.", true);
             Start();
         }
         else if (selectedOption == 3)
         {
             CinemInfo.CinemInformation();
             Console.WriteLine("");
-            Console.WriteLine("Press enter to go back.");
-            Console.ReadLine();
+            ConsoleE.Input("Press enter to go back.", true);
             Start();
         }
         else if (selectedOption == 4)

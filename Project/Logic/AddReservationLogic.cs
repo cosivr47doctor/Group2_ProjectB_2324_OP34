@@ -15,17 +15,20 @@ static class AddReservation
         List<MovieModel> movies = GenericAccess<MovieModel>.LoadAll();
 
         int? roomFilter;
-        List<MovieScheduleModel> matchingSchedules;
+        List<MovieScheduleModel> matchingSchedules = null;
 
         while (true)
         {
             Console.WriteLine();
-            Console.WriteLine("Please select a room (1,2,3) or enter 0 to see all sessions");
-            roomFilter = ConsoleE.IntInput("Enter your choice");
+            Console.WriteLine("Please select a room (1,2,3) or enter 0 to see all sessions or [Q] to go back");
+            roomFilter = ConsoleE.IntInput("Enter your choice", true);
             Console.WriteLine();
 
-            if (roomFilter == null)
+            if (ConsoleE.IsNullOrEmptyOrWhiteSpace(roomFilter))
             {
+                string goBack = ConsoleE.Input($"Invalid input. Go back? [Y/N]");
+                string goBackLower = goBack.ToLower();
+                if (new[]{"y","yes","[y]","[yes]"}.Contains(goBack)) addMovieResv(accId);
                 continue;
             }
 
@@ -82,11 +85,15 @@ static class AddReservation
         int? sessionId;
         while (true)
         {
-            sessionId = ConsoleE.IntInput("Please select a session ID");
+            sessionId = ConsoleE.IntInput("Please select a session ID or enter [Q] to go back", true);
 
             if (sessionId == null || !matchingSchedules.Any(resv => resv.Id == sessionId))
             {
-                Console.WriteLine("Invalid input or session ID not found. Please try again");
+                Console.WriteLine("Invalid input or session ID not found. Please try again or enter [Q] to go back");
+                string goBack = ConsoleE.Input($"Go back? [Y/N]");
+                string goBackLower = goBack.ToLower();
+                if (new[]{"y","yes","[y]","[yes]"}.Contains(goBack)) addMovieResv(accId);
+                else continue;
             }
             else
             {
@@ -130,7 +137,7 @@ static class AddReservation
                 }
 
                 MovieModel foundMovie = movieLogic.SelectForResv(userInput);
-                if (foundMovie == null) {Console.WriteLine("Invalid movie id input"); return;};
+                if (ConsoleE.IsNullOrEmptyOrWhiteSpace(foundMovie)) {Console.WriteLine("Invalid movie id input"); return;};
                 (int, int) sessionIdAndRoomId = SelectSession(foundMovie.Id, accId);
 
                 if (foundMovie == null)
@@ -181,8 +188,7 @@ static class AddReservation
             GenericMethods.UpdateList(newReservation);
             Console.ResetColor();
             Console.WriteLine("Reservation added successfully");
-            Console.WriteLine("Press enter to go back.");
-            Console.ReadLine();
+            ConsoleE.Input("Press enter to go back.", true);
             Console.Clear();
             if (isAdmin) AdminMenu.Start(accId);
             else UserMenu.Start(accId);
@@ -283,8 +289,7 @@ static class AddReservation
             EmailConf.GenerateEmailBody(accountId, newReservation);
             GenericMethods.UpdateList(newReservation);
             Console.WriteLine("Reservation added successfully");
-            Console.WriteLine("Press enter to go back.");
-            Console.ReadLine();
+            ConsoleE.Input("Press enter to go back.", true);
             Console.Clear();
 
         }

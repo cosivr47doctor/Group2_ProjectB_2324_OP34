@@ -24,7 +24,8 @@ static class UserLogin
         if (acc != null)
         {
             Console.WriteLine("Welcome back " + acc.FullName);
-            Console.WriteLine("Your email number is " + acc.EmailAddress);
+            Console.WriteLine("Your email is " + acc.EmailAddress);
+            ConsoleE.Input("\nPlease press enter to continue", true);
 
             //Write some code to go back to the menu
             //Menu.Start();

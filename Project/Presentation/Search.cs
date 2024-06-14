@@ -29,8 +29,7 @@ static class Search
         else
         {
             Console.WriteLine("Movie not found");
-            Console.WriteLine("Press enter to go back to the menu");
-            Console.ReadKey();
+            ConsoleE.Input("Press enter to go back to the menu.", true);
             UserMenu.Start(accId);
         }
     }

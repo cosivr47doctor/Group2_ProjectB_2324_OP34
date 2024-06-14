@@ -54,7 +54,7 @@ public class MovieLogic : AbstractLogic<MovieModel>
 
         return _movie.Find(movie =>
             movie.Id.ToString() == searchBy ||
-            movie.Name.ToLower().Contains(searchLower));  // This is unhandy in case of movies with duplicate directors
+            movie.Name.ToLower() == searchBy);  // This is unhandy in case of movies with duplicate directors
     }
 
     public void ChangeMovie(string input)
