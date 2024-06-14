@@ -89,7 +89,7 @@ public static class Adding
     {
         ConsoleE.Clear();
         Console.WriteLine("Welcome to the registration page");
-        Console.WriteLine("Enter [Q] to go back or type enter to continue");
+        Console.WriteLine("Enter [Q] to go back or type enter to continue\n-    -   -   -   -   -   -    -\n");
         string Choice = Console.ReadLine();
         if (!ConsoleE.BackContains(Choice))
         {
@@ -124,9 +124,10 @@ public static class Adding
                     }
                     break;
                 }
+                else if (ConsoleE.BackContains(emailAddress)) MainMenu.Start();
                 else
                 {
-                    Console.WriteLine("Invalid email address format. Please make sure your email address contains a @ and a .");
+                    Console.WriteLine("Invalid email address format. Please make sure your email address contains a @ and a . [Q] to quit");
                 }
             }      
             string password = "";
@@ -154,6 +155,7 @@ public static class Adding
                 {
                     break;
                 }
+                else if (ConsoleE.BackContains(password)) MainMenu.Start();
                 else
                 {
                     Console.WriteLine("Passwords do not match. Please try again.");
@@ -165,6 +167,7 @@ public static class Adding
             string fullName = Console.ReadLine();
             while (string.IsNullOrWhiteSpace(fullName))
             {
+                if (ConsoleE.BackContains(password)) MainMenu.Start();
                 Console.WriteLine("Fullname can not be blank. Please enter your fullname");
                 fullName = Console.ReadLine();
             }
@@ -193,7 +196,8 @@ public static class Adding
                 }
                 catch
                 {
-                    Console.WriteLine("Invalid phonenumber. Please make sure your phonenumber should only contain numbers.");
+                    if (ConsoleE.BackContains(Pnumber)) MainMenu.Start();
+                    else Console.WriteLine("Invalid phonenumber. Please make sure your phonenumber should only contain numbers.");
                 }
                 while (Pnumber.Length != 10)
                 {
@@ -207,6 +211,7 @@ public static class Adding
             AccountModel newAccount = new AccountModel(0 , emailAddress, HashedPassword, fullName, PhoneNumber);
 
             GenericMethods.UpdateList(newAccount);
+            MainMenu.Start();
         }
         else
         {

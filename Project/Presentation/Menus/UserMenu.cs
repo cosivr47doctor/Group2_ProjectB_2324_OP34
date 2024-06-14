@@ -80,6 +80,7 @@ static class UserMenu
         }
         else if (selectedOption == 2)
         {
+            ConsoleE.Clear();
             SeeJsons.PrintMoviesJson(@"DataSources/movies.json");
             Console.WriteLine("");
             ConsoleE.Input("Press enter to go back.", true);
@@ -89,6 +90,7 @@ static class UserMenu
         {
             MovieSchedulingLogic objMovieSchedulingLogic = new();
             List<string> scheduleOptions = new(){
+            "Go back",
             "See entire schedule",
             "See today's schedule",
             "See schedule for a specific date",
@@ -97,33 +99,36 @@ static class UserMenu
             };
 
             int seeScheduleInput = DisplayUtil.MenuDisplay(scheduleOptions);
-            if (seeScheduleInput == 0)
-            {
-                SeeJsons.PrintSchedulesJson("@DateSources/movieSessions.json");
-            }
+            if (seeScheduleInput == 0) Start(accId);
             else if (seeScheduleInput == 1)
             {
-                SeeJsons.PrintSchedulesJson("@DateSources/movieSessions.json", DateTime.Today, DateTime.Today);
+                ConsoleE.Clear();
+                SeeJsons.PrintSchedulesJson("@DateSources/movieSessions.json");
             }
             else if (seeScheduleInput == 2)
             {
-                string specificDateInput = ConsoleE.Input("Which date? (yyyy-MM-dd)");
-                objMovieSchedulingLogic.Print(specificDateInput);
-                ConsoleE.Input("Press enter to go back to the option menu", true);
-                Start(accId, isAdmin);
+                ConsoleE.Clear();
+                SeeJsons.PrintSchedulesJson("@DateSources/movieSessions.json", DateTime.Today, DateTime.Today);
             }
             else if (seeScheduleInput == 3)
             {
-                string untilSpecificDateInput = ConsoleE.Input("Until which date? (yyyy-MM-dd)");
-                objMovieSchedulingLogic.Print(DateTime.Today, untilSpecificDateInput);
-                ConsoleE.Input("Press enter to go back to the option menu", true);
+                string specificDateInput = ConsoleE.Input("Which date? (yyyy-MM-dd)");
+                objMovieSchedulingLogic.Print(specificDateInput);
+                ConsoleE.Input("Press enter to go back to the user menu", true);
                 Start(accId, isAdmin);
             }
             else if (seeScheduleInput == 4)
             {
+                string untilSpecificDateInput = ConsoleE.Input("Until which date? (yyyy-MM-dd)");
+                objMovieSchedulingLogic.Print(DateTime.Today, untilSpecificDateInput);
+                ConsoleE.Input("Press enter to go back to the user menu", true);
+                Start(accId, isAdmin);
+            }
+            else if (seeScheduleInput == 5)
+            {
                 string dateRangesInput = ConsoleE.Input("Which dates? (yyyy-MM-dd); comma separated (,)");
                 objMovieSchedulingLogic.Print(dateRangesInput);
-                ConsoleE.Input("Press enter to go back to the option menu", true);
+                ConsoleE.Input("Press enter to go back to the user menu", true);
                 Start(accId, isAdmin);
             }
             else

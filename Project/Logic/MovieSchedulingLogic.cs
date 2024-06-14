@@ -451,7 +451,8 @@ public class MovieSchedulingLogic : AbstractLogic<MovieScheduleModel>
     {
         if (date.Contains(","))
         {
-            string[] dateRanges = date.Split(",");
+            string dateWithoutWhiteSpace = date.Replace(" ", "");
+            string[] dateRanges = dateWithoutWhiteSpace.Split(",");
             if (dateRanges.Length == 2) Print(dateRanges);
             else Console.WriteLine("Invalid input");
         }
