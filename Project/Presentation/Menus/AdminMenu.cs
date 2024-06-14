@@ -11,7 +11,7 @@ static class AdminMenu
 
     static List<string> extraOptions = new(){
     "Go back",
-    "Test automatic reservation with the dummy account",
+    "Test automatic reservation and email with the dummy account",
     "Test email with dummy account",
     "Search in all movies, sessions and food"
     };
@@ -113,6 +113,7 @@ static class AdminMenu
             {
                 ReservationModel newReservation = new ReservationModel("ABC123", 3, 0, 7, "0, 0, 0", new[] {"null", "0"}, 0, DateTime.Now) {Id = 0};
                 EmailConf.GenerateEmailBody(3, newReservation);
+                ConsoleE.Input("Press enter to go back", true);
                 Start(accId);
             }
             else if (extraInput == 3)

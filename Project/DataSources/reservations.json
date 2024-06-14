@@ -245,5 +245,16 @@
     "food": [],
     "totalPrice": 12,
     "purchaseTime": "2024-06-11T10:30:05.3738418+02:00"
+  },
+  {
+    "id": 23,
+    "reservationCode": "VFCYPA",
+    "accountId": 1,
+    "sessionId": 40,
+    "movieId": 5,
+    "seats": "row: 14, seats: 5,6",
+    "food": [],
+    "totalPrice": 28,
+    "purchaseTime": "2024-06-14T21:15:37.1767935+02:00"
   }
 ]

@@ -80,6 +80,22 @@ public static class ConsoleE
         return isNullOrEmptyOrWhiteSpace;
     }
 
+    public static bool IsEmptyStr(string inp)
+    {
+        if (inp == null || inp.Length == 0)
+        {
+            return true;
+        }
+        else
+        {
+            foreach (char c in inp)
+            {
+                if (c != ' ') return true;
+            }
+        }
+        return false;
+    }
+
     public static bool BackContains(string message)
     {
         if (backContains.Contains(message)) return true;

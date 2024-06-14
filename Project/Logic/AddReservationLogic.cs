@@ -8,6 +8,7 @@ static class AddReservation
 {
     static private FoodLogic foodLogic = new FoodLogic();
     static private MovieLogic movieLogic = new MovieLogic();
+    private static bool promptOrderMoreBool;
 
     public static (int, int) SelectSession(int movieId, int accId)
     {
@@ -89,8 +90,7 @@ static class AddReservation
 
             if (sessionId == null || !matchingSchedules.Any(resv => resv.Id == sessionId))
             {
-                Console.WriteLine("Invalid input or session ID not found. Please try again or enter [Q] to go back");
-                string goBack = ConsoleE.Input($"Go back? [Y/N]");
+                string goBack = ConsoleE.Input($"No session ID selected.\nGo back? [Y/N]");
                 string goBackLower = goBack.ToLower();
                 if (new[]{"y","yes","[y]","[yes]"}.Contains(goBack)) addMovieResv(accId);
                 else continue;
@@ -198,7 +198,7 @@ static class AddReservation
         {
             ConsoleE.Clear();
             Console.WriteLine("Reservation cancelled.");
-            Thread.Sleep(1500);
+            ConsoleE.Input("Press enter to go back.", true);
             UserMenu.Start(accId);
         }
          else throw new Exception("error");
@@ -210,10 +210,9 @@ static class AddReservation
         int accountId;
         if (dummyAccId == 3) accountId = 3;
         else accountId = accId;
-        bool promptOrderMore;
-        string userInput;
+        string userInput = "notNull";
         List<(FoodModel food, int quantity)> selectedFoods = new();
-        do
+        while (!ConsoleE.IsNullOrEmptyOrWhiteSpace(userInput))
         {
             SeeJsons.PrintFoodJson(@"DataSources/food.json");
             Console.WriteLine("");
@@ -234,7 +233,7 @@ static class AddReservation
 
             FoodModel foundFood = foodLogic.SelectForResv(userInput);
 
-            if (ConsoleE.IsNullOrEmptyOrWhiteSpace(foundFood))
+            if (foundFood == null)
             {
                 Console.WriteLine("Food not found.");
                 string goBackOption = ConsoleE.Input("No food selected. Want to go back? [Y/N]");
@@ -246,16 +245,16 @@ static class AddReservation
             Console.WriteLine($"Selected food: {foundFood.Name}, Price: {foundFood.Price}");
 
             int quantity;
-            do
+            while (true)
             {
-                Console.Write("Enter the amount: [Q to go back]");
+                Console.Write("Enter the amount [Q to go back]: ");
                 string quantityInput = Console.ReadLine();
                 if (ConsoleE.BackContains(quantityInput)) 
                 {
                     AskForFood(accId, sessionId, movieId, seatsStr, price, roomDetails, dummyAccId=-1);
                     return;
                 }
-                if (int.TryParse(quantityInput, out quantity) && quantity > 0)
+                else if (int.TryParse(quantityInput, out quantity) && quantity > 0)
                 {
                     selectedFoods.Add((foundFood, quantity));
                     break;
@@ -263,11 +262,11 @@ static class AddReservation
                 else
                 {
                     Console.WriteLine("Invalid input. Please enter a valid amount.");
+                    ConsoleE.Input("Press enter to continue", true);
                 }
-                promptOrderMore = PromptOrderMore();
             }
-            while (promptOrderMore);
-        } while (ConsoleE.IsNullOrEmptyOrWhiteSpace(userInput));
+            if (!PromptOrderMore()) break;
+        }
 
         // Finalize the order if there are selected foods
         if (selectedFoods.Count > 0)
@@ -356,6 +355,7 @@ static class AddReservation
 
                     Console.WriteLine("Reservation cancelled successfully.");
                     validInput = true;
+                    UserMenu.Start(accountId);
                 }
                 else validInput = false;
             }
